@@ -1,0 +1,39 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="../Mizon.Database/Mizon.Database/Mizon.Database.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="D:/source/repos/Mizon.API/Mizon.API.Client/Mizon.API.Client.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="D:/source/repos/Mizon.API/Mizon.API/Mizon.API.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/Mizon.Windows.csproj">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
+  <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/ExplorerCommands/Mizon.Windows.ExplorerCommands.csproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="Mizon.Server.API/Mizon.Server.API.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Mizon.Server.Logic/Mizon.Server.Logic.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Mizon.Server/Mizon.Server.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Tools/InsertMediaCover/InsertMediaCover.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="Tools/LocalMusicLyricTranscriber/LocalMusicLyricTranscriber.csproj" />
+  <Project Path="Tools/MusicFileAnalysis/MusicFileAnalysis.csproj" />
+  <Project Path="Tools/MusicPlaybackPresenceSimulator/MusicPlaybackPresenceSimulator.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
