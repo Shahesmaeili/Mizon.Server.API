@@ -108,7 +108,7 @@ for (var index = 0; index < 10; index++)
         PreviewMedia = previewMedia,
         StoryContentTypeId = isVideo ? videoStoryTypeId : imageStoryTypeId,
         Title = title,
-        ExpireDateTime = index == 9 ? null : DateTimeOffset.UtcNow.AddDays(7),
+        ExpireDateTime = null,
     };
     story.StoryWidgets.Add(new StoryWidget
     {

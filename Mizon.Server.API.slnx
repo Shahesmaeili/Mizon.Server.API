@@ -3,6 +3,10 @@
     <Platform Name="Any CPU" />
     <Platform Name="x64" />
   </Configurations>
+  <Folder Name="/MCP/">
+    <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/Mcp/Mizon.Windows.Mcp.Contracts/Mizon.Windows.Mcp.Contracts.csproj" />
+    <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/Mcp/Mizon.Windows.Mcp/Mizon.Windows.Mcp.csproj" />
+  </Folder>
   <Project Path="../Mizon.Database/Mizon.Database/Mizon.Database.csproj">
     <Platform Solution="*|x64" Project="x64" />
   </Project>
@@ -19,6 +23,8 @@
   <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/ExplorerCommands/Mizon.Windows.ExplorerCommands.csproj">
     <Platform Project="x64" />
   </Project>
+  <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/WindowsSearch/Mizon.Windows.PaletteProvider.Tests/Mizon.Windows.PaletteProvider.Tests.csproj" />
+  <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/WindowsSearch/Mizon.Windows.PaletteProvider/Mizon.Windows.PaletteProvider.csproj" />
   <Project Path="Mizon.Server.API/Mizon.Server.API.csproj">
     <Platform Solution="*|x64" Project="x64" />
   </Project>

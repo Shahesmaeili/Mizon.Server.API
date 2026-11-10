@@ -10,7 +10,7 @@ internal sealed class MusicFileWaveform : IEndpoint
             .MapGet($"{nameof(MusicFileWaveform)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MusicFileWaveformResponse>> Handle(
+    private static Task<BaseApiResponse<MusicFileWaveformResponse>> Handle(
         [AsParameters] MusicFileWaveformRequest request,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
@@ -22,6 +22,6 @@ internal sealed class MusicFileWaveform : IEndpoint
             Content = request,
         };
 
-        return await apiOperationExecutor.ExecuteAsync<MusicFileWaveformOperation, MusicFileWaveformRequest, MusicFileWaveformResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MusicFileWaveformOperation, MusicFileWaveformRequest, MusicFileWaveformResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

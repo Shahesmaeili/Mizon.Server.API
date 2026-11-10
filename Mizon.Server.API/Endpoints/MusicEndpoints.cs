@@ -15,6 +15,7 @@ internal sealed class MusicEndpoints
         new MusicLyricLine().Map(app);
         new MusicReaction().Map(app); 
         new MusicView().Map(app);
+        new MusicPlay().Map(app);
         new MusicReactions().Map(app);
         new MusicReactionTypes().Map(app);
         new MusicGenreTypes().Map(app);
@@ -23,6 +24,10 @@ internal sealed class MusicEndpoints
         new MusicComments().Map(app);
         new MusicCommentCreate().Map(app);
         new MusicPlaylists().Map(app);
+        new MusicLibrary().Map(app);
+        new MusicFeatures().Map(app);
+        new MusicLike().Map(app);
+        new MusicPlaylistDetails().Map(app);
         new MusicPlaylistMembership().Map(app);
         new MusicPlaylistCreate().Map(app);
     }

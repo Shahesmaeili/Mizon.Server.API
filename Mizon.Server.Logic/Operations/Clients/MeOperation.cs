@@ -14,6 +14,7 @@ public sealed class MeOperation(MizonDatabaseContext mizonDatabaseContext)
                 c.FirstName,
                 c.LastName,
                 c.NickName,
+                c.ClientMoodTypeId,
             })
             .FirstOrDefaultAsync(cancellationToken);
 
@@ -91,6 +92,7 @@ public sealed class MeOperation(MizonDatabaseContext mizonDatabaseContext)
                 LastName = client.LastName,
                 NickName = client.NickName,
                 Username = clientUsername?.Username,
+                CurrentMood = await ClientMoodReader.ReadAsync(mizonDatabaseContext, client.ClientMoodTypeId, cancellationToken),
                 MeProfile = clientProfile is null ? null : new()
                 {
                     MediaPublicId = clientProfile.MediaPublicId,

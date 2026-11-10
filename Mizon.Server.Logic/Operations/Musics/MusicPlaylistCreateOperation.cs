@@ -8,7 +8,10 @@ public sealed class MusicPlaylistCreateOperation(MizonDatabaseContext mizonDatab
         RequestMetadata? requestMetadata,
         CancellationToken cancellationToken)
     {
-        var title = request.Content!.Title?.Trim();
+        if (requestMetadata?.ClientId is not int clientId)
+            return new() { Error = new() { Code = OperationErrorCodes.Clients.ClientSessionNotFound } };
+
+        var title = request.Content?.Title?.Trim();
         if (string.IsNullOrWhiteSpace(title) || title.Length > 60)
         {
             return new()
@@ -19,7 +22,7 @@ public sealed class MusicPlaylistCreateOperation(MizonDatabaseContext mizonDatab
 
         var music = await mizonDatabaseContext.Musics
             .AsNoTracking()
-            .Where(x => x.PublicId == request.Content.MusicPublicId)
+            .Where(x => x.PublicId == request.Content!.MusicPublicId)
             .Select(x => new { x.Id })
             .FirstOrDefaultAsync(cancellationToken);
 
@@ -33,7 +36,7 @@ public sealed class MusicPlaylistCreateOperation(MizonDatabaseContext mizonDatab
 
         var playlist = new MusicPlaylist
         {
-            ClientId = requestMetadata!.ClientId!.Value,
+            ClientId = clientId,
             Title = title
         };
 
@@ -42,8 +45,11 @@ public sealed class MusicPlaylistCreateOperation(MizonDatabaseContext mizonDatab
             MusicId = music.Id
         });
 
+        await using var transaction = await mizonDatabaseContext.Database.BeginTransactionAsync(cancellationToken);
+        await MusicPlaylistWriteLock.AcquireAsync(mizonDatabaseContext, clientId, cancellationToken);
         mizonDatabaseContext.MusicPlaylists.Add(playlist);
         await mizonDatabaseContext.SaveChangesAsync(cancellationToken);
+        await transaction.CommitAsync(cancellationToken);
 
         return new()
         {

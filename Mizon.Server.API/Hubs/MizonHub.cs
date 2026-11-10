@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Mizon.Database;
 using System.Collections.Concurrent;
@@ -8,21 +8,13 @@ namespace Mizon.Server.API.Hubs;
 [Authorize]
 public class MizonHub : Hub
 {
-    private static readonly HashSet<string> _connectedDevices = new();
+    private const string DeviceRegisteredKey = "DeviceRegistered";
+    private const string RegisteredAtKey = "RegisteredAt";
+    private const string ListenerIdentityKey = "Mizon.MusicListenerIdentity";
 
-    // groupName -> set of connection ids
-    private static readonly ConcurrentDictionary<string, HashSet<string>> _groupConnections = new();
-
-    // connectionId -> (entityType, entityPublicId)
-    private static readonly ConcurrentDictionary<string, (string EntityType, Guid EntityId)> _connectionEntities = new();
-
-    // client public id (if authenticated) -> (entityType, entityPublicId)
-    private static readonly ConcurrentDictionary<string, (string EntityType, Guid EntityId)> _clientCurrentEntity = new();
-
-    // Ephemeral playback state remains inside the existing entity group; no extra hub or database table is needed.
-    private static readonly ConcurrentDictionary<string, ConcurrentDictionary<Guid, MusicListenerState>> _musicListeners = new();
-    private static readonly ConcurrentDictionary<string, Guid> _connectionClientPublicIds = new();
-    private static readonly ConcurrentDictionary<Guid, MusicListenerIdentity> _musicListenerIdentities = new();
+    // One synchronization gate per entity keeps unrelated songs independent.
+    private static readonly ConcurrentDictionary<string, EntityGroup> _entityGroups = new(StringComparer.Ordinal);
+    private static readonly ConcurrentDictionary<string, ConnectionEntity> _connectionEntities = new(StringComparer.Ordinal);
 
     private readonly ILogger<MizonHub> _logger;
     private readonly MizonDatabaseContext _mizonDatabaseContext;
@@ -49,34 +41,32 @@ public class MizonHub : Hub
         {
             _logger.LogError(ex, "Error removing connection from entity on disconnect");
         }
+        finally
+        {
+            Context.Items.Remove(DeviceRegisteredKey);
+            Context.Items.Remove(RegisteredAtKey);
+            Context.Items.Remove(ListenerIdentityKey);
+        }
 
         _logger.LogInformation("Hub disconnected: {ConnectionId}", Context.ConnectionId);
         await base.OnDisconnectedAsync(exception);
     }
 
-    public async Task RegisterDevice(string token)
+    public Task RegisterDevice(string token)
     {
-        try
+        var deviceId = Context.UserIdentifier ?? Context.ConnectionId;
+
+        if (string.IsNullOrEmpty(token))
         {
-            var deviceId = Context.UserIdentifier ?? Context.ConnectionId;
-
-            if (string.IsNullOrEmpty(token))
-            {
-                _logger.LogWarning("RegisterDevice called with empty token for device {DeviceId}", deviceId);
-                throw new HubException("Invalid token");
-            }
-
-            _connectedDevices.Add(deviceId);
-            Context.Items["DeviceRegistered"] = true;
-            Context.Items["RegisteredAt"] = DateTime.UtcNow;
-
-            _logger.LogInformation("Device registered: {DeviceId}", deviceId);
+            _logger.LogWarning("RegisterDevice called with empty token for device {DeviceId}", deviceId);
+            throw new HubException("Registration failed: Invalid token");
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error registering device");
-            throw new HubException($"Registration failed: {ex.Message}");
-        }
+
+        // Authentication belongs to the hub middleware; registration belongs to this connection.
+        Context.Items[DeviceRegisteredKey] = true;
+        Context.Items[RegisteredAtKey] = DateTime.UtcNow;
+        _logger.LogInformation("Device registered: {DeviceId}", deviceId);
+        return Task.CompletedTask;
     }
 
     public async Task UnregisterDevice()
@@ -85,14 +75,11 @@ public class MizonHub : Hub
         {
             var deviceId = Context.UserIdentifier ?? Context.ConnectionId;
 
-            if (_connectedDevices.Remove(deviceId))
+            if (Context.Items.Remove(DeviceRegisteredKey))
             {
-                Context.Items.Remove("DeviceRegistered");
-                Context.Items.Remove("RegisteredAt");
-
+                Context.Items.Remove(RegisteredAtKey);
                 _logger.LogInformation("Device unregistered: {DeviceId}", deviceId);
-
-                await Clients.Caller.SendAsync("UnregistrationConfirmed", deviceId);
+                await Clients.Caller.SendAsync("UnregistrationConfirmed", deviceId, Context.ConnectionAborted);
             }
             else
             {
@@ -108,54 +95,46 @@ public class MizonHub : Hub
 
     // Client calls this when it navigates to a page showing a particular entity.
     // entityType: e.g., "Music", "Movie", "Series" etc.
-    // entityPublicId: the public id (Guid) of the entity being viewed
     public async Task JoinEntity(string entityType, Guid entityPublicId)
     {
         try
         {
             var connectionId = Context.ConnectionId;
-
-            // remove from previous entity if any
             await RemoveConnectionFromCurrentEntity(connectionId);
 
             var groupName = GetGroupName(entityType, entityPublicId);
+            await Groups.AddToGroupAsync(connectionId, groupName, Context.ConnectionAborted);
 
-            // add connection to group set
-            var set = _groupConnections.GetOrAdd(groupName, _ => new HashSet<string>());
-            lock (set)
-            {
-                set.Add(connectionId);
-            }
+            Guid? clientPublicId = Guid.TryParse(Context.User?.FindFirst("sub")?.Value, out var parsedClientPublicId)
+                ? parsedClientPublicId
+                : null;
 
-            _connectionEntities[connectionId] = (entityType, entityPublicId);
+            AddConnection(groupName, connectionId, new(entityType, entityPublicId, clientPublicId));
+            Context.ConnectionAborted.ThrowIfCancellationRequested();
 
-            // also store by client public id if available
-            var clientPublicId = Context.User?.FindFirst("sub")?.Value;
-            if (!string.IsNullOrEmpty(clientPublicId))
-            {
-                _clientCurrentEntity[clientPublicId] = (entityType, entityPublicId);
-
-                if (Guid.TryParse(clientPublicId, out var parsedClientPublicId))
-                    _connectionClientPublicIds[connectionId] = parsedClientPublicId;
-            }
-
-            await Groups.AddToGroupAsync(connectionId, groupName);
-
-            var count = GetGroupCount(groupName);
-
-            // broadcast updated count to group
-            await Clients.Group(groupName).SendAsync("EntityViewersCountUpdated", entityType, entityPublicId, count);
+            await Clients.Group(groupName).SendAsync(
+                "EntityViewersCountUpdated", entityType, entityPublicId, GetGroupCount(groupName));
 
             if (string.Equals(entityType, "Music", StringComparison.OrdinalIgnoreCase))
             {
                 await Clients.Caller.SendAsync(
                     "MusicListenersSnapshot",
                     entityPublicId,
-                    GetMusicListeners(groupName));
+                    GetMusicListeners(groupName),
+                    Context.ConnectionAborted);
             }
         }
         catch (Exception ex)
         {
+            try
+            {
+                await RemoveConnectionFromCurrentEntity(Context.ConnectionId);
+            }
+            catch (Exception cleanupException)
+            {
+                _logger.LogError(cleanupException, "Error cleaning up failed entity join");
+            }
+
             _logger.LogError(ex, "JoinEntity error");
             throw new HubException(ex.Message);
         }
@@ -165,8 +144,7 @@ public class MizonHub : Hub
     {
         try
         {
-            var connectionId = Context.ConnectionId;
-            await RemoveConnectionFromCurrentEntity(connectionId);
+            await RemoveConnectionFromCurrentEntity(Context.ConnectionId);
         }
         catch (Exception ex)
         {
@@ -181,17 +159,16 @@ public class MizonHub : Hub
     /// </summary>
     public async Task UpdateMusicPlayback(Guid musicPublicId, long positionMilliseconds, bool isPlaying)
     {
-        if (!TryGetCurrentMusicGroup(musicPublicId, out var groupName))
-            return;
-
-        if (!TryGetCurrentClientPublicId(out var clientPublicId))
+        if (!TryGetCurrentMusicGroup(musicPublicId, out var groupName, out var clientPublicId))
             return;
 
         var identity = await GetMusicListenerIdentityAsync(clientPublicId, Context.ConnectionAborted);
         if (identity is null)
             return;
 
-        var listeners = _musicListeners.GetOrAdd(groupName, _ => new());
+        if (!_entityGroups.TryGetValue(groupName, out var group))
+            return;
+
         var state = new MusicListenerState(
             Context.ConnectionId,
             identity,
@@ -199,7 +176,18 @@ public class MizonHub : Hub
             isPlaying,
             DateTimeOffset.UtcNow);
 
-        listeners[clientPublicId] = state;
+        lock (group.Gate)
+        {
+            // The identity lookup may have completed after this connection left the page.
+            if (!group.Connections.Contains(Context.ConnectionId))
+                return;
+            if (!TryGetCurrentMusicGroup(musicPublicId, out _, out var currentClientPublicId))
+                return;
+            if (currentClientPublicId != clientPublicId)
+                return;
+
+            group.Listeners[clientPublicId] = state;
+        }
 
         await Clients.Group(groupName).SendAsync(
             "MusicListenerUpdated",
@@ -207,74 +195,99 @@ public class MizonHub : Hub
             ToResponse(clientPublicId, state));
     }
 
-    private async Task RemoveConnectionFromCurrentEntity(string connectionId)
+    private static void AddConnection(string groupName, string connectionId, ConnectionEntity entity)
     {
-        if (_connectionEntities.TryRemove(connectionId, out var tuple))
+        while (true)
         {
-            var groupName = GetGroupName(tuple.EntityType, tuple.EntityId);
-
-            if (_groupConnections.TryGetValue(groupName, out var set))
+            var group = _entityGroups.GetOrAdd(groupName, static _ => new());
+            lock (group.Gate)
             {
-                lock (set)
-                {
-                    set.Remove(connectionId);
-                }
+                // The last listener may have removed this group while we were waiting for its gate.
+                if (!_entityGroups.TryGetValue(groupName, out var currentGroup))
+                    continue;
+                if (!ReferenceEquals(currentGroup, group))
+                    continue;
 
-                var count = GetGroupCount(groupName);
-                await Clients.Group(groupName).SendAsync("EntityViewersCountUpdated", tuple.EntityType, tuple.EntityId, count);
-            }
-
-            await Groups.RemoveFromGroupAsync(connectionId, groupName);
-
-            if (_connectionClientPublicIds.TryRemove(connectionId, out var listenerClientPublicId)
-                && _musicListeners.TryGetValue(groupName, out var listeners)
-                && listeners.TryGetValue(listenerClientPublicId, out var listener)
-                && string.Equals(listener.ConnectionId, connectionId, StringComparison.Ordinal))
-            {
-                listeners.TryRemove(listenerClientPublicId, out _);
-                await Clients.Group(groupName).SendAsync("MusicListenerRemoved", tuple.EntityId, listenerClientPublicId);
-            }
-
-            // remove from clientCurrentEntity by client public id if matches
-            var clientPublicId = Context.User?.FindFirst("sub")?.Value;
-            if (!string.IsNullOrEmpty(clientPublicId))
-            {
-                _clientCurrentEntity.TryRemove(clientPublicId, out _);
+                group.Connections.Add(connectionId);
+                _connectionEntities[connectionId] = entity;
+                return;
             }
         }
     }
 
+    private async Task RemoveConnectionFromCurrentEntity(string connectionId)
+    {
+        if (!_connectionEntities.TryRemove(connectionId, out var entity))
+            return;
+
+        var groupName = GetGroupName(entity.EntityType, entity.EntityId);
+        Guid? removedListenerPublicId = null;
+
+        if (_entityGroups.TryGetValue(groupName, out var group))
+        {
+            lock (group.Gate)
+            {
+                group.Connections.Remove(connectionId);
+
+                if (entity.ClientPublicId is Guid clientPublicId
+                    && group.Listeners.TryGetValue(clientPublicId, out var listener)
+                    && string.Equals(listener.ConnectionId, connectionId, StringComparison.Ordinal))
+                {
+                    group.Listeners.Remove(clientPublicId);
+                    removedListenerPublicId = clientPublicId;
+                }
+
+                if (group.Connections.Count == 0)
+                    _entityGroups.TryRemove(new KeyValuePair<string, EntityGroup>(groupName, group));
+            }
+        }
+
+        // Release owned state before any transport operation, including a failed/disconnected send.
+        await Groups.RemoveFromGroupAsync(connectionId, groupName);
+        await Clients.Group(groupName).SendAsync(
+            "EntityViewersCountUpdated", entity.EntityType, entity.EntityId, GetGroupCount(groupName));
+
+        if (removedListenerPublicId is Guid removedClientPublicId)
+            await Clients.Group(groupName).SendAsync("MusicListenerRemoved", entity.EntityId, removedClientPublicId);
+    }
+
     private static int GetGroupCount(string groupName)
     {
-        if (_groupConnections.TryGetValue(groupName, out var set))
-            return set.Count;
+        if (!_entityGroups.TryGetValue(groupName, out var group))
+            return 0;
 
-        return 0;
+        lock (group.Gate)
+            return group.Connections.Count;
     }
 
-    private static string GetGroupName(string entityType, Guid entityId) => $"{entityType}:{entityId}";
+    private static string GetGroupName(string entityType, Guid entityId)
+    {
+        var canonicalType = string.Equals(entityType, "Music", StringComparison.OrdinalIgnoreCase) ? "Music" : entityType;
+        return $"{canonicalType}:{entityId}";
+    }
 
-    private bool TryGetCurrentMusicGroup(Guid musicPublicId, out string groupName)
+    private bool TryGetCurrentMusicGroup(Guid musicPublicId, out string groupName, out Guid clientPublicId)
     {
         groupName = GetGroupName("Music", musicPublicId);
+        clientPublicId = default;
 
-        return _connectionEntities.TryGetValue(Context.ConnectionId, out var entity)
-            && string.Equals(entity.EntityType, "Music", StringComparison.OrdinalIgnoreCase)
-            && entity.EntityId == musicPublicId;
-    }
+        if (!_connectionEntities.TryGetValue(Context.ConnectionId, out var entity))
+            return false;
+        if (!string.Equals(entity.EntityType, "Music", StringComparison.OrdinalIgnoreCase))
+            return false;
+        if (entity.EntityId != musicPublicId)
+            return false;
+        if (entity.ClientPublicId is not Guid id)
+            return false;
 
-    private bool TryGetCurrentClientPublicId(out Guid clientPublicId)
-    {
-        if (_connectionClientPublicIds.TryGetValue(Context.ConnectionId, out clientPublicId))
-            return true;
-
-        return Guid.TryParse(Context.User?.FindFirst("sub")?.Value, out clientPublicId);
+        clientPublicId = id;
+        return true;
     }
 
     private async Task<MusicListenerIdentity?> GetMusicListenerIdentityAsync(Guid clientPublicId, CancellationToken cancellationToken)
     {
-        if (_musicListenerIdentities.TryGetValue(clientPublicId, out var cached))
-            return cached;
+        if (Context.Items.TryGetValue(ListenerIdentityKey, out var cached) && cached is MusicListenerIdentity identity)
+            return identity;
 
         var client = await _mizonDatabaseContext.Clients
             .AsNoTracking()
@@ -299,20 +312,26 @@ public class MizonHub : Hub
             .Select(x => (Guid?)x.Media!.PublicId)
             .FirstOrDefaultAsync(cancellationToken);
 
-        var identity = new MusicListenerIdentity(client.FirstName, client.LastName, username, profileMediaPublicId);
-        _musicListenerIdentities.TryAdd(clientPublicId, identity);
-        return identity;
+        var loadedIdentity = new MusicListenerIdentity(client.FirstName, client.LastName, username, profileMediaPublicId);
+        Context.Items[ListenerIdentityKey] = loadedIdentity;
+        return loadedIdentity;
     }
 
     private static List<MusicListenerPresenceResponse> GetMusicListeners(string groupName)
     {
-        if (!_musicListeners.TryGetValue(groupName, out var listeners))
+        if (!_entityGroups.TryGetValue(groupName, out var group))
             return [];
 
-        return listeners
-            .OrderBy(x => x.Key)
-            .Select(x => ToResponse(x.Key, x.Value))
-            .ToList();
+        List<MusicListenerPresenceResponse> snapshot;
+        lock (group.Gate)
+        {
+            snapshot = new(group.Listeners.Count);
+            foreach (var listener in group.Listeners)
+                snapshot.Add(ToResponse(listener.Key, listener.Value));
+        }
+
+        snapshot.Sort(static (left, right) => left.ClientPublicId.CompareTo(right.ClientPublicId));
+        return snapshot;
     }
 
     private static MusicListenerPresenceResponse ToResponse(Guid clientPublicId, MusicListenerState state) => new()
@@ -326,6 +345,15 @@ public class MizonHub : Hub
         IsPlaying = state.IsPlaying,
         UpdatedAtUtc = state.UpdatedAtUtc,
     };
+
+    private sealed class EntityGroup
+    {
+        public Lock Gate { get; } = new();
+        public HashSet<string> Connections { get; } = new(StringComparer.Ordinal);
+        public Dictionary<Guid, MusicListenerState> Listeners { get; } = [];
+    }
+
+    private sealed record ConnectionEntity(string EntityType, Guid EntityId, Guid? ClientPublicId);
 
     private sealed record MusicListenerIdentity(
         string FirstName,

@@ -29,7 +29,7 @@ public sealed class MusicFileOperation(MizonDatabaseContext mizonDatabaseContext
         var musicFile = await mizonDatabaseContext.MusicFiles
            .AsNoTracking()
            .Where(m => m.MusicId == music.Id)
-           .Select(m => new
+           .Select(m => new MusicFileResponse
            {
                MusicFilePublicId = m.PublicId,
                MediaPublicId = m.Media!.PublicId,
@@ -39,7 +39,7 @@ public sealed class MusicFileOperation(MizonDatabaseContext mizonDatabaseContext
                FileName = m.Media!.FileName,
                FileSize = m.Media!.FileSize,
                StoragePath = m.Media!.StoragePath,
-               m.Duration,
+               Duration = m.Duration,
            })
            .FirstOrDefaultAsync(cancellationToken);
 
@@ -56,18 +56,7 @@ public sealed class MusicFileOperation(MizonDatabaseContext mizonDatabaseContext
 
         return new()
         {
-            Content = new()
-            {
-                MusicFilePublicId = musicFile.MusicFilePublicId,
-                MediaPublicId = musicFile.MediaPublicId,
-                TotalChunks = musicFile.TotalChunks,
-                ChunkSize = musicFile.ChunkSize,
-                FileHash = musicFile.FileHash,
-                FileName = musicFile.FileName,
-                FileSize = musicFile.FileSize,
-                StoragePath = musicFile.StoragePath,
-                Duration = musicFile.Duration,
-            }
+            Content = musicFile
         };
     }
 }

@@ -8,6 +8,7 @@ public sealed class MusicCommentsOperation(MizonDatabaseContext mizonDatabaseCon
         var music = await mizonDatabaseContext.Musics
             .AsNoTracking()
             .Where(x => x.PublicId == request.Content!.MusicPublicId)
+            .Where(x => x.IsActive)
             .Select(x => new { x.Id })
             .FirstOrDefaultAsync(cancellationToken);
 
@@ -16,9 +17,12 @@ public sealed class MusicCommentsOperation(MizonDatabaseContext mizonDatabaseCon
             return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicNotFound } };
         }
 
-        var comments = await mizonDatabaseContext.MusicComments
+        var commentsQuery = mizonDatabaseContext.MusicComments
             .AsNoTracking()
-            .Where(x => x.MusicId == music.Id)
+            .Where(x => x.MusicId == music.Id);
+        if (request.Content!.MusicCommentPublicId is Guid commentPublicId)
+            commentsQuery = commentsQuery.Where(x => x.PublicId == commentPublicId);
+        var comments = await commentsQuery
             .OrderBy(x => x.Timestamp)
             .ThenBy(x => x.Id)
             .Select(x => new MusicCommentItemResponse

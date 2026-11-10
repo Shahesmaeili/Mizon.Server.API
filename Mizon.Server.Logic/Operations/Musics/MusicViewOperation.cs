@@ -50,10 +50,9 @@ public sealed class MusicViewOperation(MizonDatabaseContext mizonDatabaseContext
             .Where(m => m.MusicId == music.Id)
             .Where(m => m.ClientId == requestMetadata!.ClientId)
             .Where(m => m.PlatformVersionId == clientSession.PlatformVersionId)
-            .Select(m => new { m.Id })
-            .FirstOrDefaultAsync(cancellationToken);
+            .AnyAsync(cancellationToken);
 
-        if (existing is null)
+        if (!existing)
         {
             mizonDatabaseContext.MusicViews.Add(new()
             {

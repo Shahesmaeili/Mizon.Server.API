@@ -15,7 +15,7 @@ internal sealed class Media : IEndpoint
 
     }
 
-    private static async Task<BaseApiResponse<MediaResponse>> HandleInfo(
+    private static Task<BaseApiResponse<MediaResponse>> HandleInfo(
         [AsParameters] MediaRequest request,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
@@ -26,7 +26,7 @@ internal sealed class Media : IEndpoint
             Content = request,
         };
 
-        return await apiOperationExecutor.ExecuteAsync<MediaOperation, MediaRequest, MediaResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MediaOperation, MediaRequest, MediaResponse>(baseApiRequest, requestMetadata, cancellationToken);
      }
 
 }

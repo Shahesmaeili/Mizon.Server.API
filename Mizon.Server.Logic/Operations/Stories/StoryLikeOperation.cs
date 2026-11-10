@@ -5,10 +5,11 @@ public sealed class StoryLikeOperation(MizonDatabaseContext mizonDatabaseContext
 {
     public async Task<BaseApiResponse<StoryResponse>> HandleAsync(BaseApiRequest<StoryLikeRequest> request, RequestMetadata? requestMetadata, CancellationToken cancellationToken)
     {
-        if (requestMetadata!.ClientId is null)
+        if (requestMetadata?.ClientId is not int clientId)
             return new() { Error = new() { Code = OperationErrorCodes.Clients.ClientSessionNotFound } };
 
         var story = await mizonDatabaseContext.Stories
+            .VisibleTo(mizonDatabaseContext, clientId)
             .Where(x => x.PublicId == request.Content!.StoryPublicId)
             .Where(x => x.IsActive)
             .Where(x => x.ExpireDateTime == null || x.ExpireDateTime > DateTimeOffset.UtcNow)
@@ -18,13 +19,13 @@ public sealed class StoryLikeOperation(MizonDatabaseContext mizonDatabaseContext
 
         var like = await mizonDatabaseContext.StoryLikes
             .Where(x => x.StoryId == story.Id)
-            .Where(x => x.ClientId == requestMetadata.ClientId)
+            .Where(x => x.ClientId == clientId)
             .FirstOrDefaultAsync(cancellationToken);
-        if (request.Content.Liked && like is null)
+        if (request.Content!.Liked && like is null)
         {
             var platformVersionId = await mizonDatabaseContext.ClientSessions.Where(x => x.PublicId == requestMetadata.SessionPublicId).Select(x => (short?)x.PlatformVersionId).FirstOrDefaultAsync(cancellationToken);
             if (platformVersionId is null) return new() { Error = new() { Code = OperationErrorCodes.Clients.ClientSessionNotFound } };
-            mizonDatabaseContext.StoryLikes.Add(new() { StoryId = story.Id, ClientId = requestMetadata.ClientId.Value, PlatformVersionId = platformVersionId.Value });
+            mizonDatabaseContext.StoryLikes.Add(new() { StoryId = story.Id, ClientId = clientId, PlatformVersionId = platformVersionId.Value });
         }
         else if (!request.Content.Liked && like is not null)
             mizonDatabaseContext.StoryLikes.Remove(like);

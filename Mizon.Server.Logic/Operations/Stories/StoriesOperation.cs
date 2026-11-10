@@ -7,6 +7,7 @@ public sealed class StoriesOperation(MizonDatabaseContext mizonDatabaseContext)
     {
         var now = DateTimeOffset.UtcNow;
         var storiesQuery = mizonDatabaseContext.Stories.AsNoTracking()
+            .VisibleTo(mizonDatabaseContext, requestMetadata?.ClientId)
             .Where(x => x.IsActive)
             .Where(x => x.ExpireDateTime == null || x.ExpireDateTime > now);
 
@@ -20,12 +21,13 @@ public sealed class StoriesOperation(MizonDatabaseContext mizonDatabaseContext)
                 .Any(widget => widget.MusicWidget!.Music!.PublicId == musicPublicId));
         }
 
-        var stories = await storiesQuery.OrderByDescending(x => x.CreateDateTime)
+        var stories = await storiesQuery.OrderByDescending(x => x.Id)
             .Select(x => new
             {
                 x.Id,
                 x.PublicId,
                 x.Title,
+                x.ExpireDateTime,
                 x.Client!.FirstName,
                 x.Client.LastName,
                 CreatorProfileMediaPublicId = x.Client.ClientProfiles
@@ -39,7 +41,7 @@ public sealed class StoriesOperation(MizonDatabaseContext mizonDatabaseContext)
             .ToListAsync(cancellationToken);
 
         var storyIds = stories.Select(x => x.Id).ToArray();
-        var viewedByMe = requestMetadata?.ClientId is not int clientId
+        var viewedByMe = storyIds.Length == 0 || requestMetadata?.ClientId is not int clientId
             ? []
             : await mizonDatabaseContext.StoryViews.AsNoTracking()
                 .Where(x => storyIds.Contains(x.StoryId))
@@ -49,6 +51,7 @@ public sealed class StoriesOperation(MizonDatabaseContext mizonDatabaseContext)
 
         return new()
         {
+            CacheExpiresAt = stories.Min(story => story.ExpireDateTime),
             Content = new()
             {
                 Stories = stories.Select(story => new StoryListItemResponse

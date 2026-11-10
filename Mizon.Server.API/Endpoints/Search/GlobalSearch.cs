@@ -1,5 +1,4 @@
 using Mizon.Server.API.JsonSerializerContexts;
-using System.Text.Json;
 
 namespace Mizon.Server.API.Endpoints.Search;
 
@@ -11,7 +10,7 @@ internal sealed class GlobalSearch : IEndpoint
             .MapGet("Global", Handle);
     }
 
-    private static async Task Handle(
+    private static Task Handle(
         [AsParameters] GlobalSearchRequest request,
         GlobalSearchOperation operation,
         HttpContext context,
@@ -20,15 +19,10 @@ internal sealed class GlobalSearch : IEndpoint
         context.Response.ContentType = "application/x-ndjson";
         context.Response.Headers.CacheControl = "no-store";
 
-        await foreach (var item in operation.SearchAsync(request, cancellationToken))
-        {
-            await JsonSerializer.SerializeAsync(
-                context.Response.Body,
-                item,
-                MizonJsonContexts.Default.GlobalSearchItemResponse,
-                cancellationToken);
-            await context.Response.WriteAsync("\n", cancellationToken);
-            await context.Response.Body.FlushAsync(cancellationToken);
-        }
+        return NdjsonResponseWriter.WriteAsync(
+            operation.SearchAsync(request, cancellationToken),
+            context.Response.BodyWriter,
+            MizonJsonContexts.Default.GlobalSearchItemResponse,
+            cancellationToken);
     }
 }

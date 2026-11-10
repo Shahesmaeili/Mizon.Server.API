@@ -51,7 +51,7 @@ internal static class MusicTabMusicResponseFactory
             PersianTitle = music.PersianTitle,
             LikesCount = music.LikesCount,
             CoverMediaPublicId = music.CoverMediaPublicId,
-            Contributors = contributorsByMusicId.GetValueOrDefault(music.Id, [])
+            Contributors = contributorsByMusicId.GetValueOrDefault(music.Id) ?? []
         }).ToList();
 
         return new()

@@ -37,19 +37,30 @@ public sealed class GlobalSearchOperation(DbContextOptions<MizonDatabaseContext>
         var pattern = $"%{query}%";
         var clientResults = CreateResultsChannel();
         var musicResults = CreateResultsChannel();
+        using var producerCancellation = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
 
-        _ = CompleteWriterAsync(
-            WriteClientResultsAsync(clientResults.Writer, query, pattern, cancellationToken),
+        var clientProducer = CompleteWriterAsync(
+            WriteClientResultsAsync(clientResults.Writer, query, pattern, producerCancellation.Token),
             clientResults.Writer);
-        _ = CompleteWriterAsync(
-            WriteMusicResultsAsync(musicResults.Writer, query, pattern, cancellationToken),
+        var musicProducer = CompleteWriterAsync(
+            WriteMusicResultsAsync(musicResults.Writer, query, pattern, producerCancellation.Token),
             musicResults.Writer);
 
-        await foreach (var result in MergeResultsAsync(
-            clientResults.Reader,
-            musicResults.Reader,
-            cancellationToken))
-            yield return result;
+        try
+        {
+            await foreach (var result in MergeResultsAsync(
+                clientResults.Reader,
+                musicResults.Reader,
+                producerCancellation.Token))
+                yield return result;
+        }
+        finally
+        {
+            // A disconnected/finished consumer must not leave a producer waiting
+            // for space in its bounded channel with an open database reader.
+            await producerCancellation.CancelAsync();
+            await Task.WhenAll(clientProducer, musicProducer);
+        }
     }
 
     private static Channel<GlobalSearchItemResponse> CreateResultsChannel() =>
@@ -80,44 +91,51 @@ public sealed class GlobalSearchOperation(DbContextOptions<MizonDatabaseContext>
         ChannelReader<GlobalSearchItemResponse> musicResults,
         [EnumeratorCancellation] CancellationToken cancellationToken)
     {
-        var clientIsAvailableTask = clientResults.WaitToReadAsync(cancellationToken).AsTask();
-        var musicIsAvailableTask = musicResults.WaitToReadAsync(cancellationToken).AsTask();
-        var firstAvailableTask = await Task.WhenAny(clientIsAvailableTask, musicIsAvailableTask);
+        Task<bool>? clientIsAvailableTask = clientResults.WaitToReadAsync(cancellationToken).AsTask();
+        Task<bool>? musicIsAvailableTask = musicResults.WaitToReadAsync(cancellationToken).AsTask();
+        var preferClient = true;
 
-        var readClientNext = firstAvailableTask == clientIsAvailableTask
-            ? await clientIsAvailableTask
-            : !await musicIsAvailableTask;
-
-        var clientIsOpen = true;
-        var musicIsOpen = true;
-
-        while (clientIsOpen || musicIsOpen)
+        while (clientIsAvailableTask is not null || musicIsAvailableTask is not null)
         {
-            if (readClientNext && clientIsOpen)
+            cancellationToken.ThrowIfCancellationRequested();
+            // Race every next result. Alternating only breaks ties between two
+            // ready channels; an empty source never holds up the other source.
+            bool readClient;
+            if (clientIsAvailableTask is null) readClient = false;
+            else if (musicIsAvailableTask is null) readClient = true;
+            else
             {
-                if (await clientResults.WaitToReadAsync(cancellationToken))
+                if (!clientIsAvailableTask.IsCompleted && !musicIsAvailableTask.IsCompleted)
+                    await Task.WhenAny(clientIsAvailableTask, musicIsAvailableTask);
+
+                // Completed ValueTask<bool> instances can share a cached Task;
+                // select the source by readiness, never by Task identity.
+                readClient = clientIsAvailableTask.IsCompleted;
+                if (clientIsAvailableTask.IsCompleted && musicIsAvailableTask.IsCompleted)
+                    readClient = preferClient;
+            }
+            var availableTask = readClient ? clientIsAvailableTask! : musicIsAvailableTask!;
+
+            if (readClient)
+            {
+                if (await availableTask)
                 {
                     yield return await clientResults.ReadAsync(cancellationToken);
-                    readClientNext = false;
-                    continue;
+                    clientIsAvailableTask = clientResults.WaitToReadAsync(cancellationToken).AsTask();
+                    preferClient = false;
                 }
-
-                clientIsOpen = false;
+                else clientIsAvailableTask = null;
             }
-
-            if (!readClientNext && musicIsOpen)
+            else
             {
-                if (await musicResults.WaitToReadAsync(cancellationToken))
+                if (await availableTask)
                 {
                     yield return await musicResults.ReadAsync(cancellationToken);
-                    readClientNext = true;
-                    continue;
+                    musicIsAvailableTask = musicResults.WaitToReadAsync(cancellationToken).AsTask();
+                    preferClient = true;
                 }
-
-                musicIsOpen = false;
+                else musicIsAvailableTask = null;
             }
-
-            readClientNext = clientIsOpen;
         }
     }
 

@@ -4,12 +4,8 @@
 	  <TargetFramework>net10.0</TargetFramework>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
-	  <PublishAot>true</PublishAot>
-	  <InvariantGlobalization>false</InvariantGlobalization>
-	  <StripSymbols>true</StripSymbols>
-	  <TrimMode>full</TrimMode>
-	  <PublishTrimmed>true</PublishTrimmed>
-	  <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+	  <!-- Publishing belongs to the executable; keep this library checked for trimming/AOT. -->
+	  <IsAotCompatible>true</IsAotCompatible>
 	  <AnalysisLevel>latest</AnalysisLevel>
 	  <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>

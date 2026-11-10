@@ -10,12 +10,12 @@ internal sealed class MusicView : IEndpoint
             .MapPost($"{nameof(MusicView)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MusicViewResponse>> Handle(
+    private static Task<BaseApiResponse<MusicViewResponse>> Handle(
         BaseApiRequest<MusicViewRequest> baseApiRequest,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
         CancellationToken cancellationToken)
     {
-        return await apiOperationExecutor.ExecuteAsync<MusicViewOperation, MusicViewRequest, MusicViewResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MusicViewOperation, MusicViewRequest, MusicViewResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

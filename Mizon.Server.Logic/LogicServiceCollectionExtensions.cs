@@ -11,7 +11,13 @@ public static class LogicServiceCollectionExtensions
     public static IServiceCollection AddMizonLogic(this IServiceCollection services)
     {
         services.AddApiOperation<LoginOperation, LoginRequest, LoginResponse>();
+        services.AddApiOperation<RegisterOperation, RegisterRequest, RegisterResponse>();
         services.AddApiOperation<MeOperation, MeRequest, MeResponse>();
+        services.AddApiOperation<ClientMoodTypesOperation, ClientMoodTypesRequest, ClientMoodTypesResponse>();
+        services.AddApiOperation<ClientMoodOperation, ClientMoodRequest, ClientMoodResponse>();
+        services.AddScoped<ClientMoodInitializeOperation>();
+        services.AddApiOperation<ClientProfileOperation, ClientProfileRequest, ClientProfileResponse>();
+        services.AddApiOperation<FollowingActivitiesOperation, FollowingActivitiesRequest, FollowingActivitiesResponse>();
         services.AddApiOperation<LogoutOperation, LogoutRequest, LogoutResponse>();
         services.AddApiOperation<MusicOperation, MusicRequest, MusicResponse>();
         services.AddApiOperation<FindClientIdOperation, FindClientIdRequest, FindClientIdResponse>();
@@ -22,6 +28,7 @@ public static class LogicServiceCollectionExtensions
         services.AddApiOperation<MusicLyricLineOperation, MusicLyricLineRequest, MusicLyricLineResponse>();
         services.AddApiOperation<MusicReactionOperation, MusicReactionRequest, MusicReactionResponse>();
         services.AddApiOperation<MusicViewOperation, MusicViewRequest, MusicViewResponse>();
+        services.AddApiOperation<MusicPlayOperation, MusicPlayRequest, MusicPlayResponse>();
         services.AddApiOperation<MusicReactionsOperation, MusicReactionsRequest, MusicReactionsResponse>();
         services.AddApiOperation<MusicReactionTypesOperation, MusicReactionTypesRequest, MusicReactionTypesResponse>();
         services.AddApiOperation<MusicGenreTypesOperation, MusicGenreTypesRequest, MusicGenreTypesResponse>();
@@ -31,6 +38,10 @@ public static class LogicServiceCollectionExtensions
         services.AddApiOperation<MusicCommentCreateOperation, MusicCommentCreateRequest, MusicCommentCreateResponse>();
         services.AddApiOperation<MusicContributorOperation, MusicContributorRequest, MusicContributorsResponse>();
         services.AddApiOperation<MusicPlaylistsOperation, MusicPlaylistsRequest, MusicPlaylistsResponse>();
+        services.AddApiOperation<MusicLibraryOperation, MusicLibraryRequest, MusicLibraryResponse>();
+        services.AddApiOperation<MusicFeaturesOperation, MusicFeaturesRequest, MusicFeaturesResponse>();
+        services.AddApiOperation<MusicLikeOperation, MusicLikeRequest, MusicLikeResponse>();
+        services.AddApiOperation<MusicPlaylistDetailsOperation, MusicPlaylistDetailsRequest, MusicPlaylistDetailsResponse>();
         services.AddApiOperation<MusicPlaylistMembershipOperation, MusicPlaylistMembershipRequest, MusicPlaylistMembershipResponse>();
         services.AddApiOperation<MusicPlaylistCreateOperation, MusicPlaylistCreateRequest, MusicPlaylistCreateResponse>();
         services.AddApiOperation<MediaOperation, MediaRequest, MediaResponse>();

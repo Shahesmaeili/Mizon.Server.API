@@ -38,12 +38,14 @@ public sealed class JwtAuthenticationHandler : AuthenticationHandler<Authenticat
         if (!result.IsValid)
             return Task.FromResult(AuthenticateResult.Fail("Invalid token"));
 
+        var clientPublicId = result.ClientPublicId.ToString();
+        var sessionPublicId = result.SessionPublicId.ToString();
         var claims = new Claim[]
         {
-            new Claim("sub", result.ClientPublicId.ToString()),
-            new Claim("sid", result.SessionPublicId.ToString()),
-            new Claim(ClaimTypes.NameIdentifier, result.ClientPublicId.ToString()), // برای SignalR
-            new Claim(ClaimTypes.UserData, result.SessionPublicId.ToString())
+            new Claim("sub", clientPublicId),
+            new Claim("sid", sessionPublicId),
+            new Claim(ClaimTypes.NameIdentifier, clientPublicId), // برای SignalR
+            new Claim(ClaimTypes.UserData, sessionPublicId)
         };
 
         var identity = new ClaimsIdentity(claims, Scheme.Name);
@@ -64,7 +66,7 @@ public sealed class JwtAuthenticationHandler : AuthenticationHandler<Authenticat
         if (!header.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
             return null;
 
-        return header.Substring("Bearer ".Length).Trim();
+        return header.AsSpan("Bearer ".Length).Trim().ToString();
     }
 
     private string? ExtractTokenFromQueryString()

@@ -7,21 +7,10 @@ internal sealed class Me : IEndpoint
         var routeGroupBuilder = endpointRouteBuilder.MapGroup(ApiGroups.Clients);
 
         routeGroupBuilder
-            .MapGet($"{nameof(Me)}", Handle)
-            .CacheOutput(options =>
-            {
-                options.Expire(TimeSpan.FromSeconds(30));
-
-                // تمایز کش بر اساس کاربر
-                options.VaryByValue((ctx) =>
-                {
-                    var userId = ctx.User.FindFirst("sub")?.Value;
-                    return new KeyValuePair<string, string>("UserId", userId);
-                });
-            });
+            .MapGet($"{nameof(Me)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MeResponse>> Handle(
+    private static Task<BaseApiResponse<MeResponse>> Handle(
         [AsParameters] MeRequest request,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
@@ -33,6 +22,6 @@ internal sealed class Me : IEndpoint
             Content = request,
         };
 
-        return await apiOperationExecutor.ExecuteAsync<MeOperation, MeRequest, MeResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MeOperation, MeRequest, MeResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

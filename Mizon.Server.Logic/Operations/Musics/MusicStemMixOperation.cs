@@ -29,24 +29,35 @@ public sealed class MusicStemMixOperation(MizonDatabaseContext mizonDatabaseCont
             .Select(item => new { item.Id, item.PublicId })
             .ToListAsync(cancellationToken);
 
+        if (musicFiles.Count == 0)
+            return new() { Content = new() { IsAvailable = false } };
+
+        var musicFileIds = musicFiles.Select(item => item.Id).ToArray();
+        var stems = await mizonDatabaseContext.MusicFileStems
+            .AsNoTracking()
+            .Where(item => musicFileIds.Contains(item.MusicFileId))
+            .Where(item => item.MusicFileStemType!.Title == "Vocals" || item.MusicFileStemType.Title == "Instrumental")
+            .OrderBy(item => item.MusicFileId)
+            .ThenBy(item => item.Id)
+            .Select(item => new
+            {
+                item.MusicFileId,
+                StemType = item.MusicFileStemType!.Title,
+                MediaPublicId = item.Media!.PublicId
+            })
+            .ToListAsync(cancellationToken);
+
+        // Keep the file and stem reads separate, but batch the stem lookup.
+        // Both stems must belong to the same original file.
+        var stemsByFile = stems.ToLookup(item => item.MusicFileId);
         foreach (var musicFile in musicFiles)
         {
-            var stems = await mizonDatabaseContext.MusicFileStems
-                .AsNoTracking()
-                .Where(item => item.MusicFileId == musicFile.Id)
-                .Where(item => item.MusicFileStemType!.Title == "Vocals" || item.MusicFileStemType.Title == "Instrumental")
-                .Select(item => new
-                {
-                    StemType = item.MusicFileStemType!.Title,
-                    MediaPublicId = item.Media!.PublicId
-                })
-                .ToListAsync(cancellationToken);
-
-            var vocalsMediaPublicId = stems
+            var musicFileStems = stemsByFile[musicFile.Id];
+            var vocalsMediaPublicId = musicFileStems
                 .Where(item => item.StemType == "Vocals")
                 .Select(item => (Guid?)item.MediaPublicId)
                 .FirstOrDefault();
-            var instrumentalMediaPublicId = stems
+            var instrumentalMediaPublicId = musicFileStems
                 .Where(item => item.StemType == "Instrumental")
                 .Select(item => (Guid?)item.MediaPublicId)
                 .FirstOrDefault();

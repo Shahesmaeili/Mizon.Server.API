@@ -5,16 +5,13 @@ public sealed class FindClientIdOperation(MizonDatabaseContext mizonDatabaseCont
 {
     public async Task<BaseApiResponse<FindClientIdResponse>> HandleAsync(BaseApiRequest<FindClientIdRequest> request, RequestMetadata? requestMetadata, CancellationToken cancellationToken)
     {
-        var client = await mizonDatabaseContext.Clients
+        var clientId = await mizonDatabaseContext.Clients
             .AsNoTracking()
             .Where(c => c.PublicId == request.Content!.ClientPublicId)
-            .Select(c => new
-            {
-                c.Id,
-            })
+            .Select(c => (int?)c.Id)
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (client is null)
+        if (clientId is null)
         {
             return new()
             {
@@ -31,7 +28,7 @@ public sealed class FindClientIdOperation(MizonDatabaseContext mizonDatabaseCont
         {
             Content = new()
             {
-                ClientId = client.Id,
+                ClientId = clientId.Value,
             }
         };
     }

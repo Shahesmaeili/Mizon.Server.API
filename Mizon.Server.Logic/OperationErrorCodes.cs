@@ -5,6 +5,12 @@ internal static class OperationErrorCodes
     internal static class Clients
     {
         public const int ClientSessionNotFound = 20000;
+        public const int InvalidRegistration = 21000;
+        public const int UsernameUnavailable = 21001;
+        public const int EmailUnavailable = 21002;
+        public const int RegistrationTemporarilyUnavailable = 21003;
+        public const int InvalidFollowingActivitiesRequest = 21004;
+        public const int InvalidClientMood = 21005;
     }
 
 
@@ -17,6 +23,8 @@ internal static class OperationErrorCodes
         public const int MusicReactionTypeNotFound = 10004;
         public const int MusicPlaylistNotFound = 10005;
         public const int InvalidMusicPlaylistTitle = 10006;
+        public const int InvalidMusicPlaylistCursor = 10007;
+        public const int InvalidMusicPlayRequest = 10008;
 
     }
 

@@ -9,6 +9,7 @@ public class MeResponse : IApiResponse
     public string EmailAddress { get; set; } = null!;
     public bool EmailAddressIsVerified { get; set; }
     public MeProfileResponse? MeProfile { get; set; }
+    public ClientMoodItemResponse? CurrentMood { get; set; }
 }
 
 public sealed class MeProfileResponse

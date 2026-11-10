@@ -1,0 +1,4891 @@
+{
+  "sourceVersion": "telemoji@4f45fca016c7+effects@7b68fd20784d-tgs1",
+  "items": [
+    {
+      "emoji": "❤",
+      "title": "red heart",
+      "persianTitle": "قلب قرمز",
+      "animationPath": "originals/animations/U_2764.tgs",
+      "previewPath": "previews/U_2764.png",
+      "effectPaths": [
+        "originals/effects/5159385139981059251.tgs"
+      ]
+    },
+    {
+      "emoji": "😒",
+      "title": "unamused face",
+      "persianTitle": "کسل",
+      "animationPath": "originals/animations/U_1F612.tgs",
+      "previewPath": "previews/U_1F612.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😳",
+      "title": "flushed face",
+      "persianTitle": "سرخ‌شده",
+      "animationPath": "originals/animations/U_1F633.tgs",
+      "previewPath": "previews/U_1F633.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥳",
+      "title": "partying face",
+      "persianTitle": "چهره درحال جشن گرفتن",
+      "animationPath": "originals/animations/U_1F973.tgs",
+      "previewPath": "previews/U_1F973.png",
+      "effectPaths": [
+        "originals/effects/5089343350188802996.tgs"
+      ]
+    },
+    {
+      "emoji": "😡",
+      "title": "enraged face",
+      "persianTitle": "خشمگین",
+      "animationPath": "originals/animations/U_1F621.tgs",
+      "previewPath": "previews/U_1F621.png",
+      "effectPaths": [
+        "originals/effects/4925068178331010095.tgs"
+      ]
+    },
+    {
+      "emoji": "😧",
+      "title": "anguished face",
+      "persianTitle": "دردمند",
+      "animationPath": "originals/animations/U_1F627.tgs",
+      "previewPath": "previews/U_1F627.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😢",
+      "title": "crying face",
+      "persianTitle": "گریان",
+      "animationPath": "originals/animations/U_1F622.tgs",
+      "previewPath": "previews/U_1F622.png",
+      "effectPaths": [
+        "originals/effects/5046551865169281494.tgs"
+      ]
+    },
+    {
+      "emoji": "😁",
+      "title": "beaming face with smiling eyes",
+      "persianTitle": "خندهٔ دندانی",
+      "animationPath": "originals/animations/U_1F601.tgs",
+      "previewPath": "previews/U_1F601.png",
+      "effectPaths": [
+        "originals/effects/5048771083361059460.tgs"
+      ]
+    },
+    {
+      "emoji": "😮",
+      "title": "face with open mouth",
+      "persianTitle": "دهان باز از تعجب",
+      "animationPath": "originals/animations/U_1F62E.tgs",
+      "previewPath": "previews/U_1F62E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💀",
+      "title": "skull",
+      "persianTitle": "جمجمه",
+      "animationPath": "originals/animations/U_1F480.tgs",
+      "previewPath": "previews/U_1F480.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙄",
+      "title": "face with rolling eyes",
+      "persianTitle": "نگاه کلافه",
+      "animationPath": "originals/animations/U_1F644.tgs",
+      "previewPath": "previews/U_1F644.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😍",
+      "title": "smiling face with heart-eyes",
+      "persianTitle": "چشم‌های عاشق",
+      "animationPath": "originals/animations/U_1F60D.tgs",
+      "previewPath": "previews/U_1F60D.png",
+      "effectPaths": [
+        "originals/effects/5066779159678682060.tgs"
+      ]
+    },
+    {
+      "emoji": "💋",
+      "title": "kiss mark",
+      "persianTitle": "بوسه ماتیکی",
+      "animationPath": "originals/animations/U_1F48B.tgs",
+      "previewPath": "previews/U_1F48B.png",
+      "effectPaths": [
+        "originals/effects/4963232093787128618.tgs"
+      ]
+    },
+    {
+      "emoji": "🧐",
+      "title": "face with monocle",
+      "persianTitle": "صورت با عینک یک‌چشمی",
+      "animationPath": "originals/animations/U_1F9D0.tgs",
+      "previewPath": "previews/U_1F9D0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😘",
+      "title": "face blowing a kiss",
+      "persianTitle": "بوسه فرستادن",
+      "animationPath": "originals/animations/U_1F618.tgs",
+      "previewPath": "previews/U_1F618.png",
+      "effectPaths": [
+        "originals/effects/5159305906424382943.tgs"
+      ]
+    },
+    {
+      "emoji": "💎",
+      "title": "gem stone",
+      "persianTitle": "جواهر",
+      "animationPath": "originals/animations/U_1F48E.tgs",
+      "previewPath": "previews/U_1F48E.png",
+      "effectPaths": [
+        "originals/effects/4965608262968804599.tgs"
+      ]
+    },
+    {
+      "emoji": "🔐",
+      "title": "locked with key",
+      "persianTitle": "قفل و کلید",
+      "animationPath": "originals/animations/U_1F510.tgs",
+      "previewPath": "previews/U_1F510.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⌨",
+      "title": "keyboard",
+      "persianTitle": "صفحه‌کلید",
+      "animationPath": "originals/animations/U_2328.tgs",
+      "previewPath": "previews/U_2328.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💸",
+      "title": "money with wings",
+      "persianTitle": "اسکناس بال‌دار",
+      "animationPath": "originals/animations/U_1F4B8.tgs",
+      "previewPath": "previews/U_1F4B8.png",
+      "effectPaths": [
+        "originals/effects/5125520873335292348.tgs"
+      ]
+    },
+    {
+      "emoji": "📝",
+      "title": "memo",
+      "persianTitle": "یادداشت",
+      "animationPath": "originals/animations/U_1F4DD.tgs",
+      "previewPath": "previews/U_1F4DD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙈",
+      "title": "see-no-evil monkey",
+      "persianTitle": "میمون شرنبین",
+      "animationPath": "originals/animations/U_1F648.tgs",
+      "previewPath": "previews/U_1F648.png",
+      "effectPaths": [
+        "originals/effects/4913625371842183765.tgs"
+      ]
+    },
+    {
+      "emoji": "👨‍🏫",
+      "title": "man teacher",
+      "persianTitle": "آموزگار مرد",
+      "animationPath": "originals/animations/U_1F468_200D_1F3EB.tgs",
+      "previewPath": "previews/U_1F468_200D_1F3EB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⏳",
+      "title": "hourglass not done",
+      "persianTitle": "ساعت شنی با شن روان",
+      "animationPath": "originals/animations/U_23F3.tgs",
+      "previewPath": "previews/U_23F3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📬",
+      "title": "open mailbox with raised flag",
+      "persianTitle": "صندوق پستی باز با پرچم بالا",
+      "animationPath": "originals/animations/U_1F4EC.tgs",
+      "previewPath": "previews/U_1F4EC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😔",
+      "title": "pensive face",
+      "persianTitle": "چهره غمگین",
+      "animationPath": "originals/animations/U_1F614.tgs",
+      "previewPath": "previews/U_1F614.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💡",
+      "title": "light bulb",
+      "persianTitle": "لامپ",
+      "animationPath": "originals/animations/U_1F4A1.tgs",
+      "previewPath": "previews/U_1F4A1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👛",
+      "title": "purse",
+      "persianTitle": "کیف دستی",
+      "animationPath": "originals/animations/U_1F45B.tgs",
+      "previewPath": "previews/U_1F45B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💱",
+      "title": "currency exchange",
+      "persianTitle": "تبدیل ارز",
+      "animationPath": "originals/animations/U_1F4B1.tgs",
+      "previewPath": "previews/U_1F4B1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎄",
+      "title": "Christmas tree",
+      "persianTitle": "درخت کریسمس",
+      "animationPath": "originals/animations/U_1F384.tgs",
+      "previewPath": "previews/U_1F384.png",
+      "effectPaths": [
+        "originals/effects/5066610182780355771.tgs"
+      ]
+    },
+    {
+      "emoji": "☃",
+      "title": "snowman",
+      "persianTitle": "آدم برفی",
+      "animationPath": "originals/animations/U_2603.tgs",
+      "previewPath": "previews/U_2603.png",
+      "effectPaths": [
+        "originals/effects/4989997728680380153.tgs"
+      ]
+    },
+    {
+      "emoji": "🧡",
+      "title": "orange heart",
+      "persianTitle": "قلب نارنجی",
+      "animationPath": "originals/animations/U_1F9E1.tgs",
+      "previewPath": "previews/U_1F9E1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💛",
+      "title": "yellow heart",
+      "persianTitle": "قلب زرد",
+      "animationPath": "originals/animations/U_1F49B.tgs",
+      "previewPath": "previews/U_1F49B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💚",
+      "title": "green heart",
+      "persianTitle": "قلب سبز",
+      "animationPath": "originals/animations/U_1F49A.tgs",
+      "previewPath": "previews/U_1F49A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💙",
+      "title": "blue heart",
+      "persianTitle": "قلب آبی",
+      "animationPath": "originals/animations/U_1F499.tgs",
+      "previewPath": "previews/U_1F499.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💜",
+      "title": "purple heart",
+      "persianTitle": "قلب بنفش",
+      "animationPath": "originals/animations/U_1F49C.tgs",
+      "previewPath": "previews/U_1F49C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🖤",
+      "title": "black heart",
+      "persianTitle": "قلب سیاه",
+      "animationPath": "originals/animations/U_1F5A4.tgs",
+      "previewPath": "previews/U_1F5A4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤍",
+      "title": "white heart",
+      "persianTitle": "قلب سفید",
+      "animationPath": "originals/animations/U_1F90D.tgs",
+      "previewPath": "previews/U_1F90D.png",
+      "effectPaths": [
+        "originals/effects/5055413967543861653.tgs"
+      ]
+    },
+    {
+      "emoji": "🤎",
+      "title": "brown heart",
+      "persianTitle": "قلب قهوه‌ای",
+      "animationPath": "originals/animations/U_1F90E.tgs",
+      "previewPath": "previews/U_1F90E.png",
+      "effectPaths": [
+        "originals/effects/5055664432856695007.tgs"
+      ]
+    },
+    {
+      "emoji": "😻",
+      "title": "smiling cat with heart-eyes",
+      "persianTitle": "گربهٔ خندان عاشق",
+      "animationPath": "originals/animations/U_1F63B.tgs",
+      "previewPath": "previews/U_1F63B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥰",
+      "title": "smiling face with hearts",
+      "persianTitle": "صورت خندان و عاشق",
+      "animationPath": "originals/animations/U_1F970.tgs",
+      "previewPath": "previews/U_1F970.png",
+      "effectPaths": [
+        "originals/effects/5170169077011841524.tgs"
+      ]
+    },
+    {
+      "emoji": "💌",
+      "title": "love letter",
+      "persianTitle": "نامهٔ عاشقانه",
+      "animationPath": "originals/animations/U_1F48C.tgs",
+      "previewPath": "previews/U_1F48C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💘",
+      "title": "heart with arrow",
+      "persianTitle": "قلب تیرخورده",
+      "animationPath": "originals/animations/U_1F498.tgs",
+      "previewPath": "previews/U_1F498.png",
+      "effectPaths": [
+        "originals/effects/5089139004234793667.tgs"
+      ]
+    },
+    {
+      "emoji": "💔",
+      "title": "broken heart",
+      "persianTitle": "قلب شکسته",
+      "animationPath": "originals/animations/U_1F494.tgs",
+      "previewPath": "previews/U_1F494.png",
+      "effectPaths": [
+        "originals/effects/5123265598893064880.tgs"
+      ]
+    },
+    {
+      "emoji": "🧭",
+      "title": "compass",
+      "persianTitle": "قطب‌نما",
+      "animationPath": "originals/animations/U_1F9ED.tgs",
+      "previewPath": "previews/U_1F9ED.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💝",
+      "title": "heart with ribbon",
+      "persianTitle": "قلب با روبان",
+      "animationPath": "originals/animations/U_1F49D.tgs",
+      "previewPath": "previews/U_1F49D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📣",
+      "title": "megaphone",
+      "persianTitle": "بلندگوی دستی",
+      "animationPath": "originals/animations/U_1F4E3.tgs",
+      "previewPath": "previews/U_1F4E3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧮",
+      "title": "abacus",
+      "persianTitle": "چرتکه",
+      "animationPath": "originals/animations/U_1F9EE.tgs",
+      "previewPath": "previews/U_1F9EE.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📁",
+      "title": "file folder",
+      "persianTitle": "پوشه فایل",
+      "animationPath": "originals/animations/U_1F4C1.tgs",
+      "previewPath": "previews/U_1F4C1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📂",
+      "title": "open file folder",
+      "persianTitle": "باز کردن پوشه فایل",
+      "animationPath": "originals/animations/U_1F4C2.tgs",
+      "previewPath": "previews/U_1F4C2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦠",
+      "title": "microbe",
+      "persianTitle": "میکروب",
+      "animationPath": "originals/animations/U_1F9A0.tgs",
+      "previewPath": "previews/U_1F9A0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤒",
+      "title": "face with thermometer",
+      "persianTitle": "تب‌دار",
+      "animationPath": "originals/animations/U_1F912.tgs",
+      "previewPath": "previews/U_1F912.png",
+      "effectPaths": [
+        "originals/effects/5071299733016806207.tgs"
+      ]
+    },
+    {
+      "emoji": "🤢",
+      "title": "nauseated face",
+      "persianTitle": "حالت تهوع",
+      "animationPath": "originals/animations/U_1F922.tgs",
+      "previewPath": "previews/U_1F922.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤕",
+      "title": "face with head-bandage",
+      "persianTitle": "سر باندپیچی‌شده",
+      "animationPath": "originals/animations/U_1F915.tgs",
+      "previewPath": "previews/U_1F915.png",
+      "effectPaths": [
+        "originals/effects/5086991627960976320.tgs"
+      ]
+    },
+    {
+      "emoji": "🤧",
+      "title": "sneezing face",
+      "persianTitle": "عطسه",
+      "animationPath": "originals/animations/U_1F927.tgs",
+      "previewPath": "previews/U_1F927.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧼",
+      "title": "soap",
+      "persianTitle": "صابون",
+      "animationPath": "originals/animations/U_1F9FC.tgs",
+      "previewPath": "previews/U_1F9FC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚑",
+      "title": "ambulance",
+      "persianTitle": "آمبولانس",
+      "animationPath": "originals/animations/U_1F691.tgs",
+      "previewPath": "previews/U_1F691.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤮",
+      "title": "face vomiting",
+      "persianTitle": "درحال استفراغ",
+      "animationPath": "originals/animations/U_1F92E.tgs",
+      "previewPath": "previews/U_1F92E.png",
+      "effectPaths": [
+        "originals/effects/5125503964049048317.tgs"
+      ]
+    },
+    {
+      "emoji": "💊",
+      "title": "pill",
+      "persianTitle": "قرص",
+      "animationPath": "originals/animations/U_1F48A.tgs",
+      "previewPath": "previews/U_1F48A.png",
+      "effectPaths": [
+        "originals/effects/5089598484131087029.tgs"
+      ]
+    },
+    {
+      "emoji": "🧻",
+      "title": "roll of paper",
+      "persianTitle": "رول کاغذ",
+      "animationPath": "originals/animations/U_1F9FB.tgs",
+      "previewPath": "previews/U_1F9FB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👩‍⚕",
+      "title": "woman health worker",
+      "persianTitle": "مددکار بهداشت زن",
+      "animationPath": "originals/animations/U_1F469_200D_2695.tgs",
+      "previewPath": "previews/U_1F469_200D_2695.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👨‍⚕",
+      "title": "man health worker",
+      "persianTitle": "مددکار بهداشت مرد",
+      "animationPath": "originals/animations/U_1F468_200D_2695.tgs",
+      "previewPath": "previews/U_1F468_200D_2695.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤷‍♀",
+      "title": "woman shrugging",
+      "persianTitle": "زن شانه بالا می‌اندازد",
+      "animationPath": "originals/animations/U_1F937_200D_2640.tgs",
+      "previewPath": "previews/U_1F937_200D_2640.png",
+      "effectPaths": [
+        "originals/effects/5066849184825475891.tgs"
+      ]
+    },
+    {
+      "emoji": "🤷‍♂",
+      "title": "man shrugging",
+      "persianTitle": "مرد شانه بالا می‌اندازد",
+      "animationPath": "originals/animations/U_1F937_200D_2642.tgs",
+      "previewPath": "previews/U_1F937_200D_2642.png",
+      "effectPaths": [
+        "originals/effects/5069188799540495289.tgs"
+      ]
+    },
+    {
+      "emoji": "🧽",
+      "title": "sponge",
+      "persianTitle": "لیف حمام",
+      "animationPath": "originals/animations/U_1F9FD.tgs",
+      "previewPath": "previews/U_1F9FD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤔",
+      "title": "thinking face",
+      "persianTitle": "درحال تفکر",
+      "animationPath": "originals/animations/U_1F914.tgs",
+      "previewPath": "previews/U_1F914.png",
+      "effectPaths": [
+        "originals/effects/5170257231215591956.tgs"
+      ]
+    },
+    {
+      "emoji": "😌",
+      "title": "relieved face",
+      "persianTitle": "آسوده‌خاطر",
+      "animationPath": "originals/animations/U_1F60C.tgs",
+      "previewPath": "previews/U_1F60C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😭",
+      "title": "loudly crying face",
+      "persianTitle": "هق‌هق گریه",
+      "animationPath": "originals/animations/U_1F62D.tgs",
+      "previewPath": "previews/U_1F62D.png",
+      "effectPaths": [
+        "originals/effects/5069111056337470630.tgs"
+      ]
+    },
+    {
+      "emoji": "🙊",
+      "title": "speak-no-evil monkey",
+      "persianTitle": "میمون شرنگو",
+      "animationPath": "originals/animations/U_1F64A.tgs",
+      "previewPath": "previews/U_1F64A.png",
+      "effectPaths": [
+        "originals/effects/5089447945527362129.tgs"
+      ]
+    },
+    {
+      "emoji": "😜",
+      "title": "winking face with tongue",
+      "persianTitle": "صورت با چشمک و زبان بیرون آمده",
+      "animationPath": "originals/animations/U_1F61C.tgs",
+      "previewPath": "previews/U_1F61C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😋",
+      "title": "face savoring food",
+      "persianTitle": "صورت درحال لیسیدن لب",
+      "animationPath": "originals/animations/U_1F60B.tgs",
+      "previewPath": "previews/U_1F60B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😝",
+      "title": "squinting face with tongue",
+      "persianTitle": "زبونک با چشم بسته",
+      "animationPath": "originals/animations/U_1F61D.tgs",
+      "previewPath": "previews/U_1F61D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😉",
+      "title": "winking face",
+      "persianTitle": "چشمک",
+      "animationPath": "originals/animations/U_1F609.tgs",
+      "previewPath": "previews/U_1F609.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😏",
+      "title": "smirking face",
+      "persianTitle": "پوزخند",
+      "animationPath": "originals/animations/U_1F60F.tgs",
+      "previewPath": "previews/U_1F60F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😚",
+      "title": "kissing face with closed eyes",
+      "persianTitle": "بوسهٔ خجالتی",
+      "animationPath": "originals/animations/U_1F61A.tgs",
+      "previewPath": "previews/U_1F61A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😞",
+      "title": "disappointed face",
+      "persianTitle": "ناامید",
+      "animationPath": "originals/animations/U_1F61E.tgs",
+      "previewPath": "previews/U_1F61E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😕",
+      "title": "confused face",
+      "persianTitle": "گیج‌شده",
+      "animationPath": "originals/animations/U_1F615.tgs",
+      "previewPath": "previews/U_1F615.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😟",
+      "title": "worried face",
+      "persianTitle": "چهره نگران",
+      "animationPath": "originals/animations/U_1F61F.tgs",
+      "previewPath": "previews/U_1F61F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😱",
+      "title": "face screaming in fear",
+      "persianTitle": "جیغ ترس",
+      "animationPath": "originals/animations/U_1F631.tgs",
+      "previewPath": "previews/U_1F631.png",
+      "effectPaths": [
+        "originals/effects/4967494041374556629.tgs"
+      ]
+    },
+    {
+      "emoji": "☺",
+      "title": "smiling face",
+      "persianTitle": "لبخند",
+      "animationPath": "originals/animations/U_263A.tgs",
+      "previewPath": "previews/U_263A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😴",
+      "title": "sleeping face",
+      "persianTitle": "خوابیده",
+      "animationPath": "originals/animations/U_1F634.tgs",
+      "previewPath": "previews/U_1F634.png",
+      "effectPaths": [
+        "originals/effects/5109477370893435421.tgs"
+      ]
+    },
+    {
+      "emoji": "😎",
+      "title": "smiling face with sunglasses",
+      "persianTitle": "چهره خندان با عینک دودی",
+      "animationPath": "originals/animations/U_1F60E.tgs",
+      "previewPath": "previews/U_1F60E.png",
+      "effectPaths": [
+        "originals/effects/4925230459375322151.tgs"
+      ]
+    },
+    {
+      "emoji": "😿",
+      "title": "crying cat",
+      "persianTitle": "گربهٔ گریان",
+      "animationPath": "originals/animations/U_1F63F.tgs",
+      "previewPath": "previews/U_1F63F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😺",
+      "title": "grinning cat",
+      "persianTitle": "گربهٔ خندان",
+      "animationPath": "originals/animations/U_1F63A.tgs",
+      "previewPath": "previews/U_1F63A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😸",
+      "title": "grinning cat with smiling eyes",
+      "persianTitle": "گربه با چشم‌های خندان",
+      "animationPath": "originals/animations/U_1F638.tgs",
+      "previewPath": "previews/U_1F638.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙀",
+      "title": "weary cat",
+      "persianTitle": "گربهٔ بهت‌زده",
+      "animationPath": "originals/animations/U_1F640.tgs",
+      "previewPath": "previews/U_1F640.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😹",
+      "title": "cat with tears of joy",
+      "persianTitle": "گربهٔ خندان با اشک شوق",
+      "animationPath": "originals/animations/U_1F639.tgs",
+      "previewPath": "previews/U_1F639.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😽",
+      "title": "kissing cat",
+      "persianTitle": "گربه و بوسهٔ خجالتی",
+      "animationPath": "originals/animations/U_1F63D.tgs",
+      "previewPath": "previews/U_1F63D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😼",
+      "title": "cat with wry smile",
+      "persianTitle": "گربه با پوزخند",
+      "animationPath": "originals/animations/U_1F63C.tgs",
+      "previewPath": "previews/U_1F63C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😾",
+      "title": "pouting cat",
+      "persianTitle": "گربهٔ اخمو",
+      "animationPath": "originals/animations/U_1F63E.tgs",
+      "previewPath": "previews/U_1F63E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎊",
+      "title": "confetti ball",
+      "persianTitle": "توپ پولکی",
+      "animationPath": "originals/animations/U_1F38A.tgs",
+      "previewPath": "previews/U_1F38A.png",
+      "effectPaths": [
+        "originals/effects/5041819580008236993.tgs"
+      ]
+    },
+    {
+      "emoji": "👿",
+      "title": "angry face with horns",
+      "persianTitle": "چهره عصبانی با دو شاخ",
+      "animationPath": "originals/animations/U_1F47F.tgs",
+      "previewPath": "previews/U_1F47F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😈",
+      "title": "smiling face with horns",
+      "persianTitle": "صورت لبخندزنان با دوشاخ",
+      "animationPath": "originals/animations/U_1F608.tgs",
+      "previewPath": "previews/U_1F608.png",
+      "effectPaths": [
+        "originals/effects/4960944078809203417.tgs"
+      ]
+    },
+    {
+      "emoji": "🔥",
+      "title": "fire",
+      "persianTitle": "آتش",
+      "animationPath": "originals/animations/U_1F525.tgs",
+      "previewPath": "previews/U_1F525.png",
+      "effectPaths": [
+        "originals/effects/5104841245755180586.tgs"
+      ]
+    },
+    {
+      "emoji": "😀",
+      "title": "grinning face",
+      "persianTitle": "خنده",
+      "animationPath": "originals/animations/U_1F600.tgs",
+      "previewPath": "previews/U_1F600.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😃",
+      "title": "grinning face with big eyes",
+      "persianTitle": "صورت خندان",
+      "animationPath": "originals/animations/U_1F603.tgs",
+      "previewPath": "previews/U_1F603.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😆",
+      "title": "grinning squinting face",
+      "persianTitle": "صورت نیشخندزنان با چشم نیم‌باز",
+      "animationPath": "originals/animations/U_1F606.tgs",
+      "previewPath": "previews/U_1F606.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😅",
+      "title": "grinning face with sweat",
+      "persianTitle": "صورت خندان و عرق‌کرده",
+      "animationPath": "originals/animations/U_1F605.tgs",
+      "previewPath": "previews/U_1F605.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤣",
+      "title": "rolling on the floor laughing",
+      "persianTitle": "از خنده غش کردن",
+      "animationPath": "originals/animations/U_1F923.tgs",
+      "previewPath": "previews/U_1F923.png",
+      "effectPaths": [
+        "originals/effects/5066993302453093673.tgs"
+      ]
+    },
+    {
+      "emoji": "🎂",
+      "title": "birthday cake",
+      "persianTitle": "کیک تولد",
+      "animationPath": "originals/animations/U_1F382.tgs",
+      "previewPath": "previews/U_1F382.png",
+      "effectPaths": [
+        "originals/effects/5134366251107222485.tgs"
+      ]
+    },
+    {
+      "emoji": "😄",
+      "title": "grinning face with smiling eyes",
+      "persianTitle": "خندان",
+      "animationPath": "originals/animations/U_1F604.tgs",
+      "previewPath": "previews/U_1F604.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤬",
+      "title": "face with symbols on mouth",
+      "persianTitle": "صورت با نمادهایی روی دهان",
+      "animationPath": "originals/animations/U_1F92C.tgs",
+      "previewPath": "previews/U_1F92C.png",
+      "effectPaths": [
+        "originals/effects/5170149264327704981.tgs"
+      ]
+    },
+    {
+      "emoji": "😤",
+      "title": "face with steam from nose",
+      "persianTitle": "ژست برندگی با دلخوری",
+      "animationPath": "originals/animations/U_1F624.tgs",
+      "previewPath": "previews/U_1F624.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤪",
+      "title": "zany face",
+      "persianTitle": "صورتک لوده",
+      "animationPath": "originals/animations/U_1F92A.tgs",
+      "previewPath": "previews/U_1F92A.png",
+      "effectPaths": [
+        "originals/effects/5006239241999483552.tgs"
+      ]
+    },
+    {
+      "emoji": "😛",
+      "title": "face with tongue",
+      "persianTitle": "صورت با زبان بیرون‌آمده",
+      "animationPath": "originals/animations/U_1F61B.tgs",
+      "previewPath": "previews/U_1F61B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥵",
+      "title": "hot face",
+      "persianTitle": "خیلی گرم",
+      "animationPath": "originals/animations/U_1F975.tgs",
+      "previewPath": "previews/U_1F975.png",
+      "effectPaths": [
+        "originals/effects/5120948558526153760.tgs"
+      ]
+    },
+    {
+      "emoji": "🥶",
+      "title": "cold face",
+      "persianTitle": "خیلی سرد",
+      "animationPath": "originals/animations/U_1F976.tgs",
+      "previewPath": "previews/U_1F976.png",
+      "effectPaths": [
+        "originals/effects/5026486074315113392.tgs"
+      ]
+    },
+    {
+      "emoji": "🤯",
+      "title": "exploding head",
+      "persianTitle": "سر منفجرشده",
+      "animationPath": "originals/animations/U_1F92F.tgs",
+      "previewPath": "previews/U_1F92F.png",
+      "effectPaths": [
+        "originals/effects/5158936234294248618.tgs"
+      ]
+    },
+    {
+      "emoji": "🌕",
+      "title": "full moon",
+      "persianTitle": "ماه کامل",
+      "animationPath": "originals/animations/U_1F315.tgs",
+      "previewPath": "previews/U_1F315.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌖",
+      "title": "waning gibbous moon",
+      "persianTitle": "کوژماه کاهنده",
+      "animationPath": "originals/animations/U_1F316.tgs",
+      "previewPath": "previews/U_1F316.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌗",
+      "title": "last quarter moon",
+      "persianTitle": "یک‌چهارم پایان",
+      "animationPath": "originals/animations/U_1F317.tgs",
+      "previewPath": "previews/U_1F317.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌘",
+      "title": "waning crescent moon",
+      "persianTitle": "هلال کاهنده ماه",
+      "animationPath": "originals/animations/U_1F318.tgs",
+      "previewPath": "previews/U_1F318.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌑",
+      "title": "new moon",
+      "persianTitle": "ماه نو",
+      "animationPath": "originals/animations/U_1F311.tgs",
+      "previewPath": "previews/U_1F311.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌒",
+      "title": "waxing crescent moon",
+      "persianTitle": "هلال فزاینده ماه",
+      "animationPath": "originals/animations/U_1F312.tgs",
+      "previewPath": "previews/U_1F312.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌓",
+      "title": "first quarter moon",
+      "persianTitle": "یک‌چهارم نخست",
+      "animationPath": "originals/animations/U_1F313.tgs",
+      "previewPath": "previews/U_1F313.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌔",
+      "title": "waxing gibbous moon",
+      "persianTitle": "کوژماه افزاینده",
+      "animationPath": "originals/animations/U_1F314.tgs",
+      "previewPath": "previews/U_1F314.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌞",
+      "title": "sun with face",
+      "persianTitle": "صورت خورشید",
+      "animationPath": "originals/animations/U_1F31E.tgs",
+      "previewPath": "previews/U_1F31E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌝",
+      "title": "full moon face",
+      "persianTitle": "صورت ماه کامل",
+      "animationPath": "originals/animations/U_1F31D.tgs",
+      "previewPath": "previews/U_1F31D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😇",
+      "title": "smiling face with halo",
+      "persianTitle": "هاله‌دار",
+      "animationPath": "originals/animations/U_1F607.tgs",
+      "previewPath": "previews/U_1F607.png",
+      "effectPaths": [
+        "originals/effects/4913435779100836551.tgs"
+      ]
+    },
+    {
+      "emoji": "😯",
+      "title": "hushed face",
+      "persianTitle": "مات و مبهوت",
+      "animationPath": "originals/animations/U_1F62F.tgs",
+      "previewPath": "previews/U_1F62F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😦",
+      "title": "frowning face with open mouth",
+      "persianTitle": "چهره درهم‌کشیده با دهان باز",
+      "animationPath": "originals/animations/U_1F626.tgs",
+      "previewPath": "previews/U_1F626.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥱",
+      "title": "yawning face",
+      "persianTitle": "صورت خمیازه‌کش",
+      "animationPath": "originals/animations/U_1F971.tgs",
+      "previewPath": "previews/U_1F971.png",
+      "effectPaths": [
+        "originals/effects/4988134357119009237.tgs"
+      ]
+    },
+    {
+      "emoji": "🚕",
+      "title": "taxi",
+      "persianTitle": "تاکسی",
+      "animationPath": "originals/animations/U_1F695.tgs",
+      "previewPath": "previews/U_1F695.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😲",
+      "title": "astonished face",
+      "persianTitle": "بهت‌زده",
+      "animationPath": "originals/animations/U_1F632.tgs",
+      "previewPath": "previews/U_1F632.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😊",
+      "title": "smiling face with smiling eyes",
+      "persianTitle": "لبخند خجالتی",
+      "animationPath": "originals/animations/U_1F60A.tgs",
+      "previewPath": "previews/U_1F60A.png",
+      "effectPaths": [
+        "originals/effects/4965357582907606094.tgs"
+      ]
+    },
+    {
+      "emoji": "🙂",
+      "title": "slightly smiling face",
+      "persianTitle": "لبخند ملایم",
+      "animationPath": "originals/animations/U_1F642.tgs",
+      "previewPath": "previews/U_1F642.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙃",
+      "title": "upside-down face",
+      "persianTitle": "صورت وارونه",
+      "animationPath": "originals/animations/U_1F643.tgs",
+      "previewPath": "previews/U_1F643.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😷",
+      "title": "face with medical mask",
+      "persianTitle": "صورت با ماسک پزشکی",
+      "animationPath": "originals/animations/U_1F637.tgs",
+      "previewPath": "previews/U_1F637.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌚",
+      "title": "new moon face",
+      "persianTitle": "صورت ماه نو",
+      "animationPath": "originals/animations/U_1F31A.tgs",
+      "previewPath": "previews/U_1F31A.png",
+      "effectPaths": [
+        "originals/effects/4961155507164283482.tgs"
+      ]
+    },
+    {
+      "emoji": "🌛",
+      "title": "first quarter moon face",
+      "persianTitle": "صورت یک‌چهارم اول",
+      "animationPath": "originals/animations/U_1F31B.tgs",
+      "previewPath": "previews/U_1F31B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌜",
+      "title": "last quarter moon face",
+      "persianTitle": "صورت یک‌چهارم آخر",
+      "animationPath": "originals/animations/U_1F31C.tgs",
+      "previewPath": "previews/U_1F31C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧟‍♀",
+      "title": "woman zombie",
+      "persianTitle": "مرده متحرک زن",
+      "animationPath": "originals/animations/U_1F9DF_200D_2640.tgs",
+      "previewPath": "previews/U_1F9DF_200D_2640.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧟",
+      "title": "zombie",
+      "persianTitle": "مرده متحرک",
+      "animationPath": "originals/animations/U_1F9DF.tgs",
+      "previewPath": "previews/U_1F9DF.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧛‍♀",
+      "title": "woman vampire",
+      "persianTitle": "دراکولای زن",
+      "animationPath": "originals/animations/U_1F9DB_200D_2640.tgs",
+      "previewPath": "previews/U_1F9DB_200D_2640.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧛",
+      "title": "vampire",
+      "persianTitle": "خون‌آشام",
+      "animationPath": "originals/animations/U_1F9DB.tgs",
+      "previewPath": "previews/U_1F9DB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧛‍♂",
+      "title": "man vampire",
+      "persianTitle": "خون‌آشام مرد",
+      "animationPath": "originals/animations/U_1F9DB_200D_2642.tgs",
+      "previewPath": "previews/U_1F9DB_200D_2642.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🕷",
+      "title": "spider",
+      "persianTitle": "عنکبوت",
+      "animationPath": "originals/animations/U_1F577.tgs",
+      "previewPath": "previews/U_1F577.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦇",
+      "title": "bat",
+      "persianTitle": "خفاش",
+      "animationPath": "originals/animations/U_1F987.tgs",
+      "previewPath": "previews/U_1F987.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⚰",
+      "title": "coffin",
+      "persianTitle": "تابوت",
+      "animationPath": "originals/animations/U_26B0.tgs",
+      "previewPath": "previews/U_26B0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🕸",
+      "title": "spider web",
+      "persianTitle": "تار عنکبوت",
+      "animationPath": "originals/animations/U_1F578.tgs",
+      "previewPath": "previews/U_1F578.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😐",
+      "title": "neutral face",
+      "persianTitle": "خنثی",
+      "animationPath": "originals/animations/U_1F610.tgs",
+      "previewPath": "previews/U_1F610.png",
+      "effectPaths": [
+        "originals/effects/5066978240002786236.tgs"
+      ]
+    },
+    {
+      "emoji": "👻",
+      "title": "ghost",
+      "persianTitle": "روح",
+      "animationPath": "originals/animations/U_1F47B.tgs",
+      "previewPath": "previews/U_1F47B.png",
+      "effectPaths": [
+        "originals/effects/5107144215809229474.tgs"
+      ]
+    },
+    {
+      "emoji": "🧟‍♂",
+      "title": "man zombie",
+      "persianTitle": "مرده متحرک مرد",
+      "animationPath": "originals/animations/U_1F9DF_200D_2642.tgs",
+      "previewPath": "previews/U_1F9DF_200D_2642.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗿",
+      "title": "moai",
+      "persianTitle": "سردیس موآی",
+      "animationPath": "originals/animations/U_1F5FF.tgs",
+      "previewPath": "previews/U_1F5FF.png",
+      "effectPaths": [
+        "originals/effects/5006084210859967333.tgs"
+      ]
+    },
+    {
+      "emoji": "🎃",
+      "title": "jack-o-lantern",
+      "persianTitle": "فانوس کدو تنبل",
+      "animationPath": "originals/animations/U_1F383.tgs",
+      "previewPath": "previews/U_1F383.png",
+      "effectPaths": [
+        "originals/effects/5107491876231971605.tgs"
+      ]
+    },
+    {
+      "emoji": "🤗",
+      "title": "smiling face with open hands",
+      "persianTitle": "صورت خندان با دستان باز",
+      "animationPath": "originals/animations/U_1F917.tgs",
+      "previewPath": "previews/U_1F917.png",
+      "effectPaths": [
+        "originals/effects/4913445953878360935.tgs"
+      ]
+    },
+    {
+      "emoji": "🥺",
+      "title": "pleading face",
+      "persianTitle": "التماس‌کنان",
+      "animationPath": "originals/animations/U_1F97A.tgs",
+      "previewPath": "previews/U_1F97A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤠",
+      "title": "cowboy hat face",
+      "persianTitle": "کلاه کابوی",
+      "animationPath": "originals/animations/U_1F920.tgs",
+      "previewPath": "previews/U_1F920.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥴",
+      "title": "woozy face",
+      "persianTitle": "نشئه",
+      "animationPath": "originals/animations/U_1F974.tgs",
+      "previewPath": "previews/U_1F974.png",
+      "effectPaths": [
+        "originals/effects/4927250902185673331.tgs"
+      ]
+    },
+    {
+      "emoji": "☠",
+      "title": "skull and crossbones",
+      "persianTitle": "جمجمه و استخوان صلیبی",
+      "animationPath": "originals/animations/U_2620.tgs",
+      "previewPath": "previews/U_2620.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔍",
+      "title": "magnifying glass tilted left",
+      "persianTitle": "ذره‌بین روبه‌چپ",
+      "animationPath": "originals/animations/U_1F50D.tgs",
+      "previewPath": "previews/U_1F50D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔎",
+      "title": "magnifying glass tilted right",
+      "persianTitle": "ذره‌بین روبه‌راست",
+      "animationPath": "originals/animations/U_1F50E.tgs",
+      "previewPath": "previews/U_1F50E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "✨",
+      "title": "sparkles",
+      "persianTitle": "درخشش",
+      "animationPath": "originals/animations/U_2728.tgs",
+      "previewPath": "previews/U_2728.png",
+      "effectPaths": [
+        "originals/effects/5089460564141278042.tgs"
+      ]
+    },
+    {
+      "emoji": "🤫",
+      "title": "shushing face",
+      "persianTitle": "هیس",
+      "animationPath": "originals/animations/U_1F92B.tgs",
+      "previewPath": "previews/U_1F92B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💤",
+      "title": "ZZZ",
+      "persianTitle": "خروپف",
+      "animationPath": "originals/animations/U_1F4A4.tgs",
+      "previewPath": "previews/U_1F4A4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤑",
+      "title": "money-mouth face",
+      "persianTitle": "صورت پول‌دوست",
+      "animationPath": "originals/animations/U_1F911.tgs",
+      "previewPath": "previews/U_1F911.png",
+      "effectPaths": [
+        "originals/effects/5026331292283700185.tgs"
+      ]
+    },
+    {
+      "emoji": "🤭",
+      "title": "face with hand over mouth",
+      "persianTitle": "صورتک با دست روی دهان",
+      "animationPath": "originals/animations/U_1F92D.tgs",
+      "previewPath": "previews/U_1F92D.png",
+      "effectPaths": [
+        "originals/effects/5120906893048415743.tgs"
+      ]
+    },
+    {
+      "emoji": "⚡",
+      "title": "high voltage",
+      "persianTitle": "ولتاژ بالا",
+      "animationPath": "originals/animations/U_26A1.tgs",
+      "previewPath": "previews/U_26A1.png",
+      "effectPaths": [
+        "originals/effects/5123236135417415011.tgs"
+      ]
+    },
+    {
+      "emoji": "⭐",
+      "title": "star",
+      "persianTitle": "ستاره سفید",
+      "animationPath": "originals/animations/U_2B50.tgs",
+      "previewPath": "previews/U_2B50.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦾",
+      "title": "mechanical arm",
+      "persianTitle": "بازوی مکانیکی",
+      "animationPath": "originals/animations/U_1F9BE.tgs",
+      "previewPath": "previews/U_1F9BE.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎆",
+      "title": "fireworks",
+      "persianTitle": "آتش‌بازی",
+      "animationPath": "originals/animations/U_1F386.tgs",
+      "previewPath": "previews/U_1F386.png",
+      "effectPaths": [
+        "originals/effects/5044101728060834560.tgs"
+      ]
+    },
+    {
+      "emoji": "🤥",
+      "title": "lying face",
+      "persianTitle": "صورت دروغگو",
+      "animationPath": "originals/animations/U_1F925.tgs",
+      "previewPath": "previews/U_1F925.png",
+      "effectPaths": [
+        "originals/effects/5066635132245378011.tgs"
+      ]
+    },
+    {
+      "emoji": "🎇",
+      "title": "sparkler",
+      "persianTitle": "فشفشه",
+      "animationPath": "originals/animations/U_1F387.tgs",
+      "previewPath": "previews/U_1F387.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❄",
+      "title": "snowflake",
+      "persianTitle": "برف‌دانه",
+      "animationPath": "originals/animations/U_2744.tgs",
+      "previewPath": "previews/U_2744.png",
+      "effectPaths": [
+        "originals/effects/5066795381770158548.tgs"
+      ]
+    },
+    {
+      "emoji": "🎅",
+      "title": "Santa Claus",
+      "persianTitle": "بابا نوئل",
+      "animationPath": "originals/animations/U_1F385.tgs",
+      "previewPath": "previews/U_1F385.png",
+      "effectPaths": [
+        "originals/effects/4990285736302346915.tgs"
+      ]
+    },
+    {
+      "emoji": "🤶",
+      "title": "Mrs. Claus",
+      "persianTitle": "مامان نوئل",
+      "animationPath": "originals/animations/U_1F936.tgs",
+      "previewPath": "previews/U_1F936.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤡",
+      "title": "clown face",
+      "persianTitle": "دلقک",
+      "animationPath": "originals/animations/U_1F921.tgs",
+      "previewPath": "previews/U_1F921.png",
+      "effectPaths": [
+        "originals/effects/4988252812317033130.tgs"
+      ]
+    },
+    {
+      "emoji": "🚗",
+      "title": "automobile",
+      "persianTitle": "خودرو",
+      "animationPath": "originals/animations/U_1F697.tgs",
+      "previewPath": "previews/U_1F697.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍾",
+      "title": "bottle with popping cork",
+      "persianTitle": "شامپاین جوشان",
+      "animationPath": "originals/animations/U_1F37E.tgs",
+      "previewPath": "previews/U_1F37E.png",
+      "effectPaths": [
+        "originals/effects/4961122255527478034.tgs"
+      ]
+    },
+    {
+      "emoji": "😗",
+      "title": "kissing face",
+      "persianTitle": "بوسیدن",
+      "animationPath": "originals/animations/U_1F617.tgs",
+      "previewPath": "previews/U_1F617.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😙",
+      "title": "kissing face with smiling eyes",
+      "persianTitle": "بوسیدن با چشمان خندان",
+      "animationPath": "originals/animations/U_1F619.tgs",
+      "previewPath": "previews/U_1F619.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌟",
+      "title": "glowing star",
+      "persianTitle": "ستاره درخشان",
+      "animationPath": "originals/animations/U_1F31F.tgs",
+      "previewPath": "previews/U_1F31F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💫",
+      "title": "dizzy",
+      "persianTitle": "سرگیجه",
+      "animationPath": "originals/animations/U_1F4AB.tgs",
+      "previewPath": "previews/U_1F4AB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💞",
+      "title": "revolving hearts",
+      "persianTitle": "قلب چرخان",
+      "animationPath": "originals/animations/U_1F49E.tgs",
+      "previewPath": "previews/U_1F49E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💗",
+      "title": "growing heart",
+      "persianTitle": "قلب هیجان‌زده",
+      "animationPath": "originals/animations/U_1F497.tgs",
+      "previewPath": "previews/U_1F497.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💓",
+      "title": "beating heart",
+      "persianTitle": "قلب تپنده",
+      "animationPath": "originals/animations/U_1F493.tgs",
+      "previewPath": "previews/U_1F493.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❣",
+      "title": "heart exclamation",
+      "persianTitle": "علامت تعجب قلبی",
+      "animationPath": "originals/animations/U_2763.tgs",
+      "previewPath": "previews/U_2763.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👮‍♀",
+      "title": "woman police officer",
+      "persianTitle": "پلیس زن",
+      "animationPath": "originals/animations/U_1F46E_200D_2640.tgs",
+      "previewPath": "previews/U_1F46E_200D_2640.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚓",
+      "title": "police car",
+      "persianTitle": "ماشین پلیس",
+      "animationPath": "originals/animations/U_1F693.tgs",
+      "previewPath": "previews/U_1F693.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎮",
+      "title": "video game",
+      "persianTitle": "بازی ویدیویی",
+      "animationPath": "originals/animations/U_1F3AE.tgs",
+      "previewPath": "previews/U_1F3AE.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💖",
+      "title": "sparkling heart",
+      "persianTitle": "قلب درخشان",
+      "animationPath": "originals/animations/U_1F496.tgs",
+      "previewPath": "previews/U_1F496.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💕",
+      "title": "two hearts",
+      "persianTitle": "دو قلب",
+      "animationPath": "originals/animations/U_1F495.tgs",
+      "previewPath": "previews/U_1F495.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤩",
+      "title": "star-struck",
+      "persianTitle": "فوق‌العاده",
+      "animationPath": "originals/animations/U_1F929.tgs",
+      "previewPath": "previews/U_1F929.png",
+      "effectPaths": [
+        "originals/effects/5161554034041029689.tgs"
+      ]
+    },
+    {
+      "emoji": "🥂",
+      "title": "clinking glasses",
+      "persianTitle": "صدای به‌هم خوردن پیاله‌ها",
+      "animationPath": "originals/animations/U_1F942.tgs",
+      "previewPath": "previews/U_1F942.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💉",
+      "title": "syringe",
+      "persianTitle": "سرنگ",
+      "animationPath": "originals/animations/U_1F489.tgs",
+      "previewPath": "previews/U_1F489.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥲",
+      "title": "smiling face with tear",
+      "persianTitle": "چهرهٔ خندان با اشک",
+      "animationPath": "originals/animations/U_1F972.tgs",
+      "previewPath": "previews/U_1F972.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤤",
+      "title": "drooling face",
+      "persianTitle": "آب افتادن دهان",
+      "animationPath": "originals/animations/U_1F924.tgs",
+      "previewPath": "previews/U_1F924.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥸",
+      "title": "disguised face",
+      "persianTitle": "تغییرقیافه داده",
+      "animationPath": "originals/animations/U_1F978.tgs",
+      "previewPath": "previews/U_1F978.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😬",
+      "title": "grimacing face",
+      "persianTitle": "دهن‌کجی",
+      "animationPath": "originals/animations/U_1F62C.tgs",
+      "previewPath": "previews/U_1F62C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤓",
+      "title": "nerd face",
+      "persianTitle": "خوره",
+      "animationPath": "originals/animations/U_1F913.tgs",
+      "previewPath": "previews/U_1F913.png",
+      "effectPaths": [
+        "originals/effects/5107633812016202563.tgs"
+      ]
+    },
+    {
+      "emoji": "😑",
+      "title": "expressionless face",
+      "persianTitle": "صورت بی‌حالت",
+      "animationPath": "originals/animations/U_1F611.tgs",
+      "previewPath": "previews/U_1F611.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❌",
+      "title": "cross mark",
+      "persianTitle": "ضربدر",
+      "animationPath": "originals/animations/U_274C.tgs",
+      "previewPath": "previews/U_274C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💯",
+      "title": "hundred points",
+      "persianTitle": "۱۰۰ امتیاز",
+      "animationPath": "originals/animations/U_1F4AF.tgs",
+      "previewPath": "previews/U_1F4AF.png",
+      "effectPaths": [
+        "originals/effects/4962976753686414048.tgs"
+      ]
+    },
+    {
+      "emoji": "❗",
+      "title": "red exclamation mark",
+      "persianTitle": "علامت تعجب قرمز",
+      "animationPath": "originals/animations/U_2757.tgs",
+      "previewPath": "previews/U_2757.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💢",
+      "title": "anger symbol",
+      "persianTitle": "نماد عصبانیت",
+      "animationPath": "originals/animations/U_1F4A2.tgs",
+      "previewPath": "previews/U_1F4A2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♨",
+      "title": "hot springs",
+      "persianTitle": "چشمهٔ آب گرم",
+      "animationPath": "originals/animations/U_2668.tgs",
+      "previewPath": "previews/U_2668.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💬",
+      "title": "speech balloon",
+      "persianTitle": "بالن گفتار",
+      "animationPath": "originals/animations/U_1F4AC.tgs",
+      "previewPath": "previews/U_1F4AC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💭",
+      "title": "thought balloon",
+      "persianTitle": "بالن افکار",
+      "animationPath": "originals/animations/U_1F4AD.tgs",
+      "previewPath": "previews/U_1F4AD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗯",
+      "title": "right anger bubble",
+      "persianTitle": "حباب خشم راست",
+      "animationPath": "originals/animations/U_1F5EF.tgs",
+      "previewPath": "previews/U_1F5EF.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤟",
+      "title": "love-you gesture",
+      "persianTitle": "علامت دوستت دارم",
+      "animationPath": "originals/animations/U_1F91F.tgs",
+      "previewPath": "previews/U_1F91F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❕",
+      "title": "white exclamation mark",
+      "persianTitle": "علامت تعجب سفید",
+      "animationPath": "originals/animations/U_2755.tgs",
+      "previewPath": "previews/U_2755.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❔",
+      "title": "white question mark",
+      "persianTitle": "علامت سؤال سفید",
+      "animationPath": "originals/animations/U_2754.tgs",
+      "previewPath": "previews/U_2754.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❓",
+      "title": "red question mark",
+      "persianTitle": "علامت سؤال قرمز",
+      "animationPath": "originals/animations/U_2753.tgs",
+      "previewPath": "previews/U_2753.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗂",
+      "title": "card index dividers",
+      "persianTitle": "جداکننده",
+      "animationPath": "originals/animations/U_1F5C2.tgs",
+      "previewPath": "previews/U_1F5C2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😶",
+      "title": "face without mouth",
+      "persianTitle": "صورت بدون لب",
+      "animationPath": "originals/animations/U_1F636.tgs",
+      "previewPath": "previews/U_1F636.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦉",
+      "title": "owl",
+      "persianTitle": "جغد",
+      "animationPath": "originals/animations/U_1F989.tgs",
+      "previewPath": "previews/U_1F989.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌱",
+      "title": "seedling",
+      "persianTitle": "جوانه",
+      "animationPath": "originals/animations/U_1F331.tgs",
+      "previewPath": "previews/U_1F331.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🕺",
+      "title": "man dancing",
+      "persianTitle": "مرد درحال رقص",
+      "animationPath": "originals/animations/U_1F57A.tgs",
+      "previewPath": "previews/U_1F57A.png",
+      "effectPaths": [
+        "originals/effects/5026494110198924646.tgs"
+      ]
+    },
+    {
+      "emoji": "🐣",
+      "title": "hatching chick",
+      "persianTitle": "جوجه ازتخم‌بیرون‌آمده",
+      "animationPath": "originals/animations/U_1F423.tgs",
+      "previewPath": "previews/U_1F423.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌲",
+      "title": "evergreen tree",
+      "persianTitle": "همیشه‌سبز",
+      "animationPath": "originals/animations/U_1F332.tgs",
+      "previewPath": "previews/U_1F332.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙁",
+      "title": "slightly frowning face",
+      "persianTitle": "چهره کمی اخم‌کرده",
+      "animationPath": "originals/animations/U_1F641.tgs",
+      "previewPath": "previews/U_1F641.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💃",
+      "title": "woman dancing",
+      "persianTitle": "رقاص",
+      "animationPath": "originals/animations/U_1F483.tgs",
+      "previewPath": "previews/U_1F483.png",
+      "effectPaths": [
+        "originals/effects/5026437541184668623.tgs"
+      ]
+    },
+    {
+      "emoji": "☹",
+      "title": "frowning face",
+      "persianTitle": "اخمو",
+      "animationPath": "originals/animations/U_2639.tgs",
+      "previewPath": "previews/U_2639.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌺",
+      "title": "hibiscus",
+      "persianTitle": "گل ختمی",
+      "animationPath": "originals/animations/U_1F33A.tgs",
+      "previewPath": "previews/U_1F33A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌿",
+      "title": "herb",
+      "persianTitle": "گیاه دارویی",
+      "animationPath": "originals/animations/U_1F33F.tgs",
+      "previewPath": "previews/U_1F33F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌵",
+      "title": "cactus",
+      "persianTitle": "کاکتوس",
+      "animationPath": "originals/animations/U_1F335.tgs",
+      "previewPath": "previews/U_1F335.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌴",
+      "title": "palm tree",
+      "persianTitle": "نخل",
+      "animationPath": "originals/animations/U_1F334.tgs",
+      "previewPath": "previews/U_1F334.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌳",
+      "title": "deciduous tree",
+      "persianTitle": "درخت سبز",
+      "animationPath": "originals/animations/U_1F333.tgs",
+      "previewPath": "previews/U_1F333.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💥",
+      "title": "collision",
+      "persianTitle": "برخورد",
+      "animationPath": "originals/animations/U_1F4A5.tgs",
+      "previewPath": "previews/U_1F4A5.png",
+      "effectPaths": [
+        "originals/effects/5121096477199827757.tgs"
+      ]
+    },
+    {
+      "emoji": "👑",
+      "title": "crown",
+      "persianTitle": "تاج",
+      "animationPath": "originals/animations/U_1F451.tgs",
+      "previewPath": "previews/U_1F451.png",
+      "effectPaths": [
+        "originals/effects/5089422278802801345.tgs"
+      ]
+    },
+    {
+      "emoji": "🏠",
+      "title": "house",
+      "persianTitle": "خانه",
+      "animationPath": "originals/animations/U_1F3E0.tgs",
+      "previewPath": "previews/U_1F3E0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😰",
+      "title": "anxious face with sweat",
+      "persianTitle": "چهره مشوش با عرق",
+      "animationPath": "originals/animations/U_1F630.tgs",
+      "previewPath": "previews/U_1F630.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😓",
+      "title": "downcast face with sweat",
+      "persianTitle": "چهره سردرگریبان با عرق",
+      "animationPath": "originals/animations/U_1F613.tgs",
+      "previewPath": "previews/U_1F613.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👩‍💻",
+      "title": "woman technologist",
+      "persianTitle": "کارشناس فناوری زن",
+      "animationPath": "originals/animations/U_1F469_200D_1F4BB.tgs",
+      "previewPath": "previews/U_1F469_200D_1F4BB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧑‍💻",
+      "title": "technologist",
+      "persianTitle": "متخصص",
+      "animationPath": "originals/animations/U_1F9D1_200D_1F4BB.tgs",
+      "previewPath": "previews/U_1F9D1_200D_1F4BB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👨‍💻",
+      "title": "man technologist",
+      "persianTitle": "کارشناس فناوری مرد",
+      "animationPath": "originals/animations/U_1F468_200D_1F4BB.tgs",
+      "previewPath": "previews/U_1F468_200D_1F4BB.png",
+      "effectPaths": [
+        "originals/effects/5107153978269893301.tgs"
+      ]
+    },
+    {
+      "emoji": "👵",
+      "title": "old woman",
+      "persianTitle": "پیرزن",
+      "animationPath": "originals/animations/U_1F475.tgs",
+      "previewPath": "previews/U_1F475.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😪",
+      "title": "sleepy face",
+      "persianTitle": "خواب‌آلود",
+      "animationPath": "originals/animations/U_1F62A.tgs",
+      "previewPath": "previews/U_1F62A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "✍",
+      "title": "writing hand",
+      "persianTitle": "نوشتن با دست",
+      "animationPath": "originals/animations/U_270D.tgs",
+      "previewPath": "previews/U_270D.png",
+      "effectPaths": [
+        "originals/effects/4913460264709391187.tgs"
+      ]
+    },
+    {
+      "emoji": "😫",
+      "title": "tired face",
+      "persianTitle": "صورت خسته",
+      "animationPath": "originals/animations/U_1F62B.tgs",
+      "previewPath": "previews/U_1F62B.png",
+      "effectPaths": [
+        "originals/effects/5089524022283076814.tgs"
+      ]
+    },
+    {
+      "emoji": "🏖",
+      "title": "beach with umbrella",
+      "persianTitle": "ساحل و سایبان",
+      "animationPath": "originals/animations/U_1F3D6.tgs",
+      "previewPath": "previews/U_1F3D6.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😨",
+      "title": "fearful face",
+      "persianTitle": "ترسیده",
+      "animationPath": "originals/animations/U_1F628.tgs",
+      "previewPath": "previews/U_1F628.png",
+      "effectPaths": [
+        "originals/effects/4913510691920413388.tgs"
+      ]
+    },
+    {
+      "emoji": "🌷",
+      "title": "tulip",
+      "persianTitle": "لاله",
+      "animationPath": "originals/animations/U_1F337.tgs",
+      "previewPath": "previews/U_1F337.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💩",
+      "title": "pile of poo",
+      "persianTitle": "یه تپهٔ گه",
+      "animationPath": "originals/animations/U_1F4A9.tgs",
+      "previewPath": "previews/U_1F4A9.png",
+      "effectPaths": [
+        "originals/effects/5046589136895476101.tgs"
+      ]
+    },
+    {
+      "emoji": "🎉",
+      "title": "party popper",
+      "persianTitle": "بمب کاغذ رنگی",
+      "animationPath": "originals/animations/U_1F389.tgs",
+      "previewPath": "previews/U_1F389.png",
+      "effectPaths": [
+        "originals/effects/5046509860389126442.tgs"
+      ]
+    },
+    {
+      "emoji": "💟",
+      "title": "heart decoration",
+      "persianTitle": "قلب تزئینی",
+      "animationPath": "originals/animations/U_1F49F.tgs",
+      "previewPath": "previews/U_1F49F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎈",
+      "title": "balloon",
+      "persianTitle": "بادکنک",
+      "animationPath": "originals/animations/U_1F388.tgs",
+      "previewPath": "previews/U_1F388.png",
+      "effectPaths": [
+        "originals/effects/5046284769743077765.tgs"
+      ]
+    },
+    {
+      "emoji": "😖",
+      "title": "confounded face",
+      "persianTitle": "سردرگم",
+      "animationPath": "originals/animations/U_1F616.tgs",
+      "previewPath": "previews/U_1F616.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😩",
+      "title": "weary face",
+      "persianTitle": "ازپاافتاده",
+      "animationPath": "originals/animations/U_1F629.tgs",
+      "previewPath": "previews/U_1F629.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐥",
+      "title": "front-facing baby chick",
+      "persianTitle": "جوجه از روبرو",
+      "animationPath": "originals/animations/U_1F425.tgs",
+      "previewPath": "previews/U_1F425.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤐",
+      "title": "zipper-mouth face",
+      "persianTitle": "دهان چفت",
+      "animationPath": "originals/animations/U_1F910.tgs",
+      "previewPath": "previews/U_1F910.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😂",
+      "title": "face with tears of joy",
+      "persianTitle": "صورت با اشک شادی",
+      "animationPath": "originals/animations/U_1F602.tgs",
+      "previewPath": "previews/U_1F602.png",
+      "effectPaths": [
+        "originals/effects/5127791914602463817.tgs"
+      ]
+    },
+    {
+      "emoji": "🎨",
+      "title": "artist palette",
+      "persianTitle": "پالت نقاشی",
+      "animationPath": "originals/animations/U_1F3A8.tgs",
+      "previewPath": "previews/U_1F3A8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌹",
+      "title": "rose",
+      "persianTitle": "رز",
+      "animationPath": "originals/animations/U_1F339.tgs",
+      "previewPath": "previews/U_1F339.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌸",
+      "title": "cherry blossom",
+      "persianTitle": "شکوفه گیلاس",
+      "animationPath": "originals/animations/U_1F338.tgs",
+      "previewPath": "previews/U_1F338.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤖",
+      "title": "robot",
+      "persianTitle": "روبات",
+      "animationPath": "originals/animations/U_1F916.tgs",
+      "previewPath": "previews/U_1F916.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💻",
+      "title": "laptop",
+      "persianTitle": "رایانهٔ کیفی",
+      "animationPath": "originals/animations/U_1F4BB.tgs",
+      "previewPath": "previews/U_1F4BB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "☝",
+      "title": "index pointing up",
+      "persianTitle": "اشاره به بالا",
+      "animationPath": "originals/animations/U_261D.tgs",
+      "previewPath": "previews/U_261D.png",
+      "effectPaths": [
+        "originals/effects/5071394291016795490.tgs"
+      ]
+    },
+    {
+      "emoji": "✊",
+      "title": "raised fist",
+      "persianTitle": "مشت کردن",
+      "animationPath": "originals/animations/U_270A.tgs",
+      "previewPath": "previews/U_270A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "✋",
+      "title": "raised hand",
+      "persianTitle": "دست بالابرده",
+      "animationPath": "originals/animations/U_270B.tgs",
+      "previewPath": "previews/U_270B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "✌",
+      "title": "victory hand",
+      "persianTitle": "علامت پیروزی",
+      "animationPath": "originals/animations/U_270C.tgs",
+      "previewPath": "previews/U_270C.png",
+      "effectPaths": [
+        "originals/effects/5067074180982244082.tgs"
+      ]
+    },
+    {
+      "emoji": "👂",
+      "title": "ear",
+      "persianTitle": "گوش",
+      "animationPath": "originals/animations/U_1F442.tgs",
+      "previewPath": "previews/U_1F442.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👃",
+      "title": "nose",
+      "persianTitle": "بینی",
+      "animationPath": "originals/animations/U_1F443.tgs",
+      "previewPath": "previews/U_1F443.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👆",
+      "title": "backhand index pointing up",
+      "persianTitle": "اشاره به بالا با پشت دست",
+      "animationPath": "originals/animations/U_1F446.tgs",
+      "previewPath": "previews/U_1F446.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👇",
+      "title": "backhand index pointing down",
+      "persianTitle": "اشاره به پایین",
+      "animationPath": "originals/animations/U_1F447.tgs",
+      "previewPath": "previews/U_1F447.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👈",
+      "title": "backhand index pointing left",
+      "persianTitle": "اشاره به چپ",
+      "animationPath": "originals/animations/U_1F448.tgs",
+      "previewPath": "previews/U_1F448.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👉",
+      "title": "backhand index pointing right",
+      "persianTitle": "اشاره به راست",
+      "animationPath": "originals/animations/U_1F449.tgs",
+      "previewPath": "previews/U_1F449.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👊",
+      "title": "oncoming fist",
+      "persianTitle": "مشت گره‌کرده",
+      "animationPath": "originals/animations/U_1F44A.tgs",
+      "previewPath": "previews/U_1F44A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👋",
+      "title": "waving hand",
+      "persianTitle": "تکان دادن دست",
+      "animationPath": "originals/animations/U_1F44B.tgs",
+      "previewPath": "previews/U_1F44B.png",
+      "effectPaths": [
+        "originals/effects/5089234812070265877.tgs"
+      ]
+    },
+    {
+      "emoji": "👌",
+      "title": "OK hand",
+      "persianTitle": "علامت اوکی",
+      "animationPath": "originals/animations/U_1F44C.tgs",
+      "previewPath": "previews/U_1F44C.png",
+      "effectPaths": [
+        "originals/effects/5066947642655769508.tgs"
+      ]
+    },
+    {
+      "emoji": "👍",
+      "title": "thumbs up",
+      "persianTitle": "پسندیدن",
+      "animationPath": "originals/animations/U_1F44D.tgs",
+      "previewPath": "previews/U_1F44D.png",
+      "effectPaths": [
+        "originals/effects/5107584321108051014.tgs"
+      ]
+    },
+    {
+      "emoji": "👎",
+      "title": "thumbs down",
+      "persianTitle": "نپسندیدن",
+      "animationPath": "originals/animations/U_1F44E.tgs",
+      "previewPath": "previews/U_1F44E.png",
+      "effectPaths": [
+        "originals/effects/5104858069142078462.tgs"
+      ]
+    },
+    {
+      "emoji": "👏",
+      "title": "clapping hands",
+      "persianTitle": "دست زدن",
+      "animationPath": "originals/animations/U_1F44F.tgs",
+      "previewPath": "previews/U_1F44F.png",
+      "effectPaths": [
+        "originals/effects/5170166362592510656.tgs"
+      ]
+    },
+    {
+      "emoji": "👐",
+      "title": "open hands",
+      "persianTitle": "دست‌های باز",
+      "animationPath": "originals/animations/U_1F450.tgs",
+      "previewPath": "previews/U_1F450.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💪",
+      "title": "flexed biceps",
+      "persianTitle": "عضلهٔ بازو",
+      "animationPath": "originals/animations/U_1F4AA.tgs",
+      "previewPath": "previews/U_1F4AA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🖕",
+      "title": "middle finger",
+      "persianTitle": "انگشت میانه",
+      "animationPath": "originals/animations/U_1F595.tgs",
+      "previewPath": "previews/U_1F595.png",
+      "effectPaths": [
+        "originals/effects/4961092903720977544.tgs"
+      ]
+    },
+    {
+      "emoji": "🖖",
+      "title": "vulcan salute",
+      "persianTitle": "سلام ولکان",
+      "animationPath": "originals/animations/U_1F596.tgs",
+      "previewPath": "previews/U_1F596.png",
+      "effectPaths": [
+        "originals/effects/5091606991227323336.tgs"
+      ]
+    },
+    {
+      "emoji": "🤌",
+      "title": "pinched fingers",
+      "persianTitle": "انگشتان جمع‌شده",
+      "animationPath": "originals/animations/U_1F90C.tgs",
+      "previewPath": "previews/U_1F90C.png",
+      "effectPaths": [
+        "originals/effects/5041854420782941263.tgs"
+      ]
+    },
+    {
+      "emoji": "🤏",
+      "title": "pinching hand",
+      "persianTitle": "دست در حال نیشگون گرفتن",
+      "animationPath": "originals/animations/U_1F90F.tgs",
+      "previewPath": "previews/U_1F90F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤘",
+      "title": "sign of the horns",
+      "persianTitle": "نماد شاخ",
+      "animationPath": "originals/animations/U_1F918.tgs",
+      "previewPath": "previews/U_1F918.png",
+      "effectPaths": [
+        "originals/effects/5071309894909428639.tgs"
+      ]
+    },
+    {
+      "emoji": "🤙",
+      "title": "call me hand",
+      "persianTitle": "دست به شکل تلفن",
+      "animationPath": "originals/animations/U_1F919.tgs",
+      "previewPath": "previews/U_1F919.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤚",
+      "title": "raised back of hand",
+      "persianTitle": "پشت دست روبه بالا",
+      "animationPath": "originals/animations/U_1F91A.tgs",
+      "previewPath": "previews/U_1F91A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤛",
+      "title": "left-facing fist",
+      "persianTitle": "مشت به چپ",
+      "animationPath": "originals/animations/U_1F91B.tgs",
+      "previewPath": "previews/U_1F91B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤜",
+      "title": "right-facing fist",
+      "persianTitle": "مشت به راست",
+      "animationPath": "originals/animations/U_1F91C.tgs",
+      "previewPath": "previews/U_1F91C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤝",
+      "title": "handshake",
+      "persianTitle": "دست دادن",
+      "animationPath": "originals/animations/U_1F91D.tgs",
+      "previewPath": "previews/U_1F91D.png",
+      "effectPaths": [
+        "originals/effects/4916165059018752691.tgs"
+      ]
+    },
+    {
+      "emoji": "🤞",
+      "title": "crossed fingers",
+      "persianTitle": "انگشتان گره خورده",
+      "animationPath": "originals/animations/U_1F91E.tgs",
+      "previewPath": "previews/U_1F91E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤲",
+      "title": "palms up together",
+      "persianTitle": "دست دعا",
+      "animationPath": "originals/animations/U_1F932.tgs",
+      "previewPath": "previews/U_1F932.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦻",
+      "title": "ear with hearing aid",
+      "persianTitle": "سمعک در گوش",
+      "animationPath": "originals/animations/U_1F9BB.tgs",
+      "previewPath": "previews/U_1F9BB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙌",
+      "title": "raising hands",
+      "persianTitle": "دست‌های بالا آورده",
+      "animationPath": "originals/animations/U_1F64C.tgs",
+      "previewPath": "previews/U_1F64C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙏",
+      "title": "folded hands",
+      "persianTitle": "خواهش می‌کنم",
+      "animationPath": "originals/animations/U_1F64F.tgs",
+      "previewPath": "previews/U_1F64F.png",
+      "effectPaths": [
+        "originals/effects/5066712811023894584.tgs"
+      ]
+    },
+    {
+      "emoji": "🦶",
+      "title": "foot",
+      "persianTitle": "پا",
+      "animationPath": "originals/animations/U_1F9B6.tgs",
+      "previewPath": "previews/U_1F9B6.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏝",
+      "title": "desert island",
+      "persianTitle": "جزیرهٔ خالی از سکنه",
+      "animationPath": "originals/animations/U_1F3DD.tgs",
+      "previewPath": "previews/U_1F3DD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📊",
+      "title": "bar chart",
+      "persianTitle": "نمودار ستونی",
+      "animationPath": "originals/animations/U_1F4CA.tgs",
+      "previewPath": "previews/U_1F4CA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🕊",
+      "title": "dove",
+      "persianTitle": "کبوتر",
+      "animationPath": "originals/animations/U_1F54A.tgs",
+      "previewPath": "previews/U_1F54A.png",
+      "effectPaths": [
+        "originals/effects/5095856784057303751.tgs"
+      ]
+    },
+    {
+      "emoji": "🦵",
+      "title": "leg",
+      "persianTitle": "لنگ",
+      "animationPath": "originals/animations/U_1F9B5.tgs",
+      "previewPath": "previews/U_1F9B5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦿",
+      "title": "mechanical leg",
+      "persianTitle": "پای مکانیکی",
+      "animationPath": "originals/animations/U_1F9BF.tgs",
+      "previewPath": "previews/U_1F9BF.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍿",
+      "title": "popcorn",
+      "persianTitle": "ذرت بوداده",
+      "animationPath": "originals/animations/U_1F37F.tgs",
+      "previewPath": "previews/U_1F37F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌭",
+      "title": "hot dog",
+      "persianTitle": "هات داگ",
+      "animationPath": "originals/animations/U_1F32D.tgs",
+      "previewPath": "previews/U_1F32D.png",
+      "effectPaths": [
+        "originals/effects/4961017943656759969.tgs"
+      ]
+    },
+    {
+      "emoji": "🌮",
+      "title": "taco",
+      "persianTitle": "تاکو",
+      "animationPath": "originals/animations/U_1F32E.tgs",
+      "previewPath": "previews/U_1F32E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍮",
+      "title": "custard",
+      "persianTitle": "کاستارد",
+      "animationPath": "originals/animations/U_1F36E.tgs",
+      "previewPath": "previews/U_1F36E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍰",
+      "title": "shortcake",
+      "persianTitle": "شُرت‌کیک",
+      "animationPath": "originals/animations/U_1F370.tgs",
+      "previewPath": "previews/U_1F370.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍕",
+      "title": "pizza",
+      "persianTitle": "پیتزا",
+      "animationPath": "originals/animations/U_1F355.tgs",
+      "previewPath": "previews/U_1F355.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍟",
+      "title": "french fries",
+      "persianTitle": "سیب‌زمینی سرخ‌کرده",
+      "animationPath": "originals/animations/U_1F35F.tgs",
+      "previewPath": "previews/U_1F35F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍔",
+      "title": "hamburger",
+      "persianTitle": "همبرگر",
+      "animationPath": "originals/animations/U_1F354.tgs",
+      "previewPath": "previews/U_1F354.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍪",
+      "title": "cookie",
+      "persianTitle": "کلوچه",
+      "animationPath": "originals/animations/U_1F36A.tgs",
+      "previewPath": "previews/U_1F36A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥤",
+      "title": "cup with straw",
+      "persianTitle": "فنجان با نی",
+      "animationPath": "originals/animations/U_1F964.tgs",
+      "previewPath": "previews/U_1F964.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "☎",
+      "title": "telephone",
+      "persianTitle": "تلفن",
+      "animationPath": "originals/animations/U_260E.tgs",
+      "previewPath": "previews/U_260E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📞",
+      "title": "telephone receiver",
+      "persianTitle": "گوشی تلفن",
+      "animationPath": "originals/animations/U_1F4DE.tgs",
+      "previewPath": "previews/U_1F4DE.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍦",
+      "title": "soft ice cream",
+      "persianTitle": "بستنی قیفی",
+      "animationPath": "originals/animations/U_1F366.tgs",
+      "previewPath": "previews/U_1F366.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍩",
+      "title": "doughnut",
+      "persianTitle": "دونات",
+      "animationPath": "originals/animations/U_1F369.tgs",
+      "previewPath": "previews/U_1F369.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥞",
+      "title": "pancakes",
+      "persianTitle": "پنکیک",
+      "animationPath": "originals/animations/U_1F95E.tgs",
+      "previewPath": "previews/U_1F95E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍢",
+      "title": "oden",
+      "persianTitle": "اودن",
+      "animationPath": "originals/animations/U_1F362.tgs",
+      "previewPath": "previews/U_1F362.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥧",
+      "title": "pie",
+      "persianTitle": "پای",
+      "animationPath": "originals/animations/U_1F967.tgs",
+      "previewPath": "previews/U_1F967.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎢",
+      "title": "roller coaster",
+      "persianTitle": "ترن هوایی",
+      "animationPath": "originals/animations/U_1F3A2.tgs",
+      "previewPath": "previews/U_1F3A2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "❤‍🔥",
+      "title": "heart on fire",
+      "persianTitle": "قلب در آتش",
+      "animationPath": "originals/animations/U_2764_200D_1F525.tgs",
+      "previewPath": "previews/U_2764_200D_1F525.png",
+      "effectPaths": [
+        "originals/effects/5066576334143095943.tgs"
+      ]
+    },
+    {
+      "emoji": "❤‍🩹",
+      "title": "mending heart",
+      "persianTitle": "قلب التیام‌یافته",
+      "animationPath": "originals/animations/U_2764_200D_1FA79.tgs",
+      "previewPath": "previews/U_2764_200D_1FA79.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐳",
+      "title": "spouting whale",
+      "persianTitle": "نهنگ در حال آب‌فشانی",
+      "animationPath": "originals/animations/U_1F433.tgs",
+      "previewPath": "previews/U_1F433.png",
+      "effectPaths": [
+        "originals/effects/5075655057488217321.tgs"
+      ]
+    },
+    {
+      "emoji": "🍡",
+      "title": "dango",
+      "persianTitle": "دانگو",
+      "animationPath": "originals/animations/U_1F361.tgs",
+      "previewPath": "previews/U_1F361.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤨",
+      "title": "face with raised eyebrow",
+      "persianTitle": "صورت با ابروی بالاداده",
+      "animationPath": "originals/animations/U_1F928.tgs",
+      "previewPath": "previews/U_1F928.png",
+      "effectPaths": [
+        "originals/effects/5122846324185629167.tgs"
+      ]
+    },
+    {
+      "emoji": "🏆",
+      "title": "trophy",
+      "persianTitle": "جام ورزشی",
+      "animationPath": "originals/animations/U_1F3C6.tgs",
+      "previewPath": "previews/U_1F3C6.png",
+      "effectPaths": [
+        "originals/effects/5123046001510188023.tgs"
+      ]
+    },
+    {
+      "emoji": "🍌",
+      "title": "banana",
+      "persianTitle": "موز",
+      "animationPath": "originals/animations/U_1F34C.tgs",
+      "previewPath": "previews/U_1F34C.png",
+      "effectPaths": [
+        "originals/effects/5123233223429587601.tgs"
+      ]
+    },
+    {
+      "emoji": "👾",
+      "title": "alien monster",
+      "persianTitle": "هیولای فضایی",
+      "animationPath": "originals/animations/U_1F47E.tgs",
+      "previewPath": "previews/U_1F47E.png",
+      "effectPaths": [
+        "originals/effects/4927184970142712981.tgs"
+      ]
+    },
+    {
+      "emoji": "👹",
+      "title": "ogre",
+      "persianTitle": "دیو",
+      "animationPath": "originals/animations/U_1F479.tgs",
+      "previewPath": "previews/U_1F479.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👺",
+      "title": "goblin",
+      "persianTitle": "جن کوتوله",
+      "animationPath": "originals/animations/U_1F47A.tgs",
+      "previewPath": "previews/U_1F47A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👽",
+      "title": "alien",
+      "persianTitle": "موجود فضایی",
+      "animationPath": "originals/animations/U_1F47D.tgs",
+      "previewPath": "previews/U_1F47D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫠",
+      "title": "melting face",
+      "persianTitle": "چهره درحال ذوب شدن",
+      "animationPath": "originals/animations/U_1FAE0.tgs",
+      "previewPath": "previews/U_1FAE0.png",
+      "effectPaths": [
+        "originals/effects/5068809425079239498.tgs"
+      ]
+    },
+    {
+      "emoji": "🫡",
+      "title": "saluting face",
+      "persianTitle": "چهره سلام‌کنان",
+      "animationPath": "originals/animations/U_1FAE1.tgs",
+      "previewPath": "previews/U_1FAE1.png",
+      "effectPaths": [
+        "originals/effects/4913930782671635058.tgs"
+      ]
+    },
+    {
+      "emoji": "🫣",
+      "title": "face with peeking eye",
+      "persianTitle": "چهره با نگاه دزدکی",
+      "animationPath": "originals/animations/U_1FAE3.tgs",
+      "previewPath": "previews/U_1FAE3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥹",
+      "title": "face holding back tears",
+      "persianTitle": "چهره با چشمان پراشک",
+      "animationPath": "originals/animations/U_1F979.tgs",
+      "previewPath": "previews/U_1F979.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫤",
+      "title": "face with diagonal mouth",
+      "persianTitle": "صورت با دهان کج",
+      "animationPath": "originals/animations/U_1FAE4.tgs",
+      "previewPath": "previews/U_1FAE4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫢",
+      "title": "face with open eyes and hand over mouth",
+      "persianTitle": "چهره با چشمان باز و دست روی دهان",
+      "animationPath": "originals/animations/U_1FAE2.tgs",
+      "previewPath": "previews/U_1FAE2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫥",
+      "title": "dotted line face",
+      "persianTitle": "چهره با خط‌چین",
+      "animationPath": "originals/animations/U_1FAE5.tgs",
+      "previewPath": "previews/U_1FAE5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😠",
+      "title": "angry face",
+      "persianTitle": "عصبانی",
+      "animationPath": "originals/animations/U_1F620.tgs",
+      "previewPath": "previews/U_1F620.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😥",
+      "title": "sad but relieved face",
+      "persianTitle": "غمگین اما آسوده‌خاطر",
+      "animationPath": "originals/animations/U_1F625.tgs",
+      "previewPath": "previews/U_1F625.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😣",
+      "title": "persevering face",
+      "persianTitle": "پافشاری",
+      "animationPath": "originals/animations/U_1F623.tgs",
+      "previewPath": "previews/U_1F623.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😮‍💨",
+      "title": "face exhaling",
+      "persianTitle": "صورتک در حال بازدم",
+      "animationPath": "originals/animations/U_1F62E_200D_1F4A8.tgs",
+      "previewPath": "previews/U_1F62E_200D_1F4A8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😶‍🌫",
+      "title": "face in clouds",
+      "persianTitle": "صورتک میان ابر",
+      "animationPath": "originals/animations/U_1F636_200D_1F32B.tgs",
+      "previewPath": "previews/U_1F636_200D_1F32B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😵",
+      "title": "face with crossed-out eyes",
+      "persianTitle": "گیج",
+      "animationPath": "originals/animations/U_1F635.tgs",
+      "previewPath": "previews/U_1F635.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "😵‍💫",
+      "title": "face with spiral eyes",
+      "persianTitle": "صورتک با چشمان چرخشی",
+      "animationPath": "originals/animations/U_1F635_200D_1F4AB.tgs",
+      "previewPath": "previews/U_1F635_200D_1F4AB.png",
+      "effectPaths": [
+        "originals/effects/5089594618660520655.tgs"
+      ]
+    },
+    {
+      "emoji": "🫱",
+      "title": "rightwards hand",
+      "persianTitle": "دست به سمت راست",
+      "animationPath": "originals/animations/U_1FAF1.tgs",
+      "previewPath": "previews/U_1FAF1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫲",
+      "title": "leftwards hand",
+      "persianTitle": "دست به سمت چپ",
+      "animationPath": "originals/animations/U_1FAF2.tgs",
+      "previewPath": "previews/U_1FAF2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧑‍🎄",
+      "title": "Mx Claus",
+      "persianTitle": "نوئل",
+      "animationPath": "originals/animations/U_1F9D1_200D_1F384.tgs",
+      "previewPath": "previews/U_1F9D1_200D_1F384.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍙",
+      "title": "rice ball",
+      "persianTitle": "کوفته برنجی",
+      "animationPath": "originals/animations/U_1F359.tgs",
+      "previewPath": "previews/U_1F359.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥫",
+      "title": "canned food",
+      "persianTitle": "غذای کنسروشده",
+      "animationPath": "originals/animations/U_1F96B.tgs",
+      "previewPath": "previews/U_1F96B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍣",
+      "title": "sushi",
+      "persianTitle": "سوشی",
+      "animationPath": "originals/animations/U_1F363.tgs",
+      "previewPath": "previews/U_1F363.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👣",
+      "title": "footprints",
+      "persianTitle": "رد پا",
+      "animationPath": "originals/animations/U_1F463.tgs",
+      "previewPath": "previews/U_1F463.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎵",
+      "title": "musical note",
+      "persianTitle": "نت موسیقی",
+      "animationPath": "originals/animations/U_1F3B5.tgs",
+      "previewPath": "previews/U_1F3B5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎶",
+      "title": "musical notes",
+      "persianTitle": "نت‌های موسیقی",
+      "animationPath": "originals/animations/U_1F3B6.tgs",
+      "previewPath": "previews/U_1F3B6.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧋",
+      "title": "bubble tea",
+      "persianTitle": "چای حُبابی",
+      "animationPath": "originals/animations/U_1F9CB.tgs",
+      "previewPath": "previews/U_1F9CB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "☑",
+      "title": "check box with check",
+      "persianTitle": "مربع با علامت تیک",
+      "animationPath": "originals/animations/U_2611.tgs",
+      "previewPath": "previews/U_2611.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐾",
+      "title": "paw prints",
+      "persianTitle": "رد پنجه",
+      "animationPath": "originals/animations/U_1F43E.tgs",
+      "previewPath": "previews/U_1F43E.png",
+      "effectPaths": [
+        "originals/effects/5091878604959122376.tgs"
+      ]
+    },
+    {
+      "emoji": "✅",
+      "title": "check mark button",
+      "persianTitle": "علامت تأیید",
+      "animationPath": "originals/animations/U_2705.tgs",
+      "previewPath": "previews/U_2705.png",
+      "effectPaths": [
+        "originals/effects/5087137729863484424.tgs"
+      ]
+    },
+    {
+      "emoji": "🍓",
+      "title": "strawberry",
+      "persianTitle": "توت‌فرنگی",
+      "animationPath": "originals/animations/U_1F353.tgs",
+      "previewPath": "previews/U_1F353.png",
+      "effectPaths": [
+        "originals/effects/4961016393173566021.tgs"
+      ]
+    },
+    {
+      "emoji": "✔",
+      "title": "check mark",
+      "persianTitle": "علامت تیک",
+      "animationPath": "originals/animations/U_2714.tgs",
+      "previewPath": "previews/U_2714.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦷",
+      "title": "tooth",
+      "persianTitle": "دندان",
+      "animationPath": "originals/animations/U_1F9B7.tgs",
+      "previewPath": "previews/U_1F9B7.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪄",
+      "title": "magic wand",
+      "persianTitle": "عصای سحرآمیز",
+      "animationPath": "originals/animations/U_1FA84.tgs",
+      "previewPath": "previews/U_1FA84.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌡",
+      "title": "thermometer",
+      "persianTitle": "دماسنج",
+      "animationPath": "originals/animations/U_1F321.tgs",
+      "previewPath": "previews/U_1F321.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💣",
+      "title": "bomb",
+      "persianTitle": "بمب",
+      "animationPath": "originals/animations/U_1F4A3.tgs",
+      "previewPath": "previews/U_1F4A3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📭",
+      "title": "open mailbox with lowered flag",
+      "persianTitle": "صندوق پستی باز با پرچم پایین",
+      "animationPath": "originals/animations/U_1F4ED.tgs",
+      "previewPath": "previews/U_1F4ED.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧨",
+      "title": "firecracker",
+      "persianTitle": "ترقه",
+      "animationPath": "originals/animations/U_1F9E8.tgs",
+      "previewPath": "previews/U_1F9E8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "☀",
+      "title": "sun",
+      "persianTitle": "خورشید",
+      "animationPath": "originals/animations/U_2600.tgs",
+      "previewPath": "previews/U_2600.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⛈",
+      "title": "cloud with lightning and rain",
+      "persianTitle": "ابر با رعدوبرق و باران",
+      "animationPath": "originals/animations/U_26C8.tgs",
+      "previewPath": "previews/U_26C8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍫",
+      "title": "chocolate bar",
+      "persianTitle": "تخته شکلات",
+      "animationPath": "originals/animations/U_1F36B.tgs",
+      "previewPath": "previews/U_1F36B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎩",
+      "title": "top hat",
+      "persianTitle": "کلاه مردانه استوانه‌ای",
+      "animationPath": "originals/animations/U_1F3A9.tgs",
+      "previewPath": "previews/U_1F3A9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⁉",
+      "title": "exclamation question mark",
+      "persianTitle": "علامت تعجب و سؤال",
+      "animationPath": "originals/animations/U_2049.tgs",
+      "previewPath": "previews/U_2049.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "‼",
+      "title": "double exclamation mark",
+      "persianTitle": "علامت تعجب دوتایی",
+      "animationPath": "originals/animations/U_203C.tgs",
+      "previewPath": "previews/U_203C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👅",
+      "title": "tongue",
+      "persianTitle": "زبان",
+      "animationPath": "originals/animations/U_1F445.tgs",
+      "previewPath": "previews/U_1F445.png",
+      "effectPaths": [
+        "originals/effects/5071259338849387492.tgs"
+      ]
+    },
+    {
+      "emoji": "🧃",
+      "title": "beverage box",
+      "persianTitle": "پاکت نوشیدنی",
+      "animationPath": "originals/animations/U_1F9C3.tgs",
+      "previewPath": "previews/U_1F9C3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐵",
+      "title": "monkey face",
+      "persianTitle": "صورت میمون",
+      "animationPath": "originals/animations/U_1F435.tgs",
+      "previewPath": "previews/U_1F435.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🙉",
+      "title": "hear-no-evil monkey",
+      "persianTitle": "میمون شرنشنو",
+      "animationPath": "originals/animations/U_1F649.tgs",
+      "previewPath": "previews/U_1F649.png",
+      "effectPaths": [
+        "originals/effects/5089358816366035753.tgs"
+      ]
+    },
+    {
+      "emoji": "⌛",
+      "title": "hourglass done",
+      "persianTitle": "ساعت شنی",
+      "animationPath": "originals/animations/U_231B.tgs",
+      "previewPath": "previews/U_231B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍥",
+      "title": "fish cake with swirl",
+      "persianTitle": "کیک ماهی",
+      "animationPath": "originals/animations/U_1F365.tgs",
+      "previewPath": "previews/U_1F365.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍘",
+      "title": "rice cracker",
+      "persianTitle": "تردک برنجی",
+      "animationPath": "originals/animations/U_1F358.tgs",
+      "previewPath": "previews/U_1F358.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦋",
+      "title": "butterfly",
+      "persianTitle": "پروانه",
+      "animationPath": "originals/animations/U_1F98B.tgs",
+      "previewPath": "previews/U_1F98B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚀",
+      "title": "rocket",
+      "persianTitle": "موشک",
+      "animationPath": "originals/animations/U_1F680.tgs",
+      "previewPath": "previews/U_1F680.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💄",
+      "title": "lipstick",
+      "persianTitle": "رژلب",
+      "animationPath": "originals/animations/U_1F484.tgs",
+      "previewPath": "previews/U_1F484.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👁",
+      "title": "eye",
+      "persianTitle": "چشم",
+      "animationPath": "originals/animations/U_1F441.tgs",
+      "previewPath": "previews/U_1F441.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛷",
+      "title": "sled",
+      "persianTitle": "سورتمه",
+      "animationPath": "originals/animations/U_1F6F7.tgs",
+      "previewPath": "previews/U_1F6F7.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦴",
+      "title": "bone",
+      "persianTitle": "استخوان",
+      "animationPath": "originals/animations/U_1F9B4.tgs",
+      "previewPath": "previews/U_1F9B4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍱",
+      "title": "bento box",
+      "persianTitle": "جعبه بنتو",
+      "animationPath": "originals/animations/U_1F371.tgs",
+      "previewPath": "previews/U_1F371.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👄",
+      "title": "mouth",
+      "persianTitle": "لب",
+      "animationPath": "originals/animations/U_1F444.tgs",
+      "previewPath": "previews/U_1F444.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍗",
+      "title": "poultry leg",
+      "persianTitle": "ران ماکیان",
+      "animationPath": "originals/animations/U_1F357.tgs",
+      "previewPath": "previews/U_1F357.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍖",
+      "title": "meat on bone",
+      "persianTitle": "گوشت با استخوان",
+      "animationPath": "originals/animations/U_1F356.tgs",
+      "previewPath": "previews/U_1F356.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥪",
+      "title": "sandwich",
+      "persianTitle": "ساندویچ",
+      "animationPath": "originals/animations/U_1F96A.tgs",
+      "previewPath": "previews/U_1F96A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫦",
+      "title": "biting lip",
+      "persianTitle": "گازگرفتن لب",
+      "animationPath": "originals/animations/U_1FAE6.tgs",
+      "previewPath": "previews/U_1FAE6.png",
+      "effectPaths": [
+        "originals/effects/5091663800759747631.tgs"
+      ]
+    },
+    {
+      "emoji": "👀",
+      "title": "eyes",
+      "persianTitle": "دو چشم",
+      "animationPath": "originals/animations/U_1F440.tgs",
+      "previewPath": "previews/U_1F440.png",
+      "effectPaths": [
+        "originals/effects/5107400329004058326.tgs"
+      ]
+    },
+    {
+      "emoji": "🍳",
+      "title": "cooking",
+      "persianTitle": "آشپزی",
+      "animationPath": "originals/animations/U_1F373.tgs",
+      "previewPath": "previews/U_1F373.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍭",
+      "title": "lollipop",
+      "persianTitle": "آب‌نبات‌چوبی",
+      "animationPath": "originals/animations/U_1F36D.tgs",
+      "previewPath": "previews/U_1F36D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥨",
+      "title": "pretzel",
+      "persianTitle": "چوب‌شور",
+      "animationPath": "originals/animations/U_1F968.tgs",
+      "previewPath": "previews/U_1F968.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥙",
+      "title": "stuffed flatbread",
+      "persianTitle": "لقمه",
+      "animationPath": "originals/animations/U_1F959.tgs",
+      "previewPath": "previews/U_1F959.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧁",
+      "title": "cupcake",
+      "persianTitle": "کیک فنجانی",
+      "animationPath": "originals/animations/U_1F9C1.tgs",
+      "previewPath": "previews/U_1F9C1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫰",
+      "title": "hand with index finger and thumb crossed",
+      "persianTitle": "دست با انگشت اشاره و شست متقاطع",
+      "animationPath": "originals/animations/U_1FAF0.tgs",
+      "previewPath": "previews/U_1FAF0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫳",
+      "title": "palm down hand",
+      "persianTitle": "کف دست به پایین",
+      "animationPath": "originals/animations/U_1FAF3.tgs",
+      "previewPath": "previews/U_1FAF3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫴",
+      "title": "palm up hand",
+      "persianTitle": "کف دست به بالا",
+      "animationPath": "originals/animations/U_1FAF4.tgs",
+      "previewPath": "previews/U_1FAF4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫵",
+      "title": "index pointing at the viewer",
+      "persianTitle": "اشاره به بیننده",
+      "animationPath": "originals/animations/U_1FAF5.tgs",
+      "previewPath": "previews/U_1FAF5.png",
+      "effectPaths": [
+        "originals/effects/5026435775953109827.tgs"
+      ]
+    },
+    {
+      "emoji": "🫶",
+      "title": "heart hands",
+      "persianTitle": "شکل قلب با دست",
+      "animationPath": "originals/animations/U_1FAF6.tgs",
+      "previewPath": "previews/U_1FAF6.png",
+      "effectPaths": [
+        "originals/effects/4967721189309940952.tgs"
+      ]
+    },
+    {
+      "emoji": "☕",
+      "title": "hot beverage",
+      "persianTitle": "نوشیدنی گرم",
+      "animationPath": "originals/animations/U_2615.tgs",
+      "previewPath": "previews/U_2615.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍹",
+      "title": "tropical drink",
+      "persianTitle": "نوشیدنی استوایی",
+      "animationPath": "originals/animations/U_1F379.tgs",
+      "previewPath": "previews/U_1F379.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⚽",
+      "title": "soccer ball",
+      "persianTitle": "توپ فوتبال",
+      "animationPath": "originals/animations/U_26BD.tgs",
+      "previewPath": "previews/U_26BD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍽",
+      "title": "fork and knife with plate",
+      "persianTitle": "بشقاب و کارد و چنگال",
+      "animationPath": "originals/animations/U_1F37D.tgs",
+      "previewPath": "previews/U_1F37D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎓",
+      "title": "graduation cap",
+      "persianTitle": "کلاه فارغ‌التحصیلی",
+      "animationPath": "originals/animations/U_1F393.tgs",
+      "previewPath": "previews/U_1F393.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⛅",
+      "title": "sun behind cloud",
+      "persianTitle": "خورشید پشت ابر",
+      "animationPath": "originals/animations/U_26C5.tgs",
+      "previewPath": "previews/U_26C5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎤",
+      "title": "microphone",
+      "persianTitle": "میکروفون",
+      "animationPath": "originals/animations/U_1F3A4.tgs",
+      "previewPath": "previews/U_1F3A4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎬",
+      "title": "clapper board",
+      "persianTitle": "کلاکت",
+      "animationPath": "originals/animations/U_1F3AC.tgs",
+      "previewPath": "previews/U_1F3AC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏛",
+      "title": "classical building",
+      "persianTitle": "ساختمان باستانی",
+      "animationPath": "originals/animations/U_1F3DB.tgs",
+      "previewPath": "previews/U_1F3DB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏴‍☠",
+      "title": "pirate flag",
+      "persianTitle": "پرچم دزدان دریایی",
+      "animationPath": "originals/animations/U_1F3F4_200D_2620.tgs",
+      "previewPath": "previews/U_1F3F4_200D_2620.png",
+      "effectPaths": [
+        "originals/effects/5089131707085358138.tgs"
+      ]
+    },
+    {
+      "emoji": "✈",
+      "title": "airplane",
+      "persianTitle": "هواپیما",
+      "animationPath": "originals/animations/U_2708.tgs",
+      "previewPath": "previews/U_2708.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐟",
+      "title": "fish",
+      "persianTitle": "ماهی",
+      "animationPath": "originals/animations/U_1F41F.tgs",
+      "previewPath": "previews/U_1F41F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎭",
+      "title": "performing arts",
+      "persianTitle": "هنرهای نمایشی",
+      "animationPath": "originals/animations/U_1F3AD.tgs",
+      "previewPath": "previews/U_1F3AD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👨‍👩‍👧‍👦",
+      "title": "family: man, woman, girl, boy",
+      "persianTitle": "خانواده: مرد،‏ زن،‏ دختر، و پسر",
+      "animationPath": "originals/animations/U_1F468_200D_1F469_200D_1F467_200D_1F466.tgs",
+      "previewPath": "previews/U_1F468_200D_1F469_200D_1F467_200D_1F466.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💰",
+      "title": "money bag",
+      "persianTitle": "کیسهٔ پول",
+      "animationPath": "originals/animations/U_1F4B0.tgs",
+      "previewPath": "previews/U_1F4B0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👜",
+      "title": "handbag",
+      "persianTitle": "کیف دوشی",
+      "animationPath": "originals/animations/U_1F45C.tgs",
+      "previewPath": "previews/U_1F45C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📚",
+      "title": "books",
+      "persianTitle": "چند کتاب",
+      "animationPath": "originals/animations/U_1F4DA.tgs",
+      "previewPath": "previews/U_1F4DA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📺",
+      "title": "television",
+      "persianTitle": "تلویزیون",
+      "animationPath": "originals/animations/U_1F4FA.tgs",
+      "previewPath": "previews/U_1F4FA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👶",
+      "title": "baby",
+      "persianTitle": "نوزاد",
+      "animationPath": "originals/animations/U_1F476.tgs",
+      "previewPath": "previews/U_1F476.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏕",
+      "title": "camping",
+      "persianTitle": "چادرزنی",
+      "animationPath": "originals/animations/U_1F3D5.tgs",
+      "previewPath": "previews/U_1F3D5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🖨",
+      "title": "printer",
+      "persianTitle": "چاپگر",
+      "animationPath": "originals/animations/U_1F5A8.tgs",
+      "previewPath": "previews/U_1F5A8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📈",
+      "title": "chart increasing",
+      "persianTitle": "نمودار صعودی",
+      "animationPath": "originals/animations/U_1F4C8.tgs",
+      "previewPath": "previews/U_1F4C8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗣",
+      "title": "speaking head",
+      "persianTitle": "درحال صحبت کردن",
+      "animationPath": "originals/animations/U_1F5E3.tgs",
+      "previewPath": "previews/U_1F5E3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎟",
+      "title": "admission tickets",
+      "persianTitle": "بلیت ورود",
+      "animationPath": "originals/animations/U_1F39F.tgs",
+      "previewPath": "previews/U_1F39F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🩺",
+      "title": "stethoscope",
+      "persianTitle": "گوشی پزشکی",
+      "animationPath": "originals/animations/U_1FA7A.tgs",
+      "previewPath": "previews/U_1FA7A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗳",
+      "title": "ballot box with ballot",
+      "persianTitle": "صندوق رأی",
+      "animationPath": "originals/animations/U_1F5F3.tgs",
+      "previewPath": "previews/U_1F5F3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📉",
+      "title": "chart decreasing",
+      "persianTitle": "نمودار نزولی",
+      "animationPath": "originals/animations/U_1F4C9.tgs",
+      "previewPath": "previews/U_1F4C9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏀",
+      "title": "basketball",
+      "persianTitle": "بسکتبال",
+      "animationPath": "originals/animations/U_1F3C0.tgs",
+      "previewPath": "previews/U_1F3C0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪖",
+      "title": "military helmet",
+      "persianTitle": "کلاه‌خود",
+      "animationPath": "originals/animations/U_1FA96.tgs",
+      "previewPath": "previews/U_1FA96.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👠",
+      "title": "high-heeled shoe",
+      "persianTitle": "کفش پاشنه بلند",
+      "animationPath": "originals/animations/U_1F460.tgs",
+      "previewPath": "previews/U_1F460.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔬",
+      "title": "microscope",
+      "persianTitle": "میکروسکوپ",
+      "animationPath": "originals/animations/U_1F52C.tgs",
+      "previewPath": "previews/U_1F52C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👮‍♂",
+      "title": "man police officer",
+      "persianTitle": "پلیس مرد",
+      "animationPath": "originals/animations/U_1F46E_200D_2642.tgs",
+      "previewPath": "previews/U_1F46E_200D_2642.png",
+      "effectPaths": [
+        "originals/effects/5026104105693611449.tgs"
+      ]
+    },
+    {
+      "emoji": "🤰",
+      "title": "pregnant woman",
+      "persianTitle": "زن باردار",
+      "animationPath": "originals/animations/U_1F930.tgs",
+      "previewPath": "previews/U_1F930.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛍",
+      "title": "shopping bags",
+      "persianTitle": "کیف خرید",
+      "animationPath": "originals/animations/U_1F6CD.tgs",
+      "previewPath": "previews/U_1F6CD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪙",
+      "title": "coin",
+      "persianTitle": "سکه",
+      "animationPath": "originals/animations/U_1FA99.tgs",
+      "previewPath": "previews/U_1FA99.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧳",
+      "title": "luggage",
+      "persianTitle": "چمدان",
+      "animationPath": "originals/animations/U_1F9F3.tgs",
+      "previewPath": "previews/U_1F9F3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💅",
+      "title": "nail polish",
+      "persianTitle": "لاک زدن",
+      "animationPath": "originals/animations/U_1F485.tgs",
+      "previewPath": "previews/U_1F485.png",
+      "effectPaths": [
+        "originals/effects/5003596415478268711.tgs"
+      ]
+    },
+    {
+      "emoji": "💼",
+      "title": "briefcase",
+      "persianTitle": "کیف اداری",
+      "animationPath": "originals/animations/U_1F4BC.tgs",
+      "previewPath": "previews/U_1F4BC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛥",
+      "title": "motor boat",
+      "persianTitle": "قایق موتوری",
+      "animationPath": "originals/animations/U_1F6E5.tgs",
+      "previewPath": "previews/U_1F6E5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔭",
+      "title": "telescope",
+      "persianTitle": "تلسکوپ",
+      "animationPath": "originals/animations/U_1F52D.tgs",
+      "previewPath": "previews/U_1F52D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪩",
+      "title": "mirror ball",
+      "persianTitle": "توپ آینه‌ای",
+      "animationPath": "originals/animations/U_1FAA9.tgs",
+      "previewPath": "previews/U_1FAA9.png",
+      "effectPaths": [
+        "originals/effects/5136788470928245857.tgs"
+      ]
+    },
+    {
+      "emoji": "🚂",
+      "title": "locomotive",
+      "persianTitle": "لوکوموتیو",
+      "animationPath": "originals/animations/U_1F682.tgs",
+      "previewPath": "previews/U_1F682.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛃",
+      "title": "customs",
+      "persianTitle": "گمرک",
+      "animationPath": "originals/animations/U_1F6C3.tgs",
+      "previewPath": "previews/U_1F6C3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔮",
+      "title": "crystal ball",
+      "persianTitle": "گوی",
+      "animationPath": "originals/animations/U_1F52E.tgs",
+      "previewPath": "previews/U_1F52E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎙",
+      "title": "studio microphone",
+      "persianTitle": "میکروفون استودیویی",
+      "animationPath": "originals/animations/U_1F399.tgs",
+      "previewPath": "previews/U_1F399.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏁",
+      "title": "chequered flag",
+      "persianTitle": "پرچم شطرنجی",
+      "animationPath": "originals/animations/U_1F3C1.tgs",
+      "previewPath": "previews/U_1F3C1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📤",
+      "title": "outbox tray",
+      "persianTitle": "صندوق خروجی",
+      "animationPath": "originals/animations/U_1F4E4.tgs",
+      "previewPath": "previews/U_1F4E4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏳",
+      "title": "white flag",
+      "persianTitle": "پرچم سفید",
+      "animationPath": "originals/animations/U_1F3F3.tgs",
+      "previewPath": "previews/U_1F3F3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📥",
+      "title": "inbox tray",
+      "persianTitle": "صندوق ورودی",
+      "animationPath": "originals/animations/U_1F4E5.tgs",
+      "previewPath": "previews/U_1F4E5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏴",
+      "title": "black flag",
+      "persianTitle": "پرچم سیاه",
+      "animationPath": "originals/animations/U_1F3F4.tgs",
+      "previewPath": "previews/U_1F3F4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔞",
+      "title": "no one under eighteen",
+      "persianTitle": "زیر ۱۸ سال ممنوع",
+      "animationPath": "originals/animations/U_1F51E.tgs",
+      "previewPath": "previews/U_1F51E.png",
+      "effectPaths": [
+        "originals/effects/5089216884876772391.tgs"
+      ]
+    },
+    {
+      "emoji": "📨",
+      "title": "incoming envelope",
+      "persianTitle": "پاکت نامهٔ ورودی",
+      "animationPath": "originals/animations/U_1F4E8.tgs",
+      "previewPath": "previews/U_1F4E8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📆",
+      "title": "tear-off calendar",
+      "persianTitle": "تقویم رومیزی",
+      "animationPath": "originals/animations/U_1F4C6.tgs",
+      "previewPath": "previews/U_1F4C6.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚩",
+      "title": "triangular flag",
+      "persianTitle": "پرچم مثلثی",
+      "animationPath": "originals/animations/U_1F6A9.tgs",
+      "previewPath": "previews/U_1F6A9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦄",
+      "title": "unicorn",
+      "persianTitle": "تک‌شاخ",
+      "animationPath": "originals/animations/U_1F984.tgs",
+      "previewPath": "previews/U_1F984.png",
+      "effectPaths": [
+        "originals/effects/5089416218603946547.tgs"
+      ]
+    },
+    {
+      "emoji": "📰",
+      "title": "newspaper",
+      "persianTitle": "روزنامه",
+      "animationPath": "originals/animations/U_1F4F0.tgs",
+      "previewPath": "previews/U_1F4F0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧪",
+      "title": "test tube",
+      "persianTitle": "لولهٔ آزمایشگاه",
+      "animationPath": "originals/animations/U_1F9EA.tgs",
+      "previewPath": "previews/U_1F9EA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛒",
+      "title": "shopping cart",
+      "persianTitle": "گاری خرید",
+      "animationPath": "originals/animations/U_1F6D2.tgs",
+      "previewPath": "previews/U_1F6D2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📱",
+      "title": "mobile phone",
+      "persianTitle": "تلفن همراه",
+      "animationPath": "originals/animations/U_1F4F1.tgs",
+      "previewPath": "previews/U_1F4F1.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔝",
+      "title": "TOP arrow",
+      "persianTitle": "پیکان رو",
+      "animationPath": "originals/animations/U_1F51D.tgs",
+      "previewPath": "previews/U_1F51D.png",
+      "effectPaths": [
+        "originals/effects/5089434807222403861.tgs"
+      ]
+    },
+    {
+      "emoji": "🧰",
+      "title": "toolbox",
+      "persianTitle": "جعبه‌ابزار",
+      "animationPath": "originals/animations/U_1F9F0.tgs",
+      "previewPath": "previews/U_1F9F0.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪪",
+      "title": "identification card",
+      "persianTitle": "کارت شناسایی",
+      "animationPath": "originals/animations/U_1FAAA.tgs",
+      "previewPath": "previews/U_1FAAA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🖐",
+      "title": "hand with fingers splayed",
+      "persianTitle": "دست با انگشتان باز",
+      "animationPath": "originals/animations/U_1F590.tgs",
+      "previewPath": "previews/U_1F590.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⛄",
+      "title": "snowman without snow",
+      "persianTitle": "آدم برفی بدون برف",
+      "animationPath": "originals/animations/U_26C4.tgs",
+      "previewPath": "previews/U_26C4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "☁",
+      "title": "cloud",
+      "persianTitle": "ابر",
+      "animationPath": "originals/animations/U_2601.tgs",
+      "previewPath": "previews/U_2601.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌥",
+      "title": "sun behind large cloud",
+      "persianTitle": "خورشید پشت ابر بزرگ",
+      "animationPath": "originals/animations/U_1F325.tgs",
+      "previewPath": "previews/U_1F325.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌦",
+      "title": "sun behind rain cloud",
+      "persianTitle": "خورشید پشت ابر بارانی",
+      "animationPath": "originals/animations/U_1F326.tgs",
+      "previewPath": "previews/U_1F326.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌧",
+      "title": "cloud with rain",
+      "persianTitle": "ابر بارانی",
+      "animationPath": "originals/animations/U_1F327.tgs",
+      "previewPath": "previews/U_1F327.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌤",
+      "title": "sun behind small cloud",
+      "persianTitle": "خورشید پشت ابر کوچک",
+      "animationPath": "originals/animations/U_1F324.tgs",
+      "previewPath": "previews/U_1F324.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌩",
+      "title": "cloud with lightning",
+      "persianTitle": "ابر با برق",
+      "animationPath": "originals/animations/U_1F329.tgs",
+      "previewPath": "previews/U_1F329.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐤",
+      "title": "baby chick",
+      "persianTitle": "جوجه",
+      "animationPath": "originals/animations/U_1F424.tgs",
+      "previewPath": "previews/U_1F424.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐔",
+      "title": "chicken",
+      "persianTitle": "مرغ",
+      "animationPath": "originals/animations/U_1F414.tgs",
+      "previewPath": "previews/U_1F414.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐭",
+      "title": "mouse face",
+      "persianTitle": "صورت موش",
+      "animationPath": "originals/animations/U_1F42D.tgs",
+      "previewPath": "previews/U_1F42D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌨",
+      "title": "cloud with snow",
+      "persianTitle": "ابر برفی",
+      "animationPath": "originals/animations/U_1F328.tgs",
+      "previewPath": "previews/U_1F328.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐨",
+      "title": "koala",
+      "persianTitle": "کوآلا",
+      "animationPath": "originals/animations/U_1F428.tgs",
+      "previewPath": "previews/U_1F428.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐹",
+      "title": "hamster",
+      "persianTitle": "همستر",
+      "animationPath": "originals/animations/U_1F439.tgs",
+      "previewPath": "previews/U_1F439.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐻",
+      "title": "bear",
+      "persianTitle": "خرس",
+      "animationPath": "originals/animations/U_1F43B.tgs",
+      "previewPath": "previews/U_1F43B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐶",
+      "title": "dog face",
+      "persianTitle": "صورت سگ",
+      "animationPath": "originals/animations/U_1F436.tgs",
+      "previewPath": "previews/U_1F436.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐱",
+      "title": "cat face",
+      "persianTitle": "صورت گربه",
+      "animationPath": "originals/animations/U_1F431.tgs",
+      "previewPath": "previews/U_1F431.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📖",
+      "title": "open book",
+      "persianTitle": "کتاب باز",
+      "animationPath": "originals/animations/U_1F4D6.tgs",
+      "previewPath": "previews/U_1F4D6.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤦",
+      "title": "person facepalming",
+      "persianTitle": "با کف دست به پیشانی زدن",
+      "animationPath": "originals/animations/U_1F926.tgs",
+      "previewPath": "previews/U_1F926.png",
+      "effectPaths": [
+        "originals/effects/5091342528616072685.tgs"
+      ]
+    },
+    {
+      "emoji": "🐼",
+      "title": "panda",
+      "persianTitle": "پاندا",
+      "animationPath": "originals/animations/U_1F43C.tgs",
+      "previewPath": "previews/U_1F43C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥈",
+      "title": "2nd place medal",
+      "persianTitle": "مدال نقره",
+      "animationPath": "originals/animations/U_1F948.tgs",
+      "previewPath": "previews/U_1F948.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤦‍♀",
+      "title": "woman facepalming",
+      "persianTitle": "زن با کف دست به پیشانی می‌زند",
+      "animationPath": "originals/animations/U_1F926_200D_2640.tgs",
+      "previewPath": "previews/U_1F926_200D_2640.png",
+      "effectPaths": [
+        "originals/effects/5091342528616072685.tgs"
+      ]
+    },
+    {
+      "emoji": "🥇",
+      "title": "1st place medal",
+      "persianTitle": "مدال طلا",
+      "animationPath": "originals/animations/U_1F947.tgs",
+      "previewPath": "previews/U_1F947.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤦‍♂",
+      "title": "man facepalming",
+      "persianTitle": "مرد با کف دست به پیشانی می‌زند",
+      "animationPath": "originals/animations/U_1F926_200D_2642.tgs",
+      "previewPath": "previews/U_1F926_200D_2642.png",
+      "effectPaths": [
+        "originals/effects/5091342528616072685.tgs"
+      ]
+    },
+    {
+      "emoji": "🐻‍❄",
+      "title": "polar bear",
+      "persianTitle": "خرس قطبی",
+      "animationPath": "originals/animations/U_1F43B_200D_2744.tgs",
+      "previewPath": "previews/U_1F43B_200D_2744.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦊",
+      "title": "fox",
+      "persianTitle": "روباه",
+      "animationPath": "originals/animations/U_1F98A.tgs",
+      "previewPath": "previews/U_1F98A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥉",
+      "title": "3rd place medal",
+      "persianTitle": "مدال برنز",
+      "animationPath": "originals/animations/U_1F949.tgs",
+      "previewPath": "previews/U_1F949.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🆕",
+      "title": "NEW button",
+      "persianTitle": "دکمهٔ NEW",
+      "animationPath": "originals/animations/U_1F195.tgs",
+      "previewPath": "previews/U_1F195.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🆒",
+      "title": "COOL button",
+      "persianTitle": "دکمهٔ COOL",
+      "animationPath": "originals/animations/U_1F192.tgs",
+      "previewPath": "previews/U_1F192.png",
+      "effectPaths": [
+        "originals/effects/5006150512270115734.tgs"
+      ]
+    },
+    {
+      "emoji": "☘",
+      "title": "shamrock",
+      "persianTitle": "برگ شبدر",
+      "animationPath": "originals/animations/U_2618.tgs",
+      "previewPath": "previews/U_2618.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "✏",
+      "title": "pencil",
+      "persianTitle": "مداد",
+      "animationPath": "originals/animations/U_270F.tgs",
+      "previewPath": "previews/U_270F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎖",
+      "title": "military medal",
+      "persianTitle": "مدال ارتشی",
+      "animationPath": "originals/animations/U_1F396.tgs",
+      "previewPath": "previews/U_1F396.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐙",
+      "title": "octopus",
+      "persianTitle": "هشت‌پا",
+      "animationPath": "originals/animations/U_1F419.tgs",
+      "previewPath": "previews/U_1F419.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏅",
+      "title": "sports medal",
+      "persianTitle": "مدال ورزشی",
+      "animationPath": "originals/animations/U_1F3C5.tgs",
+      "previewPath": "previews/U_1F3C5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌼",
+      "title": "blossom",
+      "persianTitle": "شکوفه",
+      "animationPath": "originals/animations/U_1F33C.tgs",
+      "previewPath": "previews/U_1F33C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐧",
+      "title": "penguin",
+      "persianTitle": "پنگوئن",
+      "animationPath": "originals/animations/U_1F427.tgs",
+      "previewPath": "previews/U_1F427.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍷",
+      "title": "wine glass",
+      "persianTitle": "جام شراب",
+      "animationPath": "originals/animations/U_1F377.tgs",
+      "previewPath": "previews/U_1F377.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐌",
+      "title": "snail",
+      "persianTitle": "حلزون",
+      "animationPath": "originals/animations/U_1F40C.tgs",
+      "previewPath": "previews/U_1F40C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐯",
+      "title": "tiger face",
+      "persianTitle": "صورت ببر",
+      "animationPath": "originals/animations/U_1F42F.tgs",
+      "previewPath": "previews/U_1F42F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍸",
+      "title": "cocktail glass",
+      "persianTitle": "جام کوکتل",
+      "animationPath": "originals/animations/U_1F378.tgs",
+      "previewPath": "previews/U_1F378.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐽",
+      "title": "pig nose",
+      "persianTitle": "دماغ خوک",
+      "animationPath": "originals/animations/U_1F43D.tgs",
+      "previewPath": "previews/U_1F43D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐢",
+      "title": "turtle",
+      "persianTitle": "لاک‌پشت",
+      "animationPath": "originals/animations/U_1F422.tgs",
+      "previewPath": "previews/U_1F422.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👤",
+      "title": "bust in silhouette",
+      "persianTitle": "تندیس سایه‌نما",
+      "animationPath": "originals/animations/U_1F464.tgs",
+      "previewPath": "previews/U_1F464.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐎",
+      "title": "horse",
+      "persianTitle": "اسب",
+      "animationPath": "originals/animations/U_1F40E.tgs",
+      "previewPath": "previews/U_1F40E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐴",
+      "title": "horse face",
+      "persianTitle": "صورت اسب",
+      "animationPath": "originals/animations/U_1F434.tgs",
+      "previewPath": "previews/U_1F434.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🔑",
+      "title": "key",
+      "persianTitle": "کلید",
+      "animationPath": "originals/animations/U_1F511.tgs",
+      "previewPath": "previews/U_1F511.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐞",
+      "title": "lady beetle",
+      "persianTitle": "کفشدوزک",
+      "animationPath": "originals/animations/U_1F41E.tgs",
+      "previewPath": "previews/U_1F41E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🗝",
+      "title": "old key",
+      "persianTitle": "کلید قدیمی",
+      "animationPath": "originals/animations/U_1F5DD.tgs",
+      "previewPath": "previews/U_1F5DD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "👥",
+      "title": "busts in silhouette",
+      "persianTitle": "تندیس‌های سایه‌نما",
+      "animationPath": "originals/animations/U_1F465.tgs",
+      "previewPath": "previews/U_1F465.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐦",
+      "title": "bird",
+      "persianTitle": "پرنده",
+      "animationPath": "originals/animations/U_1F426.tgs",
+      "previewPath": "previews/U_1F426.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦐",
+      "title": "shrimp",
+      "persianTitle": "میگو",
+      "animationPath": "originals/animations/U_1F990.tgs",
+      "previewPath": "previews/U_1F990.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐷",
+      "title": "pig face",
+      "persianTitle": "صورت خوک",
+      "animationPath": "originals/animations/U_1F437.tgs",
+      "previewPath": "previews/U_1F437.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥃",
+      "title": "tumbler glass",
+      "persianTitle": "لیوان ته‌گنبدی",
+      "animationPath": "originals/animations/U_1F943.tgs",
+      "previewPath": "previews/U_1F943.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦬",
+      "title": "bison",
+      "persianTitle": "گاومیش",
+      "animationPath": "originals/animations/U_1F9AC.tgs",
+      "previewPath": "previews/U_1F9AC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫂",
+      "title": "people hugging",
+      "persianTitle": "درآغوش گرفتن",
+      "animationPath": "originals/animations/U_1FAC2.tgs",
+      "previewPath": "previews/U_1FAC2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦆",
+      "title": "duck",
+      "persianTitle": "مرغابی",
+      "animationPath": "originals/animations/U_1F986.tgs",
+      "previewPath": "previews/U_1F986.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦙",
+      "title": "llama",
+      "persianTitle": "لاما",
+      "animationPath": "originals/animations/U_1F999.tgs",
+      "previewPath": "previews/U_1F999.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚹",
+      "title": "men’s room",
+      "persianTitle": "توالت مردانه",
+      "animationPath": "originals/animations/U_1F6B9.tgs",
+      "previewPath": "previews/U_1F6B9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🆙",
+      "title": "UP! button",
+      "persianTitle": "دکمهٔ !UP",
+      "animationPath": "originals/animations/U_1F199.tgs",
+      "previewPath": "previews/U_1F199.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦓",
+      "title": "zebra",
+      "persianTitle": "گورخر",
+      "animationPath": "originals/animations/U_1F993.tgs",
+      "previewPath": "previews/U_1F993.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚺",
+      "title": "women’s room",
+      "persianTitle": "توالت زنانه",
+      "animationPath": "originals/animations/U_1F6BA.tgs",
+      "previewPath": "previews/U_1F6BA.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦢",
+      "title": "swan",
+      "persianTitle": "قو",
+      "animationPath": "originals/animations/U_1F9A2.tgs",
+      "previewPath": "previews/U_1F9A2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🆓",
+      "title": "FREE button",
+      "persianTitle": "دکمهٔ FREE",
+      "animationPath": "originals/animations/U_1F193.tgs",
+      "previewPath": "previews/U_1F193.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🆗",
+      "title": "OK button",
+      "persianTitle": "دکمهٔ OK",
+      "animationPath": "originals/animations/U_1F197.tgs",
+      "previewPath": "previews/U_1F197.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪳",
+      "title": "cockroach",
+      "persianTitle": "سوسک حمام",
+      "animationPath": "originals/animations/U_1FAB3.tgs",
+      "previewPath": "previews/U_1FAB3.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎫",
+      "title": "ticket",
+      "persianTitle": "بلیت",
+      "animationPath": "originals/animations/U_1F3AB.tgs",
+      "previewPath": "previews/U_1F3AB.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🪲",
+      "title": "beetle",
+      "persianTitle": "سوسک",
+      "animationPath": "originals/animations/U_1FAB2.tgs",
+      "previewPath": "previews/U_1FAB2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🤷",
+      "title": "person shrugging",
+      "persianTitle": "شانه بالا انداختن",
+      "animationPath": "originals/animations/U_1F937.tgs",
+      "previewPath": "previews/U_1F937.png",
+      "effectPaths": [
+        "originals/effects/5068838802655544199.tgs"
+      ]
+    },
+    {
+      "emoji": "🐰",
+      "title": "rabbit face",
+      "persianTitle": "صورت خرگوش",
+      "animationPath": "originals/animations/U_1F430.tgs",
+      "previewPath": "previews/U_1F430.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦘",
+      "title": "kangaroo",
+      "persianTitle": "کانگورو",
+      "animationPath": "originals/animations/U_1F998.tgs",
+      "previewPath": "previews/U_1F998.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦟",
+      "title": "mosquito",
+      "persianTitle": "پشه",
+      "animationPath": "originals/animations/U_1F99F.tgs",
+      "previewPath": "previews/U_1F99F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦌",
+      "title": "deer",
+      "persianTitle": "گوزن",
+      "animationPath": "originals/animations/U_1F98C.tgs",
+      "previewPath": "previews/U_1F98C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍀",
+      "title": "four leaf clover",
+      "persianTitle": "شبدر چهاربرگ",
+      "animationPath": "originals/animations/U_1F340.tgs",
+      "previewPath": "previews/U_1F340.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🧉",
+      "title": "mate",
+      "persianTitle": "ماته",
+      "animationPath": "originals/animations/U_1F9C9.tgs",
+      "previewPath": "previews/U_1F9C9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦍",
+      "title": "gorilla",
+      "persianTitle": "گوریل",
+      "animationPath": "originals/animations/U_1F98D.tgs",
+      "previewPath": "previews/U_1F98D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦜",
+      "title": "parrot",
+      "persianTitle": "طوطی",
+      "animationPath": "originals/animations/U_1F99C.tgs",
+      "previewPath": "previews/U_1F99C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐇",
+      "title": "rabbit",
+      "persianTitle": "خرگوش",
+      "animationPath": "originals/animations/U_1F407.tgs",
+      "previewPath": "previews/U_1F407.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🚼",
+      "title": "baby symbol",
+      "persianTitle": "نماد نوزاد",
+      "animationPath": "originals/animations/U_1F6BC.tgs",
+      "previewPath": "previews/U_1F6BC.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "⛎",
+      "title": "Ophiuchus",
+      "persianTitle": "برج حوا",
+      "animationPath": "originals/animations/U_26CE.tgs",
+      "previewPath": "previews/U_26CE.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐆",
+      "title": "leopard",
+      "persianTitle": "پلنگ",
+      "animationPath": "originals/animations/U_1F406.tgs",
+      "previewPath": "previews/U_1F406.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♒",
+      "title": "Aquarius",
+      "persianTitle": "برج دلو",
+      "animationPath": "originals/animations/U_2652.tgs",
+      "previewPath": "previews/U_2652.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐅",
+      "title": "tiger",
+      "persianTitle": "ببر",
+      "animationPath": "originals/animations/U_1F405.tgs",
+      "previewPath": "previews/U_1F405.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦞",
+      "title": "lobster",
+      "persianTitle": "لابستر",
+      "animationPath": "originals/animations/U_1F99E.tgs",
+      "previewPath": "previews/U_1F99E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦭",
+      "title": "seal",
+      "persianTitle": "فُک",
+      "animationPath": "originals/animations/U_1F9AD.tgs",
+      "previewPath": "previews/U_1F9AD.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦝",
+      "title": "raccoon",
+      "persianTitle": "راکون",
+      "animationPath": "originals/animations/U_1F99D.tgs",
+      "previewPath": "previews/U_1F99D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♓",
+      "title": "Pisces",
+      "persianTitle": "برج حوت",
+      "animationPath": "originals/animations/U_2653.tgs",
+      "previewPath": "previews/U_2653.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐠",
+      "title": "tropical fish",
+      "persianTitle": "ماهی استوایی",
+      "animationPath": "originals/animations/U_1F420.tgs",
+      "previewPath": "previews/U_1F420.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐂",
+      "title": "ox",
+      "persianTitle": "گاو نر",
+      "animationPath": "originals/animations/U_1F402.tgs",
+      "previewPath": "previews/U_1F402.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐄",
+      "title": "cow",
+      "persianTitle": "گاو ماده",
+      "animationPath": "originals/animations/U_1F404.tgs",
+      "previewPath": "previews/U_1F404.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♑",
+      "title": "Capricorn",
+      "persianTitle": "برج جدی",
+      "animationPath": "originals/animations/U_2651.tgs",
+      "previewPath": "previews/U_2651.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫗",
+      "title": "pouring liquid",
+      "persianTitle": "ریختن مایع",
+      "animationPath": "originals/animations/U_1FAD7.tgs",
+      "previewPath": "previews/U_1FAD7.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♐",
+      "title": "Sagittarius",
+      "persianTitle": "برج قوس",
+      "animationPath": "originals/animations/U_2650.tgs",
+      "previewPath": "previews/U_2650.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐍",
+      "title": "snake",
+      "persianTitle": "مار",
+      "animationPath": "originals/animations/U_1F40D.tgs",
+      "previewPath": "previews/U_1F40D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🎗",
+      "title": "reminder ribbon",
+      "persianTitle": "روبان یادآوری",
+      "animationPath": "originals/animations/U_1F397.tgs",
+      "previewPath": "previews/U_1F397.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♌",
+      "title": "Leo",
+      "persianTitle": "برج اسد",
+      "animationPath": "originals/animations/U_264C.tgs",
+      "previewPath": "previews/U_264C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦩",
+      "title": "flamingo",
+      "persianTitle": "فلامینگو",
+      "animationPath": "originals/animations/U_1F9A9.tgs",
+      "previewPath": "previews/U_1F9A9.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐛",
+      "title": "bug",
+      "persianTitle": "حشره",
+      "animationPath": "originals/animations/U_1F41B.tgs",
+      "previewPath": "previews/U_1F41B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♊",
+      "title": "Gemini",
+      "persianTitle": "برج جوزا",
+      "animationPath": "originals/animations/U_264A.tgs",
+      "previewPath": "previews/U_264A.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♏",
+      "title": "Scorpio",
+      "persianTitle": "برج عقرب",
+      "animationPath": "originals/animations/U_264F.tgs",
+      "previewPath": "previews/U_264F.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐈‍⬛",
+      "title": "black cat",
+      "persianTitle": "گربه سیاه",
+      "animationPath": "originals/animations/U_1F408_200D_2B1B.tgs",
+      "previewPath": "previews/U_1F408_200D_2B1B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛅",
+      "title": "left luggage",
+      "persianTitle": "امانت بار",
+      "animationPath": "originals/animations/U_1F6C5.tgs",
+      "previewPath": "previews/U_1F6C5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♍",
+      "title": "Virgo",
+      "persianTitle": "برج سنبله",
+      "animationPath": "originals/animations/U_264D.tgs",
+      "previewPath": "previews/U_264D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛄",
+      "title": "baggage claim",
+      "persianTitle": "دریافت بار",
+      "animationPath": "originals/animations/U_1F6C4.tgs",
+      "previewPath": "previews/U_1F6C4.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♉",
+      "title": "Taurus",
+      "persianTitle": "برج ثور",
+      "animationPath": "originals/animations/U_2649.tgs",
+      "previewPath": "previews/U_2649.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "📲",
+      "title": "mobile phone with arrow",
+      "persianTitle": "تلفن همراه با پیکان",
+      "animationPath": "originals/animations/U_1F4F2.tgs",
+      "previewPath": "previews/U_1F4F2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🥛",
+      "title": "glass of milk",
+      "persianTitle": "لیوان شیر",
+      "animationPath": "originals/animations/U_1F95B.tgs",
+      "previewPath": "previews/U_1F95B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♎",
+      "title": "Libra",
+      "persianTitle": "برج میزان",
+      "animationPath": "originals/animations/U_264E.tgs",
+      "previewPath": "previews/U_264E.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦑",
+      "title": "squid",
+      "persianTitle": "ماهی مرکب",
+      "animationPath": "originals/animations/U_1F991.tgs",
+      "previewPath": "previews/U_1F991.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦒",
+      "title": "giraffe",
+      "persianTitle": "زرافه",
+      "animationPath": "originals/animations/U_1F992.tgs",
+      "previewPath": "previews/U_1F992.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🛂",
+      "title": "passport control",
+      "persianTitle": "کنترل گذرنامه",
+      "animationPath": "originals/animations/U_1F6C2.tgs",
+      "previewPath": "previews/U_1F6C2.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐈",
+      "title": "cat",
+      "persianTitle": "گربه",
+      "animationPath": "originals/animations/U_1F408.tgs",
+      "previewPath": "previews/U_1F408.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦗",
+      "title": "cricket",
+      "persianTitle": "جیرجیرک",
+      "animationPath": "originals/animations/U_1F997.tgs",
+      "previewPath": "previews/U_1F997.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐜",
+      "title": "ant",
+      "persianTitle": "مورچه",
+      "animationPath": "originals/animations/U_1F41C.tgs",
+      "previewPath": "previews/U_1F41C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♋",
+      "title": "Cancer",
+      "persianTitle": "برج سرطان",
+      "animationPath": "originals/animations/U_264B.tgs",
+      "previewPath": "previews/U_264B.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍼",
+      "title": "baby bottle",
+      "persianTitle": "شیشه شیر",
+      "animationPath": "originals/animations/U_1F37C.tgs",
+      "previewPath": "previews/U_1F37C.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "♈",
+      "title": "Aries",
+      "persianTitle": "برج حمل",
+      "animationPath": "originals/animations/U_2648.tgs",
+      "previewPath": "previews/U_2648.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🏵",
+      "title": "rosette",
+      "persianTitle": "گل رزت",
+      "animationPath": "originals/animations/U_1F3F5.tgs",
+      "previewPath": "previews/U_1F3F5.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦕",
+      "title": "sauropod",
+      "persianTitle": "سوسمار",
+      "animationPath": "originals/animations/U_1F995.tgs",
+      "previewPath": "previews/U_1F995.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦁",
+      "title": "lion",
+      "persianTitle": "شیر",
+      "animationPath": "originals/animations/U_1F981.tgs",
+      "previewPath": "previews/U_1F981.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🐝",
+      "title": "honeybee",
+      "persianTitle": "زنبور عسل",
+      "animationPath": "originals/animations/U_1F41D.tgs",
+      "previewPath": "previews/U_1F41D.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦖",
+      "title": "T-Rex",
+      "persianTitle": "تی‌رکس",
+      "animationPath": "originals/animations/U_1F996.tgs",
+      "previewPath": "previews/U_1F996.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "💐",
+      "title": "bouquet",
+      "persianTitle": "دسته گل",
+      "animationPath": "originals/animations/U_1F490.tgs",
+      "previewPath": "previews/U_1F490.png",
+      "effectPaths": [
+        "originals/effects/5026421185949205937.tgs"
+      ]
+    },
+    {
+      "emoji": "🐸",
+      "title": "frog",
+      "persianTitle": "قورباغه",
+      "animationPath": "originals/animations/U_1F438.tgs",
+      "previewPath": "previews/U_1F438.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🌈",
+      "title": "rainbow",
+      "persianTitle": "رنگین کمان",
+      "animationPath": "originals/animations/U_1F308.tgs",
+      "previewPath": "previews/U_1F308.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦔",
+      "title": "hedgehog",
+      "persianTitle": "جوجه‌تیغی",
+      "animationPath": "originals/animations/U_1F994.tgs",
+      "previewPath": "previews/U_1F994.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🦃",
+      "title": "turkey",
+      "persianTitle": "بوقلمون",
+      "animationPath": "originals/animations/U_1F983.tgs",
+      "previewPath": "previews/U_1F983.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫨",
+      "title": "shaking face",
+      "persianTitle": "چهره لرزان",
+      "animationPath": "originals/animations/U_1FAE8.tgs",
+      "previewPath": "previews/U_1FAE8.png",
+      "effectPaths": [
+        "originals/effects/5089613774214660825.tgs"
+      ]
+    },
+    {
+      "emoji": "🩵",
+      "title": "light blue heart",
+      "persianTitle": "قلب آبی کم‌رنگ",
+      "animationPath": "originals/animations/U_1FA75.tgs",
+      "previewPath": "previews/U_1FA75.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🩶",
+      "title": "grey heart",
+      "persianTitle": "قلب خاکستری",
+      "animationPath": "originals/animations/U_1FA76.tgs",
+      "previewPath": "previews/U_1FA76.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🩷",
+      "title": "pink heart",
+      "persianTitle": "قلب صورتی",
+      "animationPath": "originals/animations/U_1FA77.tgs",
+      "previewPath": "previews/U_1FA77.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫷",
+      "title": "leftwards pushing hand",
+      "persianTitle": "دست فشاردهنده به سمت چپ",
+      "animationPath": "originals/animations/U_1FAF7.tgs",
+      "previewPath": "previews/U_1FAF7.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🫸",
+      "title": "rightwards pushing hand",
+      "persianTitle": "دست فشاردهنده به سمت راست",
+      "animationPath": "originals/animations/U_1FAF8.tgs",
+      "previewPath": "previews/U_1FAF8.png",
+      "effectPaths": []
+    },
+    {
+      "emoji": "🍆",
+      "title": "eggplant",
+      "persianTitle": "بادمجان",
+      "animationPath": "originals/animations/U_1F346.tgs",
+      "previewPath": "previews/U_1F346.png",
+      "effectPaths": [
+        "originals/effects/4940650246666453485.tgs"
+      ]
+    }
+  ]
+}

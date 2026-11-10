@@ -16,6 +16,13 @@ public class BaseApiResponse<TApiResponse> : IBaseApiResponse
     /// </summary>
     public TApiResponse? Content { get; set; }
 
+    /// <summary>
+    /// Internal upper bound for server caching of time-sensitive content.
+    /// This metadata is never part of the API response JSON.
+    /// </summary>
+    [System.Text.Json.Serialization.JsonIgnore]
+    public DateTimeOffset? CacheExpiresAt { get; set; }
+
 
     /// <summary>
     /// Indicates whether the operation was successful.

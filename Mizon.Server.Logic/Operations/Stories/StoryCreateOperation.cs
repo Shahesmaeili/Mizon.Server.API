@@ -28,35 +28,72 @@ public sealed class StoryCreateOperation(MizonDatabaseContext mizonDatabaseConte
             ExpireDateTime = input.ExpireDateTime,
         };
 
+        // Keep each lookup separate, but fetch its references once for the whole
+        // request. Validation below retains the original widget/error order.
+        var typePublicIds = input.Widgets.Select(x => x.StoryWidgetTypePublicId).Distinct().ToArray();
+        var types = typePublicIds.Length == 0 ? [] : await mizonDatabaseContext.StoryWidgetTypes.AsNoTracking()
+            .Where(x => typePublicIds.Contains(x.PublicId))
+            .Select(x => new { x.PublicId, x.Id })
+            .ToDictionaryAsync(x => x.PublicId, x => x.Id, cancellationToken);
+        var stylePublicIds = input.Widgets.Select(x => x.StoryWidgetStylePublicId).Distinct().ToArray();
+        var styles = stylePublicIds.Length == 0 ? [] : await mizonDatabaseContext.StoryWidgetStyles.AsNoTracking()
+            .Where(x => stylePublicIds.Contains(x.PublicId))
+            .Select(x => new
+            {
+                x.PublicId,
+                x.Id,
+                x.StoryWidgetTypeId,
+            })
+            .ToDictionaryAsync(x => x.PublicId, cancellationToken);
+        var musicPublicIds = input.Widgets
+            .Where(x => x.MusicPublicId.HasValue)
+            .Select(x => x.MusicPublicId!.Value)
+            .Distinct()
+            .ToArray();
+        var musics = musicPublicIds.Length == 0 ? [] : await mizonDatabaseContext.Musics.AsNoTracking()
+            .Where(x => musicPublicIds.Contains(x.PublicId))
+            .Select(x => new { x.PublicId, x.Id })
+            .ToDictionaryAsync(x => x.PublicId, x => x.Id, cancellationToken);
+        var clientPublicIds = input.Widgets
+            .Where(x => x.ClientPublicId.HasValue)
+            .Select(x => x.ClientPublicId!.Value)
+            .Distinct()
+            .ToArray();
+        var clients = clientPublicIds.Length == 0 ? [] : await mizonDatabaseContext.Clients.AsNoTracking()
+            .Where(x => clientPublicIds.Contains(x.PublicId))
+            .Select(x => new { x.PublicId, x.Id })
+            .ToDictionaryAsync(x => x.PublicId, x => x.Id, cancellationToken);
+
         foreach (var widgetInput in input.Widgets)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             if (widgetInput.Width <= 0 || widgetInput.Height <= 0)
                 return new() { Error = new() { Code = 11002 } };
 
-            var widgetTypeId = await mizonDatabaseContext.StoryWidgetTypes.Where(x => x.PublicId == widgetInput.StoryWidgetTypePublicId).Select(x => (byte?)x.Id).FirstOrDefaultAsync(cancellationToken);
-            var style = await mizonDatabaseContext.StoryWidgetStyles.Where(x => x.PublicId == widgetInput.StoryWidgetStylePublicId).Select(x => new { x.Id, x.StoryWidgetTypeId }).FirstOrDefaultAsync(cancellationToken);
-            if (widgetTypeId is null || style is null || style.StoryWidgetTypeId != widgetTypeId.Value)
+            if (!types.TryGetValue(widgetInput.StoryWidgetTypePublicId, out var widgetTypeId)
+                || !styles.TryGetValue(widgetInput.StoryWidgetStylePublicId, out var style)
+                || style.StoryWidgetTypeId != widgetTypeId)
                 return new() { Error = new() { Code = 11002 } };
 
             var widget = new StoryWidget
             {
-                StoryWidgetTypeId = widgetTypeId.Value,
+                StoryWidgetTypeId = style.StoryWidgetTypeId,
                 StoryWidgetStyleId = style.Id,
                 X = widgetInput.X, Y = widgetInput.Y, Width = widgetInput.Width, Height = widgetInput.Height,
                 Rotation = widgetInput.Rotation, ZIndex = widgetInput.ZIndex,
             };
 
-            if (widgetTypeId == 2 && widgetInput.MusicPublicId is Guid musicPublicId)
+            if (style.StoryWidgetTypeId == 2 && widgetInput.MusicPublicId is Guid musicPublicId)
             {
-                var musicId = await mizonDatabaseContext.Musics.Where(x => x.PublicId == musicPublicId).Select(x => (int?)x.Id).FirstOrDefaultAsync(cancellationToken);
-                if (musicId is null) return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicNotFound } };
-                widget.MusicWidget = new() { MusicId = musicId.Value };
+                if (!musics.TryGetValue(musicPublicId, out var musicId))
+                    return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicNotFound } };
+                widget.MusicWidget = new() { MusicId = musicId };
             }
-            else if (widgetTypeId == 1 && widgetInput.ClientPublicId is Guid clientPublicId)
+            else if (style.StoryWidgetTypeId == 1 && widgetInput.ClientPublicId is Guid clientPublicId)
             {
-                var clientId = await mizonDatabaseContext.Clients.Where(x => x.PublicId == clientPublicId).Select(x => (int?)x.Id).FirstOrDefaultAsync(cancellationToken);
-                if (clientId is null) return new() { Error = new() { Code = 11003 } };
-                widget.ClientWidget = new() { ClientId = clientId.Value };
+                if (!clients.TryGetValue(clientPublicId, out var clientId))
+                    return new() { Error = new() { Code = 11003 } };
+                widget.ClientWidget = new() { ClientId = clientId };
             }
             else return new() { Error = new() { Code = 11002 } };
 

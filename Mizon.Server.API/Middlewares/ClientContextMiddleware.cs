@@ -7,7 +7,7 @@ namespace Mizon.Server.API.Middlewares;
 public sealed class ClientContextMiddleware
 {
     private readonly RequestDelegate _next;
-    public static ConcurrentDictionary<Guid, int> Clients = new();
+    public static readonly ConcurrentDictionary<Guid, int> Clients = new();
     public ClientContextMiddleware(RequestDelegate next)
     {
         _next = next;
@@ -26,22 +26,19 @@ public sealed class ClientContextMiddleware
 
         if (requestMetadata.ClientPublicId is not null)
         {
-            if (!Clients.ContainsKey(requestMetadata.ClientPublicId.Value))
+            if (Clients.TryGetValue(requestMetadata.ClientPublicId.Value, out int clientId))
             {
-                var baseApiResponse = await apiOperationExecutor.ExecuteAsync<FindClientIdOperation, FindClientIdRequest, FindClientIdResponse>(new() { Content = new() { ClientPublicId = requestMetadata.ClientPublicId.Value } }, null, CancellationToken.None);
+                requestMetadata.ClientId = clientId;
+            }
+            else
+            {
+                var baseApiResponse = await apiOperationExecutor.ExecuteAsync<FindClientIdOperation, FindClientIdRequest, FindClientIdResponse>(new() { Content = new() { ClientPublicId = requestMetadata.ClientPublicId.Value } }, null, context.RequestAborted);
 
                 if (baseApiResponse.IsSuccess && baseApiResponse.Content is not null)
                 {
-                    Clients.TryAdd(requestMetadata.ClientPublicId.Value, baseApiResponse.Content.ClientId);
-                }
-                else
-                {
-
+                    requestMetadata.ClientId = Clients.GetOrAdd(requestMetadata.ClientPublicId.Value, baseApiResponse.Content.ClientId);
                 }
             }
-
-            if (Clients.TryGetValue(requestMetadata.ClientPublicId.Value, out int clientId))
-                requestMetadata.ClientId = clientId;
         }
 
         if (context.Request.Headers.TryGetValue("Mizon-Device-Identifier", out StringValues deviceIdentifier))

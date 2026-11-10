@@ -1,12 +1,17 @@
 ﻿using Mizon.Server.API.JsonSerializerContexts;
+using System.Buffers;
+using System.Buffers.Text;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
 
 namespace Mizon.Server.API.Services;
 
 public sealed class JwtTokenService
 {
+    private static readonly string EncodedHeader = Base64Url.EncodeToString(
+        JsonSerializer.SerializeToUtf8Bytes(new JwtHeader(), JwtJsonContext.Default.JwtHeader));
     private readonly byte[] _secretKey;
     private readonly string _issuer;
     private readonly string _audience;
@@ -43,19 +48,9 @@ public sealed class JwtTokenService
 
     private string CreateJwt(JwtPayload payload)
     {
-        var header = new JwtHeader
-        {
-            alg = "HS256",
-            typ = "JWT"
-        };
-
-        string headerJson = JsonSerializer.Serialize(header, JwtJsonContext.Default.JwtHeader);
-        string payloadJson = JsonSerializer.Serialize(payload, JwtJsonContext.Default.JwtPayload);
-
-        string headerBase64 = Base64UrlEncode(Encoding.UTF8.GetBytes(headerJson));
-        string payloadBase64 = Base64UrlEncode(Encoding.UTF8.GetBytes(payloadJson));
-
-        string unsignedToken = $"{headerBase64}.{payloadBase64}";
+        var payloadBase64 = Base64Url.EncodeToString(
+            JsonSerializer.SerializeToUtf8Bytes(payload, JwtJsonContext.Default.JwtPayload));
+        string unsignedToken = $"{EncodedHeader}.{payloadBase64}";
 
         string signature = CreateSignature(unsignedToken);
 
@@ -67,58 +62,29 @@ public sealed class JwtTokenService
         if (string.IsNullOrWhiteSpace(token))
             return new() { Error = JwtValidationError.InvalidFormat };
 
-        var parts = token.Split('.');
-
-        if (parts.Length != 3)
+        var value = token.AsSpan();
+        var headerEnd = value.IndexOf('.');
+        if (headerEnd < 0)
+            return new() { Error = JwtValidationError.InvalidFormat };
+        var remaining = value[(headerEnd + 1)..];
+        var payloadEnd = remaining.IndexOf('.');
+        if (payloadEnd < 0 || remaining[(payloadEnd + 1)..].Contains('.'))
             return new() { Error = JwtValidationError.InvalidFormat };
 
-        var header = parts[0];
-        var payload = parts[1];
-        var signature = parts[2];
+        var header = value[..headerEnd];
+        var payload = remaining[..payloadEnd];
+        var signature = remaining[(payloadEnd + 1)..];
+        var unsignedToken = value[..(headerEnd + 1 + payloadEnd)];
 
-        var unsignedToken = $"{header}.{payload}";
-
-        // ----------------------------------------------------------
-        // NEW (1): Decode + Validate HEADER (alg = HS256)
-        // ----------------------------------------------------------
-        JwtHeader? jwtHeader;
-
-        try
-        {
-            var headerBytes = Base64UrlDecode(header);
-
-            jwtHeader = JsonSerializer.Deserialize(
-                headerBytes,
-                JwtJsonContext.Default.JwtHeader);
-        }
-        catch
-        {
+        if (!TryReadTokenPart(header, JwtJsonContext.Default.JwtHeader, out var jwtHeader)
+            || jwtHeader is null || jwtHeader.alg != "HS256")
             return new() { Error = JwtValidationError.InvalidFormat };
-        }
-
-        if (jwtHeader is null || jwtHeader.alg != "HS256")
-            return new() { Error = JwtValidationError.InvalidFormat };
-        // ----------------------------------------------------------
 
         if (!ValidateSignature(unsignedToken, signature))
             return new() { Error = JwtValidationError.InvalidSignature };
 
-        JwtPayload? jwtPayload;
-
-        try
-        {
-            var payloadBytes = Base64UrlDecode(payload);
-
-            jwtPayload = JsonSerializer.Deserialize(
-                payloadBytes,
-                JwtJsonContext.Default.JwtPayload);
-        }
-        catch
-        {
-            return new() { Error = JwtValidationError.InvalidPayload };
-        }
-
-        if (jwtPayload == null)
+        if (!TryReadTokenPart(payload, JwtJsonContext.Default.JwtPayload, out var jwtPayload)
+            || jwtPayload is null)
             return new() { Error = JwtValidationError.InvalidPayload };
 
         if (jwtPayload.iss != _issuer)
@@ -129,12 +95,8 @@ public sealed class JwtTokenService
 
         var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-        // ----------------------------------------------------------
-        // NEW (2): Validate issued-at (iat should not be in future)
-        // ----------------------------------------------------------
         if (jwtPayload.iat > now + 60) // allow up to 1 minute skew
             return new() { Error = JwtValidationError.InvalidPayload };
-        // ----------------------------------------------------------
 
         if (jwtPayload.exp < now)
             return new() { Error = JwtValidationError.Expired };
@@ -153,56 +115,84 @@ public sealed class JwtTokenService
         };
     }
 
-    private bool ValidateSignature(string data, string signature)
+    private bool ValidateSignature(ReadOnlySpan<char> data, ReadOnlySpan<char> signature)
     {
-        using var hmac = new HMACSHA256(_secretKey);
-
+        // HS256 produces exactly 43 unpadded Base64Url characters. Compare the
+        // canonical representation as before, without accepting padded aliases.
+        if (signature.Length != 43)
+            return false;
+        Span<byte> received = stackalloc byte[43];
+        if (!Encoding.UTF8.TryGetBytes(signature, received, out var receivedLength) || receivedLength != received.Length)
+            return false;
         Span<byte> hash = stackalloc byte[32];
-
-        hmac.TryComputeHash(
-            Encoding.UTF8.GetBytes(data),
-            hash,
-            out _);
-
-        var computed = Base64UrlEncode(hash);
-
-        return CryptographicOperations.FixedTimeEquals(
-            Encoding.UTF8.GetBytes(computed),
-            Encoding.UTF8.GetBytes(signature));
+        ComputeSignature(data, hash);
+        Span<byte> expected = stackalloc byte[43];
+        Base64Url.EncodeToUtf8(hash, expected);
+        return CryptographicOperations.FixedTimeEquals(expected, received);
     }
 
-    private string CreateSignature(string data)
+    private string CreateSignature(ReadOnlySpan<char> data)
     {
-        using var hmac = new HMACSHA256(_secretKey);
-
         Span<byte> hash = stackalloc byte[32];
-        hmac.TryComputeHash(Encoding.UTF8.GetBytes(data), hash, out _);
-
-        return Base64UrlEncode(hash);
+        ComputeSignature(data, hash);
+        return Base64Url.EncodeToString(hash);
     }
 
 
-    private static byte[] Base64UrlDecode(string input)
+    private void ComputeSignature(ReadOnlySpan<char> data, Span<byte> hash)
     {
-        string padded = input
-            .Replace("-", "+")
-            .Replace("_", "/");
-
-        switch (padded.Length % 4)
+        var byteCount = Encoding.UTF8.GetByteCount(data);
+        byte[]? rented = null;
+        Span<byte> bytes = byteCount <= 1024
+            ? stackalloc byte[byteCount]
+            : (rented = ArrayPool<byte>.Shared.Rent(byteCount));
+        try
         {
-            case 2: padded += "=="; break;
-            case 3: padded += "="; break;
+            var written = Encoding.UTF8.GetBytes(data, bytes);
+            HMACSHA256.HashData(_secretKey, bytes[..written], hash);
         }
-
-        return Convert.FromBase64String(padded);
+        finally
+        {
+            if (rented is not null) ArrayPool<byte>.Shared.Return(rented, clearArray: true);
+        }
     }
 
-    private static string Base64UrlEncode(ReadOnlySpan<byte> input)
+    private static bool TryReadTokenPart<T>(ReadOnlySpan<char> input, JsonTypeInfo<T> typeInfo, out T? value)
+        where T : class
     {
-        return Convert.ToBase64String(input)
-            .Replace("+", "-")
-            .Replace("/", "_")
-            .Replace("=", "");
+        value = null;
+        // Preserve the previous decoder's treatment of padded Base64/header
+        // whitespace; newly issued tokens still use canonical unpadded Base64Url.
+        var padding = (input.Length % 4) switch { 2 => 2, 3 => 1, _ => 0 };
+        var length = input.Length + padding;
+        var maximumBytes = length / 4 * 3;
+        char[]? rentedChars = null;
+        byte[]? rentedBytes = null;
+        Span<char> normalized = length <= 1024
+            ? stackalloc char[length]
+            : (rentedChars = ArrayPool<char>.Shared.Rent(length)).AsSpan(0, length);
+        Span<byte> decoded = maximumBytes <= 768
+            ? stackalloc byte[maximumBytes]
+            : (rentedBytes = ArrayPool<byte>.Shared.Rent(maximumBytes));
+        try
+        {
+            for (var index = 0; index < input.Length; index++)
+                normalized[index] = input[index] switch { '-' => '+', '_' => '/', var character => character };
+            normalized[input.Length..].Fill('=');
+            if (!Convert.TryFromBase64Chars(normalized, decoded, out var written))
+                return false;
+            value = JsonSerializer.Deserialize(decoded[..written], typeInfo);
+            return true;
+        }
+        catch (JsonException)
+        {
+            return false;
+        }
+        finally
+        {
+            if (rentedChars is not null) ArrayPool<char>.Shared.Return(rentedChars, clearArray: true);
+            if (rentedBytes is not null) ArrayPool<byte>.Shared.Return(rentedBytes, clearArray: true);
+        }
     }
 
     public sealed class JwtHeader

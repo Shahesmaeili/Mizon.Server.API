@@ -7,6 +7,7 @@ public sealed class StoryDetailsOperation(MizonDatabaseContext mizonDatabaseCont
     {
         var now = DateTimeOffset.UtcNow;
         var story = await mizonDatabaseContext.Stories.AsNoTracking()
+            .VisibleTo(mizonDatabaseContext, requestMetadata?.ClientId)
             .Where(x => x.PublicId == request.Content!.StoryPublicId)
             .Where(x => x.IsActive)
             .Where(x => x.ExpireDateTime == null || x.ExpireDateTime > now)
@@ -40,11 +41,11 @@ public sealed class StoryDetailsOperation(MizonDatabaseContext mizonDatabaseCont
             .Select(x => new { x.Id, x.PublicId, TypePublicId = x.StoryWidgetType!.PublicId, StylePublicId = x.StoryWidgetStyle!.PublicId, x.X, x.Y, x.Width, x.Height, x.Rotation, x.ZIndex })
             .ToListAsync(cancellationToken);
         var widgetIds = widgetRows.Select(x => x.Id).ToArray();
-        var musicWidgets = await mizonDatabaseContext.StoryMusicWidgets.AsNoTracking()
+        var musicWidgets = widgetIds.Length == 0 ? [] : await mizonDatabaseContext.StoryMusicWidgets.AsNoTracking()
             .Where(x => widgetIds.Contains(x.StoryWidgetId))
             .Select(x => new { x.StoryWidgetId, MusicPublicId = x.Music!.PublicId, x.Music.Title, CoverMediaPublicId = x.Music.MusicCover == null ? (Guid?)null : x.Music.MusicCover.Media!.PublicId })
             .ToDictionaryAsync(x => x.StoryWidgetId, cancellationToken);
-        var clientWidgets = await mizonDatabaseContext.StoryClientWidgets.AsNoTracking()
+        var clientWidgets = widgetIds.Length == 0 ? [] : await mizonDatabaseContext.StoryClientWidgets.AsNoTracking()
             .Where(x => widgetIds.Contains(x.StoryWidgetId))
             .Select(x => new
             {
@@ -66,7 +67,7 @@ public sealed class StoryDetailsOperation(MizonDatabaseContext mizonDatabaseCont
             Client = clientWidgets.TryGetValue(widget.Id, out var client) ? new() { ClientPublicId = client.ClientPublicId, FirstName = client.FirstName, LastName = client.LastName, Username = client.Username, ProfileMediaPublicId = client.ProfileMediaPublicId } : null,
         }).ToList();
 
-        return new() { Content = new()
+        return new() { CacheExpiresAt = story.ExpireDateTime, Content = new()
         {
             PublicId = story.PublicId, CreatorClientPublicId = story.CreatorClientPublicId, CreatorFirstName = story.FirstName, CreatorLastName = story.LastName,
             CreatorUsername = story.CreatorUsername, CreatorProfileMediaPublicId = story.CreatorProfileMediaPublicId,

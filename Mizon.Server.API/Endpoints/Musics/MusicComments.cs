@@ -7,12 +7,12 @@ internal sealed class MusicComments : IEndpoint
         endpointRouteBuilder.MapGroup(ApiGroups.Musics).MapGet($"{nameof(MusicComments)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MusicCommentsResponse>> Handle(
+    private static Task<BaseApiResponse<MusicCommentsResponse>> Handle(
         [AsParameters] MusicCommentsRequest request,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
         CancellationToken cancellationToken)
     {
-        return await apiOperationExecutor.ExecuteAsync<MusicCommentsOperation, MusicCommentsRequest, MusicCommentsResponse>(new() { Content = request }, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MusicCommentsOperation, MusicCommentsRequest, MusicCommentsResponse>(new() { Content = request }, requestMetadata, cancellationToken);
     }
 }

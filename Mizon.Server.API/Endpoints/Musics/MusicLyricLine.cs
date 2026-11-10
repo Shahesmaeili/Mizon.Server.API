@@ -10,7 +10,7 @@ internal sealed class MusicLyricLine : IEndpoint
             .MapGet($"{nameof(MusicLyricLine)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MusicLyricLineResponse>> Handle(
+    private static Task<BaseApiResponse<MusicLyricLineResponse>> Handle(
         [AsParameters] MusicLyricLineRequest request,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
@@ -22,6 +22,6 @@ internal sealed class MusicLyricLine : IEndpoint
             Content = request,
         };
 
-        return await apiOperationExecutor.ExecuteAsync<MusicLyricLineOperation, MusicLyricLineRequest, MusicLyricLineResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MusicLyricLineOperation, MusicLyricLineRequest, MusicLyricLineResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

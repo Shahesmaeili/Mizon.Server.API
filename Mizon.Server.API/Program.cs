@@ -1,40 +1,40 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Mizon.Database;
 using Mizon.Server;
 using Mizon.Server.API;
+using Mizon.Server.API.Caching;
 using Mizon.Server.API.Endpoints;
 using Mizon.Server.API.Hubs;
 using Mizon.Server.API.JsonSerializerContexts;
 using Mizon.Server.API.Middlewares;
 using Mizon.Server.Logic;
-using System.Diagnostics;
-using System.Net;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
-     options.SerializerOptions.TypeInfoResolverChain.Insert(0, MizonJsonContexts.Default);
+    options.SerializerOptions.TypeInfoResolverChain.Insert(0, MizonJsonContexts.Default);
 });
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+if (builder.Environment.IsDevelopment())
+    builder.Services.AddOpenApi();
 builder.Services.AddMizonServer();
 builder.Services.AddMizonLogic();
+builder.Services.AddMizonResponseCaching(builder.Configuration);
 
 builder.Services.AddSingleton<JwtTokenService>();
 builder.Services.AddScoped<RequestMetadata>();
-builder.Services.AddDbContextPool<MizonDatabaseContext>((sp, options) =>
+builder.Services.AddDbContextPool<MizonDatabaseContext>(options =>
 {
     options.UseSqlServer("Server=localhost;Database=Mizon;Trusted_Connection=True;TrustServerCertificate=True");
 });
 
 builder.Services
     .AddAuthentication("jwt")
-    .AddScheme<AuthenticationSchemeOptions, JwtAuthenticationHandler>("jwt", _ => {  });
+    .AddScheme<AuthenticationSchemeOptions, JwtAuthenticationHandler>("jwt", _ => { });
 
 builder.Services.AddAuthorization(options =>
 {
@@ -48,7 +48,7 @@ builder.WebHost.UseQuic();   // این خط مهم است
 // تنظیمات SignalR با پشتیبانی از JWT
 builder.Services.AddSignalR(options =>
 {
-    options.EnableDetailedErrors = true;
+    options.EnableDetailedErrors = builder.Environment.IsDevelopment();
     options.MaximumReceiveMessageSize = 102400;
     options.StreamBufferCapacity = 10;
 
@@ -73,9 +73,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Keep the existing development endpoint; allow isolated diagnostics/deployments.
+var port = builder.Configuration.GetValue("Server:Port", 5128);
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenLocalhost(5128, listenOptions =>
+    options.ListenLocalhost(port, listenOptions =>
     {
         listenOptions.UseHttps();
         listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
@@ -87,14 +89,22 @@ builder.Services.AddResponseCompression(options =>
     options.EnableForHttps = true; // چون تو HTTPS داری
 });
 builder.Services.AddRequestDecompression();
-builder.Services.AddMemoryCache();
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddOutputCache();
 
 
 var app = builder.Build();
 
+// Assets are provisioned locally by a business operation, never by a public endpoint.
+var moodCatalogPath = Path.Combine(app.Environment.ContentRootPath, "App_Data", "MoodEmojis", "catalog.json");
+if (builder.Configuration.GetValue("AssetInitialization:Enabled", true) && File.Exists(moodCatalogPath))
+{
+    await using var scope = app.Services.CreateAsyncScope();
+    var imported = await scope.ServiceProvider.GetRequiredService<ClientMoodInitializeOperation>()
+        .ExecuteAsync(moodCatalogPath, app.Lifetime.ApplicationStopping);
+    app.Logger.LogInformation("Mood catalog is ready; {Imported} new moods registered.", imported);
+}
+
 // استفاده از CORS قبل از Authentication
+app.UseMiddleware<RequestDiagnosticsMiddleware>();
 app.UseCors("SignalRCors");
 
 // اضافه کردن مسیر Hub
@@ -103,68 +113,18 @@ app.MapHub<MizonHub>("/mizonHub");
 app.UseRequestDecompression();
 app.UseResponseCompression();
 app.UseAuthentication();
-
-
 app.UseAuthorization();
-app.UseOutputCache();
-
-app.Use(async (context, next) =>
-{
-
-    var sw = Stopwatch.StartNew();
-
-    var protocol = context.Request.Protocol;
-    Console.WriteLine($"Request protocol: {protocol} - {context.GetEndpoint()!.DisplayName}");
-
-    //context.Request.EnableBuffering();
-
-    //string requestBody = string.Empty;
-
-    //using (var reader = new StreamReader(
-    //    context.Request.Body,
-    //    encoding: System.Text.Encoding.UTF8,
-    //    detectEncodingFromByteOrderMarks: false,
-    //    leaveOpen: true))
-    //{
-    //    requestBody = await reader.ReadToEndAsync();
-    //    context.Request.Body.Position = 0;
-    //}
-
-    //Console.WriteLine($"Request body: {requestBody}");
-
-    await next();
-    sw.Stop();
-
-    var cacheStatus = context.Response.Headers["x-output-cache"].ToString();
-
-    var elapsedMs = sw.Elapsed.TotalMilliseconds;
-    var statusCode = context.Response.StatusCode;
-
-    Console.WriteLine($"Response status: {statusCode} | Duration: {elapsedMs:F2} ms | Cache: {cacheStatus}");
-
-});
-
-
-
-
-
-
 app.UseMiddleware<ClientContextMiddleware>();
+app.UseOutputCache();
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
-
- ClientEndpoints.Map(app);
-
- MusicEndpoints.Map(app);
-
+ClientEndpoints.Map(app);
+MusicEndpoints.Map(app);
 MediaEndpoints.Map(app);
 StoryEndpoints.Map(app);
 SearchEndpoints.Map(app);
 
 app.Run();
-
-

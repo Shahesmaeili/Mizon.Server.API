@@ -8,60 +8,68 @@ public sealed class MusicPlaylistMembershipOperation(MizonDatabaseContext mizonD
         RequestMetadata? requestMetadata,
         CancellationToken cancellationToken)
     {
-        var music = await mizonDatabaseContext.Musics
-            .AsNoTracking()
-            .Where(x => x.PublicId == request.Content!.MusicPublicId)
-            .Select(x => new { x.Id })
+        if (requestMetadata?.ClientId is not int clientId)
+            return new() { Error = new() { Code = OperationErrorCodes.Clients.ClientSessionNotFound } };
+        if (request.Content is not { MusicPlaylistPublicIds: not null } content)
+            return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicPlaylistNotFound } };
+
+        var musicId = await mizonDatabaseContext.Musics.AsNoTracking()
+            .Where(x => x.PublicId == content.MusicPublicId)
+            .Select(x => (int?)x.Id)
             .FirstOrDefaultAsync(cancellationToken);
+        if (musicId is null)
+            return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicNotFound } };
 
-        if (music is null)
-        {
-            return new()
-            {
-                Error = new() { Code = OperationErrorCodes.Musics.MusicNotFound }
-            };
-        }
-
-        var selectedPlaylistPublicIds = request.Content.MusicPlaylistPublicIds
+        var selectedPublicIds = content.MusicPlaylistPublicIds
             .Where(x => x != Guid.Empty)
             .Distinct()
             .ToArray();
 
-        var ownedPlaylists = await mizonDatabaseContext.MusicPlaylists
-            .Where(x => x.ClientId == requestMetadata!.ClientId)
-            .Select(x => new { x.Id, x.PublicId })
-            .ToListAsync(cancellationToken);
+        await using var transaction = await mizonDatabaseContext.Database.BeginTransactionAsync(cancellationToken);
+        await MusicPlaylistWriteLock.AcquireAsync(mizonDatabaseContext, clientId, cancellationToken);
 
-        var selectedPlaylistIds = ownedPlaylists
-            .Where(x => selectedPlaylistPublicIds.Contains(x.PublicId))
+        var selectedIds = await mizonDatabaseContext.MusicPlaylists.AsNoTracking()
+            .Where(x => x.ClientId == clientId)
+            .Where(x => selectedPublicIds.Contains(x.PublicId))
             .Select(x => x.Id)
-            .ToHashSet();
+            .ToListAsync(cancellationToken);
+        if (selectedIds.Count != selectedPublicIds.Length)
+            return new() { Error = new() { Code = OperationErrorCodes.Musics.MusicPlaylistNotFound } };
 
-        if (selectedPlaylistIds.Count != selectedPlaylistPublicIds.Length)
+        var existingIds = await mizonDatabaseContext.MusicPlaylistMusics.AsNoTracking()
+            .Where(x => x.MusicId == musicId.Value)
+            .Where(x => x.MusicPlaylist!.ClientId == clientId)
+            .Select(x => x.MusicPlaylistId)
+            .ToListAsync(cancellationToken);
+        var addedIds = selectedIds.Except(existingIds).ToArray();
+        var removedIds = existingIds.Except(selectedIds).ToArray();
+        var changedIds = addedIds.Concat(removedIds).ToArray();
+
+        // Repeated checkbox snapshots must not change membership IDs, the cover
+        // or the library's recently-updated ordering.
+        if (changedIds.Length == 0)
         {
-            return new()
-            {
-                Error = new() { Code = OperationErrorCodes.Musics.MusicPlaylistNotFound }
-            };
+            await transaction.CommitAsync(cancellationToken);
+            return new() { Content = new() };
         }
 
-        var ownedPlaylistIds = ownedPlaylists.Select(x => x.Id).ToArray();
-        await mizonDatabaseContext.MusicPlaylistMusics
-            .Where(x => x.MusicId == music.Id)
-            .Where(x => ownedPlaylistIds.Contains(x.MusicPlaylistId))
-            .ExecuteDeleteAsync(cancellationToken);
-
-        foreach (var playlistId in selectedPlaylistIds)
+        if (removedIds.Length > 0)
         {
-            mizonDatabaseContext.MusicPlaylistMusics.Add(new()
-            {
-                MusicPlaylistId = playlistId,
-                MusicId = music.Id
-            });
+            await mizonDatabaseContext.MusicPlaylistMusics
+                .Where(x => x.MusicId == musicId.Value)
+                .Where(x => removedIds.Contains(x.MusicPlaylistId))
+                .ExecuteDeleteAsync(cancellationToken);
         }
+        foreach (var playlistId in addedIds)
+            mizonDatabaseContext.MusicPlaylistMusics.Add(new() { MusicPlaylistId = playlistId, MusicId = musicId.Value });
 
+        var now = DateTimeOffset.UtcNow;
+        await mizonDatabaseContext.MusicPlaylists
+            .Where(x => x.ClientId == clientId)
+            .Where(x => changedIds.Contains(x.Id))
+            .ExecuteUpdateAsync(setters => setters.SetProperty(x => x.UpdateDateTime, now), cancellationToken);
         await mizonDatabaseContext.SaveChangesAsync(cancellationToken);
-
+        await transaction.CommitAsync(cancellationToken);
         return new() { Content = new() };
     }
 }

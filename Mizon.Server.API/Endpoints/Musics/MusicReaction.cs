@@ -10,13 +10,13 @@ internal sealed class MusicReaction : IEndpoint
             .MapPost($"{nameof(MusicReaction)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<MusicReactionResponse>> Handle(
+    private static Task<BaseApiResponse<MusicReactionResponse>> Handle(
         BaseApiRequest<MusicReactionRequest> baseApiRequest,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
         CancellationToken cancellationToken)
     {
 
-        return await apiOperationExecutor.ExecuteAsync<MusicReactionOperation, MusicReactionRequest, MusicReactionResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<MusicReactionOperation, MusicReactionRequest, MusicReactionResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

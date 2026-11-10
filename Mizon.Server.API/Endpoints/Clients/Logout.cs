@@ -10,12 +10,12 @@ internal sealed class Logout : IEndpoint
             .MapPost($"{nameof(Logout)}", Handle);
     }
 
-    private static async Task<BaseApiResponse<LogoutResponse>> Handle(
+    private static Task<BaseApiResponse<LogoutResponse>> Handle(
         BaseApiRequest<LogoutRequest> baseApiRequest,
         IApiOperationExecutor apiOperationExecutor,
         RequestMetadata requestMetadata,
         CancellationToken cancellationToken)
     {
-        return await apiOperationExecutor.ExecuteAsync<LogoutOperation, LogoutRequest, LogoutResponse>(baseApiRequest, requestMetadata, cancellationToken);
+        return apiOperationExecutor.ExecuteAsync<LogoutOperation, LogoutRequest, LogoutResponse>(baseApiRequest, requestMetadata, cancellationToken);
     }
 }

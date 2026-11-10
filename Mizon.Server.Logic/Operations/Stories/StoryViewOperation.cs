@@ -5,12 +5,17 @@ public sealed class StoryViewOperation(MizonDatabaseContext mizonDatabaseContext
 {
     public async Task<BaseApiResponse<StoryResponse>> HandleAsync(BaseApiRequest<StoryRequest> request, RequestMetadata? requestMetadata, CancellationToken cancellationToken)
     {
-        var story = await mizonDatabaseContext.Stories
+        if (requestMetadata?.ClientId is not int clientId)
+            return new() { Error = new() { Code = OperationErrorCodes.Clients.ClientSessionNotFound } };
+
+        var story = await mizonDatabaseContext.Stories.AsNoTracking()
+            .VisibleTo(mizonDatabaseContext, clientId)
             .Where(x => x.PublicId == request.Content!.StoryPublicId)
             .Where(x => x.IsActive)
             .Where(x => x.ExpireDateTime == null || x.ExpireDateTime > DateTimeOffset.UtcNow)
+            .Select(x => new { x.Id, x.PublicId })
             .FirstOrDefaultAsync(cancellationToken);
-        if (story is null || requestMetadata!.ClientId is null)
+        if (story is null)
             return new() { Error = new() { Code = 11000 } };
 
         var platformVersionId = await mizonDatabaseContext.ClientSessions.Where(x => x.PublicId == requestMetadata.SessionPublicId).Select(x => (short?)x.PlatformVersionId).FirstOrDefaultAsync(cancellationToken);
@@ -19,11 +24,11 @@ public sealed class StoryViewOperation(MizonDatabaseContext mizonDatabaseContext
 
         var alreadyViewed = await mizonDatabaseContext.StoryViews
             .Where(x => x.StoryId == story.Id)
-            .Where(x => x.ClientId == requestMetadata.ClientId)
+            .Where(x => x.ClientId == clientId)
             .AnyAsync(cancellationToken);
         if (!alreadyViewed)
         {
-            mizonDatabaseContext.StoryViews.Add(new() { StoryId = story.Id, ClientId = requestMetadata.ClientId.Value, PlatformVersionId = platformVersionId.Value });
+            mizonDatabaseContext.StoryViews.Add(new() { StoryId = story.Id, ClientId = clientId, PlatformVersionId = platformVersionId.Value });
             await mizonDatabaseContext.SaveChangesAsync(cancellationToken);
         }
 
