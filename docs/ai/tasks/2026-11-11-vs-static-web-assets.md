@@ -58,6 +58,14 @@ Only result summaries belong in this note; never publish generated private keys.
 | CLI property evaluation | Core runtime; workaround import and task assembly properties empty |
 | API runtime dependency manifest | No Microsoft.Bcl.AsyncInterfaces runtime dependency introduced |
 | Independent read-only review | Import order, version/runtime conditions and task scope reviewed; no blocking findings |
+| Original developer checkout, VS Debug/x64 | Passed after the one-time failed-cache recovery below; 0 warnings/errors |
+
+Integration into the original checkout exposed a zero-byte
+`obj/x64/Debug/net11.0/rpswa.dswa.cache.json` left by the earlier failed task. The
+SDK tried to deserialize it and raised a separate empty-JSON error. Only that
+verified zero-byte generated file was removed, then the original checkout built
+successfully. Other caches/output folders were not cleared. There is no permanent
+cache-disable or cleanup workaround in the project.
 
 Commands used (from the repository root; `$vsMsbuild` is the installed
 VS 18 Insiders `MSBuild/Current/Bin/amd64/MSBuild.exe`):
