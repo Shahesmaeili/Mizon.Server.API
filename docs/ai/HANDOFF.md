@@ -9,6 +9,12 @@ through the SDK's `CustomAfterStaticWebAssetsSdkTargets` hook. Hot Reload and
 static assets remain enabled; no application packages or SDK installation files
 were changed. The override applies only to Full MSBuild with SDK 11.0.100.
 
+The [empty-cache follow-up](tasks/2026-11-11-empty-static-assets-cache.md) adds
+automatic recovery for the SDK's five known empty/whitespace-only asset caches.
+It runs before consumers in normal and design-time builds, under either VS MSBuild
+or CLI with SDK 11.0.100. It preserves valid caches and other configuration/output
+files; there is no recursive cleanup or cache-disable flag.
+
 See [the reproduction and verification note](tasks/2026-11-11-vs-static-web-assets.md).
 Do not replace this with a runtime NuGet reference or remove it based only on a
 successful CLI build: CLI uses a different task runtime. When upgrading the SDK,

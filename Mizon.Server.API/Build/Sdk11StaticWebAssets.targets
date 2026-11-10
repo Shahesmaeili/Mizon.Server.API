@@ -1,0 +1,25 @@
+<Project>
+  <Import Project="VisualStudioStaticWebAssets.targets" Condition="'$(MSBuildRuntimeType)' == 'Full'" />
+
+  <!-- SDK 11.0.100 truncates these caches before serializing them and does not
+       recover from an empty file on the next build. Inspect only the five SDK
+       caches in this configuration's intermediate directory, leaving valid
+       caches and all application/configuration JSON untouched. -->
+  <Target Name="MizonRecoverEmptyStaticWebAssetsCaches"
+          BeforeTargets="ResolveProjectStaticWebAssets;ResolveJsInitializerModuleStaticWebAssets;ResolveJSModuleStaticWebAssets;ResolveBuildCompressedStaticWebAssets"
+          DependsOnTargets="ResolveStaticWebAssetsConfiguration"
+          Condition="'$(StaticWebAssetsEnabled)' == 'true'">
+    <ItemGroup Condition="'$(_StaticWebAssetsManifestBase)' != ''">
+      <_MizonStaticWebAssetsCache Include="$(_StaticWebAssetsManifestBase)rpswa.dswa.cache.json;
+                                         $(_StaticWebAssetsManifestBase)rjimswa.dswa.cache.json;
+                                         $(_StaticWebAssetsManifestBase)rjsmrazor.dswa.cache.json;
+                                         $(_StaticWebAssetsManifestBase)rjsmcshtml.dswa.cache.json;
+                                         $(_StaticWebAssetsManifestBase)rbcswa.dswa.cache.json" />
+      <_MizonEmptyStaticWebAssetsCache Include="@(_MizonStaticWebAssetsCache)"
+          Condition="Exists('%(Identity)') and $([System.String]::IsNullOrWhiteSpace($([System.IO.File]::ReadAllText('%(Identity)'))))" />
+    </ItemGroup>
+    <Message Text="Removing empty SDK static web assets cache: %(_MizonEmptyStaticWebAssetsCache.Identity)"
+             Importance="Normal" Condition="'@(_MizonEmptyStaticWebAssetsCache)' != ''" />
+    <Delete Files="@(_MizonEmptyStaticWebAssetsCache)" />
+  </Target>
+</Project>

@@ -14,7 +14,7 @@
 	  <PublishTrimmed>true</PublishTrimmed>
 	  <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
 	  <Platforms>AnyCPU;x64</Platforms>
-    <CustomAfterStaticWebAssetsSdkTargets Condition="'$(MSBuildRuntimeType)' == 'Full' and '$(NETCoreSdkVersion)' == '11.0.100'">$(MSBuildProjectDirectory)/Build/VisualStudioStaticWebAssets.targets</CustomAfterStaticWebAssetsSdkTargets>
+    <CustomAfterStaticWebAssetsSdkTargets Condition="'$(NETCoreSdkVersion)' == '11.0.100'">$(MSBuildProjectDirectory)/Build/Sdk11StaticWebAssets.targets</CustomAfterStaticWebAssetsSdkTargets>
   </PropertyGroup>
 
   <ItemGroup>

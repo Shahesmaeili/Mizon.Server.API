@@ -57,11 +57,14 @@ The solution currently includes absolute paths to Windows/SDK projects from the
 original workstation. Building the API project directly does not require loading
 the entire WinUI solution. On another machine resolve sibling roots first.
 
-For SDK 11.0.100, the API imports `Build/VisualStudioStaticWebAssets.targets` only
-under full-framework Visual Studio MSBuild. It runs JSON-dependent SDK asset tasks
-in the .NET TaskHost to avoid mismatched build-tool dependencies. CLI builds retain
-their normal SDK task selection. See the [build compatibility note](tasks/2026-11-11-vs-static-web-assets.md)
-before changing this workaround or evaluating a later SDK patch.
+For SDK 11.0.100, the API imports `Build/Sdk11StaticWebAssets.targets`. It recovers
+empty/whitespace-only copies of the SDK's five known asset caches in the active
+intermediate directory before their consumers run. Valid caches are preserved.
+Only full-framework VS MSBuild additionally imports `VisualStudioStaticWebAssets.targets`
+to run JSON-dependent asset tasks in the .NET TaskHost; CLI retains normal task
+selection. Read the [build compatibility note](tasks/2026-11-11-vs-static-web-assets.md)
+and [empty-cache follow-up](tasks/2026-11-11-empty-static-assets-cache.md) before
+changing these SDK-version-scoped workarounds.
 
 Do not execute database update, seed/import tools, simulator writes or production
 deployment as a side effect of building or documenting this repository.
