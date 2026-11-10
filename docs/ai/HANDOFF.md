@@ -1,5 +1,21 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Visual Studio build compatibility — 2026-11-11
+
+The API's SDK 11.0.100 StaticWebAssets tasks could not load
+`Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.10` in Visual Studio's
+full-framework MSBuild. The project now imports scoped .NET TaskHost overrides
+through the SDK's `CustomAfterStaticWebAssetsSdkTargets` hook. Hot Reload and
+static assets remain enabled; no application packages or SDK installation files
+were changed. The override applies only to Full MSBuild with SDK 11.0.100.
+
+See [the reproduction and verification note](tasks/2026-11-11-vs-static-web-assets.md).
+Do not replace this with a runtime NuGet reference or remove it based only on a
+successful CLI build: CLI uses a different task runtime. When upgrading the SDK,
+verify fresh Debug, incremental Debug and Release builds using VS MSBuild.
+
+## Upgrade checkpoint
+
 All 13 server, Logic, shared infrastructure and utility projects target .NET 11.
 SDK11.0.100 is selected by global.json with patch roll-forward. ASP.NET Core,
 EF Core and related framework packages are aligned to 11.0.0. The two tracked

@@ -1,0 +1,47 @@
+<Project>
+  <!-- SDK 11.0.100's net472 StaticWebAssets tasks ship mismatched JSON
+       dependencies. Use the SDK's .NET tasks in VS's supported TaskHost;
+       do not disable Hot Reload or add build dependencies to the application. -->
+  <PropertyGroup>
+    <_MizonStaticWebAssetsTaskAssembly>$(StaticWebAssetsSdkBuildTasksDirectoryRoot)net11.0/Microsoft.NET.Sdk.StaticWebAssets.Tasks.dll</_MizonStaticWebAssetsTaskAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.EnsureHotReloadBrowserToolsKey"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)"
+             Runtime="NET" Override="true" />
+
+  <!-- Endpoint task items serialize JSON while MSBuild copies their metadata,
+       so their producers/transformers need the same isolation as manifest I/O. -->
+  <!-- DefineStaticWebAssets exposes a FileInfo-based test hook. VS 18.9's task
+       inspector cannot resolve that hook from the net11 build (msbuild#14680).
+       Keep this task's net472 metadata, but execute it in the .NET host too. -->
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssets"
+             AssemblyFile="$(StaticWebAssetsSdkBuildTasksAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.DefineStaticWebAssetEndpoints"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.UpdateStaticWebAssetEndpoints"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.FilterStaticWebAssetEndpoints"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.ResolveStaticWebAssetEndpointRoutes"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.ComputeEndpointsForReferenceStaticWebAssets"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.ResolveCompressedAssets"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.ApplyCompressionNegotiation"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.GenerateStaticWebAssetsManifest"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.GenerateStaticWebAssetEndpointsManifest"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.GenerateStaticWebAssetsDevelopmentManifest"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.ReadStaticWebAssetsManifestFile"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.GenerateJsModuleManifest"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+  <UsingTask TaskName="Microsoft.AspNetCore.StaticWebAssets.Tasks.UpdatePackageStaticWebAssets"
+             AssemblyFile="$(_MizonStaticWebAssetsTaskAssembly)" Runtime="NET" Override="true" />
+</Project>
