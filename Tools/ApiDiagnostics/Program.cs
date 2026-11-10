@@ -3,6 +3,12 @@ using System.Text.Json;
 if (JsonSerializer.IsReflectionEnabledByDefault)
     throw new InvalidOperationException("Run the checks without the JSON reflection fallback.");
 
+if (args.Length == 2 && args[0] == "--component-benchmark")
+{
+    await ComponentBenchmarks.RunAsync(args[1]);
+    return;
+}
+
 var benchmarkIndex = Array.IndexOf(args, "--cache-benchmark");
 if (benchmarkIndex >= 0)
 {

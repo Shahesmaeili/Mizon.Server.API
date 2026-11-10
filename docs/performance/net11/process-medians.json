@@ -1,0 +1,5522 @@
+[
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1389452.9,
+    "AllocatedBytes": 1169744.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "NewContextAndSet",
+    "Microseconds": 86.09435,
+    "AllocatedBytes": 65213.52
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.23315,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "cached-get",
+    "Microseconds": 0.24153,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "small-json-get",
+    "Microseconds": 4.90878,
+    "AllocatedBytes": 2523.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2580.894,
+    "AllocatedBytes": 448070.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 340.63533333333334,
+    "AllocatedBytes": 59868.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.9265399999999999,
+    "AllocatedBytes": 1170.01208
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 9.183159999999999,
+    "AllocatedBytes": 3841.8616
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 31.4722,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 173.0649,
+    "AllocatedBytes": 8320.672
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 137.2353,
+    "AllocatedBytes": 5280.52
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Music",
+    "Microseconds": 3290.6,
+    "AllocatedBytes": 254088.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "MusicFiles",
+    "Microseconds": 826.0,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems",
+    "Microseconds": 1157.1,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Lyrics",
+    "Microseconds": 685.6999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Contributors",
+    "Microseconds": 892.2,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Comments",
+    "Microseconds": 1344.2,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Reactions",
+    "Microseconds": 927.8,
+    "AllocatedBytes": 122960.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Album",
+    "Microseconds": 1699.5,
+    "AllocatedBytes": 188360.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "ContributorSongs",
+    "Microseconds": 1213.8,
+    "AllocatedBytes": 155768.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Genres",
+    "Microseconds": 606.1,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "ReactionTypes",
+    "Microseconds": 516.5999999999999,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Library",
+    "Microseconds": 1945.2,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1205.4,
+    "AllocatedBytes": 131200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Playlists",
+    "Microseconds": 1010.0,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Features",
+    "Microseconds": 4342.8,
+    "AllocatedBytes": 434600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Following.Music",
+    "Microseconds": 8766.3,
+    "AllocatedBytes": 737984.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Following.All",
+    "Microseconds": 8431.300000000001,
+    "AllocatedBytes": 762600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Profile",
+    "Microseconds": 1221.2,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Me",
+    "Microseconds": 2266.3,
+    "AllocatedBytes": 213072.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "FindClient",
+    "Microseconds": 465.5,
+    "AllocatedBytes": 90008.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Moods",
+    "Microseconds": 8933.199999999999,
+    "AllocatedBytes": 516600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stories",
+    "Microseconds": 1533.1,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "MusicStories",
+    "Microseconds": 2005.1999999999998,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stories.Missing",
+    "Microseconds": 1285.3000000000002,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Music.Missing",
+    "Microseconds": 560.6999999999999,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.Missing",
+    "Microseconds": 548.8,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "FindClient.Missing",
+    "Microseconds": 424.3,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Waveform",
+    "Microseconds": 8011.599999999999,
+    "AllocatedBytes": 1377576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "LyricLines",
+    "Microseconds": 2166.3,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2087.6,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1253.7,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "StoryDetails",
+    "Microseconds": 3178.3,
+    "AllocatedBytes": 344096.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Media",
+    "Microseconds": 543.1,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.0",
+    "Microseconds": 1274.4,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.1",
+    "Microseconds": 834.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.2",
+    "Microseconds": 790.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.3",
+    "Microseconds": 809.6,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.4",
+    "Microseconds": 705.8,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.5",
+    "Microseconds": 836.0999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.6",
+    "Microseconds": 846.1999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.7",
+    "Microseconds": 784.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.8",
+    "Microseconds": 761.3,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.9",
+    "Microseconds": 760.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.10",
+    "Microseconds": 817.1,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Stems.All.11",
+    "Microseconds": 1324.6,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.7374",
+    "Microseconds": 1262.1,
+    "AllocatedBytes": 245688.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.7374",
+    "Microseconds": 1151.8999999999999,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.616C697368",
+    "Microseconds": 1087.8000000000002,
+    "AllocatedBytes": 237576.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.616C697368",
+    "Microseconds": 1035.1,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.6172",
+    "Microseconds": 1152.8,
+    "AllocatedBytes": 237776.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.6172",
+    "Microseconds": 1124.0,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1211.5,
+    "AllocatedBytes": 237720.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1167.5,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1068.8,
+    "AllocatedBytes": 237080.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 1,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1365142.7000000002,
+    "AllocatedBytes": 1170200.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "NewContextAndSet",
+    "Microseconds": 85.13385,
+    "AllocatedBytes": 65213.52
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.23385,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "cached-get",
+    "Microseconds": 0.246526,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "small-json-get",
+    "Microseconds": 4.559880000000001,
+    "AllocatedBytes": 2523.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2515.001,
+    "AllocatedBytes": 448070.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 332.27,
+    "AllocatedBytes": 59868.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.907361,
+    "AllocatedBytes": 1170.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 9.09498,
+    "AllocatedBytes": 3840.1344
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 33.3753,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 151.7058,
+    "AllocatedBytes": 8309.936
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 126.7512,
+    "AllocatedBytes": 5280.384
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Music",
+    "Microseconds": 2947.4,
+    "AllocatedBytes": 254152.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "MusicFiles",
+    "Microseconds": 911.5999999999999,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems",
+    "Microseconds": 1408.5,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Lyrics",
+    "Microseconds": 876.1,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Contributors",
+    "Microseconds": 983.1999999999999,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Comments",
+    "Microseconds": 1623.6999999999998,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Reactions",
+    "Microseconds": 941.2,
+    "AllocatedBytes": 118232.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Album",
+    "Microseconds": 1983.3,
+    "AllocatedBytes": 188568.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "ContributorSongs",
+    "Microseconds": 1328.7,
+    "AllocatedBytes": 155792.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Genres",
+    "Microseconds": 643.5999999999999,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "ReactionTypes",
+    "Microseconds": 563.6999999999999,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Library",
+    "Microseconds": 2947.5,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1396.3000000000002,
+    "AllocatedBytes": 131200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Playlists",
+    "Microseconds": 1345.6,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Features",
+    "Microseconds": 5513.9,
+    "AllocatedBytes": 434600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Following.Music",
+    "Microseconds": 9228.0,
+    "AllocatedBytes": 729800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Following.All",
+    "Microseconds": 9076.3,
+    "AllocatedBytes": 762504.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.4,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Profile",
+    "Microseconds": 1770.5,
+    "AllocatedBytes": 139384.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Me",
+    "Microseconds": 2804.1,
+    "AllocatedBytes": 213136.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "FindClient",
+    "Microseconds": 534.5,
+    "AllocatedBytes": 90192.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Moods",
+    "Microseconds": 9377.0,
+    "AllocatedBytes": 516592.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stories",
+    "Microseconds": 1648.9,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "MusicStories",
+    "Microseconds": 2338.9,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stories.Missing",
+    "Microseconds": 1384.9,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Music.Missing",
+    "Microseconds": 750.7,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.Missing",
+    "Microseconds": 660.2,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "FindClient.Missing",
+    "Microseconds": 616.8000000000001,
+    "AllocatedBytes": 90160.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Waveform",
+    "Microseconds": 8033.899999999999,
+    "AllocatedBytes": 1377576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "LyricLines",
+    "Microseconds": 3701.4,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "PlaylistDetails",
+    "Microseconds": 3680.0,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 2303.5,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "StoryDetails",
+    "Microseconds": 6544.7,
+    "AllocatedBytes": 344296.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Media",
+    "Microseconds": 757.1,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.0",
+    "Microseconds": 2434.2999999999997,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.1",
+    "Microseconds": 1385.1,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.2",
+    "Microseconds": 1295.1999999999998,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.3",
+    "Microseconds": 1414.1999999999998,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.4",
+    "Microseconds": 1378.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.5",
+    "Microseconds": 1265.2,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.6",
+    "Microseconds": 1497.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.7",
+    "Microseconds": 1357.3999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.8",
+    "Microseconds": 1481.8,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.9",
+    "Microseconds": 1463.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.10",
+    "Microseconds": 1438.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Stems.All.11",
+    "Microseconds": 2075.4,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.7374",
+    "Microseconds": 2033.9999999999998,
+    "AllocatedBytes": 245944.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.7374",
+    "Microseconds": 1659.5,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.616C697368",
+    "Microseconds": 1694.9,
+    "AllocatedBytes": 237672.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.616C697368",
+    "Microseconds": 1437.5,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.6172",
+    "Microseconds": 1473.5,
+    "AllocatedBytes": 237664.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.6172",
+    "Microseconds": 1447.5,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1801.6000000000001,
+    "AllocatedBytes": 237768.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1723.3,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1581.6,
+    "AllocatedBytes": 237688.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 2,
+    "Name": "Search.25",
+    "Microseconds": 1.4,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1359135.0999999999,
+    "AllocatedBytes": 1169744.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "NewContextAndSet",
+    "Microseconds": 86.1131,
+    "AllocatedBytes": 65213.52
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.25985,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "cached-get",
+    "Microseconds": 0.256434,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "small-json-get",
+    "Microseconds": 4.5469,
+    "AllocatedBytes": 2523.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2562.051,
+    "AllocatedBytes": 448070.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 336.67466666666667,
+    "AllocatedBytes": 59868.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.904264,
+    "AllocatedBytes": 1170.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 9.18667,
+    "AllocatedBytes": 3840.1344
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 34.6688,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 154.7366,
+    "AllocatedBytes": 8311.344
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 132.8814,
+    "AllocatedBytes": 5280.384
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Music",
+    "Microseconds": 3381.0,
+    "AllocatedBytes": 254000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "MusicFiles",
+    "Microseconds": 867.4,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems",
+    "Microseconds": 1284.8999999999999,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Lyrics",
+    "Microseconds": 803.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Contributors",
+    "Microseconds": 962.6,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Comments",
+    "Microseconds": 1830.8999999999999,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Reactions",
+    "Microseconds": 949.5,
+    "AllocatedBytes": 118296.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Album",
+    "Microseconds": 1796.2,
+    "AllocatedBytes": 188568.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "ContributorSongs",
+    "Microseconds": 1318.0,
+    "AllocatedBytes": 155784.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Genres",
+    "Microseconds": 579.8,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "ReactionTypes",
+    "Microseconds": 548.6999999999999,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Library",
+    "Microseconds": 2309.7,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1307.1,
+    "AllocatedBytes": 131200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Playlists",
+    "Microseconds": 966.8,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Features",
+    "Microseconds": 5179.599999999999,
+    "AllocatedBytes": 434600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Following.Music",
+    "Microseconds": 9312.699999999999,
+    "AllocatedBytes": 737920.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Following.All",
+    "Microseconds": 9618.4,
+    "AllocatedBytes": 762592.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.4,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Profile",
+    "Microseconds": 1497.7,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Me",
+    "Microseconds": 3674.6,
+    "AllocatedBytes": 213184.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "FindClient",
+    "Microseconds": 575.9,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Moods",
+    "Microseconds": 9134.800000000001,
+    "AllocatedBytes": 516616.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stories",
+    "Microseconds": 1776.7,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "MusicStories",
+    "Microseconds": 2089.3,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stories.Missing",
+    "Microseconds": 1288.1,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Music.Missing",
+    "Microseconds": 519.2,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.Missing",
+    "Microseconds": 477.3,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "FindClient.Missing",
+    "Microseconds": 468.0,
+    "AllocatedBytes": 89952.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Waveform",
+    "Microseconds": 7529.3,
+    "AllocatedBytes": 1377576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "LyricLines",
+    "Microseconds": 2124.4,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2246.3,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1268.1,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "StoryDetails",
+    "Microseconds": 3533.1,
+    "AllocatedBytes": 336200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Media",
+    "Microseconds": 551.4,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.0",
+    "Microseconds": 1480.8,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.1",
+    "Microseconds": 832.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.2",
+    "Microseconds": 873.6,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.3",
+    "Microseconds": 887.1,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.4",
+    "Microseconds": 880.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.5",
+    "Microseconds": 800.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.6",
+    "Microseconds": 876.1999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.7",
+    "Microseconds": 827.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.8",
+    "Microseconds": 828.5,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.9",
+    "Microseconds": 831.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.10",
+    "Microseconds": 783.3,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Stems.All.11",
+    "Microseconds": 1463.1000000000001,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.7374",
+    "Microseconds": 1522.1,
+    "AllocatedBytes": 245928.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.7374",
+    "Microseconds": 1245.2,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.616C697368",
+    "Microseconds": 1158.1,
+    "AllocatedBytes": 237656.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.616C697368",
+    "Microseconds": 1116.1000000000001,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.6172",
+    "Microseconds": 1397.2,
+    "AllocatedBytes": 237720.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.6172",
+    "Microseconds": 1367.1,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.D8A2",
+    "Microseconds": 1.0,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1222.3,
+    "AllocatedBytes": 237792.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1190.6000000000001,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1106.9,
+    "AllocatedBytes": 237624.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 3,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1347046.7000000002,
+    "AllocatedBytes": 1194392.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "NewContextAndSet",
+    "Microseconds": 83.04875,
+    "AllocatedBytes": 65213.52
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.24429999999999996,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "cached-get",
+    "Microseconds": 0.251414,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "small-json-get",
+    "Microseconds": 4.7199599999999995,
+    "AllocatedBytes": 2523.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2603.161,
+    "AllocatedBytes": 448070.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 330.4533333333333,
+    "AllocatedBytes": 59868.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.9209550000000001,
+    "AllocatedBytes": 1170.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 9.185870000000001,
+    "AllocatedBytes": 3840.1344
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 32.4409,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 151.5298,
+    "AllocatedBytes": 8307.776
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 128.5706,
+    "AllocatedBytes": 5280.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Music",
+    "Microseconds": 3324.1,
+    "AllocatedBytes": 254144.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "MusicFiles",
+    "Microseconds": 933.1,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems",
+    "Microseconds": 1350.1000000000001,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Lyrics",
+    "Microseconds": 872.6,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Contributors",
+    "Microseconds": 765.9,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Comments",
+    "Microseconds": 1683.5,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Reactions",
+    "Microseconds": 825.2,
+    "AllocatedBytes": 122976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Album",
+    "Microseconds": 1707.1000000000001,
+    "AllocatedBytes": 188576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "ContributorSongs",
+    "Microseconds": 1407.1,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Genres",
+    "Microseconds": 635.0,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "ReactionTypes",
+    "Microseconds": 519.8000000000001,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Library",
+    "Microseconds": 2125.5,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1287.4,
+    "AllocatedBytes": 131200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Playlists",
+    "Microseconds": 974.4000000000001,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Features",
+    "Microseconds": 4211.5,
+    "AllocatedBytes": 434568.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Following.Music",
+    "Microseconds": 7922.3,
+    "AllocatedBytes": 737808.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Following.All",
+    "Microseconds": 8866.5,
+    "AllocatedBytes": 762552.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Profile",
+    "Microseconds": 1679.8999999999999,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Me",
+    "Microseconds": 2303.3,
+    "AllocatedBytes": 213184.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "FindClient",
+    "Microseconds": 410.4,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Moods",
+    "Microseconds": 8764.900000000001,
+    "AllocatedBytes": 516608.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stories",
+    "Microseconds": 1496.2,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "MusicStories",
+    "Microseconds": 2081.6,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stories.Missing",
+    "Microseconds": 1333.9,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Music.Missing",
+    "Microseconds": 638.5999999999999,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.Missing",
+    "Microseconds": 495.0,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "FindClient.Missing",
+    "Microseconds": 611.4000000000001,
+    "AllocatedBytes": 90176.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Waveform",
+    "Microseconds": 9269.9,
+    "AllocatedBytes": 1377576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "LyricLines",
+    "Microseconds": 2292.2,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2339.1000000000004,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1474.0,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "StoryDetails",
+    "Microseconds": 3271.1,
+    "AllocatedBytes": 338432.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Media",
+    "Microseconds": 646.9,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.0",
+    "Microseconds": 1345.6999999999998,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.1",
+    "Microseconds": 786.9000000000001,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.2",
+    "Microseconds": 785.6999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.3",
+    "Microseconds": 642.8000000000001,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.4",
+    "Microseconds": 722.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.5",
+    "Microseconds": 724.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.6",
+    "Microseconds": 780.5,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.7",
+    "Microseconds": 660.6999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.8",
+    "Microseconds": 674.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.9",
+    "Microseconds": 785.5999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.10",
+    "Microseconds": 739.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Stems.All.11",
+    "Microseconds": 1140.2,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.7374",
+    "Microseconds": 1416.5,
+    "AllocatedBytes": 245928.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.7374",
+    "Microseconds": 1306.1000000000001,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.616C697368",
+    "Microseconds": 1228.3999999999999,
+    "AllocatedBytes": 237776.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.616C697368",
+    "Microseconds": 1152.0,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.6172",
+    "Microseconds": 1284.8,
+    "AllocatedBytes": 237776.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.6172",
+    "Microseconds": 1253.8,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1291.3,
+    "AllocatedBytes": 237784.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1259.8,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1181.8,
+    "AllocatedBytes": 237416.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 4,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1374509.9,
+    "AllocatedBytes": 1170200.0
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "NewContextAndSet",
+    "Microseconds": 84.48615,
+    "AllocatedBytes": 65213.52
+  },
+  {
+    "Category": "Database",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.25445,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "cached-get",
+    "Microseconds": 0.252212,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "small-json-get",
+    "Microseconds": 4.57886,
+    "AllocatedBytes": 2523.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2581.062,
+    "AllocatedBytes": 448070.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 355.8673333333333,
+    "AllocatedBytes": 59868.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.914102,
+    "AllocatedBytes": 1170.01208
+  },
+  {
+    "Category": "Windows",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 9.160950000000001,
+    "AllocatedBytes": 3840.1344
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 32.237,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 142.4915,
+    "AllocatedBytes": 8307.776
+  },
+  {
+    "Category": "API",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 119.3812,
+    "AllocatedBytes": 5280.52
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Music",
+    "Microseconds": 2974.4,
+    "AllocatedBytes": 254112.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "MusicFiles",
+    "Microseconds": 948.4,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems",
+    "Microseconds": 1223.6,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Lyrics",
+    "Microseconds": 796.6999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Contributors",
+    "Microseconds": 957.3000000000001,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Comments",
+    "Microseconds": 1435.8,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Reactions",
+    "Microseconds": 872.4,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Album",
+    "Microseconds": 1686.1999999999998,
+    "AllocatedBytes": 188576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "ContributorSongs",
+    "Microseconds": 1305.5,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Genres",
+    "Microseconds": 515.7,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "ReactionTypes",
+    "Microseconds": 442.0,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Library",
+    "Microseconds": 1858.8,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1087.1,
+    "AllocatedBytes": 131200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Playlists",
+    "Microseconds": 950.5,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Features",
+    "Microseconds": 5050.6,
+    "AllocatedBytes": 434600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Following.Music",
+    "Microseconds": 7910.0,
+    "AllocatedBytes": 729800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Following.All",
+    "Microseconds": 8435.4,
+    "AllocatedBytes": 762560.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Profile",
+    "Microseconds": 1522.8999999999999,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Me",
+    "Microseconds": 2185.1,
+    "AllocatedBytes": 213056.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "FindClient",
+    "Microseconds": 571.4,
+    "AllocatedBytes": 90136.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Moods",
+    "Microseconds": 8860.300000000001,
+    "AllocatedBytes": 516584.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stories",
+    "Microseconds": 1655.1,
+    "AllocatedBytes": 196800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "MusicStories",
+    "Microseconds": 2014.2000000000003,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stories.Missing",
+    "Microseconds": 1287.0,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Music.Missing",
+    "Microseconds": 452.79999999999995,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.Missing",
+    "Microseconds": 467.1,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "FindClient.Missing",
+    "Microseconds": 389.40000000000003,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Waveform",
+    "Microseconds": 7892.2,
+    "AllocatedBytes": 1377576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "LyricLines",
+    "Microseconds": 2464.2,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "PlaylistDetails",
+    "Microseconds": 3386.4,
+    "AllocatedBytes": 205000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1899.6,
+    "AllocatedBytes": 139400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "StoryDetails",
+    "Microseconds": 5553.099999999999,
+    "AllocatedBytes": 344360.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Media",
+    "Microseconds": 866.0,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.0",
+    "Microseconds": 2080.2000000000003,
+    "AllocatedBytes": 155720.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.1",
+    "Microseconds": 969.5,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.2",
+    "Microseconds": 1100.1000000000001,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.3",
+    "Microseconds": 1368.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.4",
+    "Microseconds": 1110.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.5",
+    "Microseconds": 1079.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.6",
+    "Microseconds": 974.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.7",
+    "Microseconds": 918.1,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.8",
+    "Microseconds": 1325.8000000000002,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.9",
+    "Microseconds": 1113.6,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.10",
+    "Microseconds": 1218.3999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Stems.All.11",
+    "Microseconds": 1974.6,
+    "AllocatedBytes": 147600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.7374",
+    "Microseconds": 1897.8999999999999,
+    "AllocatedBytes": 245912.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.7374",
+    "Microseconds": 1545.0,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.616C697368",
+    "Microseconds": 1575.8000000000002,
+    "AllocatedBytes": 237336.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.616C697368",
+    "Microseconds": 1384.9,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.6172",
+    "Microseconds": 1881.5,
+    "AllocatedBytes": 237648.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.6172",
+    "Microseconds": 1843.1,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1475.2,
+    "AllocatedBytes": 237720.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1403.1,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1703.3,
+    "AllocatedBytes": 237208.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "baseline",
+    "Round": 5,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1036769.6000000001,
+    "AllocatedBytes": 983024.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "NewContextAndSet",
+    "Microseconds": 27.3159,
+    "AllocatedBytes": 35096.112
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.2585,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "cached-get",
+    "Microseconds": 0.140572,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "small-json-get",
+    "Microseconds": 4.5685199999999995,
+    "AllocatedBytes": 2459.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2546.649,
+    "AllocatedBytes": 448006.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 334.42466666666667,
+    "AllocatedBytes": 59612.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.931137,
+    "AllocatedBytes": 1154.01208
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 6.0316,
+    "AllocatedBytes": 2889.7416
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 20.6268,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 169.9548,
+    "AllocatedBytes": 8293.552
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 132.0276,
+    "AllocatedBytes": 5369.792
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Music",
+    "Microseconds": 2882.6,
+    "AllocatedBytes": 221256.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "MusicFiles",
+    "Microseconds": 708.3000000000001,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems",
+    "Microseconds": 1190.9,
+    "AllocatedBytes": 122992.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Lyrics",
+    "Microseconds": 697.2,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Contributors",
+    "Microseconds": 800.5,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Comments",
+    "Microseconds": 1544.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Reactions",
+    "Microseconds": 829.8,
+    "AllocatedBytes": 90192.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Album",
+    "Microseconds": 1430.7,
+    "AllocatedBytes": 155688.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "ContributorSongs",
+    "Microseconds": 1203.1000000000001,
+    "AllocatedBytes": 122968.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Genres",
+    "Microseconds": 445.7,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "ReactionTypes",
+    "Microseconds": 359.9,
+    "AllocatedBytes": 57256.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Library",
+    "Microseconds": 1922.9,
+    "AllocatedBytes": 171976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1032.8,
+    "AllocatedBytes": 98400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Playlists",
+    "Microseconds": 927.4,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Features",
+    "Microseconds": 4410.3,
+    "AllocatedBytes": 401544.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Following.Music",
+    "Microseconds": 8323.5,
+    "AllocatedBytes": 696912.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Following.All",
+    "Microseconds": 8273.7,
+    "AllocatedBytes": 725624.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Profile",
+    "Microseconds": 1537.0,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Me",
+    "Microseconds": 2120.0,
+    "AllocatedBytes": 180376.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "FindClient",
+    "Microseconds": 359.20000000000005,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Moods",
+    "Microseconds": 8532.5,
+    "AllocatedBytes": 489848.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stories",
+    "Microseconds": 1481.4,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "MusicStories",
+    "Microseconds": 1888.1,
+    "AllocatedBytes": 171400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stories.Missing",
+    "Microseconds": 1185.1000000000001,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Music.Missing",
+    "Microseconds": 376.09999999999997,
+    "AllocatedBytes": 65528.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.Missing",
+    "Microseconds": 324.40000000000003,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "FindClient.Missing",
+    "Microseconds": 429.09999999999997,
+    "AllocatedBytes": 57392.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Waveform",
+    "Microseconds": 7515.5,
+    "AllocatedBytes": 1346160.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "LyricLines",
+    "Microseconds": 2193.5,
+    "AllocatedBytes": 155704.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2111.1,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1218.6999999999998,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "StoryDetails",
+    "Microseconds": 3379.7999999999997,
+    "AllocatedBytes": 311352.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Media",
+    "Microseconds": 423.0,
+    "AllocatedBytes": 65552.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.0",
+    "Microseconds": 1381.0,
+    "AllocatedBytes": 122984.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.1",
+    "Microseconds": 766.5999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.2",
+    "Microseconds": 739.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.3",
+    "Microseconds": 791.9000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.4",
+    "Microseconds": 750.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.5",
+    "Microseconds": 727.8,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.6",
+    "Microseconds": 752.8000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.7",
+    "Microseconds": 781.5999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.8",
+    "Microseconds": 737.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.9",
+    "Microseconds": 765.5999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.10",
+    "Microseconds": 749.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Stems.All.11",
+    "Microseconds": 1252.3,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.7374",
+    "Microseconds": 1400.1999999999998,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.7374",
+    "Microseconds": 1207.2,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.616C697368",
+    "Microseconds": 1214.9,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.616C697368",
+    "Microseconds": 1159.3,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.6172",
+    "Microseconds": 1148.8,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.6172",
+    "Microseconds": 1116.2,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1126.6000000000001,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1096.6,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1026.6,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 1,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1020963.4,
+    "AllocatedBytes": 1008272.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "NewContextAndSet",
+    "Microseconds": 26.1116,
+    "AllocatedBytes": 35096.112
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.24285,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "cached-get",
+    "Microseconds": 0.130032,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "small-json-get",
+    "Microseconds": 4.271780000000001,
+    "AllocatedBytes": 2459.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2495.521,
+    "AllocatedBytes": 448006.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 321.99133333333333,
+    "AllocatedBytes": 59612.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.925748,
+    "AllocatedBytes": 1154.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 5.86749,
+    "AllocatedBytes": 2888.1008
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 23.7396,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 144.9558,
+    "AllocatedBytes": 8275.776
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 123.1886,
+    "AllocatedBytes": 5382.816
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Music",
+    "Microseconds": 2798.1,
+    "AllocatedBytes": 221304.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "MusicFiles",
+    "Microseconds": 747.7,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems",
+    "Microseconds": 1241.5,
+    "AllocatedBytes": 122960.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Lyrics",
+    "Microseconds": 734.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Contributors",
+    "Microseconds": 774.2,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Comments",
+    "Microseconds": 1616.6000000000001,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Reactions",
+    "Microseconds": 1010.3,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Album",
+    "Microseconds": 1563.5,
+    "AllocatedBytes": 155768.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "ContributorSongs",
+    "Microseconds": 1102.7,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Genres",
+    "Microseconds": 465.4,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "ReactionTypes",
+    "Microseconds": 341.9,
+    "AllocatedBytes": 57200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Library",
+    "Microseconds": 1800.1000000000001,
+    "AllocatedBytes": 171832.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 999.1999999999999,
+    "AllocatedBytes": 98400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Playlists",
+    "Microseconds": 943.8,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Features",
+    "Microseconds": 4168.700000000001,
+    "AllocatedBytes": 393592.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Following.Music",
+    "Microseconds": 8315.699999999999,
+    "AllocatedBytes": 696848.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Following.All",
+    "Microseconds": 7698.400000000001,
+    "AllocatedBytes": 721480.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Profile",
+    "Microseconds": 1361.3,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Me",
+    "Microseconds": 2090.5,
+    "AllocatedBytes": 180296.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "FindClient",
+    "Microseconds": 486.70000000000005,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Moods",
+    "Microseconds": 9145.2,
+    "AllocatedBytes": 488320.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stories",
+    "Microseconds": 1661.5,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "MusicStories",
+    "Microseconds": 1919.4,
+    "AllocatedBytes": 164000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stories.Missing",
+    "Microseconds": 1208.8000000000002,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Music.Missing",
+    "Microseconds": 405.9,
+    "AllocatedBytes": 65576.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.Missing",
+    "Microseconds": 347.7,
+    "AllocatedBytes": 57368.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "FindClient.Missing",
+    "Microseconds": 392.29999999999995,
+    "AllocatedBytes": 57144.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Waveform",
+    "Microseconds": 7723.6,
+    "AllocatedBytes": 1347392.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "LyricLines",
+    "Microseconds": 2309.4,
+    "AllocatedBytes": 155792.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2291.0,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1155.4,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "StoryDetails",
+    "Microseconds": 3576.1,
+    "AllocatedBytes": 311392.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Media",
+    "Microseconds": 507.1,
+    "AllocatedBytes": 65600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.0",
+    "Microseconds": 1872.6000000000001,
+    "AllocatedBytes": 122992.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.1",
+    "Microseconds": 737.4000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.2",
+    "Microseconds": 710.0999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.3",
+    "Microseconds": 708.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.4",
+    "Microseconds": 760.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.5",
+    "Microseconds": 724.4000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.6",
+    "Microseconds": 624.1999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.7",
+    "Microseconds": 647.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.8",
+    "Microseconds": 635.8000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.9",
+    "Microseconds": 610.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.10",
+    "Microseconds": 622.6,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Stems.All.11",
+    "Microseconds": 1150.8,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.7374",
+    "Microseconds": 1340.6,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.7374",
+    "Microseconds": 1141.2,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.616C697368",
+    "Microseconds": 1229.7,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.616C697368",
+    "Microseconds": 1173.7,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.6172",
+    "Microseconds": 1266.8,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.6172",
+    "Microseconds": 1237.4,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1078.3,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1044.4,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 993.0,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 2,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1011416.5,
+    "AllocatedBytes": 983024.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "NewContextAndSet",
+    "Microseconds": 28.6038,
+    "AllocatedBytes": 35096.112
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.26725,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "cached-get",
+    "Microseconds": 0.1369,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "small-json-get",
+    "Microseconds": 4.29552,
+    "AllocatedBytes": 2459.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2533.216,
+    "AllocatedBytes": 448006.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 335.9426666666667,
+    "AllocatedBytes": 59612.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.9375549999999999,
+    "AllocatedBytes": 1154.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 5.9666999999999994,
+    "AllocatedBytes": 2888.1008
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 33.7064,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 143.8948,
+    "AllocatedBytes": 8276.16
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 153.7282,
+    "AllocatedBytes": 5368.936
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Music",
+    "Microseconds": 2856.2,
+    "AllocatedBytes": 221296.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "MusicFiles",
+    "Microseconds": 683.8,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems",
+    "Microseconds": 1309.8000000000002,
+    "AllocatedBytes": 122968.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Lyrics",
+    "Microseconds": 879.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Contributors",
+    "Microseconds": 945.0,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Comments",
+    "Microseconds": 1553.3999999999999,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Reactions",
+    "Microseconds": 1350.6,
+    "AllocatedBytes": 90184.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Album",
+    "Microseconds": 1679.3,
+    "AllocatedBytes": 155744.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "ContributorSongs",
+    "Microseconds": 1253.5,
+    "AllocatedBytes": 122984.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Genres",
+    "Microseconds": 463.9,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "ReactionTypes",
+    "Microseconds": 440.90000000000003,
+    "AllocatedBytes": 57376.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Library",
+    "Microseconds": 1969.1000000000001,
+    "AllocatedBytes": 171880.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1128.4,
+    "AllocatedBytes": 98400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Playlists",
+    "Microseconds": 980.6,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Features",
+    "Microseconds": 4532.8,
+    "AllocatedBytes": 393584.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Following.Music",
+    "Microseconds": 8474.7,
+    "AllocatedBytes": 696984.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Following.All",
+    "Microseconds": 8953.300000000001,
+    "AllocatedBytes": 729104.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.4,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Profile",
+    "Microseconds": 1225.3,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Me",
+    "Microseconds": 2363.0,
+    "AllocatedBytes": 180384.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "FindClient",
+    "Microseconds": 672.6999999999999,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Moods",
+    "Microseconds": 8895.9,
+    "AllocatedBytes": 490864.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stories",
+    "Microseconds": 1533.4,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "MusicStories",
+    "Microseconds": 2231.7999999999997,
+    "AllocatedBytes": 172192.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stories.Missing",
+    "Microseconds": 1352.8,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Music.Missing",
+    "Microseconds": 397.6,
+    "AllocatedBytes": 65568.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.Missing",
+    "Microseconds": 375.2,
+    "AllocatedBytes": 57384.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "FindClient.Missing",
+    "Microseconds": 351.0,
+    "AllocatedBytes": 57328.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Waveform",
+    "Microseconds": 7590.099999999999,
+    "AllocatedBytes": 1350160.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "LyricLines",
+    "Microseconds": 2605.7999999999997,
+    "AllocatedBytes": 155784.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "PlaylistDetails",
+    "Microseconds": 2034.7,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1325.6,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "StoryDetails",
+    "Microseconds": 3873.3,
+    "AllocatedBytes": 311424.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Media",
+    "Microseconds": 443.5,
+    "AllocatedBytes": 65512.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.0",
+    "Microseconds": 1354.7,
+    "AllocatedBytes": 122912.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.1",
+    "Microseconds": 889.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.2",
+    "Microseconds": 781.4,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.3",
+    "Microseconds": 731.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.4",
+    "Microseconds": 735.3,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.5",
+    "Microseconds": 730.6,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.6",
+    "Microseconds": 942.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.7",
+    "Microseconds": 697.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.8",
+    "Microseconds": 646.3,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.9",
+    "Microseconds": 750.1999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.10",
+    "Microseconds": 1105.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Stems.All.11",
+    "Microseconds": 1284.2,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.7374",
+    "Microseconds": 1210.5,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.7374",
+    "Microseconds": 1075.2,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.616C697368",
+    "Microseconds": 1015.3000000000001,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.616C697368",
+    "Microseconds": 955.4,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.6172",
+    "Microseconds": 1025.9,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.6172",
+    "Microseconds": 980.9,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1044.2,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1006.5999999999999,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 928.3000000000001,
+    "AllocatedBytes": 172184.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 3,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1040911.4999999999,
+    "AllocatedBytes": 983184.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "NewContextAndSet",
+    "Microseconds": 28.30675,
+    "AllocatedBytes": 35096.112
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.2365,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "cached-get",
+    "Microseconds": 0.1363,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "small-json-get",
+    "Microseconds": 4.22164,
+    "AllocatedBytes": 2459.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2589.311,
+    "AllocatedBytes": 448006.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 337.134,
+    "AllocatedBytes": 59612.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.9357430000000001,
+    "AllocatedBytes": 1154.00672
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 6.0020500000000006,
+    "AllocatedBytes": 2888.1008
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 20.5585,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 175.595,
+    "AllocatedBytes": 8295.08
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 115.0704,
+    "AllocatedBytes": 5364.608
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Music",
+    "Microseconds": 3074.6000000000004,
+    "AllocatedBytes": 221264.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "MusicFiles",
+    "Microseconds": 722.7,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems",
+    "Microseconds": 1154.7,
+    "AllocatedBytes": 122976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Lyrics",
+    "Microseconds": 835.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Contributors",
+    "Microseconds": 767.2,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Comments",
+    "Microseconds": 1446.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Reactions",
+    "Microseconds": 751.1,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Album",
+    "Microseconds": 1648.4,
+    "AllocatedBytes": 155744.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "ContributorSongs",
+    "Microseconds": 1077.3999999999999,
+    "AllocatedBytes": 122976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Genres",
+    "Microseconds": 476.3,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "ReactionTypes",
+    "Microseconds": 316.2,
+    "AllocatedBytes": 57216.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Library",
+    "Microseconds": 2043.3,
+    "AllocatedBytes": 171912.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1185.1000000000001,
+    "AllocatedBytes": 98400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Playlists",
+    "Microseconds": 946.6999999999999,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Features",
+    "Microseconds": 3958.4,
+    "AllocatedBytes": 401624.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Following.Music",
+    "Microseconds": 7274.0,
+    "AllocatedBytes": 704232.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Following.All",
+    "Microseconds": 8511.300000000001,
+    "AllocatedBytes": 729368.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.4,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Profile",
+    "Microseconds": 1507.2,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Me",
+    "Microseconds": 2056.2,
+    "AllocatedBytes": 180368.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "FindClient",
+    "Microseconds": 409.8,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Moods",
+    "Microseconds": 9470.599999999999,
+    "AllocatedBytes": 490192.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stories",
+    "Microseconds": 1483.2,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "MusicStories",
+    "Microseconds": 2001.9999999999998,
+    "AllocatedBytes": 166080.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stories.Missing",
+    "Microseconds": 1262.3,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Music.Missing",
+    "Microseconds": 427.9,
+    "AllocatedBytes": 65504.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.Missing",
+    "Microseconds": 419.4,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "FindClient.Missing",
+    "Microseconds": 453.1,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Waveform",
+    "Microseconds": 7231.8,
+    "AllocatedBytes": 1351384.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "LyricLines",
+    "Microseconds": 2090.9,
+    "AllocatedBytes": 155768.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "PlaylistDetails",
+    "Microseconds": 1734.6999999999998,
+    "AllocatedBytes": 175472.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1150.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "StoryDetails",
+    "Microseconds": 3041.9,
+    "AllocatedBytes": 311456.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Media",
+    "Microseconds": 411.7,
+    "AllocatedBytes": 65592.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.0",
+    "Microseconds": 1304.6,
+    "AllocatedBytes": 122968.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.1",
+    "Microseconds": 721.4000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.2",
+    "Microseconds": 724.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.3",
+    "Microseconds": 717.3000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.4",
+    "Microseconds": 842.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.5",
+    "Microseconds": 830.8,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.6",
+    "Microseconds": 745.1999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.7",
+    "Microseconds": 729.1,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.8",
+    "Microseconds": 618.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.9",
+    "Microseconds": 727.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.10",
+    "Microseconds": 708.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Stems.All.11",
+    "Microseconds": 1164.9,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.7374",
+    "Microseconds": 1316.0,
+    "AllocatedBytes": 180400.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.7374",
+    "Microseconds": 1170.7,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.616C697368",
+    "Microseconds": 1079.7,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.616C697368",
+    "Microseconds": 995.0,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.6172",
+    "Microseconds": 1063.1999999999998,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.6172",
+    "Microseconds": 1020.3,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1123.1,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 1089.8000000000002,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 1041.6000000000001,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 4,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "ColdModelAndProvider",
+    "Microseconds": 1021371.1,
+    "AllocatedBytes": 983336.0
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "NewContextAndSet",
+    "Microseconds": 26.73565,
+    "AllocatedBytes": 35096.112
+  },
+  {
+    "Category": "Database",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "PooledContextAndSet",
+    "Microseconds": 0.25735,
+    "AllocatedBytes": 80.0
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "cached-get",
+    "Microseconds": 0.13667,
+    "AllocatedBytes": 208.02016
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "small-json-get",
+    "Microseconds": 4.46566,
+    "AllocatedBytes": 2459.4832
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "large-json-1200-rows",
+    "Microseconds": 2650.1740000000004,
+    "AllocatedBytes": 448006.16
+  },
+  {
+    "Category": "SDK",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "ndjson-search-200-rows",
+    "Microseconds": 369.516,
+    "AllocatedBytes": 59612.10666666667
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "windows.deeplink.parse_roundtrip",
+    "Microseconds": 0.961528,
+    "AllocatedBytes": 1154.01208
+  },
+  {
+    "Category": "Windows",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "Microseconds": 5.96629,
+    "AllocatedBytes": 2888.1008
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Api.Ndjson20Rows",
+    "Microseconds": 19.4103,
+    "AllocatedBytes": 664.0
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Api.OutputCacheHitHttp",
+    "Microseconds": 144.76,
+    "AllocatedBytes": 8275.776
+  },
+  {
+    "Category": "API",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Api.OutputCacheBypassHttp",
+    "Microseconds": 118.4969,
+    "AllocatedBytes": 5370.68
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Music",
+    "Microseconds": 3236.1,
+    "AllocatedBytes": 221304.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "MusicFiles",
+    "Microseconds": 772.0,
+    "AllocatedBytes": 83736.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems",
+    "Microseconds": 1186.6000000000001,
+    "AllocatedBytes": 122976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Lyrics",
+    "Microseconds": 743.9,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Contributors",
+    "Microseconds": 806.8,
+    "AllocatedBytes": 82000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Comments",
+    "Microseconds": 1969.9,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Reactions",
+    "Microseconds": 875.1,
+    "AllocatedBytes": 90192.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Album",
+    "Microseconds": 1641.5,
+    "AllocatedBytes": 155728.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "ContributorSongs",
+    "Microseconds": 1233.4,
+    "AllocatedBytes": 123000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Genres",
+    "Microseconds": 503.90000000000003,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "ReactionTypes",
+    "Microseconds": 414.3,
+    "AllocatedBytes": 57360.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Library",
+    "Microseconds": 1960.2,
+    "AllocatedBytes": 164000.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Library.EmptyPage",
+    "Microseconds": 1115.1,
+    "AllocatedBytes": 98400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Playlists",
+    "Microseconds": 881.7,
+    "AllocatedBytes": 90200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Features",
+    "Microseconds": 3972.5,
+    "AllocatedBytes": 401136.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Following.Music",
+    "Microseconds": 7940.7,
+    "AllocatedBytes": 696976.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Following.All",
+    "Microseconds": 8168.900000000001,
+    "AllocatedBytes": 721568.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Following.EmptyPage",
+    "Microseconds": 0.3,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Profile",
+    "Microseconds": 1167.7,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Me",
+    "Microseconds": 2231.0,
+    "AllocatedBytes": 180336.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "FindClient",
+    "Microseconds": 373.09999999999997,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Moods",
+    "Microseconds": 8958.3,
+    "AllocatedBytes": 489216.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stories",
+    "Microseconds": 1547.1,
+    "AllocatedBytes": 155800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "MusicStories",
+    "Microseconds": 1903.8,
+    "AllocatedBytes": 172088.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stories.Missing",
+    "Microseconds": 1186.8000000000002,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Music.Missing",
+    "Microseconds": 374.8,
+    "AllocatedBytes": 65552.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.Missing",
+    "Microseconds": 350.4,
+    "AllocatedBytes": 57400.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "FindClient.Missing",
+    "Microseconds": 395.1,
+    "AllocatedBytes": 57344.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Waveform",
+    "Microseconds": 8032.8,
+    "AllocatedBytes": 1345592.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "LyricLines",
+    "Microseconds": 2271.0,
+    "AllocatedBytes": 155768.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "PlaylistDetails",
+    "Microseconds": 1908.3000000000002,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "PlaylistDetails.EmptyPage",
+    "Microseconds": 1161.5,
+    "AllocatedBytes": 106600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "StoryDetails",
+    "Microseconds": 3210.5,
+    "AllocatedBytes": 311464.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Media",
+    "Microseconds": 382.90000000000003,
+    "AllocatedBytes": 65600.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.0",
+    "Microseconds": 1238.5,
+    "AllocatedBytes": 122984.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.1",
+    "Microseconds": 732.7,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.2",
+    "Microseconds": 644.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.3",
+    "Microseconds": 660.2,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.4",
+    "Microseconds": 702.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.5",
+    "Microseconds": 629.8000000000001,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.6",
+    "Microseconds": 984.1999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.7",
+    "Microseconds": 973.0,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.8",
+    "Microseconds": 712.5,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.9",
+    "Microseconds": 679.6999999999999,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.10",
+    "Microseconds": 707.6,
+    "AllocatedBytes": 73800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Stems.All.11",
+    "Microseconds": 1109.8,
+    "AllocatedBytes": 114800.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.7374",
+    "Microseconds": 1520.2,
+    "AllocatedBytes": 180392.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.7374",
+    "Microseconds": 1068.8999999999999,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.616C697368",
+    "Microseconds": 1061.3,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.616C697368",
+    "Microseconds": 1015.3000000000001,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.6172",
+    "Microseconds": 1003.8000000000001,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.6172",
+    "Microseconds": 968.3000000000001,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.D8A2",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 998.7,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.D8AED8A7",
+    "Microseconds": 964.8,
+    "AllocatedBytes": null
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "Microseconds": 907.3,
+    "AllocatedBytes": 172200.0
+  },
+  {
+    "Category": "Logic",
+    "Version": "candidate",
+    "Round": 5,
+    "Name": "Search.25",
+    "Microseconds": 0.2,
+    "AllocatedBytes": 0.0
+  }
+]

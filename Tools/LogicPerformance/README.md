@@ -8,7 +8,7 @@ Run from the server repository:
 
 ```powershell
 dotnet build Tools/LogicPerformance/LogicPerformance.csproj -c Release -p:Platform=x64
-dotnet Tools/LogicPerformance/bin/x64/Release/net10.0/LogicPerformance.dll D:/MizonDiagnostics/logic-results 30 --regressions --load
+dotnet Tools/LogicPerformance/bin/x64/Release/net11.0/LogicPerformance.dll D:/MizonDiagnostics/logic-results 30 --regressions --load
 ```
 
 Arguments: output directory, measured iterations (1-1000), optional

@@ -11,7 +11,7 @@
 - Tools: audio analysis/import/simulation utilities and isolated diagnostics.
   Some utilities intentionally write data; inspect their entrypoint before running.
 
-The API targets .NET 10. It is not a production NativeAOT application merely
+The API targets .NET 11. It is not a production NativeAOT application merely
 because analyzers and source-generated JSON are enabled. See
 [Mizon.Server.API/PERFORMANCE.md](../../Mizon.Server.API/PERFORMANCE.md) and
 [Logic performance](../../Mizon.Server.Logic/PERFORMANCE.md).

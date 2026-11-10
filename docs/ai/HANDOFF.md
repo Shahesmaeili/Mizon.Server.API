@@ -1,40 +1,36 @@
-# Server handoff — 2026-11-10
+# Server handoff — .NET 11 upgrade, 2026-11-10
 
-## Current publication
+All 13 server, Logic, shared infrastructure and utility projects target .NET 11.
+SDK11.0.100 is selected by global.json with patch roll-forward. ASP.NET Core,
+EF Core and related framework packages are aligned to 11.0.0. The two tracked
+Visual Studio folder publish profiles also use net11.0.
 
-This task publishes the accumulated local source since the initial GitHub import,
-including music discovery/social APIs, playlists/library/detail, following activity,
-moods, story visibility, streaming, response caching and diagnostics.
-It adds shared AI collaboration instructions; it does not introduce a new API
-behavior, migrate a database or deploy a server during publication.
+Database, .NET SDK and Windows upgrades are coordinated in the same task.
+Baseline executables were retained before changing production targets.
+No schema, migration, stored data, API contract, authorization rule or UI design changed.
 
-A previously unversioned sibling database source is now published separately as
-Shahesmaeili/Mizon.Database. The SDK remote is canonically Mizon.API.DotNet while
-its local directory stays Mizon.API. Windows/ExplorerCommands/Palettes/MCP/taskbar
-source remains in Mizon.Windows.
+## Validation
 
-## Verification in this publication task
+- All 13 projects: Release/x64 build passed.
+- API isolated checks passed: authentication, generated NDJSON/backpressure,
+  diagnostics, SignalR lifecycle/concurrent membership, real OutputCache
+  isolation/expiry/invalidation/failure/cancellation.
+- Baseline/candidate SQL smoke runs: all 53 read-only operation cases passed;
+  response hashes and query counts match. Repeated measurements are separate.
+- SQL checks use a SELECT-only interceptor; no seeds/imports/migrations ran.
 
-- Database Release/x64 console regression checks: 40 passed, no SQL connections.
-- API Release/x64 build: passed, 0 errors; existing warnings remain.
-- Default ApiDiagnostics Release/x64: passed with JSON reflection disabled.
-  No --http, live benchmark, production request or database mutation was used.
-- Build/test logs are local diagnostics, not repository source:
-  D:/MizonTaskDiagnostics/publish-*.log.
+See [the task record](tasks/2026-11-10-net11-upgrade.md) and
+[benchmark workflow](../../Tools/RuntimeUpgradeBenchmarks/README.md).
+Older PERFORMANCE.md results are historical, not .NET10-versus11 measurements.
 
-Older benchmark values and live checks in PERFORMANCE.md are historical evidence;
-they are not fresh before/after measurements for this publication.
+## Boundaries
 
-## Remaining boundaries
+- Full EF-consuming API NativeAOT support is not established. Model/component
+  NativeAOT checks do not prove all dynamically composed queries support AOT.
+- EF/SqlClient AOT and trimming warnings remain visible where applicable.
+- Allocation traffic is not total WinUI working set, GPU memory or frame rate.
+- No Windows registration, deployment, application restart or UI automation was
+  performed by this server migration.
+- The existing development JWT value previously approved by the user is unchanged.
 
-- EF query precompilation limitations prevent claiming full API NativeAOT support.
-- Existing dependency advisory warnings include transitive Pkcs 9.0.4 and the
-  installed ILCompiler 10.0.9. This task does not silently update dependencies.
-- OutputCache is process-local; multiple server instances need coordinated storage
-  and invalidation. Direct database edits are reflected at TTL expiry.
-- No migration application, seed/import run or data export was performed.
-- Source appsettings retains the development JWT value the user explicitly approved
-  for public publication earlier; no credential value is copied into these docs.
-
-Before the next feature: fetch, read the task notes and inspect actual source.
-Do not assume all Windows features have a public backend or complete MCP coverage.
+Read the performance report and cross-repository task notes before further work.

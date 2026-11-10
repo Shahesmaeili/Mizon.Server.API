@@ -1,0 +1,1313 @@
+[
+  {
+    "Category": "API",
+    "Name": "Api.Ndjson20Rows",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 32.4409,
+    "Net11Microseconds": 20.6268,
+    "TimeChangePercent": -36.4173003831583,
+    "Net10RangeMicroseconds": [
+      31.4722,
+      34.6688
+    ],
+    "Net11RangeMicroseconds": [
+      19.4103,
+      33.7064
+    ],
+    "Net10AllocatedBytes": 664.0,
+    "Net11AllocatedBytes": 664.0,
+    "AllocationChangePercent": 0.0
+  },
+  {
+    "Category": "API",
+    "Name": "Api.OutputCacheBypassHttp",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 128.5706,
+    "Net11Microseconds": 123.1886,
+    "TimeChangePercent": -4.186026976618306,
+    "Net10RangeMicroseconds": [
+      119.3812,
+      137.2353
+    ],
+    "Net11RangeMicroseconds": [
+      115.0704,
+      153.7282
+    ],
+    "Net10AllocatedBytes": 5280.384,
+    "Net11AllocatedBytes": 5369.792,
+    "AllocationChangePercent": 1.6932101907740194
+  },
+  {
+    "Category": "API",
+    "Name": "Api.OutputCacheHitHttp",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 151.7058,
+    "Net11Microseconds": 144.9558,
+    "TimeChangePercent": -4.449401407197351,
+    "Net10RangeMicroseconds": [
+      142.4915,
+      173.0649
+    ],
+    "Net11RangeMicroseconds": [
+      143.8948,
+      175.595
+    ],
+    "Net10AllocatedBytes": 8309.936,
+    "Net11AllocatedBytes": 8276.16,
+    "AllocationChangePercent": -0.40645319049388284
+  },
+  {
+    "Category": "Database",
+    "Name": "ColdModelAndProvider",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1365142.7000000002,
+    "Net11Microseconds": 1021371.1,
+    "TimeChangePercent": -25.182100010497088,
+    "Net10RangeMicroseconds": [
+      1347046.7000000002,
+      1389452.9
+    ],
+    "Net11RangeMicroseconds": [
+      1011416.5,
+      1040911.4999999999
+    ],
+    "Net10AllocatedBytes": 1170200.0,
+    "Net11AllocatedBytes": 983184.0,
+    "AllocationChangePercent": -15.98154161681764
+  },
+  {
+    "Category": "Database",
+    "Name": "NewContextAndSet",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 85.13385,
+    "Net11Microseconds": 27.3159,
+    "TimeChangePercent": -67.91417279965607,
+    "Net10RangeMicroseconds": [
+      83.04875,
+      86.1131
+    ],
+    "Net11RangeMicroseconds": [
+      26.1116,
+      28.6038
+    ],
+    "Net10AllocatedBytes": 65213.52,
+    "Net11AllocatedBytes": 35096.112,
+    "AllocationChangePercent": -46.182767009049655
+  },
+  {
+    "Category": "Database",
+    "Name": "PooledContextAndSet",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.24429999999999996,
+    "Net11Microseconds": 0.25735,
+    "TimeChangePercent": 5.341792877609519,
+    "Net10RangeMicroseconds": [
+      0.23315,
+      0.25985
+    ],
+    "Net11RangeMicroseconds": [
+      0.2365,
+      0.26725
+    ],
+    "Net10AllocatedBytes": 80.0,
+    "Net11AllocatedBytes": 80.0,
+    "AllocationChangePercent": 0.0
+  },
+  {
+    "Category": "Logic",
+    "Name": "Album",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1707.1000000000001,
+    "Net11Microseconds": 1641.5,
+    "TimeChangePercent": -3.842774295589013,
+    "Net10RangeMicroseconds": [
+      1686.1999999999998,
+      1983.3
+    ],
+    "Net11RangeMicroseconds": [
+      1430.7,
+      1679.3
+    ],
+    "Net10AllocatedBytes": 188568.0,
+    "Net11AllocatedBytes": 155744.0,
+    "AllocationChangePercent": -17.40698315726953
+  },
+  {
+    "Category": "Logic",
+    "Name": "Comments",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1623.6999999999998,
+    "Net11Microseconds": 1553.3999999999999,
+    "TimeChangePercent": -4.329617540185993,
+    "Net10RangeMicroseconds": [
+      1344.2,
+      1830.8999999999999
+    ],
+    "Net11RangeMicroseconds": [
+      1446.9,
+      1969.9
+    ],
+    "Net10AllocatedBytes": 139400.0,
+    "Net11AllocatedBytes": 106600.0,
+    "AllocationChangePercent": -23.529411764705888
+  },
+  {
+    "Category": "Logic",
+    "Name": "Contributors",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 957.3000000000001,
+    "Net11Microseconds": 800.5,
+    "TimeChangePercent": -16.379400396949762,
+    "Net10RangeMicroseconds": [
+      765.9,
+      983.1999999999999
+    ],
+    "Net11RangeMicroseconds": [
+      767.2,
+      945.0
+    ],
+    "Net10AllocatedBytes": 114800.0,
+    "Net11AllocatedBytes": 82000.0,
+    "AllocationChangePercent": -28.57142857142857
+  },
+  {
+    "Category": "Logic",
+    "Name": "ContributorSongs",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1318.0,
+    "Net11Microseconds": 1203.1000000000001,
+    "TimeChangePercent": -8.717754172989366,
+    "Net10RangeMicroseconds": [
+      1213.8,
+      1407.1
+    ],
+    "Net11RangeMicroseconds": [
+      1077.3999999999999,
+      1253.5
+    ],
+    "Net10AllocatedBytes": 155792.0,
+    "Net11AllocatedBytes": 122984.0,
+    "AllocationChangePercent": -21.058847694361717
+  },
+  {
+    "Category": "Logic",
+    "Name": "Features",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 5050.6,
+    "Net11Microseconds": 4168.700000000001,
+    "TimeChangePercent": -17.461291727715512,
+    "Net10RangeMicroseconds": [
+      4211.5,
+      5513.9
+    ],
+    "Net11RangeMicroseconds": [
+      3958.4,
+      4532.8
+    ],
+    "Net10AllocatedBytes": 434600.0,
+    "Net11AllocatedBytes": 401136.0,
+    "AllocationChangePercent": -7.69995398067188
+  },
+  {
+    "Category": "Logic",
+    "Name": "FindClient",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 534.5,
+    "Net11Microseconds": 409.8,
+    "TimeChangePercent": -23.330215154349855,
+    "Net10RangeMicroseconds": [
+      410.4,
+      575.9
+    ],
+    "Net11RangeMicroseconds": [
+      359.20000000000005,
+      672.6999999999999
+    ],
+    "Net10AllocatedBytes": 90192.0,
+    "Net11AllocatedBytes": 57400.0,
+    "AllocationChangePercent": -36.35799183963101
+  },
+  {
+    "Category": "Logic",
+    "Name": "FindClient.Missing",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 468.0,
+    "Net11Microseconds": 395.1,
+    "TimeChangePercent": -15.576923076923077,
+    "Net10RangeMicroseconds": [
+      389.40000000000003,
+      616.8000000000001
+    ],
+    "Net11RangeMicroseconds": [
+      351.0,
+      453.1
+    ],
+    "Net10AllocatedBytes": 89952.0,
+    "Net11AllocatedBytes": 57344.0,
+    "AllocationChangePercent": -36.25044468160797
+  },
+  {
+    "Category": "Logic",
+    "Name": "Following.All",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 8866.5,
+    "Net11Microseconds": 8273.7,
+    "TimeChangePercent": -6.685839959397722,
+    "Net10RangeMicroseconds": [
+      8431.300000000001,
+      9618.4
+    ],
+    "Net11RangeMicroseconds": [
+      7698.400000000001,
+      8953.300000000001
+    ],
+    "Net10AllocatedBytes": 762560.0,
+    "Net11AllocatedBytes": 725624.0,
+    "AllocationChangePercent": -4.843684431389006
+  },
+  {
+    "Category": "Logic",
+    "Name": "Following.EmptyPage",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.3,
+    "Net11Microseconds": 0.3,
+    "TimeChangePercent": 0.0,
+    "Net10RangeMicroseconds": [
+      0.3,
+      0.4
+    ],
+    "Net11RangeMicroseconds": [
+      0.3,
+      0.4
+    ],
+    "Net10AllocatedBytes": 0.0,
+    "Net11AllocatedBytes": 0.0,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "Logic",
+    "Name": "Following.Music",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 8766.3,
+    "Net11Microseconds": 8315.699999999999,
+    "TimeChangePercent": -5.140138941172445,
+    "Net10RangeMicroseconds": [
+      7910.0,
+      9312.699999999999
+    ],
+    "Net11RangeMicroseconds": [
+      7274.0,
+      8474.7
+    ],
+    "Net10AllocatedBytes": 737808.0,
+    "Net11AllocatedBytes": 696976.0,
+    "AllocationChangePercent": -5.534231127881506
+  },
+  {
+    "Category": "Logic",
+    "Name": "Genres",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 606.1,
+    "Net11Microseconds": 465.4,
+    "TimeChangePercent": -23.21399109057912,
+    "Net10RangeMicroseconds": [
+      515.7,
+      643.5999999999999
+    ],
+    "Net11RangeMicroseconds": [
+      445.7,
+      503.90000000000003
+    ],
+    "Net10AllocatedBytes": 90200.0,
+    "Net11AllocatedBytes": 57400.0,
+    "AllocationChangePercent": -36.36363636363637
+  },
+  {
+    "Category": "Logic",
+    "Name": "Library",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2125.5,
+    "Net11Microseconds": 1960.2,
+    "TimeChangePercent": -7.776993648553276,
+    "Net10RangeMicroseconds": [
+      1858.8,
+      2947.5
+    ],
+    "Net11RangeMicroseconds": [
+      1800.1000000000001,
+      2043.3
+    ],
+    "Net10AllocatedBytes": 196800.0,
+    "Net11AllocatedBytes": 171880.0,
+    "AllocationChangePercent": -12.662601626016256
+  },
+  {
+    "Category": "Logic",
+    "Name": "Library.EmptyPage",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1287.4,
+    "Net11Microseconds": 1115.1,
+    "TimeChangePercent": -13.383563771943463,
+    "Net10RangeMicroseconds": [
+      1087.1,
+      1396.3000000000002
+    ],
+    "Net11RangeMicroseconds": [
+      999.1999999999999,
+      1185.1000000000001
+    ],
+    "Net10AllocatedBytes": 131200.0,
+    "Net11AllocatedBytes": 98400.0,
+    "AllocationChangePercent": -25.0
+  },
+  {
+    "Category": "Logic",
+    "Name": "LyricLines",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2292.2,
+    "Net11Microseconds": 2271.0,
+    "TimeChangePercent": -0.924875665299707,
+    "Net10RangeMicroseconds": [
+      2124.4,
+      3701.4
+    ],
+    "Net11RangeMicroseconds": [
+      2090.9,
+      2605.7999999999997
+    ],
+    "Net10AllocatedBytes": 180400.0,
+    "Net11AllocatedBytes": 155768.0,
+    "AllocationChangePercent": -13.654101995565416
+  },
+  {
+    "Category": "Logic",
+    "Name": "Lyrics",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 803.4,
+    "Net11Microseconds": 743.9,
+    "TimeChangePercent": -7.406024396315658,
+    "Net10RangeMicroseconds": [
+      685.6999999999999,
+      876.1
+    ],
+    "Net11RangeMicroseconds": [
+      697.2,
+      879.0
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Me",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2303.3,
+    "Net11Microseconds": 2120.0,
+    "TimeChangePercent": -7.958147006468986,
+    "Net10RangeMicroseconds": [
+      2185.1,
+      3674.6
+    ],
+    "Net11RangeMicroseconds": [
+      2056.2,
+      2363.0
+    ],
+    "Net10AllocatedBytes": 213136.0,
+    "Net11AllocatedBytes": 180368.0,
+    "AllocationChangePercent": -15.37422115456798
+  },
+  {
+    "Category": "Logic",
+    "Name": "Media",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 646.9,
+    "Net11Microseconds": 423.0,
+    "TimeChangePercent": -34.61122275467614,
+    "Net10RangeMicroseconds": [
+      543.1,
+      866.0
+    ],
+    "Net11RangeMicroseconds": [
+      382.90000000000003,
+      507.1
+    ],
+    "Net10AllocatedBytes": 90200.0,
+    "Net11AllocatedBytes": 65592.0,
+    "AllocationChangePercent": -27.28159645232816
+  },
+  {
+    "Category": "Logic",
+    "Name": "Moods",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 8933.199999999999,
+    "Net11Microseconds": 8958.3,
+    "TimeChangePercent": 0.2809743429006417,
+    "Net10RangeMicroseconds": [
+      8764.900000000001,
+      9377.0
+    ],
+    "Net11RangeMicroseconds": [
+      8532.5,
+      9470.599999999999
+    ],
+    "Net10AllocatedBytes": 516600.0,
+    "Net11AllocatedBytes": 489848.0,
+    "AllocationChangePercent": -5.178474641889275
+  },
+  {
+    "Category": "Logic",
+    "Name": "Music",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 3290.6,
+    "Net11Microseconds": 2882.6,
+    "TimeChangePercent": -12.398954597945666,
+    "Net10RangeMicroseconds": [
+      2947.4,
+      3381.0
+    ],
+    "Net11RangeMicroseconds": [
+      2798.1,
+      3236.1
+    ],
+    "Net10AllocatedBytes": 254112.0,
+    "Net11AllocatedBytes": 221296.0,
+    "AllocationChangePercent": -12.9139906812744
+  },
+  {
+    "Category": "Logic",
+    "Name": "Music.Missing",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 560.6999999999999,
+    "Net11Microseconds": 397.6,
+    "TimeChangePercent": -29.088639200998735,
+    "Net10RangeMicroseconds": [
+      452.79999999999995,
+      750.7
+    ],
+    "Net11RangeMicroseconds": [
+      374.8,
+      427.9
+    ],
+    "Net10AllocatedBytes": 90200.0,
+    "Net11AllocatedBytes": 65552.0,
+    "AllocationChangePercent": -27.3259423503326
+  },
+  {
+    "Category": "Logic",
+    "Name": "MusicFiles",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 911.5999999999999,
+    "Net11Microseconds": 722.7,
+    "TimeChangePercent": -20.72180781044316,
+    "Net10RangeMicroseconds": [
+      826.0,
+      948.4
+    ],
+    "Net11RangeMicroseconds": [
+      683.8,
+      772.0
+    ],
+    "Net10AllocatedBytes": 114800.0,
+    "Net11AllocatedBytes": 82000.0,
+    "AllocationChangePercent": -28.57142857142857
+  },
+  {
+    "Category": "Logic",
+    "Name": "MusicStories",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2081.6,
+    "Net11Microseconds": 1919.4,
+    "TimeChangePercent": -7.792083013066864,
+    "Net10RangeMicroseconds": [
+      2005.1999999999998,
+      2338.9
+    ],
+    "Net11RangeMicroseconds": [
+      1888.1,
+      2231.7999999999997
+    ],
+    "Net10AllocatedBytes": 205000.0,
+    "Net11AllocatedBytes": 171400.0,
+    "AllocationChangePercent": -16.39024390243903
+  },
+  {
+    "Category": "Logic",
+    "Name": "PlaylistDetails",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2339.1000000000004,
+    "Net11Microseconds": 2034.7,
+    "TimeChangePercent": -13.013552220939694,
+    "Net10RangeMicroseconds": [
+      2087.6,
+      3680.0
+    ],
+    "Net11RangeMicroseconds": [
+      1734.6999999999998,
+      2291.0
+    ],
+    "Net10AllocatedBytes": 205000.0,
+    "Net11AllocatedBytes": 172200.0,
+    "AllocationChangePercent": -16.000000000000004
+  },
+  {
+    "Category": "Logic",
+    "Name": "PlaylistDetails.EmptyPage",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1474.0,
+    "Net11Microseconds": 1161.5,
+    "TimeChangePercent": -21.200814111261867,
+    "Net10RangeMicroseconds": [
+      1253.7,
+      2303.5
+    ],
+    "Net11RangeMicroseconds": [
+      1150.7,
+      1325.6
+    ],
+    "Net10AllocatedBytes": 139400.0,
+    "Net11AllocatedBytes": 106600.0,
+    "AllocationChangePercent": -23.529411764705888
+  },
+  {
+    "Category": "Logic",
+    "Name": "Playlists",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 974.4000000000001,
+    "Net11Microseconds": 943.8,
+    "TimeChangePercent": -3.140394088669962,
+    "Net10RangeMicroseconds": [
+      950.5,
+      1345.6
+    ],
+    "Net11RangeMicroseconds": [
+      881.7,
+      980.6
+    ],
+    "Net10AllocatedBytes": 123000.0,
+    "Net11AllocatedBytes": 90200.0,
+    "AllocationChangePercent": -26.66666666666667
+  },
+  {
+    "Category": "Logic",
+    "Name": "Profile",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1522.8999999999999,
+    "Net11Microseconds": 1361.3,
+    "TimeChangePercent": -10.61133363976623,
+    "Net10RangeMicroseconds": [
+      1221.2,
+      1770.5
+    ],
+    "Net11RangeMicroseconds": [
+      1167.7,
+      1537.0
+    ],
+    "Net10AllocatedBytes": 139400.0,
+    "Net11AllocatedBytes": 106600.0,
+    "AllocationChangePercent": -23.529411764705888
+  },
+  {
+    "Category": "Logic",
+    "Name": "Reactions",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 927.8,
+    "Net11Microseconds": 875.1,
+    "TimeChangePercent": -5.680103470575548,
+    "Net10RangeMicroseconds": [
+      825.2,
+      949.5
+    ],
+    "Net11RangeMicroseconds": [
+      751.1,
+      1350.6
+    ],
+    "Net10AllocatedBytes": 118296.0,
+    "Net11AllocatedBytes": 90192.0,
+    "AllocationChangePercent": -23.757354432947864
+  },
+  {
+    "Category": "Logic",
+    "Name": "ReactionTypes",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 519.8000000000001,
+    "Net11Microseconds": 359.9,
+    "TimeChangePercent": -30.76183147364372,
+    "Net10RangeMicroseconds": [
+      442.0,
+      563.6999999999999
+    ],
+    "Net11RangeMicroseconds": [
+      316.2,
+      440.90000000000003
+    ],
+    "Net10AllocatedBytes": 82000.0,
+    "Net11AllocatedBytes": 57256.0,
+    "AllocationChangePercent": -30.175609756097565
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.25",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.2,
+    "Net11Microseconds": 0.2,
+    "TimeChangePercent": 0.0,
+    "Net10RangeMicroseconds": [
+      0.2,
+      1.4
+    ],
+    "Net11RangeMicroseconds": [
+      0.2,
+      0.2
+    ],
+    "Net10AllocatedBytes": 0.0,
+    "Net11AllocatedBytes": 0.0,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.616C697368",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1228.3999999999999,
+    "Net11Microseconds": 1079.7,
+    "TimeChangePercent": -12.10517746662324,
+    "Net10RangeMicroseconds": [
+      1087.8000000000002,
+      1694.9
+    ],
+    "Net11RangeMicroseconds": [
+      1015.3000000000001,
+      1229.7
+    ],
+    "Net10AllocatedBytes": 237656.0,
+    "Net11AllocatedBytes": 172200.0,
+    "AllocationChangePercent": -27.542330090551047
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.6172",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1397.2,
+    "Net11Microseconds": 1063.1999999999998,
+    "TimeChangePercent": -23.90495276266821,
+    "Net10RangeMicroseconds": [
+      1152.8,
+      1881.5
+    ],
+    "Net11RangeMicroseconds": [
+      1003.8000000000001,
+      1266.8
+    ],
+    "Net10AllocatedBytes": 237720.0,
+    "Net11AllocatedBytes": 172200.0,
+    "AllocationChangePercent": -27.561837455830386
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.6E6F2D6D617463682D6D697A6F6E2D37383435",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1181.8,
+    "Net11Microseconds": 993.0,
+    "TimeChangePercent": -15.975630394313756,
+    "Net10RangeMicroseconds": [
+      1068.8,
+      1703.3
+    ],
+    "Net11RangeMicroseconds": [
+      907.3,
+      1041.6000000000001
+    ],
+    "Net10AllocatedBytes": 237416.0,
+    "Net11AllocatedBytes": 172200.0,
+    "AllocationChangePercent": -27.469083802271122
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.7374",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1522.1,
+    "Net11Microseconds": 1340.6,
+    "TimeChangePercent": -11.92431509099271,
+    "Net10RangeMicroseconds": [
+      1262.1,
+      2033.9999999999998
+    ],
+    "Net11RangeMicroseconds": [
+      1210.5,
+      1520.2
+    ],
+    "Net10AllocatedBytes": 245928.0,
+    "Net11AllocatedBytes": 180400.0,
+    "AllocationChangePercent": -26.645196968218343
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.D8A2",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.3,
+    "Net11Microseconds": 0.2,
+    "TimeChangePercent": -33.33333333333333,
+    "Net10RangeMicroseconds": [
+      0.2,
+      1.0
+    ],
+    "Net11RangeMicroseconds": [
+      0.2,
+      0.2
+    ],
+    "Net10AllocatedBytes": 0.0,
+    "Net11AllocatedBytes": 0.0,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "Logic",
+    "Name": "Search.D8AED8A7",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1291.3,
+    "Net11Microseconds": 1078.3,
+    "TimeChangePercent": -16.495005033686983,
+    "Net10RangeMicroseconds": [
+      1211.5,
+      1801.6000000000001
+    ],
+    "Net11RangeMicroseconds": [
+      998.7,
+      1126.6000000000001
+    ],
+    "Net10AllocatedBytes": 237768.0,
+    "Net11AllocatedBytes": 172200.0,
+    "AllocationChangePercent": -27.57646108811951
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1284.8999999999999,
+    "Net11Microseconds": 1190.9,
+    "TimeChangePercent": -7.315744415907832,
+    "Net10RangeMicroseconds": [
+      1157.1,
+      1408.5
+    ],
+    "Net11RangeMicroseconds": [
+      1154.7,
+      1309.8000000000002
+    ],
+    "Net10AllocatedBytes": 147600.0,
+    "Net11AllocatedBytes": 122976.0,
+    "AllocationChangePercent": -16.682926829268297
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.0",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1480.8,
+    "Net11Microseconds": 1354.7,
+    "TimeChangePercent": -8.515667206915179,
+    "Net10RangeMicroseconds": [
+      1274.4,
+      2434.2999999999997
+    ],
+    "Net11RangeMicroseconds": [
+      1238.5,
+      1872.6000000000001
+    ],
+    "Net10AllocatedBytes": 147600.0,
+    "Net11AllocatedBytes": 122984.0,
+    "AllocationChangePercent": -16.67750677506775
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.1",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 834.9,
+    "Net11Microseconds": 737.4000000000001,
+    "TimeChangePercent": -11.678045274883209,
+    "Net10RangeMicroseconds": [
+      786.9000000000001,
+      1385.1
+    ],
+    "Net11RangeMicroseconds": [
+      721.4000000000001,
+      889.1
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.10",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 817.1,
+    "Net11Microseconds": 708.0,
+    "TimeChangePercent": -13.35209888630523,
+    "Net10RangeMicroseconds": [
+      739.7,
+      1438.0
+    ],
+    "Net11RangeMicroseconds": [
+      622.6,
+      1105.9
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.11",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1463.1000000000001,
+    "Net11Microseconds": 1164.9,
+    "TimeChangePercent": -20.381381997129388,
+    "Net10RangeMicroseconds": [
+      1140.2,
+      2075.4
+    ],
+    "Net11RangeMicroseconds": [
+      1109.8,
+      1284.2
+    ],
+    "Net10AllocatedBytes": 147600.0,
+    "Net11AllocatedBytes": 114800.0,
+    "AllocationChangePercent": -22.22222222222222
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.2",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 873.6,
+    "Net11Microseconds": 724.7,
+    "TimeChangePercent": -17.044413919413913,
+    "Net10RangeMicroseconds": [
+      785.6999999999999,
+      1295.1999999999998
+    ],
+    "Net11RangeMicroseconds": [
+      644.0,
+      781.4
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.3",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 887.1,
+    "Net11Microseconds": 717.3000000000001,
+    "TimeChangePercent": -19.14102130537707,
+    "Net10RangeMicroseconds": [
+      642.8000000000001,
+      1414.1999999999998
+    ],
+    "Net11RangeMicroseconds": [
+      660.2,
+      791.9000000000001
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.4",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 880.4,
+    "Net11Microseconds": 750.9,
+    "TimeChangePercent": -14.709223080417988,
+    "Net10RangeMicroseconds": [
+      705.8,
+      1378.9
+    ],
+    "Net11RangeMicroseconds": [
+      702.0,
+      842.9
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.5",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 836.0999999999999,
+    "Net11Microseconds": 727.8,
+    "TimeChangePercent": -12.952996053103693,
+    "Net10RangeMicroseconds": [
+      724.9,
+      1265.2
+    ],
+    "Net11RangeMicroseconds": [
+      629.8000000000001,
+      830.8
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.6",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 876.1999999999999,
+    "Net11Microseconds": 752.8000000000001,
+    "TimeChangePercent": -14.083542570189444,
+    "Net10RangeMicroseconds": [
+      780.5,
+      1497.4
+    ],
+    "Net11RangeMicroseconds": [
+      624.1999999999999,
+      984.1999999999999
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.7",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 827.9,
+    "Net11Microseconds": 729.1,
+    "TimeChangePercent": -11.933808430969917,
+    "Net10RangeMicroseconds": [
+      660.6999999999999,
+      1357.3999999999999
+    ],
+    "Net11RangeMicroseconds": [
+      647.0,
+      973.0
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.8",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 828.5,
+    "Net11Microseconds": 646.3,
+    "TimeChangePercent": -21.991550995775498,
+    "Net10RangeMicroseconds": [
+      674.4,
+      1481.8
+    ],
+    "Net11RangeMicroseconds": [
+      618.7,
+      737.9
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.All.9",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 831.4,
+    "Net11Microseconds": 727.7,
+    "TimeChangePercent": -12.472937214337254,
+    "Net10RangeMicroseconds": [
+      760.7,
+      1463.0
+    ],
+    "Net11RangeMicroseconds": [
+      610.9,
+      765.5999999999999
+    ],
+    "Net10AllocatedBytes": 106600.0,
+    "Net11AllocatedBytes": 73800.0,
+    "AllocationChangePercent": -30.76923076923077
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stems.Missing",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 495.0,
+    "Net11Microseconds": 350.4,
+    "TimeChangePercent": -29.21212121212121,
+    "Net10RangeMicroseconds": [
+      467.1,
+      660.2
+    ],
+    "Net11RangeMicroseconds": [
+      324.40000000000003,
+      419.4
+    ],
+    "Net10AllocatedBytes": 82000.0,
+    "Net11AllocatedBytes": 57400.0,
+    "AllocationChangePercent": -30.000000000000004
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stories",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1648.9,
+    "Net11Microseconds": 1533.4,
+    "TimeChangePercent": -7.004669779853234,
+    "Net10RangeMicroseconds": [
+      1496.2,
+      1776.7
+    ],
+    "Net11RangeMicroseconds": [
+      1481.4,
+      1661.5
+    ],
+    "Net10AllocatedBytes": 196800.0,
+    "Net11AllocatedBytes": 155800.0,
+    "AllocationChangePercent": -20.833333333333336
+  },
+  {
+    "Category": "Logic",
+    "Name": "Stories.Missing",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1288.1,
+    "Net11Microseconds": 1208.8000000000002,
+    "TimeChangePercent": -6.156354320316726,
+    "Net10RangeMicroseconds": [
+      1285.3000000000002,
+      1384.9
+    ],
+    "Net11RangeMicroseconds": [
+      1185.1000000000001,
+      1352.8
+    ],
+    "Net10AllocatedBytes": 139400.0,
+    "Net11AllocatedBytes": 106600.0,
+    "AllocationChangePercent": -23.529411764705888
+  },
+  {
+    "Category": "Logic",
+    "Name": "StoryDetails",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 3533.1,
+    "Net11Microseconds": 3379.7999999999997,
+    "TimeChangePercent": -4.338965780759107,
+    "Net10RangeMicroseconds": [
+      3178.3,
+      6544.7
+    ],
+    "Net11RangeMicroseconds": [
+      3041.9,
+      3873.3
+    ],
+    "Net10AllocatedBytes": 344096.0,
+    "Net11AllocatedBytes": 311424.0,
+    "AllocationChangePercent": -9.49502464428531
+  },
+  {
+    "Category": "Logic",
+    "Name": "Waveform",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 8011.599999999999,
+    "Net11Microseconds": 7590.099999999999,
+    "TimeChangePercent": -5.261121374007693,
+    "Net10RangeMicroseconds": [
+      7529.3,
+      9269.9
+    ],
+    "Net11RangeMicroseconds": [
+      7231.8,
+      8032.8
+    ],
+    "Net10AllocatedBytes": 1377576.0,
+    "Net11AllocatedBytes": 1347392.0,
+    "AllocationChangePercent": -2.191095082957306
+  },
+  {
+    "Category": "SDK",
+    "Name": "cached-get",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.251414,
+    "Net11Microseconds": 0.13667,
+    "TimeChangePercent": -45.6394631961625,
+    "Net10RangeMicroseconds": [
+      0.24153,
+      0.256434
+    ],
+    "Net11RangeMicroseconds": [
+      0.130032,
+      0.140572
+    ],
+    "Net10AllocatedBytes": 208.02016,
+    "Net11AllocatedBytes": 208.02016,
+    "AllocationChangePercent": 0.0
+  },
+  {
+    "Category": "SDK",
+    "Name": "large-json-1200-rows",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 2580.894,
+    "Net11Microseconds": 2546.649,
+    "TimeChangePercent": -1.3268658069645611,
+    "Net10RangeMicroseconds": [
+      2515.001,
+      2603.161
+    ],
+    "Net11RangeMicroseconds": [
+      2495.521,
+      2650.1740000000004
+    ],
+    "Net10AllocatedBytes": 448070.16,
+    "Net11AllocatedBytes": 448006.16,
+    "AllocationChangePercent": -0.01428347739113045
+  },
+  {
+    "Category": "SDK",
+    "Name": "ndjson-search-200-rows",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 336.67466666666667,
+    "Net11Microseconds": 335.9426666666667,
+    "TimeChangePercent": -0.21742057614471122,
+    "Net10RangeMicroseconds": [
+      330.4533333333333,
+      355.8673333333333
+    ],
+    "Net11RangeMicroseconds": [
+      321.99133333333333,
+      369.516
+    ],
+    "Net10AllocatedBytes": 59868.10666666667,
+    "Net11AllocatedBytes": 59612.10666666667,
+    "AllocationChangePercent": -0.4276066410874746
+  },
+  {
+    "Category": "SDK",
+    "Name": "small-json-get",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 4.57886,
+    "Net11Microseconds": 4.29552,
+    "TimeChangePercent": -6.188003127415998,
+    "Net10RangeMicroseconds": [
+      4.5469,
+      4.90878
+    ],
+    "Net11RangeMicroseconds": [
+      4.22164,
+      4.5685199999999995
+    ],
+    "Net10AllocatedBytes": 2523.4832,
+    "Net11AllocatedBytes": 2459.4832,
+    "AllocationChangePercent": -2.5361769795019806
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Name": "Search.616C697368",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1152.0,
+    "Net11Microseconds": 1015.3000000000001,
+    "TimeChangePercent": -11.86631944444444,
+    "Net10RangeMicroseconds": [
+      1035.1,
+      1437.5
+    ],
+    "Net11RangeMicroseconds": [
+      955.4,
+      1173.7
+    ],
+    "Net10AllocatedBytes": null,
+    "Net11AllocatedBytes": null,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Name": "Search.6172",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1367.1,
+    "Net11Microseconds": 1020.3,
+    "TimeChangePercent": -25.36756638139126,
+    "Net10RangeMicroseconds": [
+      1124.0,
+      1843.1
+    ],
+    "Net11RangeMicroseconds": [
+      968.3000000000001,
+      1237.4
+    ],
+    "Net10AllocatedBytes": null,
+    "Net11AllocatedBytes": null,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Name": "Search.7374",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1306.1000000000001,
+    "Net11Microseconds": 1141.2,
+    "TimeChangePercent": -12.625373248602711,
+    "Net10RangeMicroseconds": [
+      1151.8999999999999,
+      1659.5
+    ],
+    "Net11RangeMicroseconds": [
+      1068.8999999999999,
+      1207.2
+    ],
+    "Net10AllocatedBytes": null,
+    "Net11AllocatedBytes": null,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "SearchFirstItem",
+    "Name": "Search.D8AED8A7",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 1259.8,
+    "Net11Microseconds": 1044.4,
+    "TimeChangePercent": -17.09795205588187,
+    "Net10RangeMicroseconds": [
+      1167.5,
+      1723.3
+    ],
+    "Net11RangeMicroseconds": [
+      964.8,
+      1096.6
+    ],
+    "Net10AllocatedBytes": null,
+    "Net11AllocatedBytes": null,
+    "AllocationChangePercent": null
+  },
+  {
+    "Category": "Windows",
+    "Name": "windows.deeplink.parse_roundtrip",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 0.914102,
+    "Net11Microseconds": 0.9357430000000001,
+    "TimeChangePercent": 2.3674600865111417,
+    "Net10RangeMicroseconds": [
+      0.904264,
+      0.9265399999999999
+    ],
+    "Net11RangeMicroseconds": [
+      0.925748,
+      0.961528
+    ],
+    "Net10AllocatedBytes": 1170.00672,
+    "Net11AllocatedBytes": 1154.00672,
+    "AllocationChangePercent": -1.3675135130847837
+  },
+  {
+    "Category": "Windows",
+    "Name": "windows.mcp.json_frame_roundtrip",
+    "ProcessesPerVersion": 5,
+    "Net10Microseconds": 9.183159999999999,
+    "Net11Microseconds": 5.9666999999999994,
+    "TimeChangePercent": -35.02563387766303,
+    "Net10RangeMicroseconds": [
+      9.09498,
+      9.18667
+    ],
+    "Net11RangeMicroseconds": [
+      5.86749,
+      6.0316
+    ],
+    "Net10AllocatedBytes": 3840.1344,
+    "Net11AllocatedBytes": 2888.1008,
+    "AllocationChangePercent": -24.791673958078132
+  }
+]

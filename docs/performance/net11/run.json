@@ -1,0 +1,8 @@
+{
+  "StartedUtc": "2026-11-10T20:21:09.3195844+00:00",
+  "CompletedUtc": "2026-11-10T20:25:47.9088317+00:00",
+  "Rounds": 5,
+  "SqlIterationsPerOperation": 80,
+  "TieredCompilation": 0,
+  "Notes": "Release x64, alternating fresh processes; SQL SELECT-only; no UI memory claims."
+}
