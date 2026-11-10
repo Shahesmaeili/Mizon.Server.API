@@ -2,6 +2,8 @@
 
 Measured 2026-11-10 on this development laptop. These are measured component results, not estimated percentages for the complete UI.
 
+Follow-up: [actual packaged WinUI memory on Login and Music Home](WINUI_MEMORY.md), measured separately on 2026-11-11. Do not interpret the headless SDK process peaks below as the Windows application's RAM.
+
 ## Environment and method
 
 - Intel Core i7-12700H, 14 cores / 20 logical processors, about 32 GiB RAM; Windows build 26340.

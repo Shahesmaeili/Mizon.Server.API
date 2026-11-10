@@ -1,0 +1,34 @@
+{
+  "LocalDate": "2026-11-11",
+  "TimeZone": "Asia/Tehran",
+  "OsBuild": "26340",
+  "Cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+  "LogicalProcessors": 20,
+  "PhysicalMemoryBytes": 33961971712,
+  "MainAppConfiguration": "Release/x64/self-contained/trimmed/ReadyToRun",
+  "Backend": "Fixed .NET11 build, startup asset writes disabled",
+  "Theme": "dark",
+  "Backdrop": "acrylic",
+  "Language": "fa-IR",
+  "NativeArtistRenderer": "Microsoft.UI.Composition.Scenes and LoadedImageSurface",
+  "AssetCount": 180,
+  "AllAssetsIdentical": true,
+  "ProductCSharpAndXamlUnchanged": true,
+  "MainAssembly10": {
+    "Bytes": 5779456,
+    "Sha256": "8B73F23C58C28195084B74FE29B427438615FD551ED81C761E94B383E2F6436F"
+  },
+  "MainAssembly11": {
+    "Bytes": 5795840,
+    "Sha256": "AF355A92F5AAED3386709102D82E7348933B2AAA6CA873BB478A7B88157B1780"
+  },
+  "WindowsSource10": "8bd7dd9ad0b5e0ab4b85f6df55fbd71c55b9da2f",
+  "WindowsSource11": "799d8a4163ff0a392fe0f03483812c2f0ca5e83e",
+  "SdkSource10": "b547c08aa7c968ca3fd2ac9a6f5df728d30e8154",
+  "SdkSource11": "dd8860eacf5ed9a82c01918a948615e6a2f0de45",
+  "SamplerNativeCounterCrossCheck": "EX2 total resident and private commit matched System.Diagnostics.Process query; private resident recorded separately",
+  "ForcedGc": false,
+  "WorkingSetTrimming": false,
+  "WindowsUiAutomation": false,
+  "CandidateBuildProvenance": "Built from the .NET11 migration working tree before its final commit. Assembly informational version retains baseline SHA8bd7dd9; actual target-framework attribute and loaded coreclr identify .NET11. Final equivalent migration commit799d8a4."
+}

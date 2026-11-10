@@ -1,0 +1,78 @@
+{
+  "PreliminarySeries": [
+    {
+      "Series": "pre-coordination",
+      "Version": "net10",
+      "Page": "login",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": []
+    },
+    {
+      "Series": "pre-coordination",
+      "Version": "net10",
+      "Page": "music-home",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": [
+        "foreground_state_changed",
+        "window_not_visible_normal",
+        "window_size_or_dpi_changed"
+      ]
+    },
+    {
+      "Series": "pre-coordination",
+      "Version": "net10",
+      "Page": "music-home",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": [
+        "foreground_state_changed"
+      ]
+    },
+    {
+      "Series": "pre-coordination",
+      "Version": "net11",
+      "Page": "login",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": [
+        "foreground_state_changed"
+      ]
+    },
+    {
+      "Series": "pre-coordination",
+      "Version": "net11",
+      "Page": "login",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": []
+    },
+    {
+      "Series": "pre-coordination",
+      "Version": "net11",
+      "Page": "login",
+      "Run": 1,
+      "Reason": "Entire preliminary series excluded after window interactions; final series restarted with stable conditions.",
+      "WindowIssues": [
+        "foreground_state_changed"
+      ]
+    }
+  ],
+  "FinalSeriesExclusions": [
+    {
+      "Version": "net10",
+      "Page": "music-home",
+      "Run": 3,
+      "ProcessId": 22976,
+      "Reason": "Post-sampling MCP verification failed; Windows Application Error 1000 and .NET Runtime1026 confirm native crash during final observations.",
+      "ExceptionCode": "0xc0000005",
+      "Runtime": "10.0.9",
+      "FaultingModule": "coreclr.dll",
+      "StackTop": "ABI.Microsoft.UI.Xaml.IFrameworkElementOverridesMethods.GoToElementStateCore",
+      "EventLocalTime": "2026-11-11T00:44:34+03:30",
+      "UsedInComparison": false
+    }
+  ],
+  "HarnessSmokeIncluded": false
+}

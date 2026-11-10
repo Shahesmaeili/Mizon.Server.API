@@ -34,3 +34,13 @@ Older PERFORMANCE.md results are historical, not .NET10-versus11 measurements.
 - The existing development JWT value previously approved by the user is unchanged.
 
 Read the performance report and cross-repository task notes before further work.
+
+## Actual WinUI memory follow-up —2026-11-11
+
+[Real packaged app measurements](../performance/net11/WINUI_MEMORY.md) now cover
+Login and MusicHome, separately from the earlier headless allocations/SDK peaks.
+Twelve valid Release/x64 runs produced360 samples. Private resident medians were
+59.28→59.91MiB and181.46→182.07MiB; ranges overlap, so no meaningful reduction is
+claimed. One .NET10native crash was excluded and documented. Original package
+registration/state was restored. Reproducible external tools and sanitized evidence
+are included; no product code or API behavior changed in this follow-up.
