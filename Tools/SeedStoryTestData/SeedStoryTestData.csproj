@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Mizon.Database\Mizon.Database\Mizon.Database.csproj" />
+    <ProjectReference Include="..\..\Mizon.Server.Logic\Mizon.Server.Logic.csproj" />
   </ItemGroup>
 </Project>

@@ -3,6 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Mizon.Database;
 using Mizon.Database.Entities;
 
+if (args.Contains("--refresh-music-home-artwork", StringComparer.Ordinal))
+{
+    await MusicHomeArtworkCommand.RunAsync(args);
+    return;
+}
+
 const string assetsPath = @"D:\source\repos\Mizon.Windows\Mizon.Windows\Assets";
 var imageFiles = Enumerable.Range(1, 4)
     .Select(index => Path.Combine(assetsPath, $"image{index}.jpeg"))
