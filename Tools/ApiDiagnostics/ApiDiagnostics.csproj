@@ -10,6 +10,5 @@
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <ProjectReference Include="../../Mizon.Server.API/Mizon.Server.API.csproj" />
-    <Compile Include="../../Mizon.Server.API/Endpoints/Search/NdjsonResponseWriter.cs" Link="Production/NdjsonResponseWriter.cs" />
   </ItemGroup>
 </Project>

@@ -20,6 +20,35 @@ internal static class SignalRChecks
         Require(second.Messages.Any(message => message.Method == "UnregistrationConfirmed"), "same user's second device unregisters independently");
         await ExpectHubError(() => first.Hub.RegisterDevice(string.Empty));
 
+        var presence = await first.Hub.SetWindowPresence(true, 2);
+        Require(presence.ClientPublicId == client && presence.ConnectionId == first.Context.ConnectionId
+            && presence.IsOnline && presence.Revision == 2, "presence identity is authenticated and connection-scoped");
+        var stale = await first.Hub.SetWindowPresence(false, 1);
+        Require(ReferenceEquals(presence, stale), "stale presence cannot overwrite the newest revision");
+        Require(first.Messages.Count(message => message.Method == "WindowPresenceChanged") == 1
+            && first.Messages.Last().Target == "caller", "presence is sent only to its owner, once per new revision");
+        await second.Hub.SetWindowPresence(false, 1);
+        Require((await first.Hub.SetWindowPresence(false, 1)).IsOnline, "another connection has independent focus");
+        await ExpectHubError(() => first.Hub.SetWindowPresence(true, 0));
+        using (var invalidIdentity = new Fixture(Guid.Empty))
+            await ExpectHubError(() => invalidIdentity.Hub.SetWindowPresence(true, 1));
+        using (var canceledPresence = new Fixture(Guid.NewGuid()))
+        {
+            canceledPresence.Context.Abort();
+            try { await canceledPresence.Hub.SetWindowPresence(true, 1); throw new InvalidOperationException("Expected canceled presence."); }
+            catch (OperationCanceledException) { }
+            Require(canceledPresence.Context.Items.Count == 0, "canceled presence stores no connection state");
+        }
+        using (var concurrentPresence = new Fixture(Guid.NewGuid()))
+        {
+            await Task.WhenAll(Enumerable.Range(1, 100).Select(revision => Task.Run(() =>
+                concurrentPresence.Hub.SetWindowPresence(revision % 2 == 0, revision))));
+            Require((await concurrentPresence.Hub.SetWindowPresence(false, 1)).Revision == 100,
+                "concurrent presence mutations retain the highest revision");
+            await concurrentPresence.Hub.OnDisconnectedAsync(null);
+            Require(concurrentPresence.Context.Items.Count == 0, "concurrent presence has bounded per-connection cleanup");
+        }
+
         var music = Guid.NewGuid();
         var group = $"Music:{music}";
         await first.Hub.JoinEntity("music", music);
@@ -30,6 +59,8 @@ internal static class SignalRChecks
         Require((Guid)snapshot.Arguments[0]! == music, "snapshot music argument preserved");
         Require(snapshot.Arguments[1] is List<MusicListenerPresenceResponse> { Count: 0 }, "snapshot payload type preserved");
         await first.Hub.LeaveEntity();
+        await first.Hub.OnDisconnectedAsync(null);
+        Require(first.Context.Items.Count == 0, "presence is removed on disconnect without global state");
         Require(first.LastCount(music) == 1, "leave decrements viewer count");
         Require(!first.Groups.Contains(first.Context.ConnectionId, group), "leave removes transport membership");
         await first.Hub.LeaveEntity(); // A repeated leave must not change a remaining user's count.

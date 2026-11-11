@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 namespace Mizon.Server.API.Hubs;
 
 [Authorize]
-public class MizonHub : Hub
+public partial class MizonHub : Hub
 {
     private const string DeviceRegisteredKey = "DeviceRegistered";
     private const string RegisteredAtKey = "RegisteredAt";
@@ -46,6 +46,7 @@ public class MizonHub : Hub
             Context.Items.Remove(DeviceRegisteredKey);
             Context.Items.Remove(RegisteredAtKey);
             Context.Items.Remove(ListenerIdentityKey);
+            Context.Items.Remove(WindowPresenceKey);
         }
 
         _logger.LogInformation("Hub disconnected: {ConnectionId}", Context.ConnectionId);

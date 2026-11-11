@@ -24,6 +24,7 @@ await AuthChecks.RunAsync();
 await NdjsonChecks.RunAsync();
 await DiagnosticsChecks.RunAsync();
 await SignalRChecks.RunAsync();
+await WindowPresenceChecks.RunAsync();
 await ResponseCacheChecks.RunAsync();
 
 var httpIndex = Array.IndexOf(args, "--http");

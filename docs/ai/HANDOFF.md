@@ -1,5 +1,14 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Main-window profile presence — 2026-11-11
+
+The authenticated hub now acknowledges main-window focus through the existing
+connection, with caller-only events, connection identity and monotonic intent
+revisions. State is ephemeral and cleared on disconnect; no database or global
+presence broadcast was added. Real loopback production SignalR/generated JSON and
+the existing API diagnostics pass. See the [contract and checks](tasks/2026-11-11-profile-window-presence.md).
+Coordinate the matching SDK/Windows changes before deploying this feature.
+
 ## Taskbar companion solution restore — 2026-11-11
 
 The latest VS Rebuild log passed the server but failed with NETSDK1005 for
