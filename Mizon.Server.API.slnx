@@ -23,6 +23,9 @@
   <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/ExplorerCommands/Mizon.Windows.ExplorerCommands.csproj">
     <Platform Project="x64" />
   </Project>
+  <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/Taskbar/Mizon.Windows.Taskbar/Mizon.Windows.Taskbar.csproj">
+    <Platform Project="x64" />
+  </Project>
   <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/WindowsSearch/Mizon.Windows.PaletteProvider.Tests/Mizon.Windows.PaletteProvider.Tests.csproj" />
   <Project Path="D:/source/repos/Mizon.Windows/Mizon.Windows/WindowsSearch/Mizon.Windows.PaletteProvider/Mizon.Windows.PaletteProvider.csproj" />
   <Project Path="Mizon.Server.API/Mizon.Server.API.csproj">

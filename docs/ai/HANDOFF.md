@@ -1,5 +1,16 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Taskbar companion solution restore — 2026-11-11
+
+The latest VS Rebuild log passed the server but failed with NETSDK1005 for
+`Mizon.Windows.Taskbar`: its assets still targeted .NET 10. The open `.slnx`
+omitted the companion, although the legacy `.sln` included it. It is now included
+with an x64 mapping so solution restore refreshes its .NET 11 dependencies.
+VS MSBuild Debug/x64 solution Restore and Rebuild passed (0 errors; existing
+warnings remain). Main-app output contains the companion payload. No Windows
+source, runtime behavior or deployment changed. See the
+[task record](tasks/2026-11-11-taskbar-solution-restore.md) for validation limits.
+
 ## Visual Studio build compatibility — 2026-11-11
 
 The API's SDK 11.0.100 StaticWebAssets tasks could not load

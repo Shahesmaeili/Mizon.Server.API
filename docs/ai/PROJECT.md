@@ -57,6 +57,12 @@ The solution currently includes absolute paths to Windows/SDK projects from the
 original workstation. Building the API project directly does not require loading
 the entire WinUI solution. On another machine resolve sibling roots first.
 
+Visual Studio on the original workstation opens `Mizon.Server.API.slnx`. Keep its
+companion project inventory aligned with the legacy `.sln`, including
+`Mizon.Windows.Taskbar` mapped to x64. The main app's packaging build invokes that
+companion without Restore; it must participate in solution restore independently.
+See the [Taskbar restore fix](tasks/2026-11-11-taskbar-solution-restore.md).
+
 For SDK 11.0.100, the API imports `Build/Sdk11StaticWebAssets.targets`. It recovers
 empty/whitespace-only copies of the SDK's five known asset caches in the active
 intermediate directory before their consumers run. Valid caches are preserved.
