@@ -77,3 +77,17 @@ Twelve valid Release/x64 runs produced360 samples. Private resident medians were
 claimed. One .NET10native crash was excluded and documented. Original package
 registration/state was restored. Reproducible external tools and sanitized evidence
 are included; no product code or API behavior changed in this follow-up.
+
+## Music home demo artwork — 2026-11-11
+
+The twelve known sample stories and four featured hero slides now use licensed
+music photography. An explicit .NET Logic operation inserted eighteen dedicated
+Media rows and repointed only those fixture content/preview relations. Existing
+avatars, music covers, original media, authors and widgets are preserved. Video
+fixtures use silent twelve-second photo-motion loops with matching frame previews.
+
+Assets and attribution are committed under `Mizon.Server.API/App_Data/MusicHomeArtwork`.
+The tool's artwork mode is plan-only unless `--apply` is passed; it is not an API
+endpoint or startup seed. Exact scope, readback/idempotency and preservation results:
+[artwork task record](tasks/2026-11-11-music-home-artwork.md).
+No schema/UI changes or Windows automation were required.

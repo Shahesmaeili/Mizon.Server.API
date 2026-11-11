@@ -42,13 +42,35 @@ predicates, and same-path/same-content reapplication is idempotent.
   widget metadata was saved outside Git before mutation. Its hash is
   `B5AA15E2888F2E398845C07003F2E9C7763670CDA6BBAD76159E5D040714BABA`.
 
-## Integration / pending verification
+## Applied and verified
 
-Integrate the assets into the canonical server checkout **before** applying the
-operation. Local StoragePath values must use that durable checkout, not this
-diagnostic worktree. Apply/readback/idempotency and preservation evidence will be
-recorded after canonical integration. No database writes have occurred at this
-initial handoff.
+The root task integrated source commit `b58009c` into the canonical server checkout
+before the explicit database apply. Media file URIs now resolve beneath
+`C:\Users\Ali\source\repos\Mizon.Server.API\Mizon.Server.API\App_Data\MusicHomeArtwork`.
+All canonical asset SHA-256 values were checked against the committed manifest.
+
+- Authorized .NET business operation apply: **12 stories, 4 features, 18 new Media**.
+- Fresh relation/URI/hash/size readback: **16/16 fixtures passed**.
+- Immediate repeat apply: **0 stories, 0 features, 0 media** (idempotent).
+- Preservation readback exactly matches the baseline hash: **1,322 original Media,
+  11 profiles, 12 music covers, 12 story metadata, 4 feature metadata and 13 widgets
+  unchanged**. Original assets were not removed. The sixteen updated relation pairs
+  are the only intended changes to existing records (plus update timestamps).
+- The real `MusicFeaturesOperation`, `StoriesOperation` and `MediaOperation` were
+  then invoked under a SELECT-only interceptor for the existing local user's
+  metadata: **4 featured items and 12 story previews** returned the new artwork;
+  **13 unique media public IDs** needed by those list responses resolved to canonical
+  local files with correct sizes and chunk metadata. This is business-operation
+  verification, not an authenticated HTTP or live WinUI rendering test.
+- No missing-file/cancellation test inserted any records.
+
+Sanitized check logs are retained in `D:\MizonTaskDiagnostics\MusicHome\`:
+`artwork-decode.log`, `artwork-before-checks.log`, `artwork-apply.log`,
+`artwork-idempotency.log`, `artwork-after-checks.log`, `artwork-api-checks.log`.
+The full preservation baseline stays local outside Git; no credentials were logged.
+
+Publication is coordinated by the root task. No independent push was performed by
+the asset subagent.
 
 No app launch, UI automation or visual app test occurred. This data-only change
 reuses existing home MCP read/refresh/story/featured tools; permission-controlled
