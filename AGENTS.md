@@ -1,6 +1,7 @@
 # Mizon development requirements
 
 - Preserve the existing naming/layering; business behavior belongs in `Mizon.Server.Logic/Operations`, API routes in `Mizon.Server.API`, and EF/code-first structures in `Mizon.Database`.
+- Standing user requirement, effective 2026-11-12: every future new or changed interactive feature/page must also support Xbox controllers. Coordinate the Windows client even for backend-only feature work, following the [shared controller requirements](docs/ai/COLLABORATION.md#xbox-controller-support-is-part-of-interactive-features). Preserve shared operations, native UI/accessibility/localization and cleanup; include meaningful input/state/lifecycle checks and report unverified hardware/visual cases. Existing pages are not presumed covered.
 - Standing user requirement: new or changed user-facing features/pages also need scoped MCP read-state/actions and meaningful MCP integration checks, even when this repository supplies only their backend changes.
 - Visual-only styling changes reuse existing MCP contracts/checks; do not add artificial tools or tests mirroring colors/layout. New behavior or observable state requires meaningful MCP coverage.
 - Coordinate the shared API/SDK and Windows MCP adapter; reuse the same business operations. Do not add a parallel public backend or arbitrary SQL/invocation tool for MCP.
