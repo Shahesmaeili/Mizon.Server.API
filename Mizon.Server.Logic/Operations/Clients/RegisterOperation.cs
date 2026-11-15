@@ -15,20 +15,20 @@ public sealed partial class RegisterOperation(MizonDatabaseContext mizonDatabase
     {
         var content = request.Content;
         if (content is null)
-            return InvalidInput("Registration details are required.");
+            return InvalidInput(OperationErrorLocalization.RegistrationRequired);
 
         var firstName = content.FirstName?.Trim();
         var lastName = content.LastName?.Trim();
         if (!IsNameValid(firstName) || !IsNameValid(lastName))
-            return InvalidInput("First name and last name must contain 1 to 60 characters.");
+            return InvalidInput(OperationErrorLocalization.RegistrationName);
 
         // Bound identifiers before normalization as well as afterwards.
         if (string.IsNullOrWhiteSpace(content.Username) || content.Username.Length > 128)
-            return InvalidInput("Username must contain 3 to 32 letters, numbers, dots or underscores.");
+            return InvalidInput(OperationErrorLocalization.RegistrationUsername);
         if (string.IsNullOrWhiteSpace(content.EmailAddress) || content.EmailAddress.Length > 256)
-            return InvalidInput("A valid email address of at most 128 characters is required.");
+            return InvalidInput(OperationErrorLocalization.RegistrationEmail);
         if (content.Password is null || content.Password.Length is < 8 or > 128)
-            return InvalidInput("Password must contain 8 to 128 characters.");
+            return InvalidInput(OperationErrorLocalization.RegistrationPassword);
 
         string username;
         string email;
@@ -39,22 +39,22 @@ public sealed partial class RegisterOperation(MizonDatabaseContext mizonDatabase
         }
         catch (ArgumentException)
         {
-            return InvalidInput("Username or email address contains invalid characters.");
+            return InvalidInput(OperationErrorLocalization.RegistrationInvalidCharacters);
         }
 
         if (username.Length is < 3 or > 32 || username.Any(c => !char.IsAsciiLetterOrDigit(c) && c is not '_' and not '.'))
-            return InvalidInput("Username must contain 3 to 32 letters, numbers, dots or underscores.");
+            return InvalidInput(OperationErrorLocalization.RegistrationUsername);
         if (email.Length > 128 || email.Any(c => !char.IsAscii(c) || char.IsWhiteSpace(c) || char.IsControl(c)) ||
             !EmailAddressPattern().IsMatch(email) ||
             !MailAddress.TryCreate(email, out var mailAddress) ||
             !string.Equals(mailAddress.Address, email, StringComparison.OrdinalIgnoreCase))
-            return InvalidInput("A valid email address of at most 128 characters is required.");
+            return InvalidInput(OperationErrorLocalization.RegistrationEmail);
 
         if (requestMetadata?.PlatformVersion is null || requestMetadata.OsVersion is null ||
             requestMetadata.OsVersion.ToString().Length > 16 ||
             !IsDeviceValueValid(requestMetadata.DeviceIdentifier) || !IsDeviceValueValid(requestMetadata.DeviceName) ||
             !IsDeviceValueValid(requestMetadata.DeviceUsername) || !IsDeviceValueValid(requestMetadata.DeviceModel))
-            return Failure(1000, "Not valid request.", "Valid platform and device information is required.");
+            return Failure(1000, "Not valid request.", OperationErrorLocalization.DeviceInformationRequired);
 
         var platformVersionId = await mizonDatabaseContext.PlatformVersions
             .AsNoTracking()

@@ -106,6 +106,7 @@ if (builder.Configuration.GetValue("AssetInitialization:Enabled", true) && File.
 // استفاده از CORS قبل از Authentication
 app.UseMiddleware<RequestDiagnosticsMiddleware>();
 app.UseCors("SignalRCors");
+app.UseMizonRequestLocalization();
 
 // اضافه کردن مسیر Hub
 app.MapHub<MizonHub>("/mizonHub");

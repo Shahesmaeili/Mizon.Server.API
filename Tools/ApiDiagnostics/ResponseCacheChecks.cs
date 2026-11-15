@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Mizon.Server;
 using Mizon.Server.API.Caching;
+using Mizon.Server.API.Middlewares;
 
 internal static class ResponseCacheChecks
 {
@@ -50,6 +51,7 @@ internal static class ResponseCacheChecks
             metadata.ClientId = client == Fixture.ClientOne ? 1 : 2;
             await next(context);
         });
+        app.UseMizonRequestLocalization();
         app.UseOutputCache();
         foreach (var path in new[] { "/Musics/Music", "/Clients/Me", "/Clients/ClientMoodTypes", "/Search/Global", "/fixture/unlisted" })
             app.MapGet(path, (HttpContext context) => fixture.HandleAsync(context));
@@ -70,6 +72,13 @@ internal static class ResponseCacheChecks
             Require(cached.Age.HasValue, "cache hit is served by the actual output middleware");
             Require(cached.CacheControl?.Contains("no-store", StringComparison.OrdinalIgnoreCase) == true,
                 "personal responses are not advertised for browser/proxy caching");
+
+            var en = await SendAsync("/Musics/Music?case=language", language: "en-US");
+            var fa = await SendAsync("/Musics/Music?case=language", language: "fa-IR");
+            var faCached = await SendAsync("/Musics/Music?case=language", language: "fa-IR");
+            Require(en.Language == "en-US" && fa.Language == "fa-IR" && faCached.Language == "fa-IR"
+                && en.Body != fa.Body && fa.Body == faCached.Body && fixture.Count("language") == 2,
+                "output cache isolates language variants, including their Content-Language");
 
             var otherQuery = await SendAsync("/Musics/Music?case=get&MusicPublicId=two");
             var otherClient = await SendAsync("/Musics/Music?case=get&MusicPublicId=one", client: Fixture.ClientTwo);
@@ -203,7 +212,7 @@ internal static class ResponseCacheChecks
 
         async Task<Reply> SendAsync(string path, string? body = null, Guid? client = null, Guid? session = null,
             bool authenticated = true, CancellationToken token = default, string? device = null,
-            string? cacheControl = null, bool chunked = false)
+            string? cacheControl = null, bool chunked = false, string? language = null)
         {
             using var request = new HttpRequestMessage(body is null ? HttpMethod.Get : HttpMethod.Post, path);
             if (authenticated)
@@ -211,6 +220,7 @@ internal static class ResponseCacheChecks
                 request.Headers.Add("X-Fixture-Client", (client ?? Fixture.ClientOne).ToString());
                 request.Headers.Add("X-Fixture-Session", (session ?? Fixture.SessionOne).ToString());
             }
+            if (language is not null) request.Headers.AcceptLanguage.ParseAdd(language);
             if (device is not null) request.Headers.Add("Mizon-Device-Identifier", device);
             if (cacheControl is not null) request.Headers.CacheControl = CacheControlHeaderValue.Parse(cacheControl);
             if (body is not null) request.Content = chunked
@@ -218,7 +228,7 @@ internal static class ResponseCacheChecks
                 : new StringContent(body, Encoding.UTF8, "application/json");
             using var response = await http.SendAsync(request, token);
             return new Reply(response.StatusCode, await response.Content.ReadAsStringAsync(token),
-                response.Headers.Age, response.Headers.CacheControl?.ToString());
+                response.Headers.Age, response.Headers.CacheControl?.ToString(), response.Content.Headers.ContentLanguage.SingleOrDefault());
         }
     }
 
@@ -230,7 +240,7 @@ internal static class ResponseCacheChecks
         if (!condition) throw new InvalidOperationException("Response cache: " + check);
     }
 
-    private sealed record Reply(HttpStatusCode Status, string Body, TimeSpan? Age, string? CacheControl);
+    private sealed record Reply(HttpStatusCode Status, string Body, TimeSpan? Age, string? CacheControl, string? Language);
 
     private sealed class UnknownLengthContent : HttpContent
     {

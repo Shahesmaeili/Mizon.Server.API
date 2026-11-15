@@ -1,5 +1,6 @@
 using Mizon.Server;
 using Mizon.Server.Logic.Responses.Medias;
+using Mizon.Server.Logic;
 
 namespace Mizon.Server.API.Caching;
 
@@ -15,6 +16,7 @@ public sealed class CachingApiOperationExecutor(ApiOperationExecutor inner, IHtt
         try
         {
             var response = await inner.ExecuteAsync<TOperation, TRequest, TResponse>(request, metadata, cancellationToken);
+            if (response.Error is { } error) OperationErrorLocalization.Apply(error);
             if (accessor.HttpContext is { } http && ResponseCacheCatalog.GetRule(http)?.OperationType == typeof(TOperation))
             {
                 var path = response.Content switch

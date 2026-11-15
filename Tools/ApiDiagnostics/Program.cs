@@ -26,6 +26,7 @@ await DiagnosticsChecks.RunAsync();
 await SignalRChecks.RunAsync();
 await WindowPresenceChecks.RunAsync();
 await ResponseCacheChecks.RunAsync();
+await RequestLocalizationChecks.RunAsync();
 
 var httpIndex = Array.IndexOf(args, "--http");
 if (httpIndex >= 0)
