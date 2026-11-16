@@ -2,15 +2,14 @@ namespace Mizon.Server.Logic.Operations.Musics;
 
 internal static class MusicTabMusicResponseFactory
 {
-    public static async Task<BaseApiResponse<MusicTabMusicsResponse>> CreateAsync(MizonDatabaseContext mizonDatabaseContext, List<int> musicIds, CancellationToken cancellationToken)
+    public static async Task<BaseApiResponse<MusicTabMusicsResponse>> CreateAsync(MizonDatabaseContext mizonDatabaseContext, List<int> musicIds, CancellationToken cancellationToken, bool activeOnly = false)
     {
         if (musicIds.Count == 0)
             return new() { Content = new() };
 
-        var musicRows = await mizonDatabaseContext.Musics
-            .AsNoTracking()
-            .Where(m => musicIds.Contains(m.Id))
-            .OrderByDescending(m => m.Id)
+        var query = mizonDatabaseContext.Musics.AsNoTracking().Where(m => musicIds.Contains(m.Id));
+        if (activeOnly) query = query.Where(m => m.IsActive);
+        var musicRows = await query.OrderByDescending(m => m.Id)
             .Select(m => new
             {
                 m.Id,

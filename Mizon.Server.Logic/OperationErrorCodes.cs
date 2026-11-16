@@ -28,6 +28,15 @@ internal static class OperationErrorCodes
 
     }
 
+    internal static class Persons
+    {
+        public const int NotFound = 40000;
+        public const int InvalidRequest = 40001;
+        public const int InvalidCursor = 40002;
+        public const int SelfFollow = 40003;
+        public const int FollowConflict = 40004;
+    }
+
     internal static class Medias
     {
         public const int MediaNotFound = 30000;

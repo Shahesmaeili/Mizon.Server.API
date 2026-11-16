@@ -54,6 +54,11 @@ public static class OperationErrorLocalization
             11001 => ("Invalid story media or media type", "رسانه یا نوع رسانهٔ استوری معتبر نیست", null, null),
             11002 => ("Invalid story content", "محتوای استوری معتبر نیست", null, null),
             11003 => ("Invalid story widget", "ابزارک استوری معتبر نیست", null, null),
+            OperationErrorCodes.Persons.NotFound => ("Artist not found", "هنرمند پیدا نشد", null, null),
+            OperationErrorCodes.Persons.InvalidRequest => ("Invalid artist request", "درخواست هنرمند معتبر نیست", null, null),
+            OperationErrorCodes.Persons.InvalidCursor => ("Invalid track-page cursor", "نشانگر صفحهٔ آهنگ‌ها معتبر نیست", null, null),
+            OperationErrorCodes.Persons.SelfFollow => ("You cannot follow your own artist profile", "نمی‌توانید پروفایل هنرمند خودتان را دنبال کنید", null, null),
+            OperationErrorCodes.Persons.FollowConflict => ("Could not update the follow status. Try again.", "وضعیت دنبال‌کردن به‌روز نشد. دوباره تلاش کنید.", null, null),
             OperationErrorCodes.Medias.MediaNotFound => ("Media not found", "رسانه پیدا نشد", null, null),
             _ => (null, null, null, null)
         };

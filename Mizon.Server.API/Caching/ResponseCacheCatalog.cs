@@ -1,4 +1,5 @@
 using System.Collections.Frozen;
+using Mizon.Server.Logic.Operations.Persons;
 using Mizon.Server.Logic.Operations.Medias;
 
 namespace Mizon.Server.API.Caching;
@@ -52,6 +53,7 @@ public static class ResponseCacheCatalog
         [typeof(LoginOperation)] = [],
         [typeof(RegisterOperation)] = [],
         [typeof(LogoutOperation)] = [ResponseCacheDomain.Identity],
+        [typeof(PersonFollowOperation)] = [ResponseCacheDomain.Relationships],
         [typeof(ClientMoodOperation)] = [ResponseCacheDomain.Profiles],
         [typeof(MusicLikeOperation)] = [ResponseCacheDomain.MusicCounters, ResponseCacheDomain.Following],
         [typeof(MusicViewOperation)] = [ResponseCacheDomain.MusicCounters],

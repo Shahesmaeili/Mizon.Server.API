@@ -1,3 +1,5 @@
+using Mizon.Server.Logic.Requests.Persons;
+using Mizon.Server.Logic.Responses.Persons;
 ﻿using Mizon.Server.Logic.Responses.Medias;
 using Mizon.Server.API.Hubs;
 using Mizon.Server.Logic.Requests.Medias;
@@ -6,6 +8,12 @@ using System.Text.Json.Serialization;
 namespace Mizon.Server.API.JsonSerializerContexts;
 
 
+[JsonSerializable(typeof(BaseApiRequest<PersonProfileRequest>))]
+[JsonSerializable(typeof(BaseApiResponse<PersonProfileResponse>))]
+[JsonSerializable(typeof(BaseApiRequest<PersonMusicsRequest>))]
+[JsonSerializable(typeof(BaseApiResponse<PersonMusicsResponse>))]
+[JsonSerializable(typeof(BaseApiRequest<PersonFollowRequest>))]
+[JsonSerializable(typeof(BaseApiResponse<PersonFollowResponse>))]
 [JsonSerializable(typeof(string))]
 [JsonSerializable(typeof(Guid))]
 [JsonSerializable(typeof(int))]

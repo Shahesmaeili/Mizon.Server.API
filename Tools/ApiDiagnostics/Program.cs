@@ -20,6 +20,12 @@ if (benchmarkIndex >= 0)
     return;
 }
 
+if (args.Contains("--person-profile-sql", StringComparer.Ordinal))
+{
+    await PersonProfileSqlChecks.RunAsync();
+    return;
+}
+
 await AuthChecks.RunAsync();
 await NdjsonChecks.RunAsync();
 await DiagnosticsChecks.RunAsync();

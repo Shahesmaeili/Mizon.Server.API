@@ -1,3 +1,6 @@
+using Mizon.Server.Logic.Operations.Persons;
+using Mizon.Server.Logic.Requests.Persons;
+using Mizon.Server.Logic.Responses.Persons;
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Mizon.Server.Logic.Operations.Medias;
 using Mizon.Server.Logic.Requests.Medias;
@@ -17,6 +20,9 @@ public static class LogicServiceCollectionExtensions
         services.AddApiOperation<ClientMoodOperation, ClientMoodRequest, ClientMoodResponse>();
         services.AddScoped<ClientMoodInitializeOperation>();
         services.AddApiOperation<ClientProfileOperation, ClientProfileRequest, ClientProfileResponse>();
+        services.AddApiOperation<PersonProfileOperation, PersonProfileRequest, PersonProfileResponse>();
+        services.AddApiOperation<PersonMusicsOperation, PersonMusicsRequest, PersonMusicsResponse>();
+        services.AddApiOperation<PersonFollowOperation, PersonFollowRequest, PersonFollowResponse>();
         services.AddApiOperation<FollowingActivitiesOperation, FollowingActivitiesRequest, FollowingActivitiesResponse>();
         services.AddApiOperation<LogoutOperation, LogoutRequest, LogoutResponse>();
         services.AddApiOperation<MusicOperation, MusicRequest, MusicResponse>();

@@ -124,6 +124,7 @@ if (app.Environment.IsDevelopment())
 }
 ClientEndpoints.Map(app);
 MusicEndpoints.Map(app);
+PersonEndpoints.Map(app);
 MediaEndpoints.Map(app);
 StoryEndpoints.Map(app);
 SearchEndpoints.Map(app);
