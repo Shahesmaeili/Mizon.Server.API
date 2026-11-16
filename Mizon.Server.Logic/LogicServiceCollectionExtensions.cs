@@ -21,6 +21,7 @@ public static class LogicServiceCollectionExtensions
         services.AddScoped<ClientMoodInitializeOperation>();
         services.AddApiOperation<ClientProfileOperation, ClientProfileRequest, ClientProfileResponse>();
         services.AddApiOperation<PersonProfileOperation, PersonProfileRequest, PersonProfileResponse>();
+        services.AddApiOperation<FeaturedPersonsOperation, FeaturedPersonsRequest, FeaturedPersonsResponse>();
         services.AddApiOperation<PersonMusicsOperation, PersonMusicsRequest, PersonMusicsResponse>();
         services.AddApiOperation<PersonFollowOperation, PersonFollowRequest, PersonFollowResponse>();
         services.AddApiOperation<FollowingActivitiesOperation, FollowingActivitiesRequest, FollowingActivitiesResponse>();

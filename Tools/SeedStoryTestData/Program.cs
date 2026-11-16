@@ -9,6 +9,12 @@ if (args.Contains("--refresh-music-home-artwork", StringComparer.Ordinal))
     return;
 }
 
+if (args.Contains("--seed-featured-persons", StringComparer.Ordinal))
+{
+    await FeaturedPersonsCommand.RunAsync(args);
+    return;
+}
+
 const string assetsPath = @"D:\source\repos\Mizon.Windows\Mizon.Windows\Assets";
 var imageFiles = Enumerable.Range(1, 4)
     .Select(index => Path.Combine(assetsPath, $"image{index}.jpeg"))

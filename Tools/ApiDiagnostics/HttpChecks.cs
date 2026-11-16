@@ -77,6 +77,8 @@ internal static class HttpChecks
 
         await ExpectStatusAsync("anonymous read", HttpStatusCode.Unauthorized,
             new HttpRequestMessage(HttpMethod.Get, "Clients/Me"));
+        await ExpectStatusAsync("anonymous featured people", HttpStatusCode.Unauthorized,
+            new HttpRequestMessage(HttpMethod.Get, "Persons/FeaturedPersons?TypeCode=music"));
         var malformedToken = new HttpRequestMessage(HttpMethod.Get, "Clients/Me");
         malformedToken.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "not.a.jwt");
         await ExpectStatusAsync("malformed bearer token", HttpStatusCode.Unauthorized, malformedToken);
@@ -102,6 +104,15 @@ internal static class HttpChecks
         await GetEnvelopeAsync("Me", "Clients/Me");
         await GetEnvelopeAsync("ClientProfile", $"Clients/ClientProfile?ClientPublicId={client.PublicId:D}");
         await GetEnvelopeAsync("ClientMoodTypes", "Clients/ClientMoodTypes");
+        foreach (var type in new[] { "music", "movies", "series" })
+        {
+            using var response = await http.GetAsync($"Persons/FeaturedPersons?TypeCode={type}");
+            using var document = await ReadEnvelopeAsync(response, $"Featured people ({type})");
+            var people = Property(Property(document.RootElement, "Content"), "Persons");
+            var positions = people.EnumerateArray().Select(x => Property(x, "SortOrder").GetInt32()).ToArray();
+            Require(positions.Length <= 12 && positions.SequenceEqual(positions.Distinct().Order()),
+                $"Featured people ({type}) are ordered and bounded");
+        }
         await GetEnvelopeAsync("Music", $"Musics/Music?MusicPublicId={musicId:D}");
         await GetEnvelopeAsync("MusicContributors", $"Musics/MusicContributors?MusicPublicId={musicId:D}");
         await GetEnvelopeAsync("MusicGenreTypes", "Musics/MusicGenreTypes");

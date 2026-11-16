@@ -10,9 +10,14 @@ internal static class PersonEndpoints
     {
         var group = app.MapGroup("/Persons").RequireAuthorization();
         group.MapGet("PersonProfile", ProfileAsync);
+        group.MapGet("FeaturedPersons", FeaturedAsync);
         group.MapGet("PersonMusics", MusicsAsync);
         group.MapPost("PersonFollow", FollowAsync);
     }
+
+    private static Task<BaseApiResponse<FeaturedPersonsResponse>> FeaturedAsync([AsParameters] FeaturedPersonsRequest request,
+        IApiOperationExecutor executor, RequestMetadata metadata, CancellationToken token) =>
+        executor.ExecuteAsync<FeaturedPersonsOperation, FeaturedPersonsRequest, FeaturedPersonsResponse>(new() { Content = request }, metadata, token);
 
     private static Task<BaseApiResponse<PersonProfileResponse>> ProfileAsync([AsParameters] PersonProfileRequest request,
         IApiOperationExecutor executor, RequestMetadata metadata, CancellationToken token) =>

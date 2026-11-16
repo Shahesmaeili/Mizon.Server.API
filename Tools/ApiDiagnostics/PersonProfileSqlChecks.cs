@@ -31,6 +31,13 @@ internal static class PersonProfileSqlChecks
         await Execute(sql.Generate(artistMigration.DownOperations, previousModel));
         await Execute(sql.Generate(artistMigration.UpOperations, model));
 
+        var featured = assembly.Migrations.Single(entry => entry.Key.EndsWith("_AddFeaturedPersons", StringComparison.Ordinal));
+        var featuredMigration = assembly.CreateMigration(featured.Value, database.Database.ProviderName!);
+        var featuredModel = database.GetService<IModelRuntimeInitializer>().Initialize(featuredMigration.TargetModel, designTime: true);
+        await Execute(sql.Generate(featuredMigration.UpOperations, featuredModel));
+        await Execute(sql.Generate(featuredMigration.DownOperations, model));
+        await Execute(sql.Generate(featuredMigration.UpOperations, featuredModel));
+
         async Task Execute(IReadOnlyList<MigrationCommand> commands)
         {
             foreach (var command in commands)
@@ -133,12 +140,46 @@ internal static class PersonProfileSqlChecks
             await database.SaveChangesAsync(token);
             var privateProfile = await profile.HandleAsync(new() { Content = new() { PersonPublicId = personId } }, session, token);
             Require(privateProfile.Content is { FollowingCount: null }, "private linked following counts are not disclosed to other accounts");
+            var musicType = new FeaturedPersonType { Id = 1, Code = "music", Title = "Music" };
+            var moviesType = new FeaturedPersonType { Id = 2, Code = "movies", Title = "Movies" };
+            var seriesType = new FeaturedPersonType { Id = 3, Code = "series", Title = "Series" };
+            database.AddRange(
+                new FeaturedPerson { FeaturedPersonType = musicType, Person = target, SortOrder = 2 },
+                new FeaturedPerson { FeaturedPersonType = musicType, Person = other, SortOrder = 1 },
+                new FeaturedPerson { FeaturedPersonType = moviesType, Person = other, SortOrder = 1 },
+                seriesType);
+            var played = await database.MusicContributors.Where(x => x.PersonId == target.Id && x.Music!.Title == "Test 1")
+                .Select(x => x.MusicId).FirstAsync(token);
+            database.AddRange(
+                new MusicPlay { ClientId = viewer.Id, MusicId = played, PlatformVersion = platform, PlaybackPublicId = Guid.NewGuid() },
+                new MusicPlay { ClientId = viewer.Id, MusicId = played, PlatformVersion = platform, PlaybackPublicId = Guid.NewGuid() },
+                new MusicPlay { ClientId = owner.Id, MusicId = played, PlatformVersion = platform, PlaybackPublicId = Guid.NewGuid() });
+            await database.SaveChangesAsync(token);
+            var featured = new FeaturedPersonsOperation(database);
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var musicList = (await featured.HandleAsync(new() { Content = new() { TypeCode = " Music " } }, session, token)).Content!.Persons;
+            Console.WriteLine($"Featured people first execution: {watch.Elapsed.TotalMilliseconds:F1} ms (isolated SQL fixture)");
+            Require(musicList.Select(x => x.PersonPublicId).SequenceEqual([other.PublicId, target.PublicId]), "featured list honors exact editorial order");
+            Require(musicList[1] is { CanFollow: true, IsFollowing: true, FollowersCount: 1, MusicsCount: 27, MonthlyListenersCount: 2 }
+                && musicList[1].LatestMusics.Count == 3 && musicList[1].DailyPlays.Sum() == 3,
+                "featured data excludes duplicate credits, uses actual plays, counts unique listeners and limits latest tracks");
+            var moviesList = (await featured.HandleAsync(new() { Content = new() { TypeCode = "movies" } }, ownerSession, token)).Content!.Persons;
+            Require(moviesList.Count == 1 && moviesList[0].PersonPublicId == other.PublicId && moviesList[0].LatestMusics.Count == 0,
+                "movie list is independent and omits music-specific work");
+            Require((await featured.HandleAsync(new() { Content = new() { TypeCode = "series" } }, session, token)).Content!.Persons.Count == 0,
+                "empty curated lists return empty results");
+            Require(!(await featured.HandleAsync(new() { Content = new() { TypeCode = "bad" } }, session, token)).IsSuccess,
+                "unknown featured type is rejected");
+
             viewerSessionRow.LogoutDateTime = DateTimeOffset.UtcNow;
             await database.SaveChangesAsync(token);
             Require((await ChangeAsync(personId, session, false)).Error?.Code == 20000, "a signed out session cannot unfollow");
             var signedOut = await profile.HandleAsync(new() { Content = new() { PersonPublicId = personId } }, session, token);
             Require(signedOut.Content is { CanFollow: false, IsFollowing: false }, "an inactive session gets no personalized follow state");
-            Console.WriteLine("PASS isolated SQL Server: migration, artist profile and privacy, paging, concurrent follow/unfollow and persisted history.");
+            var signedOutFeatured = (await featured.HandleAsync(new() { Content = new() { TypeCode = "music" } }, session, token)).Content!.Persons;
+            Require(signedOutFeatured.All(x => !x.CanFollow && !x.IsFollowing),
+                "featured people does not personalize for an inactive session");
+            Console.WriteLine("PASS isolated SQL Server: both migrations, profile privacy, pagination, follow history, ordered featured catalogs and real music metrics.");
         }
         finally
         {

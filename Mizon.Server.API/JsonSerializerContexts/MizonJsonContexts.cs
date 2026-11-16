@@ -8,6 +8,8 @@ using System.Text.Json.Serialization;
 namespace Mizon.Server.API.JsonSerializerContexts;
 
 
+[JsonSerializable(typeof(BaseApiRequest<FeaturedPersonsRequest>))]
+[JsonSerializable(typeof(BaseApiResponse<FeaturedPersonsResponse>))]
 [JsonSerializable(typeof(BaseApiRequest<PersonProfileRequest>))]
 [JsonSerializable(typeof(BaseApiResponse<PersonProfileResponse>))]
 [JsonSerializable(typeof(BaseApiRequest<PersonMusicsRequest>))]
