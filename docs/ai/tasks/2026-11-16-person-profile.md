@@ -9,6 +9,9 @@ Authenticated `GET /Persons/PersonProfile?PersonPublicId=...` returns artist
 identity, three media IDs and active follower/track counts. Personalized follow
 state requires a live session. Outgoing count is nullable and derives from an
 official linked Client; a private account's count is visible only to its owner.
+For people with a model, optional `modelYawInDegrees` comes from their
+featured placement. The music placement takes precedence so a direct profile
+link uses the same pose as Music Home. A model with no placement returns null.
 `GET /Persons/PersonMusics` adds an optional `BeforeMusicPublicId` cursor and
 returns up to 24 distinct active tracks per call. `POST /Persons/PersonFollow`
 expects `content.personPublicId` and an explicit boolean `content.following`.

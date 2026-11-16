@@ -27,7 +27,12 @@ public sealed class PersonProfileOperation(MizonDatabaseContext database)
                     PersonPublicId = x.PublicId, FirstName = x.FirstName, LastName = x.LastName,
                     ProfileMediaPublicId = x.ProfileMedia == null ? null : x.ProfileMedia.PublicId,
                     CoverMediaPublicId = x.CoverMedia == null ? null : x.CoverMedia.PublicId,
-                    ModelMediaPublicId = x.ModelMedia == null ? null : x.ModelMedia.PublicId
+                    ModelMediaPublicId = x.ModelMedia == null ? null : x.ModelMedia.PublicId,
+                    ModelYawInDegrees = x.ModelMediaId == null ? null : x.FeaturedPersons
+                        .OrderByDescending(feature => feature.FeaturedPersonType!.Code == "music")
+                        .ThenBy(feature => feature.FeaturedPersonTypeId)
+                        .Select(feature => (float?)feature.ModelYawInDegrees)
+                        .FirstOrDefault()
                 }
             }).SingleOrDefaultAsync(cancellationToken);
 

@@ -62,6 +62,15 @@ internal static class PersonProfileSqlChecks
                 ?? new ClientPrivacyType { Id = 203, Title = "Private", PublicId = Guid.NewGuid() };
             var target = new Person { PublicId = Guid.NewGuid(), FirstName = "Test", LastName = "Artist", LinkedClient = owner };
             var other = new Person { PublicId = Guid.NewGuid(), FirstName = "Other", LastName = "Artist" };
+            target.ModelMedia = new Media
+            {
+                PublicId = Guid.NewGuid(), FileName = "artist.glb", StoragePath = "file:///artist.glb",
+                FileHash = new string('A', 64), EncryptionIV = new byte[16],
+                ChunkSize = 64, TotalChunks = 1, FileSize = 64,
+                MediaKey = new() { PublicId = Guid.NewGuid(), KeyData = "fixture" },
+                MediaStorageType = new() { Id = 203, Title = "ProfileTestStorage", PublicId = Guid.NewGuid() },
+                MediaEncryptionType = new() { Id = 203, Title = "ProfileTestEncryption", PublicId = Guid.NewGuid() }
+            };
             database.AddRange(viewer, target, other);
             var vocal = new MusicContributorType { Id = 201, Title = "ProfileTestVocal", PublicId = Guid.NewGuid() };
             var writer = new MusicContributorType { Id = 202, Title = "ProfileTestWriter", PublicId = Guid.NewGuid() };
@@ -93,6 +102,8 @@ internal static class PersonProfileSqlChecks
             var tracks = new PersonMusicsOperation(database);
             var initial = await profile.HandleAsync(new() { Content = new() { PersonPublicId = personId } }, session, token);
             Require(initial.Content is { FollowersCount: 0, FollowingCount: 0, MusicsCount: 27, CanFollow: true }, "profile count excludes inactive and duplicate credits");
+            Require(initial.Content is { ModelYawInDegrees: null } && initial.Content.ModelMediaPublicId == target.ModelMedia.PublicId,
+                "unfeatured model retains the client default yaw");
             var unlinked = await profile.HandleAsync(new() { Content = new() { PersonPublicId = other.PublicId } }, session, token);
             Require(unlinked.Content is { FollowingCount: null }, "unlinked person does not publish a fabricated following count");
 
@@ -144,9 +155,9 @@ internal static class PersonProfileSqlChecks
             var moviesType = new FeaturedPersonType { Id = 2, Code = "movies", Title = "Movies" };
             var seriesType = new FeaturedPersonType { Id = 3, Code = "series", Title = "Series" };
             database.AddRange(
-                new FeaturedPerson { FeaturedPersonType = musicType, Person = target, SortOrder = 2 },
+                new FeaturedPerson { FeaturedPersonType = musicType, Person = target, SortOrder = 2, ModelYawInDegrees = 180 },
                 new FeaturedPerson { FeaturedPersonType = musicType, Person = other, SortOrder = 1 },
-                new FeaturedPerson { FeaturedPersonType = moviesType, Person = other, SortOrder = 1 },
+                new FeaturedPerson { FeaturedPersonType = moviesType, Person = other, SortOrder = 1, ModelYawInDegrees = 45 },
                 seriesType);
             var played = await database.MusicContributors.Where(x => x.PersonId == target.Id && x.Music!.Title == "Test 1")
                 .Select(x => x.MusicId).FirstAsync(token);
@@ -171,6 +182,26 @@ internal static class PersonProfileSqlChecks
             Require(!(await featured.HandleAsync(new() { Content = new() { TypeCode = "bad" } }, session, token)).IsSuccess,
                 "unknown featured type is rejected");
 
+            var movieAppearance = new FeaturedPerson
+            {
+                FeaturedPersonType = moviesType, Person = target, SortOrder = 2, ModelYawInDegrees = 45
+            };
+            database.Add(movieAppearance);
+            await database.SaveChangesAsync(token);
+            var curated = await profile.HandleAsync(new() { Content = new() { PersonPublicId = personId } }, session, token);
+            Require(curated.Content?.ModelYawInDegrees == 180 && curated.Content.ModelYawInDegrees == musicList[1].ModelYawInDegrees,
+                "profile starts at the same configured yaw as music even when a movie placement uses another angle");
+            var noModel = await profile.HandleAsync(new() { Content = new() { PersonPublicId = other.PublicId } }, session, token);
+            Require(noModel.Content is { ModelMediaPublicId: null, ModelYawInDegrees: null },
+                "a placement without a model does not return a yaw");
+            movieAppearance.FeaturedPersonType = seriesType;
+            await database.SaveChangesAsync(token);
+            database.Remove(await database.FeaturedPersons.SingleAsync(x => x.PersonId == target.Id
+                && x.FeaturedPersonTypeId == musicType.Id, token));
+            await database.SaveChangesAsync(token);
+            var seriesProfile = await profile.HandleAsync(new() { Content = new() { PersonPublicId = personId } }, session, token);
+            Require(seriesProfile.Content is { ModelYawInDegrees: 45 }, "profile can use a model pose from a non-music placement");
+
             viewerSessionRow.LogoutDateTime = DateTimeOffset.UtcNow;
             await database.SaveChangesAsync(token);
             Require((await ChangeAsync(personId, session, false)).Error?.Code == 20000, "a signed out session cannot unfollow");
@@ -179,7 +210,7 @@ internal static class PersonProfileSqlChecks
             var signedOutFeatured = (await featured.HandleAsync(new() { Content = new() { TypeCode = "music" } }, session, token)).Content!.Persons;
             Require(signedOutFeatured.All(x => !x.CanFollow && !x.IsFollowing),
                 "featured people does not personalize for an inactive session");
-            Console.WriteLine("PASS isolated SQL Server: both migrations, profile privacy, pagination, follow history, ordered featured catalogs and real music metrics.");
+            Console.WriteLine("PASS isolated SQL Server: both migrations, profile privacy, pagination, follow history, ordered featured catalogs, model yaw and real music metrics.");
         }
         finally
         {
