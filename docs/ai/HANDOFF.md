@@ -100,3 +100,5 @@ The tool's artwork mode is plan-only unless `--apply` is passed; it is not an AP
 endpoint or startup seed. Exact scope, readback/idempotency and preservation results:
 [artwork task record](tasks/2026-11-11-music-home-artwork.md).
 No schema/UI changes or Windows automation were required.
+
+Track details return an optional active MusicVideo summary with video and cover media IDs via GET /Musics/Music. Deploy the AddTrackMusicVideos migration before this server version. Release build and isolated API diagnostics passed without database writes.

@@ -1,4 +1,4 @@
-﻿namespace Mizon.Server.Logic.Operations.Musics;
+namespace Mizon.Server.Logic.Operations.Musics;
 
 public sealed class MusicOperation(MizonDatabaseContext mizonDatabaseContext)
     : IApiOperation<MusicRequest, MusicResponse>
@@ -136,6 +136,18 @@ public sealed class MusicOperation(MizonDatabaseContext mizonDatabaseContext)
                   .FirstOrDefaultAsync(cancellationToken);
 
 
+        var musicVideo = await mizonDatabaseContext.MusicVideos
+            .AsNoTracking()
+            .Where(item => item.MusicId == music.Id)
+            .Where(item => item.IsActive)
+            .Select(item => new MusicVideoResponse
+            {
+                PublicId = item.PublicId,
+                MediaPublicId = item.Media!.PublicId,
+                CoverMediaPublicId = item.CoverMediaId == null ? null : item.CoverMedia!.PublicId
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
         return new()
         {
             Content = new()
@@ -150,7 +162,8 @@ public sealed class MusicOperation(MizonDatabaseContext mizonDatabaseContext)
                 MusicAlbum = musicAlbumResponse,
                 MusicLabel = musicLabelResponse,
                 MusicLanguages = musicLanguages,
-                MusicCover = musicCoverResponse
+                MusicCover = musicCoverResponse,
+                MusicVideo = musicVideo
             }
         };
     }

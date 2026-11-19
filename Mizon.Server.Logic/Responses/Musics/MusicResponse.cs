@@ -1,4 +1,4 @@
-﻿namespace Mizon.Server.Logic.Responses.Musics;
+namespace Mizon.Server.Logic.Responses.Musics;
 
 public sealed class MusicResponse : IApiResponse
 {
@@ -23,6 +23,7 @@ public sealed class MusicResponse : IApiResponse
     public MusicLabelResponse? MusicLabel { get; set; }
 
     public MusicCoverResponse? MusicCover { get; set; }
+    public MusicVideoResponse? MusicVideo { get; set; }
 }
 
 public sealed class MusicLanguageResponse
@@ -61,4 +62,12 @@ public sealed class MusicCoverResponse
     public short Width { get; set; }
     public short Height { get; set; }
     public string PrimaryAccentColor { get; set; } = null!;
+}
+
+
+public sealed class MusicVideoResponse
+{
+    public Guid PublicId { get; set; }
+    public Guid MediaPublicId { get; set; }
+    public Guid? CoverMediaPublicId { get; set; }
 }
