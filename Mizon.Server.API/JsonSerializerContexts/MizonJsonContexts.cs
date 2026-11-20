@@ -93,6 +93,9 @@ namespace Mizon.Server.API.JsonSerializerContexts;
 [JsonSerializable(typeof(BaseApiResponse<MusicCommentsResponse>))]
 [JsonSerializable(typeof(BaseApiRequest<MusicCommentCreateRequest>))]
 [JsonSerializable(typeof(BaseApiResponse<MusicCommentCreateResponse>))]
+[JsonSerializable(typeof(BaseApiRequest<MusicCommentVoteRequest>))]
+[JsonSerializable(typeof(BaseApiResponse<MusicCommentVoteResponse>))]
+[JsonSerializable(typeof(BaseApiResponse<MusicCommentTagSearchResponse>))]
 
 [JsonSerializable(typeof(BaseApiRequest<MusicReactionTypesRequest>))]
 [JsonSerializable(typeof(BaseApiResponse<MusicReactionTypesResponse>))]

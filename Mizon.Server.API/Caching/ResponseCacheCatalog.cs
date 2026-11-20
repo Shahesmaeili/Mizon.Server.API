@@ -60,6 +60,7 @@ public static class ResponseCacheCatalog
         [typeof(MusicPlayOperation)] = [ResponseCacheDomain.Following],
         [typeof(MusicReactionOperation)] = [ResponseCacheDomain.MusicReactions, ResponseCacheDomain.Following],
         [typeof(MusicCommentCreateOperation)] = [ResponseCacheDomain.MusicComments, ResponseCacheDomain.Following],
+        [typeof(MusicCommentVoteOperation)] = [ResponseCacheDomain.MusicComments],
         [typeof(MusicPlaylistCreateOperation)] = [ResponseCacheDomain.Playlists, ResponseCacheDomain.Following],
         [typeof(MusicPlaylistMembershipOperation)] = [ResponseCacheDomain.Playlists, ResponseCacheDomain.Following],
         [typeof(StoryCreateOperation)] = [ResponseCacheDomain.Stories, ResponseCacheDomain.Following],

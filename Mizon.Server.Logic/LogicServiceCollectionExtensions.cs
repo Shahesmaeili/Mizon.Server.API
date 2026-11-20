@@ -43,6 +43,8 @@ public static class LogicServiceCollectionExtensions
         services.AddApiOperation<MusicContributorMusicsOperation, MusicContributorMusicsRequest, MusicTabMusicsResponse>();
         services.AddApiOperation<MusicCommentsOperation, MusicCommentsRequest, MusicCommentsResponse>();
         services.AddApiOperation<MusicCommentCreateOperation, MusicCommentCreateRequest, MusicCommentCreateResponse>();
+        services.AddApiOperation<MusicCommentVoteOperation, MusicCommentVoteRequest, MusicCommentVoteResponse>();
+        services.AddApiOperation<MusicCommentTagSearchOperation, MusicCommentTagSearchRequest, MusicCommentTagSearchResponse>();
         services.AddApiOperation<MusicContributorOperation, MusicContributorRequest, MusicContributorsResponse>();
         services.AddApiOperation<MusicPlaylistsOperation, MusicPlaylistsRequest, MusicPlaylistsResponse>();
         services.AddApiOperation<MusicLibraryOperation, MusicLibraryRequest, MusicLibraryResponse>();

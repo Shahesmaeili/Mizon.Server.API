@@ -23,6 +23,8 @@ internal sealed class MusicEndpoints
         new MusicContributorMusics().Map(app);
         new MusicComments().Map(app);
         new MusicCommentCreate().Map(app);
+        new MusicCommentVote().Map(app);
+        new MusicCommentTagSearch().Map(app);
         new MusicPlaylists().Map(app);
         new MusicLibrary().Map(app);
         new MusicFeatures().Map(app);

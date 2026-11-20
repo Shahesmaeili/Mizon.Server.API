@@ -26,6 +26,12 @@ if (args.Contains("--person-profile-sql", StringComparer.Ordinal))
     return;
 }
 
+if (args.Contains("--music-discussion-sql", StringComparer.Ordinal))
+{
+    await MusicDiscussionSqlChecks.RunAsync();
+    return;
+}
+
 await AuthChecks.RunAsync();
 await NdjsonChecks.RunAsync();
 await DiagnosticsChecks.RunAsync();

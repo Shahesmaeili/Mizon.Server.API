@@ -25,6 +25,8 @@ internal static class OperationErrorCodes
         public const int InvalidMusicPlaylistTitle = 10006;
         public const int InvalidMusicPlaylistCursor = 10007;
         public const int InvalidMusicPlayRequest = 10008;
+        public const int InvalidMusicCommentRequest = 10009;
+        public const int MusicCommentNotFound = 10010;
 
     }
 

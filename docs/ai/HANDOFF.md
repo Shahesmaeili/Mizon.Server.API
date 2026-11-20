@@ -1,5 +1,12 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Track comment discussion — 2026-11-20
+
+`Musics/MusicComments` supports paged threads, exact comments, sorting and
+optional timed-only reads. Create supports replies and typed tags. Vote and
+tag lookup routes are available after deploying the matching database migration.
+See the [contract and checks](tasks/2026-11-20-music-comment-discussion.md).
+
 ## Main-window profile presence — 2026-11-11
 
 The authenticated hub now acknowledges main-window focus through the existing
