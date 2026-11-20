@@ -31,6 +31,7 @@ await NdjsonChecks.RunAsync();
 await DiagnosticsChecks.RunAsync();
 await SignalRChecks.RunAsync();
 await WindowPresenceChecks.RunAsync();
+await WindowPresenceChecks.RunAsync(useDemo: true);
 await ResponseCacheChecks.RunAsync();
 await RequestLocalizationChecks.RunAsync();
 

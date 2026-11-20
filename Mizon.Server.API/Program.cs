@@ -61,6 +61,12 @@ builder.Services.AddSignalR(options =>
     options.PayloadSerializerOptions.TypeInfoResolverChain.Insert(0, MizonJsonContexts.Default);
 });
 
+if (builder.Environment.IsDevelopment() && builder.Configuration.GetValue<bool>("TaskbarAudience:UseDemoCounts"))
+{
+    builder.Services.AddSingleton<TaskbarAudienceDemo>();
+    builder.Services.AddHostedService(provider => provider.GetRequiredService<TaskbarAudienceDemo>());
+}
+
 // اضافه کردن CORS برای SignalR (اگر نیاز باشد)
 builder.Services.AddCors(options =>
 {

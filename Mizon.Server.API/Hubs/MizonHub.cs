@@ -18,11 +18,14 @@ public partial class MizonHub : Hub
 
     private readonly ILogger<MizonHub> _logger;
     private readonly MizonDatabaseContext _mizonDatabaseContext;
+    private readonly TaskbarAudienceDemo? _audienceDemo;
 
-    public MizonHub(ILogger<MizonHub> logger, MizonDatabaseContext mizonDatabaseContext)
+    public MizonHub(ILogger<MizonHub> logger, MizonDatabaseContext mizonDatabaseContext,
+        TaskbarAudienceDemo? audienceDemo = null)
     {
         _logger = logger;
         _mizonDatabaseContext = mizonDatabaseContext;
+        _audienceDemo = audienceDemo;
     }
 
     public override async Task OnConnectedAsync()

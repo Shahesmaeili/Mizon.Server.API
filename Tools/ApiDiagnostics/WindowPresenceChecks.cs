@@ -17,7 +17,7 @@ internal static class WindowPresenceChecks
 {
     private static readonly MizonJsonContexts Json = new(new JsonSerializerOptions(JsonSerializerDefaults.Web));
 
-    public static async Task RunAsync()
+    public static async Task RunAsync(bool useDemo = false)
     {
         using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(25));
         var token = timeout.Token;
@@ -30,7 +30,13 @@ internal static class WindowPresenceChecks
         builder.Services.AddSignalR().AddJsonProtocol(options =>
             options.PayloadSerializerOptions.TypeInfoResolver = MizonJsonContexts.Default);
         // Presence must not touch EF; the production hub receives no database in this fixture.
-        builder.Services.AddTransient(provider => new MizonHub(provider.GetRequiredService<ILogger<MizonHub>>(), null!));
+        if (useDemo)
+        {
+            builder.Services.AddSingleton<TaskbarAudienceDemo>();
+            builder.Services.AddHostedService(provider => provider.GetRequiredService<TaskbarAudienceDemo>());
+        }
+        builder.Services.AddTransient(provider => new MizonHub(provider.GetRequiredService<ILogger<MizonHub>>(), null!,
+            provider.GetService<TaskbarAudienceDemo>()));
         await using var app = builder.Build();
         app.UseAuthentication();
         app.UseAuthorization();
@@ -42,6 +48,12 @@ internal static class WindowPresenceChecks
             using var http = new HttpClient();
             using var denied = await http.PostAsync(new Uri(address, "/presence/negotiate?negotiateVersion=1"), null, token);
             Ensure(denied.StatusCode == HttpStatusCode.Unauthorized, "Unauthenticated connections are rejected by the real hub endpoint.");
+
+            if (useDemo)
+            {
+                await CheckDemoAsync(address, token);
+                return;
+            }
 
             var client = Guid.NewGuid();
             await using var first = await Peer.ConnectAsync(address, client, token);
@@ -83,6 +95,28 @@ internal static class WindowPresenceChecks
             Console.WriteLine("PASS production SignalR window presence: generated JSON, real authenticated WebSockets, own-caller isolation, stale revisions, reconnect, no database.");
         }
         finally { await app.StopAsync(token); }
+    }
+
+    private static async Task CheckDemoAsync(Uri address, CancellationToken token)
+    {
+        await using var peer = await Peer.ConnectAsync(address, Guid.NewGuid(), token);
+        var previous = await peer.GetOnlineCountAsync(token);
+        var previousFollowers = await peer.GetOnlineFollowerCountAsync(token);
+        Ensure(previous.Count is >= 18 and <= 65 && previousFollowers is >= 1 and <= 12,
+            "The first authenticated snapshot contains both demo counts.");
+
+        for (var update = 0; update < 2; update++)
+        {
+            var current = await peer.GetNextOnlineCountAsync(token);
+            var followers = await peer.GetOnlineFollowerCountAsync(token);
+            Ensure(current is { Count: >= 18 and <= 65 } && current.Revision > previous.Revision && current.Count != previous.Count,
+                "The normal SignalR event delivers a new in-range demo total and newer revision.");
+            Ensure(followers is >= 1 and <= 12 && followers != previousFollowers && followers < current.Count,
+                "The follower request sees its updated demo counterpart without needing EF.");
+            Console.WriteLine($"PASS demo SignalR audience revision {current.Revision}: {current.Count} accounts, {followers} followers.");
+            previous = current;
+            previousFollowers = followers;
+        }
     }
 
     private static void Ensure(bool condition, string message)
@@ -142,6 +176,16 @@ internal static class WindowPresenceChecks
 
         public async Task<int> GetOnlineFollowerCountAsync(CancellationToken token) =>
             (await InvokeAsync("GetOnlineFollowerCount", "", token)).GetProperty("result").GetInt32();
+
+        public async Task<OnlineClientCount> GetNextOnlineCountAsync(CancellationToken token)
+        {
+            while (true)
+            {
+                var message = await ReadAsync(token);
+                if (message.TryGetProperty("target", out var target) && target.GetString() == "OnlineClientCountChanged")
+                    return message.GetProperty("arguments")[0].Deserialize(Json.OnlineClientCount)!;
+            }
+        }
 
         private Task<JsonElement> InvokeAsync(bool active, long revision, CancellationToken token) =>
             InvokeAsync("SetWindowPresence", $"{(active ? "true" : "false")},{revision}", token);

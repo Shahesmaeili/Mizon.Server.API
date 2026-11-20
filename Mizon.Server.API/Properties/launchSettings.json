@@ -4,7 +4,8 @@
       "commandName": "Project",
       "launchBrowser": false,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TaskbarAudience__UseDemoCounts": "true"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5128"
@@ -14,6 +15,7 @@
       "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
+        "TaskbarAudience__UseDemoCounts": "true",
         "ASPNETCORE_URLS": "http://localhost:5128"
       },
       "distributionName": ""
@@ -22,7 +24,8 @@
       "commandName": "IISExpress",
       "launchBrowser": false,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TaskbarAudience__UseDemoCounts": "true"
       }
     }
   },
