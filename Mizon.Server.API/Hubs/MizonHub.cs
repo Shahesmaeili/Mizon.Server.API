@@ -25,10 +25,11 @@ public partial class MizonHub : Hub
         _mizonDatabaseContext = mizonDatabaseContext;
     }
 
-    public override Task OnConnectedAsync()
+    public override async Task OnConnectedAsync()
     {
         _logger.LogInformation("Hub connected: {ConnectionId}", Context.ConnectionId);
-        return base.OnConnectedAsync();
+        await RegisterOnlineConnectionAsync();
+        await base.OnConnectedAsync();
     }
 
     public override async Task OnDisconnectedAsync(Exception? exception)
@@ -43,6 +44,7 @@ public partial class MizonHub : Hub
         }
         finally
         {
+            await UnregisterOnlineConnectionAsync();
             Context.Items.Remove(DeviceRegisteredKey);
             Context.Items.Remove(RegisteredAtKey);
             Context.Items.Remove(ListenerIdentityKey);

@@ -46,6 +46,19 @@ internal static class WindowPresenceChecks
             var client = Guid.NewGuid();
             await using var first = await Peer.ConnectAsync(address, client, token);
             await using var second = await Peer.ConnectAsync(address, client, token);
+            var singleAccount = await first.GetOnlineCountAsync(token);
+            Ensure(singleAccount.Count == 1, "Multiple authenticated connections count as one account.");
+            var otherClient = Guid.NewGuid();
+            await using (var visitor = await Peer.ConnectAsync(address, otherClient, token))
+            {
+                var twoAccounts = await visitor.GetOnlineCountAsync(token);
+                Ensure(twoAccounts.Count == 2 && twoAccounts.Revision > singleAccount.Revision,
+                    "The aggregate updates and increments its revision for a new unique account.");
+            }
+            for (var attempt = 0; attempt < 20 && (await first.GetOnlineCountAsync(token)).Count != 1; attempt++)
+                await Task.Delay(25, token);
+            Ensure((await first.GetOnlineCountAsync(token)).Count == 1, "Disconnect clears the last connection for an account.");
+            Ensure(await first.GetOnlineFollowerCountAsync(token) == 0, "An account is excluded from its own online followers.");
             var online = await first.SetAsync(true, 3, token);
             Ensure(online.ClientPublicId == client && online.IsOnline && online.Revision == 3
                 && !string.IsNullOrEmpty(online.ConnectionId), "Production SignalR serializes the authenticated DTO and caller event.");
@@ -124,10 +137,19 @@ internal static class WindowPresenceChecks
             Ensure((await InvokeAsync(active, revision, token)).TryGetProperty("error", out _), "Invalid presence rejected.");
         }
 
-        private async Task<JsonElement> InvokeAsync(bool active, long revision, CancellationToken token)
+        public async Task<OnlineClientCount> GetOnlineCountAsync(CancellationToken token) =>
+            (await InvokeAsync("GetOnlineClientCount", "", token)).GetProperty("result").Deserialize(Json.OnlineClientCount)!;
+
+        public async Task<int> GetOnlineFollowerCountAsync(CancellationToken token) =>
+            (await InvokeAsync("GetOnlineFollowerCount", "", token)).GetProperty("result").GetInt32();
+
+        private Task<JsonElement> InvokeAsync(bool active, long revision, CancellationToken token) =>
+            InvokeAsync("SetWindowPresence", $"{(active ? "true" : "false")},{revision}", token);
+
+        private async Task<JsonElement> InvokeAsync(string method, string arguments, CancellationToken token)
         {
             var id = (++_invocation).ToString(System.Globalization.CultureInfo.InvariantCulture);
-            await SendAsync($"{{\"type\":1,\"invocationId\":\"{id}\",\"target\":\"SetWindowPresence\",\"arguments\":[{(active ? "true" : "false")},{revision}]}}", token);
+            await SendAsync($"{{\"type\":1,\"invocationId\":\"{id}\",\"target\":\"{method}\",\"arguments\":[{arguments}]}}", token);
             while (true)
             {
                 var message = await ReadAsync(token);
