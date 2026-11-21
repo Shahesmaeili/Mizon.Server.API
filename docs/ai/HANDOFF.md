@@ -1,5 +1,11 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Public peer media manifests — 2026-11-21
+
+The authenticated manifest route enables verified peer ranges for explicitly
+published public media. It uses deployment-owned digests and falls back cleanly
+when none are configured. See [configuration and checks](tasks/2026-11-21-public-peer-media.md).
+
 ## Development HTTPS on a changing LAN — 2026-11-21
 
 An opt-in Development configuration can own the Kestrel listeners and keep

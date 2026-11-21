@@ -48,6 +48,13 @@ internal static class LocalMediaContentChecks
             await File.WriteAllBytesAsync(unsupported, bytes);
 
             var valid = Register(new Uri(content).AbsoluteUri, bytes.Length);
+            valid.FileHash = Convert.ToHexStringLower(SHA256.HashData(bytes));
+            valid.ChunkSize = 4;
+            valid.TotalChunks = 2;
+            var publicCatalog = temp.CreateSubdirectory("public-manifests").FullName;
+            var digests = bytes.Chunk(4).SelectMany(static piece => SHA256.HashData(piece)).ToArray();
+            var manifestPath = Path.Combine(publicCatalog, valid.FileHash + ".4.sha256");
+            await File.WriteAllBytesAsync(manifestPath, digests);
             var forbidden = new List<MediaResponse>
             {
                 Register(new Uri(outside).AbsoluteUri, bytes.Length),
@@ -85,6 +92,7 @@ internal static class LocalMediaContentChecks
             builder.Services.ConfigureHttpJsonOptions(options =>
                 options.SerializerOptions.TypeInfoResolverChain.Insert(0, MizonJsonContexts.Default));
             builder.Services.AddSingleton(new LocalMediaContentStore([root.FullName]));
+            builder.Services.AddSingleton(new PublicPeerMediaManifestStore(publicCatalog));
             builder.Services.AddSingleton<IApiOperationExecutor>(new FixtureExecutor([valid, .. forbidden]));
             await using var app = builder.Build();
             app.UseAuthentication();
@@ -122,7 +130,30 @@ internal static class LocalMediaContentChecks
                 Require((await denial.Content.ReadAsByteArrayAsync()).Length == 0, "ineligible media response hides its path");
             }
 
-            Console.WriteLine("PASS local media: authenticated ranges, binary payload, and restricted storage roots.");
+            using var peerAnonymous = await GetPeerManifestAsync(valid.MediaPublicId, authorized: false);
+            Require(peerAnonymous.StatusCode == HttpStatusCode.Unauthorized, "peer manifest requires the origin authorization");
+            using var peerManifest = await GetPeerManifestAsync(valid.MediaPublicId);
+            Require(peerManifest.StatusCode == HttpStatusCode.OK && peerManifest.Headers.CacheControl is { Private: true, NoStore: true },
+                "only explicitly registered public media get a manifest");
+            using var peerJson = JsonDocument.Parse(await peerManifest.Content.ReadAsByteArrayAsync());
+            var peerBody = peerJson.RootElement.GetProperty("content");
+            Require(peerBody.GetProperty("fileHash").GetString() == valid.FileHash
+                && peerBody.GetProperty("pieceSha256").GetBytesFromBase64().SequenceEqual(digests),
+                "published pieces match immutable origin metadata");
+            using var privateManifest = await GetPeerManifestAsync(forbidden[0].MediaPublicId);
+            Require(privateManifest.StatusCode == HttpStatusCode.NotFound, "a media lookup does not grant peer sharing");
+            await File.WriteAllBytesAsync(manifestPath, [0x10]);
+            using var malformed = await GetPeerManifestAsync(valid.MediaPublicId);
+            Require(malformed.StatusCode == HttpStatusCode.NotFound, "an incomplete manifest fails closed");
+
+            Console.WriteLine("PASS local media: authenticated ranges, binary payload, restricted storage roots and opt-in peer manifests.");
+
+            async Task<HttpResponseMessage> GetPeerManifestAsync(Guid id, bool authorized = true)
+            {
+                using var request = new HttpRequestMessage(HttpMethod.Get, $"/Medias/PeerManifest?MediaPublicId={id:D}");
+                if (authorized) request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                return await http.SendAsync(request);
+            }
 
             async Task<HttpResponseMessage> SendAsync(Guid id, RangeHeaderValue? range = null, bool authorized = true, string query = "")
             {

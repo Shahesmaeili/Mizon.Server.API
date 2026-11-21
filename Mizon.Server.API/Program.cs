@@ -31,6 +31,7 @@ var localMediaRoots = new[] { Path.Combine(mediaRoot, "MusicHomeArtwork"), Path.
     .Concat(builder.Configuration.GetSection("Media:LocalContentRoots").GetChildren()
         .Select(section => section.Value).OfType<string>());
 builder.Services.AddSingleton(new LocalMediaContentStore(localMediaRoots));
+builder.Services.AddSingleton(new PublicPeerMediaManifestStore(builder.Configuration["PeerMedia:PublicManifestDirectory"]));
 
 builder.Services.AddSingleton<JwtTokenService>();
 builder.Services.AddScoped<RequestMetadata>();

@@ -112,6 +112,7 @@ namespace Mizon.Server.API.JsonSerializerContexts;
 
 [JsonSerializable(typeof(BaseApiRequest<MediaRequest>))]
 [JsonSerializable(typeof(BaseApiResponse<MediaResponse>))]
+[JsonSerializable(typeof(BaseApiResponse<PeerMediaManifestResponse>))]
 
 [JsonSerializable(typeof(BaseApiRequest<StoryRequest>))]
 [JsonSerializable(typeof(BaseApiRequest<StoriesRequest>))]

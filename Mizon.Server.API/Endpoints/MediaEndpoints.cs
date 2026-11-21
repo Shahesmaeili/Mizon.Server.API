@@ -8,5 +8,6 @@ public sealed class MediaEndpoints
     {
         new Media().Map(app);
         new MediaContent().Map(app);
+        new PeerManifest().Map(app);
     }
 }
