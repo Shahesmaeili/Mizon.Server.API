@@ -1,5 +1,11 @@
 # Server handoff — .NET 11 upgrade, 2026-11-10
 
+## Development HTTPS on a changing LAN — 2026-11-21
+
+An opt-in Development configuration can own the Kestrel listeners and keep
+the existing localhost certificate while negotiating HTTP/3 on the same port.
+See the [development settings and validation](tasks/2026-11-21-development-lan-https.md).
+
 ## Track comment discussion — 2026-11-20
 
 `Musics/MusicComments` supports paged threads, exact comments, sorting and

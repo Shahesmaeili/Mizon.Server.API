@@ -10,6 +10,7 @@ using Mizon.Server.API.Hubs;
 using Mizon.Server.API.JsonSerializerContexts;
 using Mizon.Server.API.Middlewares;
 using Mizon.Server.Logic;
+using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
@@ -79,16 +80,54 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Keep the existing development endpoint; allow isolated diagnostics/deployments.
-var port = builder.Configuration.GetValue("Server:Port", 5128);
-builder.WebHost.ConfigureKestrel(options =>
+// A development-only configuration can own the listeners, including an HTTPS
+// listener shared by localhost and the LAN. Avoid binding that port twice.
+var useConfiguredDevelopmentEndpoints = builder.Environment.IsDevelopment() &&
+    builder.Configuration.GetValue<bool>("Server:UseConfiguredDevelopmentEndpoints") &&
+    builder.Configuration.GetSection("Kestrel:Endpoints").GetChildren().Any();
+using var developmentLocalhostCertificate = useConfiguredDevelopmentEndpoints
+    ? ReadDevelopmentLocalhostCertificate(builder.Configuration["Server:DevelopmentLocalhostCertificateThumbprint"])
+    : null;
+if (useConfiguredDevelopmentEndpoints)
 {
-    options.ListenLocalhost(port, listenOptions =>
+    builder.WebHost.UseKestrelHttpsConfiguration();
+    if (developmentLocalhostCertificate is not null)
     {
-        listenOptions.UseHttps();
-        listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
+        builder.WebHost.ConfigureKestrel((context, options) =>
+        {
+            var endpoints = context.Configuration.GetSection("Kestrel:Endpoints");
+            var loader = options.ConfigurationLoader!;
+            foreach (var endpoint in endpoints.GetChildren())
+            {
+                loader.Endpoint(endpoint.Key, configuration =>
+                {
+                    if (!configuration.IsHttps) return;
+                    var https = configuration.HttpsOptions;
+                    var serverCertificate = https.ServerCertificate;
+                    if (serverCertificate is null) return;
+
+                    // Let Kestrel select the ALPN for TCP and QUIC independently.
+                    https.ServerCertificateSelector = (_, hostName) =>
+                        string.Equals(hostName, "localhost", StringComparison.OrdinalIgnoreCase)
+                            ? developmentLocalhostCertificate
+                            : serverCertificate;
+                });
+            }
+        });
+    }
+}
+else
+{
+    var port = builder.Configuration.GetValue("Server:Port", 5128);
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.ListenLocalhost(port, listenOptions =>
+        {
+            listenOptions.UseHttps();
+            listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
+        });
     });
-});
+}
 
 builder.Services.AddResponseCompression(options =>
 {
@@ -136,3 +175,16 @@ StoryEndpoints.Map(app);
 SearchEndpoints.Map(app);
 
 app.Run();
+
+static X509Certificate2? ReadDevelopmentLocalhostCertificate(string? thumbprint)
+{
+    if (string.IsNullOrWhiteSpace(thumbprint)) return null;
+
+    using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+    store.Open(OpenFlags.ReadOnly);
+    var matches = store.Certificates.Find(X509FindType.FindByThumbprint, thumbprint.Trim(), validOnly: true);
+    if (matches.Count == 1 && matches[0].HasPrivateKey) return matches[0];
+
+    foreach (var certificate in matches) certificate.Dispose();
+    throw new InvalidOperationException("The configured development localhost certificate was not found or has no private key.");
+}
