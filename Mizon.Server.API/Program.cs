@@ -10,6 +10,7 @@ using Mizon.Server.API.Hubs;
 using Mizon.Server.API.JsonSerializerContexts;
 using Mizon.Server.API.Middlewares;
 using Mizon.Server.Logic;
+using Mizon.Server.Logic.Operations.Medias;
 using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateSlimBuilder(args);
@@ -25,6 +26,11 @@ if (builder.Environment.IsDevelopment())
 builder.Services.AddMizonServer();
 builder.Services.AddMizonLogic();
 builder.Services.AddMizonResponseCaching(builder.Configuration);
+var mediaRoot = Path.Combine(builder.Environment.ContentRootPath, "App_Data");
+var localMediaRoots = new[] { Path.Combine(mediaRoot, "MusicHomeArtwork"), Path.Combine(mediaRoot, "MoodEmojis") }
+    .Concat(builder.Configuration.GetSection("Media:LocalContentRoots").GetChildren()
+        .Select(section => section.Value).OfType<string>());
+builder.Services.AddSingleton(new LocalMediaContentStore(localMediaRoots));
 
 builder.Services.AddSingleton<JwtTokenService>();
 builder.Services.AddScoped<RequestMetadata>();

@@ -7,5 +7,6 @@ public sealed class MediaEndpoints
     public static void Map(IEndpointRouteBuilder app)
     {
         new Media().Map(app);
+        new MediaContent().Map(app);
     }
 }

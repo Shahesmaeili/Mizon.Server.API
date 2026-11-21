@@ -40,6 +40,7 @@ await WindowPresenceChecks.RunAsync();
 await WindowPresenceChecks.RunAsync(useDemo: true);
 await ResponseCacheChecks.RunAsync();
 await RequestLocalizationChecks.RunAsync();
+await LocalMediaContentChecks.RunAsync();
 
 var httpIndex = Array.IndexOf(args, "--http");
 if (httpIndex >= 0)
