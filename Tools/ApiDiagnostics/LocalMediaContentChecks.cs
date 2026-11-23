@@ -40,17 +40,28 @@ internal static class LocalMediaContentChecks
             var root = temp.CreateSubdirectory("assets");
             var sibling = temp.CreateSubdirectory("assets-other");
             byte[] bytes = [1, 2, 3, 4, 5, 6, 7, 8];
+            byte[] glb = [.. "glTF"u8, 2, 0, 0, 0, 48, 0, 0, 0, 28, 0, 0, 0,
+                .. "JSON"u8, .. "{\"asset\":{\"version\":\"2.0\"}} "u8];
             var content = Path.Combine(root.FullName, "source.tgs");
             var outside = Path.Combine(sibling.FullName, "outside.tgs");
             var unsupported = Path.Combine(root.FullName, "unsupported.txt");
+            var artistModel = Path.Combine(root.FullName, "performer.glb");
+            var outsideModel = Path.Combine(sibling.FullName, "performer.glb");
             await File.WriteAllBytesAsync(content, bytes);
             await File.WriteAllBytesAsync(outside, bytes);
             await File.WriteAllBytesAsync(unsupported, bytes);
+            await File.WriteAllBytesAsync(artistModel, glb);
+            await File.WriteAllBytesAsync(outsideModel, glb);
 
             var valid = Register(new Uri(content).AbsoluteUri, bytes.Length);
             valid.FileHash = Convert.ToHexStringLower(SHA256.HashData(bytes));
             valid.ChunkSize = 4;
             valid.TotalChunks = 2;
+            var model = Register(new Uri(artistModel).AbsoluteUri, glb.Length);
+            model.FileName = "performer.glb";
+            model.FileHash = Convert.ToHexStringLower(SHA256.HashData(glb));
+            model.ChunkSize = glb.Length;
+            model.TotalChunks = 1;
             var publicCatalog = temp.CreateSubdirectory("public-manifests").FullName;
             var digests = bytes.Chunk(4).SelectMany(static piece => SHA256.HashData(piece)).ToArray();
             var manifestPath = Path.Combine(publicCatalog, valid.FileHash + ".4.sha256");
@@ -58,6 +69,8 @@ internal static class LocalMediaContentChecks
             var forbidden = new List<MediaResponse>
             {
                 Register(new Uri(outside).AbsoluteUri, bytes.Length),
+                Register(new Uri(outsideModel).AbsoluteUri, glb.Length),
+                Register(new Uri(artistModel).AbsoluteUri, glb.Length + 1),
                 Register(new Uri(unsupported).AbsoluteUri, bytes.Length),
                 Register(new Uri(content).AbsoluteUri, bytes.Length + 1),
                 Register(new Uri(Path.Combine(root.FullName, "missing.tgs")).AbsoluteUri, bytes.Length),
@@ -93,7 +106,7 @@ internal static class LocalMediaContentChecks
                 options.SerializerOptions.TypeInfoResolverChain.Insert(0, MizonJsonContexts.Default));
             builder.Services.AddSingleton(new LocalMediaContentStore([root.FullName]));
             builder.Services.AddSingleton(new PublicPeerMediaManifestStore(publicCatalog));
-            builder.Services.AddSingleton<IApiOperationExecutor>(new FixtureExecutor([valid, .. forbidden]));
+            builder.Services.AddSingleton<IApiOperationExecutor>(new FixtureExecutor([valid, model, .. forbidden]));
             await using var app = builder.Build();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -113,6 +126,14 @@ internal static class LocalMediaContentChecks
             Require(ranged.Content.Headers.ContentType?.MediaType == "application/octet-stream", "TGS payload stays binary");
             Require((await ranged.Content.ReadAsByteArrayAsync()).SequenceEqual(bytes[2..6]), "range body matches the fixture");
             Require(ranged.Headers.CacheControl is { Private: true, NoStore: true }, "response bypasses shared caches");
+
+            using var anonymousModel = await SendAsync(model.MediaPublicId, authorized: false);
+            Require(anonymousModel.StatusCode == HttpStatusCode.Unauthorized, "a registered model requires a bearer token");
+            using var modelRange = await SendAsync(model.MediaPublicId, new RangeHeaderValue(0, 19));
+            Require(modelRange.StatusCode == HttpStatusCode.PartialContent, "the authenticated model header is range-readable");
+            Require(modelRange.Content.Headers.ContentType?.MediaType == "model/gltf-binary", "GLB uses the registered binary model content type");
+            Require(modelRange.Content.Headers.ContentRange?.ToString() == $"bytes 0-19/{glb.Length}", "the model range identifies the full file size");
+            Require((await modelRange.Content.ReadAsByteArrayAsync()).SequenceEqual(glb[..20]), "the range returns the exact GLB header bytes");
 
             using var outOfBounds = await SendAsync(valid.MediaPublicId, new RangeHeaderValue(8, null));
             Require(outOfBounds.StatusCode == HttpStatusCode.RequestedRangeNotSatisfiable, "unsatisfiable range is rejected");
@@ -140,13 +161,13 @@ internal static class LocalMediaContentChecks
             Require(peerBody.GetProperty("fileHash").GetString() == valid.FileHash
                 && peerBody.GetProperty("pieceSha256").GetBytesFromBase64().SequenceEqual(digests),
                 "published pieces match immutable origin metadata");
-            using var privateManifest = await GetPeerManifestAsync(forbidden[0].MediaPublicId);
-            Require(privateManifest.StatusCode == HttpStatusCode.NotFound, "a media lookup does not grant peer sharing");
+            using var privateManifest = await GetPeerManifestAsync(model.MediaPublicId);
+            Require(privateManifest.StatusCode == HttpStatusCode.NotFound, "an authenticated model download does not grant peer sharing");
             await File.WriteAllBytesAsync(manifestPath, [0x10]);
             using var malformed = await GetPeerManifestAsync(valid.MediaPublicId);
             Require(malformed.StatusCode == HttpStatusCode.NotFound, "an incomplete manifest fails closed");
 
-            Console.WriteLine("PASS local media: authenticated ranges, binary payload, restricted storage roots and opt-in peer manifests.");
+            Console.WriteLine("PASS local media: authenticated GLB/TGS ranges, restricted storage roots and opt-in peer manifests.");
 
             async Task<HttpResponseMessage> GetPeerManifestAsync(Guid id, bool authorized = true)
             {

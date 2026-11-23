@@ -27,7 +27,12 @@ builder.Services.AddMizonServer();
 builder.Services.AddMizonLogic();
 builder.Services.AddMizonResponseCaching(builder.Configuration);
 var mediaRoot = Path.Combine(builder.Environment.ContentRootPath, "App_Data");
-var localMediaRoots = new[] { Path.Combine(mediaRoot, "MusicHomeArtwork"), Path.Combine(mediaRoot, "MoodEmojis") }
+var localMediaRoots = new[]
+    {
+        Path.Combine(mediaRoot, "MusicHomeArtwork"),
+        Path.Combine(mediaRoot, "MoodEmojis"),
+        Path.Combine(mediaRoot, "PersonProfileFixtures"),
+    }
     .Concat(builder.Configuration.GetSection("Media:LocalContentRoots").GetChildren()
         .Select(section => section.Value).OfType<string>());
 builder.Services.AddSingleton(new LocalMediaContentStore(localMediaRoots));

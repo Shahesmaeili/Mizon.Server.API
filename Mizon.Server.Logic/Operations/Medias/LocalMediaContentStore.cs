@@ -86,6 +86,7 @@ public sealed class LocalMediaContentStore(IEnumerable<string> allowedRoots)
         ".gif" => "image/gif",
         ".mp4" or ".m4v" => "video/mp4",
         ".mov" => "video/quicktime",
+        ".glb" => "model/gltf-binary",
         ".json" => "application/json",
         ".tgs" or ".lottie" => "application/octet-stream",
         _ => null
