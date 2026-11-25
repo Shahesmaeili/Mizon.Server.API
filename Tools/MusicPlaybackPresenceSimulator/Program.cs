@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Mizon.Database;
+using Mizon.Server.API.Hubs;
 using Mizon.Server.API.Services;
 
 var configuration = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json").Build();
@@ -82,6 +83,13 @@ internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, Si
 
     public async Task RunAsync(CancellationToken cancellationToken)
     {
+        // The hub broadcasts these events to the simulator even though it only publishes playback.
+        using var onlineCount = _connection.On<OnlineClientCount>("OnlineClientCountChanged", static _ => { });
+        using var viewers = _connection.On<string, Guid, int>("EntityViewersCountUpdated", static (_, _, _) => { });
+        using var snapshot = _connection.On<Guid, List<MusicListenerPresenceResponse>>("MusicListenersSnapshot", static (_, _) => { });
+        using var updated = _connection.On<Guid, MusicListenerPresenceResponse>("MusicListenerUpdated", static (_, _) => { });
+        using var removed = _connection.On<Guid, Guid>("MusicListenerRemoved", static (_, _) => { });
+
         await StartWithRetryAsync(cancellationToken);
         await JoinCurrentTrackAsync(cancellationToken);
         _positionMilliseconds = _random.NextInt64(0, Math.Max(1, (long)_track.Duration.TotalMilliseconds));
