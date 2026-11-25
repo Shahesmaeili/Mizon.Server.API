@@ -17,6 +17,7 @@ internal sealed class Login : IEndpoint
         BaseApiRequest<LoginRequest> baseApiRequest,
         IApiOperationExecutor apiOperationExecutor,
         JwtTokenService jwtTokenService,
+        IClientSessionEvents sessions,
         RequestMetadata requestMetadata,
         CancellationToken cancellationToken)
     {
@@ -26,6 +27,9 @@ internal sealed class Login : IEndpoint
         {
             response.Content.AccessToken =
                 jwtTokenService.GenerateAccessToken(response.Content.ClientPublicId, response.Content.SessionPublicId);
+            await sessions.ChangedAsync(response.Content.ClientPublicId, []);
+            if (response.Content.IsUnconfirmed)
+                await sessions.UnconfirmedAsync(response.Content.ClientPublicId);
 
             if (response.Content.ClientId > 0)
             {

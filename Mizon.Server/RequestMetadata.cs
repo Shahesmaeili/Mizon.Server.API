@@ -11,4 +11,5 @@ public class RequestMetadata
     public string? DeviceName { get; set; }
     public string? DeviceUsername { get; set; }
     public Guid? PlatformVersion { get; set; }
+    public string? IpAddress { get; set; }
 }

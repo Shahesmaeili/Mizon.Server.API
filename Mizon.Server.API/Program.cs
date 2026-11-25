@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Mizon.Database;
 using Mizon.Server;
@@ -59,8 +60,11 @@ builder.Services.AddAuthorization(options =>
 builder.WebHost.UseQuic();   // این خط مهم است
 
 // تنظیمات SignalR با پشتیبانی از JWT
+builder.Services.AddSingleton<SessionConnections>();
+builder.Services.AddSingleton<IClientSessionEvents>(services => services.GetRequiredService<SessionConnections>());
 builder.Services.AddSignalR(options =>
 {
+    options.AddFilter<ActiveSessionHubFilter>();
     options.EnableDetailedErrors = builder.Environment.IsDevelopment();
     options.MaximumReceiveMessageSize = 102400;
     options.StreamBufferCapacity = 10;
@@ -87,7 +91,8 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyOrigin() // آدرس کلاینت شما
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .WithExposedHeaders("Mizon-Session-Revoked");
              
     });
 });

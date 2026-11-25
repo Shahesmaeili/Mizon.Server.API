@@ -30,6 +30,18 @@ public partial class MizonHub : Hub
 
     public override async Task OnConnectedAsync()
     {
+        if (TryGetTrackedSession(out var account, out var session) &&
+            Context.GetHttpContext()?.RequestServices is { } services &&
+            services.GetService<SessionConnections>() is { } connections)
+        {
+            await connections.JoinAsync(account, session, Context, Groups);
+            var authorization = services.GetRequiredService<IClientSessionAuthorization>();
+            if (!await authorization.ValidateAsync(account, session, false, Context.ConnectionAborted))
+            {
+                Context.Abort();
+                return;
+            }
+        }
         _logger.LogInformation("Hub connected: {ConnectionId}", Context.ConnectionId);
         await RegisterOnlineConnectionAsync();
         await base.OnConnectedAsync();
@@ -47,6 +59,9 @@ public partial class MizonHub : Hub
         }
         finally
         {
+            if (TryGetTrackedSession(out var account, out var session) &&
+                Context.GetHttpContext()?.RequestServices.GetService<SessionConnections>() is { } connections)
+                await connections.LeaveAsync(account, session, Context.ConnectionId);
             await CloseWindowPresenceAsync();
             await UnregisterOnlineConnectionAsync();
             Context.Items.Remove(DeviceRegisteredKey);
@@ -56,6 +71,12 @@ public partial class MizonHub : Hub
 
         _logger.LogInformation("Hub disconnected: {ConnectionId}", Context.ConnectionId);
         await base.OnDisconnectedAsync(exception);
+    }
+
+    private bool TryGetTrackedSession(out Guid account, out Guid session)
+    {
+        var hasAccount = Guid.TryParse(Context.User?.FindFirst("sub")?.Value, out account);
+        return Guid.TryParse(Context.User?.FindFirst("sid")?.Value, out session) && hasAccount;
     }
 
     public Task RegisterDevice(string token)

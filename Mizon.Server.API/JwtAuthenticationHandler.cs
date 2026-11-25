@@ -8,18 +8,21 @@ namespace Mizon.Server.API;
 public sealed class JwtAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
 {
     private readonly JwtTokenService _jwt;
+    private readonly IClientSessionAuthorization _sessions;
 
     public JwtAuthenticationHandler(
         IOptionsMonitor<AuthenticationSchemeOptions> options,
         ILoggerFactory logger,
         UrlEncoder encoder,
-        JwtTokenService jwt)
+        JwtTokenService jwt,
+        IClientSessionAuthorization sessions)
         : base(options, logger, encoder)
     {
         _jwt = jwt;
+        _sessions = sessions;
     }
 
-    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+    protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         // 1. ابتدا از Authorization Header چک کن
         var token = ExtractTokenFromHeader();
@@ -31,12 +34,17 @@ public sealed class JwtAuthenticationHandler : AuthenticationHandler<Authenticat
         }
 
         if (string.IsNullOrEmpty(token))
-            return Task.FromResult(AuthenticateResult.NoResult());
+            return AuthenticateResult.NoResult();
 
         var result = _jwt.ValidateToken(token);
 
         if (!result.IsValid)
-            return Task.FromResult(AuthenticateResult.Fail("Invalid token"));
+            return AuthenticateResult.Fail("Invalid token");
+        if (!await _sessions.ValidateAsync(result.ClientPublicId, result.SessionPublicId, true, Context.RequestAborted))
+        {
+            Response.Headers["Mizon-Session-Revoked"] = "1";
+            return AuthenticateResult.Fail("Invalid or inactive session");
+        }
 
         var clientPublicId = result.ClientPublicId.ToString();
         var sessionPublicId = result.SessionPublicId.ToString();
@@ -52,7 +60,7 @@ public sealed class JwtAuthenticationHandler : AuthenticationHandler<Authenticat
         var principal = new ClaimsPrincipal(identity);
         var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-        return Task.FromResult(AuthenticateResult.Success(ticket));
+        return AuthenticateResult.Success(ticket);
     }
 
 

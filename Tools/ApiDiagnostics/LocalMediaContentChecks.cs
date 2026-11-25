@@ -98,6 +98,10 @@ internal static class LocalMediaContentChecks
                 ["Jwt:Audience"] = "fixture-audience",
             });
             builder.Services.AddSingleton<JwtTokenService>();
+            var fixtureAccount = Guid.NewGuid();
+            var fixtureSession = Guid.NewGuid();
+            builder.Services.AddSingleton<Mizon.Server.Logic.Operations.Clients.IClientSessionAuthorization>(
+                new FixtureSessionAuthorization(fixtureAccount, fixtureSession));
             builder.Services.AddAuthentication("jwt")
                 .AddScheme<AuthenticationSchemeOptions, JwtAuthenticationHandler>("jwt", _ => { });
             builder.Services.AddAuthorization();
@@ -114,7 +118,7 @@ internal static class LocalMediaContentChecks
             await app.StartAsync();
 
             var address = app.Services.GetRequiredService<IServer>().Features.Get<IServerAddressesFeature>()!.Addresses.Single();
-            var token = app.Services.GetRequiredService<JwtTokenService>().GenerateAccessToken(Guid.NewGuid(), Guid.NewGuid());
+            var token = app.Services.GetRequiredService<JwtTokenService>().GenerateAccessToken(fixtureAccount, fixtureSession);
             using var http = new HttpClient(new SocketsHttpHandler { AllowAutoRedirect = false }) { BaseAddress = new Uri(address) };
             using var anonymous = await SendAsync(valid.MediaPublicId, authorized: false);
             Require(anonymous.StatusCode == HttpStatusCode.Unauthorized, "anonymous request is denied");

@@ -26,6 +26,13 @@ public static class LogicServiceCollectionExtensions
         services.AddApiOperation<PersonFollowOperation, PersonFollowRequest, PersonFollowResponse>();
         services.AddApiOperation<FollowingActivitiesOperation, FollowingActivitiesRequest, FollowingActivitiesResponse>();
         services.AddApiOperation<LogoutOperation, LogoutRequest, LogoutResponse>();
+        services.AddScoped<ClientSessionMutations>();
+        services.AddScoped<IClientSessionAuthorization, ClientSessionAuthorization>();
+        services.AddApiOperation<ClientSessionsOperation, ClientSessionsRequest, ClientSessionsResponse>();
+        services.AddApiOperation<TerminateSessionOperation, TerminateSessionRequest, TerminateSessionsResponse>();
+        services.AddApiOperation<TerminateOtherSessionsOperation, TerminateOtherSessionsRequest, TerminateSessionsResponse>();
+        services.AddApiOperation<UpdateSessionInactivityOperation, UpdateSessionInactivityRequest, UpdateSessionInactivityResponse>();
+        services.AddApiOperation<ConfirmSessionOperation, ConfirmSessionRequest, ConfirmSessionResponse>();
         services.AddApiOperation<MusicOperation, MusicRequest, MusicResponse>();
         services.AddApiOperation<FindClientIdOperation, FindClientIdRequest, FindClientIdResponse>();
         services.AddApiOperation<MusicFileWaveformOperation, MusicFileWaveformRequest, MusicFileWaveformResponse>();

@@ -19,7 +19,8 @@ public sealed class LoginOperation(MizonDatabaseContext mizonDatabaseContext)
                .Where(c => c.PublicId == requestMetadata!.PlatformVersion)
                .Select(c => new
                {
-                   c.Id
+                   c.Id,
+                   c.PlatformId,
                })
                .FirstOrDefaultAsync(cancellationToken);
 
@@ -159,6 +160,15 @@ public sealed class LoginOperation(MizonDatabaseContext mizonDatabaseContext)
         var refreshToken = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         var refreshTokenHash = SHA256.HashData(Encoding.UTF8.GetBytes(refreshToken));
         var refreshTokenHashString = Convert.ToBase64String(refreshTokenHash);
+        var seenDevices = await mizonDatabaseContext.ClientSessions.AsNoTracking()
+            .Where(session => session.ClientId == clientId!.Value && session.LogoutDateTime == null)
+            .GroupBy(_ => 1)
+            .Select(group => new
+            {
+                KnowsDevice = group.Any(session => session.DeviceIdentifier == requestMetadata!.DeviceIdentifier &&
+                    session.PlatformVersion.PlatformId == platformVersion.PlatformId)
+            })
+            .SingleOrDefaultAsync(cancellationToken);
 
         var clientSession = new ClientSession
         {
@@ -172,7 +182,11 @@ public sealed class LoginOperation(MizonDatabaseContext mizonDatabaseContext)
             DeviceModel = requestMetadata.DeviceModel!,
             RefreshTokenHash = refreshTokenHashString,
             LastSeenDateTime = DateTimeOffset.UtcNow,
+            IsConfirmationPending = seenDevices is { KnowsDevice: false },
         };
+
+        if (requestMetadata.IpAddress is { Length: > 0 } ipAddress)
+            clientSession.ClientSessionIps.Add(new() { IpAddress = ipAddress });
 
         mizonDatabaseContext.ClientSessions.Add(clientSession);
 
@@ -183,6 +197,7 @@ public sealed class LoginOperation(MizonDatabaseContext mizonDatabaseContext)
             Content = new()
             {
                 SessionPublicId = clientSession.PublicId,
+                IsUnconfirmed = clientSession.IsConfirmationPending,
                 ClientPublicId = clientPublicId!.Value,
                 ClientId = clientId!.Value,
                 RefreshToken = refreshToken

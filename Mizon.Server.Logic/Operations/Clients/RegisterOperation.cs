@@ -117,6 +117,9 @@ public sealed partial class RegisterOperation(MizonDatabaseContext mizonDatabase
             RefreshTokenHash = Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(refreshToken))),
             LastSeenDateTime = DateTimeOffset.UtcNow
         };
+        if (requestMetadata.IpAddress is { Length: > 0 } ipAddress)
+            session.ClientSessionIps.Add(new() { IpAddress = ipAddress });
+
         var client = new Client
         {
             PublicId = Guid.CreateVersion7(),

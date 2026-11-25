@@ -12,6 +12,7 @@ public class LoginResponse : IApiResponse
 
     public string RefreshToken { get; set; } = null!;
     public Guid SessionPublicId { get; set; }
+    public bool IsUnconfirmed { get; set; }
     public Guid ClientPublicId { get; set; }
 
     public int? ClientId { get; set; }

@@ -23,6 +23,8 @@ public sealed class ClientContextMiddleware
 
         requestMetadata.SessionPublicId = Guid.TryParse(sid, out Guid sessionPublicId) ? sessionPublicId : null;
         requestMetadata.ClientPublicId = Guid.TryParse(sub, out Guid clientPublicId) ? clientPublicId : null;
+        var ipAddress = context.Connection.RemoteIpAddress;
+        requestMetadata.IpAddress = (ipAddress?.IsIPv4MappedToIPv6 == true ? ipAddress.MapToIPv4() : ipAddress)?.ToString();
 
         if (requestMetadata.ClientPublicId is not null)
         {

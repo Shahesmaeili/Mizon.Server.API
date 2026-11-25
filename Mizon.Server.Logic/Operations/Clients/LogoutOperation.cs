@@ -1,6 +1,6 @@
 ﻿namespace Mizon.Server.Logic.Operations.Clients;
 
-public sealed class LogoutOperation(MizonDatabaseContext mizonDatabaseContext) 
+public sealed class LogoutOperation(MizonDatabaseContext mizonDatabaseContext, IClientSessionEvents events)
     : IApiOperation<LogoutRequest, LogoutResponse>
 {
     public async Task<BaseApiResponse<LogoutResponse>> HandleAsync(
@@ -8,8 +8,10 @@ public sealed class LogoutOperation(MizonDatabaseContext mizonDatabaseContext)
         RequestMetadata? requestMetadata,
         CancellationToken cancellationToken)
     {
+        if (requestMetadata is not { ClientId: int clientId, ClientPublicId: Guid account, SessionPublicId: Guid sessionId })
+            return ClientSessionMutations.Failure<LogoutResponse>(401, "Unauthorized");
         var session = await mizonDatabaseContext.ClientSessions
-            .Where(c => c.PublicId == requestMetadata!.SessionPublicId)
+            .Where(c => c.PublicId == sessionId && c.ClientId == clientId)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (session is null)
@@ -28,6 +30,7 @@ public sealed class LogoutOperation(MizonDatabaseContext mizonDatabaseContext)
         session.LogoutDateTime = DateTimeOffset.UtcNow;
 
         await mizonDatabaseContext.SaveChangesAsync(cancellationToken);
+        await events.ChangedAsync(account, [sessionId]);
 
         return new BaseApiResponse<LogoutResponse>
         {

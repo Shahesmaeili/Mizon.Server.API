@@ -122,6 +122,8 @@ internal static class AuthChecks
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton(jwt);
+        var sessionAuthorization = new FixtureSessionAuthorization(clientId, sessionId);
+        services.AddSingleton<IClientSessionAuthorization>(sessionAuthorization);
         services.AddAuthentication("jwt").AddScheme<AuthenticationSchemeOptions, JwtAuthenticationHandler>("jwt", _ => { });
         await using var provider = services.BuildServiceProvider();
         foreach (var source in new[] { "header", "access_token", "token" })
@@ -140,6 +142,12 @@ internal static class AuthChecks
         await using var emptyScope = provider.CreateAsyncScope();
         var empty = new DefaultHttpContext { RequestServices = emptyScope.ServiceProvider };
         Require((await empty.AuthenticateAsync("jwt")).None, "missing-token handler result");
+        sessionAuthorization.Active = false;
+        await using var revokedScope = provider.CreateAsyncScope();
+        var revoked = new DefaultHttpContext { RequestServices = revokedScope.ServiceProvider };
+        revoked.Request.Headers.Authorization = "Bearer " + token;
+        Require(!(await revoked.AuthenticateAsync("jwt")).Succeeded &&
+            revoked.Response.Headers["Mizon-Session-Revoked"] == "1", "signed token is rejected after its session ends");
     }
 
     private static async Task CheckClientContextAsync(Guid clientId, Guid sessionId)
@@ -233,6 +241,17 @@ internal static class AuthChecks
                 Content = new() { ClientId = 123 }
             });
         }
+    }
+}
+
+internal sealed class FixtureSessionAuthorization(Guid clientId, Guid sessionId) : IClientSessionAuthorization
+{
+    internal bool Active { get; set; } = true;
+
+    public Task<bool> ValidateAsync(Guid clientPublicId, Guid sessionPublicId, bool trackActivity, CancellationToken token)
+    {
+        token.ThrowIfCancellationRequested();
+        return Task.FromResult(Active && clientId == clientPublicId && sessionId == sessionPublicId);
     }
 }
 

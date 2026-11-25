@@ -14,6 +14,7 @@ internal sealed class ClientEndpoints
         new ClientProfile().Map(app);
         new FollowingActivities().Map(app);
         new Logout().Map(app);
+        new ClientSessions().Map(app);
 
     }
 }
