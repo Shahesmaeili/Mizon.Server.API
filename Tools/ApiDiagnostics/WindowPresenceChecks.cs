@@ -86,6 +86,7 @@ internal static class WindowPresenceChecks
             await first.ExpectErrorAsync(true, 0, token);
             await using var invalid = await Peer.ConnectAsync(address, Guid.Empty, token);
             await invalid.ExpectErrorAsync(true, 1, token);
+            await invalid.ExpectWatchErrorAsync("", token);
 
             await first.DisposeAsync();
             await using var reconnected = await Peer.ConnectAsync(address, client, token);
@@ -93,8 +94,52 @@ internal static class WindowPresenceChecks
             Ensure(!fresh.IsOnline && fresh.Revision == 1 && fresh.ConnectionId != online.ConnectionId,
                 "A replacement connection starts independently; old revisions/state cannot leak into it.");
             Console.WriteLine("PASS production SignalR window presence: generated JSON, real authenticated WebSockets, own-caller isolation, stale revisions, reconnect, no database.");
+
+            await CheckAccountPresenceAsync(address, client, otherClient, reconnected, second, token);
         }
         finally { await app.StopAsync(token); }
+    }
+
+    private static async Task CheckAccountPresenceAsync(Uri address, Guid account, Guid otherAccount,
+        Peer desktop, Peer background, CancellationToken token)
+    {
+        await using var other = await Peer.ConnectAsync(address, otherAccount, token);
+        var otherSnapshot = await other.WatchAsync(token);
+        var initial = await background.WatchAsync(token);
+        await desktop.WatchAsync(token);
+        Ensure(initial.ClientPublicId == account && !initial.IsOnline, "An inactive watcher does not make its account online.");
+        Ensure(otherSnapshot.ClientPublicId == otherAccount && !otherSnapshot.IsOnline, "Each watcher can read only its authenticated account.");
+        await other.ExpectWatchErrorAsync($"\"{account:D}\"", token);
+
+        var active = await desktop.SetAsync(true, 2, token);
+        Ensure(active.IsOnline, "The legacy sender still receives a local active acknowledgement.");
+        var accountOnline = await background.NextAccountPresenceAsync(token);
+        Ensure(accountOnline.ClientPublicId == account && accountOnline.IsOnline && accountOnline.Revision > initial.Revision,
+            "An inactive device receives the confirmed online state of its own account.");
+        var inactive = await background.SetAsync(false, 2, token);
+        Ensure(!inactive.IsOnline && (await background.WatchAsync(token)) == accountOnline,
+            "Local inactivity is acknowledged without overriding the account's active device.");
+
+        await background.SetAsync(true, 3, token);
+        await desktop.SetAsync(false, 3, token);
+        Ensure((await desktop.WatchAsync(token)) == accountOnline
+            && desktop.AccountEvents.Count == 1 && background.AccountEvents.Count == 1,
+            "Separately active devices keep the aggregate online without duplicate state-change events.");
+
+        await background.DisposeAsync();
+        var accountOffline = await desktop.NextAccountPresenceAsync(token);
+        Ensure(accountOffline.ClientPublicId == account && !accountOffline.IsOnline
+            && accountOffline.Revision > accountOnline.Revision,
+            "Disconnecting the last active device broadcasts offline to the remaining watcher.");
+        var isolated = await other.WatchAsync(token);
+        Ensure(isolated.ClientPublicId == otherAccount && !isolated.IsOnline && other.AccountEvents.Count == 0,
+            "No account presence update reaches a different identity.");
+
+        await using var fresh = await Peer.ConnectAsync(address, account, token);
+        var snapshot = await fresh.WatchAsync(token);
+        Ensure(!snapshot.IsOnline && snapshot.ClientPublicId == account && snapshot.Revision >= accountOffline.Revision,
+            "Reconnect reads the remaining state on a fresh authenticated subscription.");
+        Console.WriteLine("PASS production SignalR account presence: inactive same-account watcher, independent devices, disconnect, reconnect, and cross-account isolation.");
     }
 
     private static async Task CheckDemoAsync(Uri address, CancellationToken token)
@@ -143,6 +188,7 @@ internal static class WindowPresenceChecks
         private readonly byte[] _buffer = new byte[4096];
         private int _invocation;
         public List<ClientWindowPresenceResponse> Events { get; } = [];
+        public List<ClientAccountPresenceResponse> AccountEvents { get; } = [];
 
         public static async Task<Peer> ConnectAsync(Uri address, Guid client, CancellationToken token)
         {
@@ -169,6 +215,22 @@ internal static class WindowPresenceChecks
         public async Task ExpectErrorAsync(bool active, long revision, CancellationToken token)
         {
             Ensure((await InvokeAsync(active, revision, token)).TryGetProperty("error", out _), "Invalid presence rejected.");
+        }
+
+        public async Task<ClientAccountPresenceResponse> WatchAsync(CancellationToken token) =>
+            (await InvokeAsync("WatchAccountPresence", "", token)).GetProperty("result").Deserialize(Json.ClientAccountPresenceResponse)!;
+
+        public async Task ExpectWatchErrorAsync(string arguments, CancellationToken token) =>
+            Ensure((await InvokeAsync("WatchAccountPresence", arguments, token)).TryGetProperty("error", out _),
+                "A watcher without a valid authenticated account or with a caller-selected target is rejected.");
+
+        public async Task<ClientAccountPresenceResponse> NextAccountPresenceAsync(CancellationToken token)
+        {
+            while (true)
+            {
+                if (RecordAccountPresence(await ReadAsync(token)) is { } response)
+                    return response;
+            }
         }
 
         public async Task<OnlineClientCount> GetOnlineCountAsync(CancellationToken token) =>
@@ -199,9 +261,19 @@ internal static class WindowPresenceChecks
                 var message = await ReadAsync(token);
                 if (message.TryGetProperty("target", out var target) && target.GetString() == "WindowPresenceChanged")
                     Events.Add(message.GetProperty("arguments")[0].Deserialize(Json.ClientWindowPresenceResponse)!);
+                RecordAccountPresence(message);
                 if (message.TryGetProperty("invocationId", out var invocation) && invocation.GetString() == id)
                     return message;
             }
+        }
+
+        private ClientAccountPresenceResponse? RecordAccountPresence(JsonElement message)
+        {
+            if (!message.TryGetProperty("target", out var target) || target.GetString() != "AccountPresenceChanged")
+                return null;
+            var response = message.GetProperty("arguments")[0].Deserialize(Json.ClientAccountPresenceResponse)!;
+            AccountEvents.Add(response);
+            return response;
         }
 
         private Task SendAsync(string json, CancellationToken token) =>

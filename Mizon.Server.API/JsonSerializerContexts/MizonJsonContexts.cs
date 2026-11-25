@@ -35,6 +35,7 @@ namespace Mizon.Server.API.JsonSerializerContexts;
 [JsonSerializable(typeof(GlobalSearchItemResponse))]
 [JsonSerializable(typeof(MusicListenerPresenceResponse))]
 [JsonSerializable(typeof(ClientWindowPresenceResponse))]
+[JsonSerializable(typeof(ClientAccountPresenceResponse))]
 [JsonSerializable(typeof(OnlineClientCount))]
 [JsonSerializable(typeof(List<MusicListenerPresenceResponse>))]
 [JsonSerializable(typeof(BaseApiRequest<LoginRequest>))]

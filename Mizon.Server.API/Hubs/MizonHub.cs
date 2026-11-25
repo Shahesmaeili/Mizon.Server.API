@@ -47,11 +47,11 @@ public partial class MizonHub : Hub
         }
         finally
         {
+            await CloseWindowPresenceAsync();
             await UnregisterOnlineConnectionAsync();
             Context.Items.Remove(DeviceRegisteredKey);
             Context.Items.Remove(RegisteredAtKey);
             Context.Items.Remove(ListenerIdentityKey);
-            Context.Items.Remove(WindowPresenceKey);
         }
 
         _logger.LogInformation("Hub disconnected: {ConnectionId}", Context.ConnectionId);

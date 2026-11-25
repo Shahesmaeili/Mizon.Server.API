@@ -10,25 +10,19 @@ public partial class MizonHub
     public async Task<ClientWindowPresenceResponse> SetWindowPresence(bool isActive, long revision)
     {
         Context.ConnectionAborted.ThrowIfCancellationRequested();
-        if (Context.User?.Identity?.IsAuthenticated != true
-            || !Guid.TryParse(Context.User.FindFirst("sub")?.Value, out var clientPublicId)
-            || clientPublicId == Guid.Empty)
-        {
-            throw new HubException("An authenticated client is required.");
-        }
+        var clientPublicId = RequirePresenceAccount();
         if (revision <= 0)
             throw new HubException("The presence revision must be positive.");
 
         ClientWindowPresenceResponse response;
+        ClientAccountPresenceResponse? accountChange = null;
         lock (Context.Items)
         {
             Context.ConnectionAborted.ThrowIfCancellationRequested();
-            if (Context.Items.TryGetValue(WindowPresenceKey, out var value)
-                && value is ClientWindowPresenceResponse previous
-                && previous.Revision >= revision)
-            {
+            Context.Items.TryGetValue(WindowPresenceKey, out var value);
+            var previous = value as ClientWindowPresenceResponse;
+            if (previous is not null && previous.Revision >= revision)
                 return previous;
-            }
 
             response = new()
             {
@@ -38,9 +32,14 @@ public partial class MizonHub
                 Revision = revision,
             };
             Context.Items[WindowPresenceKey] = response;
+            if ((previous?.IsOnline ?? false) != isActive)
+                accountChange = UpdateAccountWindow(clientPublicId, Context.ConnectionId, isActive);
         }
 
-        // This is an acknowledgement to the owner, never a public/global activity broadcast.
+        if (accountChange is not null)
+            await PublishAccountPresenceAsync(accountChange);
+
+        // Keep this acknowledgement tied to the calling window for existing clients.
         await Clients.Caller.SendAsync("WindowPresenceChanged", response, Context.ConnectionAborted);
         return response;
     }
