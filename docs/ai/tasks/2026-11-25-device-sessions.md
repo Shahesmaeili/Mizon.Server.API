@@ -37,9 +37,7 @@ active session. The API does not send a client's session metadata to other accou
   inactivity, live presence, signed JWT enforcement, and WebSocket revocation.
 - Deploy the two Mizon.Database migrations before the API. No live database migration,
   app deployment, or restart was performed during development.
-- The development MusicPlaybackPresenceSimulator currently creates synthetic JWTs
-  for nonexistent session IDs. Those IDs cannot authenticate against this API.
-  Use the built-in demo presence configuration or provision explicit fixture sessions
-  on an isolated test database before expanding the external simulator.
+- The [development music simulator](2026-11-26-music-simulator-sessions.md)
+  provisions scoped sessions for the existing story fixtures before connecting.
 - QR sign-in, external website authorizations, Telegram-specific call/secret-chat
   session capabilities, and geo-IP lookup require their own contracts.

@@ -1,45 +1,52 @@
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 using Mizon.Database;
 using Mizon.Server.API.Hubs;
 using Mizon.Server.API.Services;
+using System.Net;
 
 var configuration = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json").Build();
 var requestedCount = GetBoundedIntArgument(args, "--count", 10, 1, 10);
 var requestedMusicPublicId = GetGuidArgument(args, "--music");
 var hubUrl = configuration["Simulator:HubUrl"] ?? "https://localhost:5128/mizonHub";
 var connectionString = configuration["Simulator:ConnectionString"] ?? "Server=localhost;Database=Mizon;Trusted_Connection=True;TrustServerCertificate=True";
+var sql = new SqlConnectionStringBuilder(connectionString);
+if (!Uri.TryCreate(hubUrl, UriKind.Absolute, out var hub) || !hub.IsLoopback || hub.Scheme != Uri.UriSchemeHttps ||
+    !hub.AbsolutePath.Equals("/mizonHub", StringComparison.OrdinalIgnoreCase) ||
+    hub.UserInfo.Length != 0 || hub.Query.Length != 0 || hub.Fragment.Length != 0 ||
+    !sql.IntegratedSecurity || sql.AttachDBFilename.Length != 0 ||
+    !new[] { "localhost", "(local)", ".", "127.0.0.1", "::1" }.Contains(sql.DataSource, StringComparer.OrdinalIgnoreCase))
+    throw new InvalidOperationException("The simulator requires the local HTTPS API and an integrated-authentication local SQL Server.");
+
+using var instance = new FileStream(Path.Combine(Path.GetTempPath(), "Mizon.MusicPresenceSimulator.lock"),
+    FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+using var cancellationSource = new CancellationTokenSource();
+Console.CancelKeyPress += (_, eventArgs) => { eventArgs.Cancel = true; cancellationSource.Cancel(); };
+var cancellationToken = cancellationSource.Token;
 
 var options = new DbContextOptionsBuilder<MizonDatabaseContext>().UseSqlServer(connectionString).Options;
 await using var database = new MizonDatabaseContext(options);
 
-var musicCandidates = await database.Musics.AsNoTracking().OrderBy(x => x.Id).Select(x => new { x.Id, x.PublicId }).ToListAsync();
+var musicCandidates = await database.Musics.AsNoTracking().OrderBy(x => x.Id).Select(x => new { x.Id, x.PublicId }).ToListAsync(cancellationToken);
 if (musicCandidates.Count == 0)
     throw new InvalidOperationException("No music exists in the Mizon database.");
 
-var musicDurations = await database.MusicFiles.AsNoTracking().OrderBy(x => x.Id).Select(x => new { x.MusicId, x.Duration }).ToListAsync();
+var musicDurations = await database.MusicFiles.AsNoTracking().OrderBy(x => x.Id).Select(x => new { x.MusicId, x.Duration }).ToListAsync(cancellationToken);
 var tracks = musicCandidates.Select(music => new SimulatedTrack(music.PublicId, musicDurations.FirstOrDefault(file => file.MusicId == music.Id)?.Duration ?? TimeSpan.FromMinutes(3))).ToList();
 var mainTrack = requestedMusicPublicId is Guid musicPublicId ? tracks.FirstOrDefault(x => x.PublicId == musicPublicId) : tracks[0];
 if (mainTrack is null)
     throw new InvalidOperationException("The requested --music public id was not found.");
 
-var clients = (await database.Clients.AsNoTracking().OrderBy(x => x.Id).Select(x => x.PublicId).ToListAsync())
-    .OrderBy(_ => Random.Shared.Next())
-    .Take(requestedCount)
-    .ToList();
-if (clients.Count == 0)
-    throw new InvalidOperationException("No clients exist in the Mizon database.");
-
 Console.Title = "Mizon Music Playback Presence Simulator";
-Console.WriteLine($"Starting {clients.Count} simulated listeners on {mainTrack.PublicId}.");
-Console.WriteLine("Actions: play, pause, resume, seek, leave, join another music, and return. Press Ctrl+C to stop.");
-
-using var cancellationSource = new CancellationTokenSource();
-Console.CancelKeyPress += (_, eventArgs) => { eventArgs.Cancel = true; cancellationSource.Cancel(); };
-
 var jwtTokenService = new JwtTokenService(configuration);
-var simulators = clients.Select((clientPublicId, index) => new SimulatedMusicListener(index + 1, clientPublicId, mainTrack, tracks, jwtTokenService, hubUrl)).ToList();
+var sessionOperation = new SimulatorSessionsOperation(database);
+var sessions = await sessionOperation.OpenAsync(requestedCount, cancellationToken);
+Console.WriteLine($"Starting {sessions.Length} development fixture listeners on {mainTrack.PublicId}.");
+Console.WriteLine("Actions: play, pause, resume, seek, leave, join another music, and return. Press Ctrl+C to stop.");
+var simulators = sessions.Select((session, index) =>
+    new SimulatedMusicListener(index + 1, session, mainTrack, tracks, jwtTokenService, hubUrl)).ToList();
 
 try
 {
@@ -51,6 +58,8 @@ catch (OperationCanceledException) when (cancellationSource.IsCancellationReques
 finally
 {
     await Task.WhenAll(simulators.Select(listener => listener.DisposeAsync().AsTask()));
+    using var cleanup = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+    await sessionOperation.CloseAsync(sessions, cleanup.Token);
 }
 
 static int GetBoundedIntArgument(string[] args, string name, int defaultValue, int min, int max)
@@ -65,12 +74,14 @@ static Guid? GetGuidArgument(string[] args, string name)
     return index >= 0 && index + 1 < args.Length && Guid.TryParse(args[index + 1], out var value) ? value : null;
 }
 
-internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, SimulatedTrack initialTrack, IReadOnlyList<SimulatedTrack> tracks, JwtTokenService jwtTokenService, string hubUrl) : IAsyncDisposable
+internal sealed class SimulatedMusicListener(int number, SimulatorSession session, SimulatedTrack initialTrack,
+    IReadOnlyList<SimulatedTrack> tracks, JwtTokenService jwtTokenService, string hubUrl) : IAsyncDisposable
 {
-    private readonly Random _random = new(HashCode.Combine(clientPublicId, number));
+    private readonly Random _random = new(HashCode.Combine(session.ClientPublicId, number));
     private readonly HubConnection _connection = new HubConnectionBuilder()
-        .WithUrl(hubUrl, options => options.AccessTokenProvider = () => Task.FromResult(jwtTokenService.GenerateAccessToken(clientPublicId, Guid.NewGuid())))
-        .WithAutomaticReconnect()
+        .WithUrl(hubUrl, options => options.AccessTokenProvider = () =>
+            Task.FromResult<string?>(jwtTokenService.GenerateAccessToken(session.ClientPublicId, session.SessionPublicId)))
+        .WithAutomaticReconnect(new SimulatorReconnectPolicy())
         .Build();
 
     private SimulatedTrack _track = initialTrack;
@@ -80,6 +91,8 @@ internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, Si
     private DateTimeOffset _nextStateChangeAt;
     private DateTimeOffset _pauseUntil;
     private DateTimeOffset _lastPlaybackAdvanceAt;
+    private int _needsRejoin;
+    private int _sessionRevoked;
 
     public async Task RunAsync(CancellationToken cancellationToken)
     {
@@ -89,22 +102,45 @@ internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, Si
         using var snapshot = _connection.On<Guid, List<MusicListenerPresenceResponse>>("MusicListenersSnapshot", static (_, _) => { });
         using var updated = _connection.On<Guid, MusicListenerPresenceResponse>("MusicListenerUpdated", static (_, _) => { });
         using var removed = _connection.On<Guid, Guid>("MusicListenerRemoved", static (_, _) => { });
+        using var sessionsChanged = _connection.On("SessionsChanged", static () => { });
+        using var revoked = _connection.On("SessionRevoked", () => Interlocked.Exchange(ref _sessionRevoked, 1));
+        _connection.Reconnected += ReconnectedAsync;
 
-        await StartWithRetryAsync(cancellationToken);
-        await JoinCurrentTrackAsync(cancellationToken);
+        if (!await StartWithRetryAsync(cancellationToken)) return;
         _positionMilliseconds = _random.NextInt64(0, Math.Max(1, (long)_track.Duration.TotalMilliseconds));
         _isPlaying = _random.Next(0, 2) == 0;
         _lastPlaybackAdvanceAt = DateTimeOffset.UtcNow;
         ScheduleNextStateChange();
         if (!_isPlaying)
             _pauseUntil = DateTimeOffset.UtcNow.AddSeconds(_random.Next(5, 11));
+        await JoinCurrentTrackAsync(cancellationToken);
         await PublishAsync(cancellationToken);
+        Console.WriteLine($"Listener #{number:00} connected and published playback.");
 
-        while (!cancellationToken.IsCancellationRequested)
+        while (!cancellationToken.IsCancellationRequested && Volatile.Read(ref _sessionRevoked) == 0)
         {
             await Task.Delay(_random.Next(250, 900), cancellationToken);
-            await ApplyRandomActionAsync(cancellationToken);
+            if (Volatile.Read(ref _sessionRevoked) != 0 || _connection.State == HubConnectionState.Disconnected)
+                return;
+            if (_connection.State != HubConnectionState.Connected) continue;
+            try
+            {
+                if (Interlocked.Exchange(ref _needsRejoin, 0) != 0 && _isInMusicGroup)
+                    await JoinCurrentTrackAsync(cancellationToken);
+                await ApplyRandomActionAsync(cancellationToken);
+            }
+            catch (Exception error) when ((error is InvalidOperationException or IOException) &&
+                _connection.State != HubConnectionState.Connected)
+            {
+                // Reconnection restores group membership before publication resumes.
+            }
         }
+    }
+
+    private Task ReconnectedAsync(string? connectionId)
+    {
+        Interlocked.Exchange(ref _needsRejoin, 1);
+        return Task.CompletedTask;
     }
 
     private async Task ApplyRandomActionAsync(CancellationToken cancellationToken)
@@ -212,21 +248,31 @@ internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, Si
         _isInMusicGroup = true;
     }
 
-    private async Task StartWithRetryAsync(CancellationToken cancellationToken)
+    private async Task<bool> StartWithRetryAsync(CancellationToken cancellationToken)
     {
+        var retryDelay = 1;
         while (!cancellationToken.IsCancellationRequested)
         {
             try
             {
                 await _connection.StartAsync(cancellationToken);
-                return;
+                return true;
             }
-            catch (Exception) when (!cancellationToken.IsCancellationRequested)
+            catch (Exception error) when (!cancellationToken.IsCancellationRequested)
             {
-                Console.WriteLine($"listener #{number:00} is waiting for the API...");
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                if (SimulatorReconnectPolicy.RejectedStatus(error) is { } status)
+                {
+                    Console.WriteLine($"Listener #{number:00} stopped after HTTP {(int)status}. Check the local API and fixture session.");
+                    return false;
+                }
+                if (error is not (HttpRequestException or IOException or TimeoutException or OperationCanceledException))
+                    throw;
+                Console.WriteLine($"Listener #{number:00} is waiting for the API. Retry in {retryDelay}s.");
+                await Task.Delay(TimeSpan.FromSeconds(retryDelay), cancellationToken);
+                retryDelay = Math.Min(retryDelay * 2, 30);
             }
         }
+        return false;
     }
 
     private Task PublishAsync(CancellationToken cancellationToken) =>
@@ -236,8 +282,30 @@ internal sealed class SimulatedMusicListener(int number, Guid clientPublicId, Si
 
     public async ValueTask DisposeAsync()
     {
+        _connection.Reconnected -= ReconnectedAsync;
         try { await _connection.DisposeAsync(); } catch { }
     }
 }
 
 internal sealed record SimulatedTrack(Guid PublicId, TimeSpan Duration);
+
+internal sealed class SimulatorReconnectPolicy : IRetryPolicy
+{
+    private static readonly TimeSpan[] Delays =
+        [TimeSpan.Zero, TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(30)];
+
+    public TimeSpan? NextRetryDelay(RetryContext context) =>
+        RejectedStatus(context.RetryReason) is not null || context.PreviousRetryCount >= Delays.Length
+            ? null : Delays[context.PreviousRetryCount];
+
+    internal static HttpStatusCode? RejectedStatus(Exception? error)
+    {
+        for (Exception? current = error; current is not null; current = current.InnerException)
+        {
+            if (current is HttpRequestException { StatusCode: { } status } &&
+                (int)status is >= 400 and < 500 && status is not (HttpStatusCode.RequestTimeout or HttpStatusCode.TooManyRequests))
+                return status;
+        }
+        return null;
+    }
+}
