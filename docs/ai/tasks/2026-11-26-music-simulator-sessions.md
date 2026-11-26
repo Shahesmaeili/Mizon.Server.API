@@ -27,3 +27,5 @@ simulator sessions on 10 fixture accounts. A 15-second sample of the replacement
 had no HTTP 401 responses from the simulator. The Windows app and Kestrel kept
 their original process IDs. Graceful shutdown and reconnect were not forced
 against the live development session during this check.
+The Debug x64 build also passed. Launching it beside the active simulator
+reported the existing instance and exited successfully without starting a duplicate.

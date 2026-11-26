@@ -20,8 +20,12 @@ if (!Uri.TryCreate(hubUrl, UriKind.Absolute, out var hub) || !hub.IsLoopback || 
     !new[] { "localhost", "(local)", ".", "127.0.0.1", "::1" }.Contains(sql.DataSource, StringComparer.OrdinalIgnoreCase))
     throw new InvalidOperationException("The simulator requires the local HTTPS API and an integrated-authentication local SQL Server.");
 
-using var instance = new FileStream(Path.Combine(Path.GetTempPath(), "Mizon.MusicPresenceSimulator.lock"),
-    FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+using var instance = TryAcquireInstance();
+if (instance is null)
+{
+    Console.WriteLine("The music presence simulator is already running.");
+    return;
+}
 using var cancellationSource = new CancellationTokenSource();
 Console.CancelKeyPress += (_, eventArgs) => { eventArgs.Cancel = true; cancellationSource.Cancel(); };
 var cancellationToken = cancellationSource.Token;
@@ -72,6 +76,20 @@ static Guid? GetGuidArgument(string[] args, string name)
 {
     var index = Array.IndexOf(args, name);
     return index >= 0 && index + 1 < args.Length && Guid.TryParse(args[index + 1], out var value) ? value : null;
+}
+
+static FileStream? TryAcquireInstance()
+{
+    var path = Path.Combine(Path.GetTempPath(), "Mizon.MusicPresenceSimulator.lock");
+    try
+    {
+        return new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+    }
+    catch (IOException error) when ((error.HResult & 0xffff) is 32 or 33)
+    {
+        // Windows reports a sharing or locking violation when the running simulator owns the file.
+        return null;
+    }
 }
 
 internal sealed class SimulatedMusicListener(int number, SimulatorSession session, SimulatedTrack initialTrack,
